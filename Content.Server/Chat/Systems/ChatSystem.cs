@@ -639,22 +639,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;
-        if (_adminManager.IsAdmin(player))
-        {
-            wrappedMessage = Loc.GetString("chat-manager-send-admin-dead-chat-wrap-message",
-                ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-                ("userName", player.Channel.UserName),
-                ("message", FormattedMessage.EscapeText(message)));
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin dead chat from {player:Player}: {message}");
-        }
-        else
-        {
-            wrappedMessage = Loc.GetString("chat-manager-send-dead-chat-wrap-message",
-                ("deadChannelName", Loc.GetString("chat-manager-dead-channel-name")),
-                ("playerName", (playerName)),
-                ("message", FormattedMessage.EscapeText(message)));
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}");
-        }
+        wrappedMessage = Loc.GetString("chat-manager-send-dead-chat-wrap-message",
+            ("deadChannelName", Loc.GetString("chat-manager-dead-channel-name")),
+            ("userName", (player.Channel.UserName)),
+            ("playerName", (playerName)),
+            ("message", FormattedMessage.EscapeText(message)));
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}");
 
         _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
     }
