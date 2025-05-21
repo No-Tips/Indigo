@@ -2,25 +2,30 @@
   id: Indigo
   background: /Textures/LobbyScreens/indigo.png
   name: Indigo
+  artist: igorsaux
 
 - type: lobbyBackground
   id: Indigo2
   background: /Textures/LobbyScreens/indigo2.png
   name: Indigo2
+  artist: igorsaux
 
 - type: lobbyBackground
   id: Indigo3
   background: /Textures/LobbyScreens/indigo3.png
   name: Indigo3
+  artist: igorsaux
 
 
 - type: lobbyBackground
   id: Indigo4
   background: /Textures/LobbyScreens/indigo4.png
   name: Indigo4
+  artist: igorsaux
 
 
 - type: lobbyBackground
   id: Indigo5
   background: /Textures/LobbyScreens/indigo5.png
   name: Indigo5
+  artist: igorsaux
