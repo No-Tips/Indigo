@@ -15,7 +15,6 @@
     CargoPDA: 2
     SalvagePDA: 2
   # HOP's service department
-    ServiceWorkerPDA: 4
     ChefPDA: 2
     BotanistPDA: 2
     BartenderPDA: 2
@@ -23,11 +22,8 @@
     LibrarianPDA: 1
     LawyerPDA: 1
     ReporterPDA: 1
-    ZookeeperPDA: 1
-    BoxerPDA: 1
     ClownPDA: 1
     MimePDA: 1
-    MusicianPDA: 1
     ClothingHeadsetGrey: 5
     ClothingHeadsetService: 4
     ClothingHeadsetCargo: 2

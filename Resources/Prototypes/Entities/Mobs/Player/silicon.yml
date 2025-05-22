@@ -14,10 +14,8 @@
     - Medical
     - Science
     - Security
-    - Prison
     - Service
     - Supply
-    - Justice
   - type: ActiveRadio
     channels:
     - Binary
@@ -27,10 +25,8 @@
     - Medical
     - Science
     - Security
-    - Prison
     - Service
     - Supply
-    - Justice
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay

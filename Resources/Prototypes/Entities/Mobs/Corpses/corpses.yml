@@ -9,13 +9,10 @@
       - ClownGear
       - MimeGear
       - JanitorGear
-      - ServiceWorkerGear
-      - MusicianGear
       - BotanistGear
       - ChefGear
       # - ChaplainGear # DeltaV - Move Chaplain into Epistemics
       - PassengerGear
-      - MartialArtistGear # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -37,8 +34,6 @@
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
-    - MailCarrierGear # Nyanotrasen - Old Mail Carrier gear, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail_carrier.yml
-    - CourierGear # DeltaV - Courier, see Resources/Prototypes/DeltaV/Roles/Jobs/Cargo/courier.yml
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -62,7 +57,6 @@
     - ResearchAssistantGear
     - ScientistGear
     - ChaplainGear # DeltaV - Move Chaplain into Epistemics
-    - ForensicMantisGear # Nyanotrasen - Forensic Mantis
 
 - type: entity
   parent: SalvageHumanCorpse

@@ -24,7 +24,6 @@
       - BasicSilicon
       - Borg
       #- Brig #Delta V: Removed Brig Access
-      - Boxer #Delta V: Add Boxer Access
       - Detective
       - Captain
       - Cargo
@@ -59,11 +58,6 @@
       - Service
       - StationAi
       - Theatre
-      - Zookeeper #Delta V: Add Zookeeper Access
-      - ChiefJustice  #Delta V: Add Chief Justice Access
-      - Prosecutor  #Delta V: Add Prosecutor Access
-      - Justice  #Delta V: Add Justice Access
-      - Clerk  #Delta V: Add Clerk Access
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg

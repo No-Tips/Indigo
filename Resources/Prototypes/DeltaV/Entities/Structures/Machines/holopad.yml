@@ -16,23 +16,6 @@
   - type: Label
     currentLabel: holopad-command-evac
 
-#Justice
-- type: entity
-  parent: Holopad
-  id: HolopadJusticeProsecutor
-  suffix: Prosecutor
-  components:
-  - type: Label
-    currentLabel: holopad-justice-prosecutor
-
-- type: entity
-  parent: Holopad
-  id: HolopadJusticeClerk
-  suffix: Clerk
-  components:
-  - type: Label
-    currentLabel: holopad-justice-clerk
-
 #Logistics
 - type: entity
   parent: Holopad

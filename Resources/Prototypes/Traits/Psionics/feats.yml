@@ -12,7 +12,6 @@
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector
-            - ForensicMantis
             - Chaplain
             - Librarian
     - !type:CharacterLogicOrRequirement
@@ -49,7 +48,6 @@
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector
-            - ForensicMantis
             - Chaplain
             - Librarian
     - !type:CharacterLogicOrRequirement

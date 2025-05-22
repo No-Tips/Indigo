@@ -56,12 +56,6 @@
   abstract: true
 
 - type: quickPhrase
-  id: BaseJusticePhrase
-  group: Justice
-  styleClass: JusticeButton
-  abstract: true
-
-- type: quickPhrase
   id: BaseLogisticsPhrase
   group: Logistics
   styleClass: LogisticsButton

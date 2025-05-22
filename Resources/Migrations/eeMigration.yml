@@ -43,7 +43,6 @@ SpawnPointMedicalCyborg: null
 SpawnPointEpistemologist: SpawnPointScientist
 SpawnPointMystagogue: SpawnPointResearchDirector
 SpawnPointSalvageTechnician: SpawnPointSalvageSpecialist
-SpawnPointValet: SpawnPointServiceWorker
 VendingMachineEpiDrobe: VendingMachineSciDrobe
 PlushieMoffRandom: PlushieMothRandom
 PlushieMoffbar: PlushieMothBartender

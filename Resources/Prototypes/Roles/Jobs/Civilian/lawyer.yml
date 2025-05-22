@@ -5,10 +5,9 @@
   playTimeTracker: JobLawyer
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-cj  # Delta V - Change supervisor to chief justice
+  supervisors: job-supervisors-hop  # Delta V - Change supervisor to chief justice
   access:
-  # - Service - DeltaV, removed from service department
-  - Justice # DeltaV - Justice dept
+  - Service
   - Lawyer
   - Maintenance
   requirements:

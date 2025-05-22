@@ -132012,18 +132012,6 @@ entities:
     - type: Transform
       pos: -38.5,13.5
       parent: 2
-- proto: SpawnPointServiceWorker
-  entities:
-  - uid: 20329
-    components:
-    - type: Transform
-      pos: 19.5,-38.5
-      parent: 2
-  - uid: 20330
-    components:
-    - type: Transform
-      pos: 21.5,-37.5
-      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 20331
