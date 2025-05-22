@@ -24,11 +24,6 @@ holopad-logistics-breakroom  = Logistics - Breakroom
 holopad-logistics-ats = Logistics - ATS
 holopad-logistics-shuttle = Logistics - Shuttle
 
-# Justice
-holopad-justice-prosecutor = Justice - Prosecutor
-holopad-justice-attorney = Justice - Attorney
-holopad-justice-clerk = Justice - Clerk
-
 # Security
 holopad-security-corpsman = Security - Corpsman
 

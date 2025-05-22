@@ -7,7 +7,6 @@
     - Service
     - Security
     - Medical
-    - Justice
     - The Bar
     # Begin DeltaV Additions
     - The Kitchen
@@ -177,7 +176,7 @@
     - Bingus Day
     - Foster's Feast
     # Begin DeltaV Additions
-    - Preston’s Tomato Incident 
+    - Preston’s Tomato Incident
     - Submarine's Memorial
     - Pranksgiving
     - Sector Delta Employee Appreciation Week
@@ -196,7 +195,7 @@
     - the Talent Show
     - Luperthavia
     - Penny's Big Day
-    - Taco Tuesday 
+    - Taco Tuesday
     # End DeltaV Additions
 
 - type: dataset
@@ -228,8 +227,7 @@
     - Chief Medical Officer
     # Begin DeltaV Additions
     - Mystagogue
-    - Chief Justice
-    - Administrative Assistant 
+    - Administrative Assistant
     # End DeltaV Additions
 
 - type: dataset

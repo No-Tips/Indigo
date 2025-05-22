@@ -12,17 +12,6 @@
       - id: WardenPDA
 
 - type: entity
-  name: prisoner PDA box
-  parent: BoxPDA
-  id: BoxPDAPrisoner
-  description: A box of spare PDA microcomputers for the warden to use for prisoners.
-  components:
-  - type: StorageFill
-    contents:
-      - id: PrisonerPDA
-        amount: 4
-
-- type: entity
   name: medical PDA box
   parent: BoxPDA
   id: BoxPDAMedical
@@ -51,7 +40,6 @@
     contents:
       - id: SciencePDA
         amount: 2
-      - id: ForensicMantisPDA
       - id: ChaplainPDA
       - id: RoboticsPDA
 
@@ -79,18 +67,3 @@
         amount: 2
       - id: SalvagePDA
         amount: 1
-      - id: MailCarrierPDA
-        amount: 1
-
-- type: entity
-  name: justice PDA box
-  parent: BoxPDA
-  id: BoxPDAJustice
-  description: A box of spare PDA microcomputers for the justice department.
-  components:
-  - type: StorageFill
-    contents:
-      - id: LawyerPDA
-        amount: 2
-      - id: ProsecutorPDA
-      - id: ClerkPDA

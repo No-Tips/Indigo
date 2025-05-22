@@ -110,22 +110,6 @@
     - state: assistant
 
 - type: entity
-  parent: PassengerIDCard
-  id: ServiceWorkerIDCard
-  name: service worker ID card
-  components:
-  - type: PresetIdCard
-    job: ServiceWorker
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#58C800"
-    - state: subdepartment
-      color: "#58C800"
-    - state: assistant
-
-- type: entity
   parent: IDCardStandard
   id: CaptainIDCard
   name: captain ID card
@@ -482,55 +466,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ChiefJusticeIDCard
-  name: chief justice ID card
-  components:
-    - type: PresetIdCard
-      job: ChiefJustice
-    - type: Sprite
-      layers:
-      - state: default
-      - state: department
-        color: "#878787"
-      - state: subdepartment
-        color: "#CB0000"
-      - state: lawyer
-
-
-- type: entity
-  parent: IDCardStandard
-  id: ClerkIDCard
-  name: clerk ID card
-  components:
-    - type: PresetIdCard
-      job: Clerk
-    - type: Sprite
-      layers:
-      - state: default
-      - state: department
-        color: "#878787"
-      - state: subdepartment
-        color: "#CB0000"
-      - state: lawyer
-
-- type: entity
-  parent: IDCardStandard
-  id: ProsecutorIDCard
-  name: presecutor ID card
-  components:
-    - type: PresetIdCard
-      job: Prosecutor
-    - type: Sprite
-      layers:
-      - state: default
-      - state: department
-        color: "#878787"
-      - state: subdepartment
-        color: "#CB0000"
-      - state: lawyer
-
-- type: entity
-  parent: IDCardStandard
   id: HoPIDCard
   name: head of personnel ID card
   components:
@@ -785,22 +720,6 @@
     - Maintenance
 
 - type: entity
-  parent: IDCardStandard
-  id: MusicianIDCard
-  name: musician ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#878787"
-    - state: subdepartment
-      color: "#878787"
-    - state: musician
-  - type: PresetIdCard
-    job: Musician
-
-- type: entity
   parent: CentcomIDCard
   id: CentcomIDCardDeathsquad
   name: death squad ID card
@@ -969,38 +888,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: BoxerIDCard
-  name: boxer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#878787"
-    - state: subdepartment
-      color: "#878787"
-    - state: boxer
-  - type: PresetIdCard
-    job: Boxer
-
-- type: entity
-  parent: IDCardStandard
-  id: ZookeeperIDCard
-  name: zookeeper ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#58C800"
-    - state: subdepartment
-      color: "#58C800"
-    - state: zookeeper
-  - type: PresetIdCard
-    job: Zookeeper
-
-- type: entity
-  parent: IDCardStandard
   id: DetectiveIDCard
   name: detective ID card
   components:
@@ -1056,70 +943,6 @@
   - type: Unremoveable
   - type: NanoChatCard # DeltaV
     listNumber: false
-
-- type: entity
-  parent: IDCardStandard
-  id: SeniorEngineerIDCard
-  name: senior engineer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#F39F27"
-    - state: subdepartment
-      color: "#F39F27"
-    - state: senior
-  - type: PresetIdCard
-    job: SeniorEngineer
-
-- type: entity
-  parent: IDCardStandard
-  id: SeniorResearcherIDCard
-  name: senior researcher ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#C96DBF"
-    - state: subdepartment
-      color: "#C96DBF"
-    - state: senior
-  - type: PresetIdCard
-    job: SeniorResearcher
-
-- type: entity
-  parent: IDCardStandard
-  id: SeniorPhysicianIDCard
-  name: senior physician ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#5B97BC"
-    - state: subdepartment
-      color: "#5B97BC"
-    - state: senior
-  - type: PresetIdCard
-    job: SeniorPhysician
-
-- type: entity
-  parent: IDCardStandard
-  id: SeniorOfficerIDCard
-  name: senior officer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#CB0000"
-    - state: subdepartment
-      color: "#CB0000"
-    - state: senior
-  - type: PresetIdCard
-    job: SeniorOfficer
 
 - type: entity
   parent: IDCardStandard

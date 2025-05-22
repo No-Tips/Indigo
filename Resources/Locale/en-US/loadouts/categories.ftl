@@ -27,7 +27,6 @@ loadout-category-JobsEngineering = Engineering
 loadout-category-JobsEngineeringAAUncategorized = All Engineers
 loadout-category-JobsEngineeringAtmosphericTechnician = Atmospheric Technician
 loadout-category-JobsEngineeringChiefEngineer = Chief Engineer
-loadout-category-JobsEngineeringSeniorEngineer = Senior Engineer
 loadout-category-JobsEngineeringStationEngineer = Station Engineer
 loadout-category-JobsEngineeringTechnicalAssistant = Technical Assistant
 
@@ -41,13 +40,11 @@ loadout-category-JobsEpistemicsGolemancer = Golemancer
 loadout-category-JobsEpistemicsMystagogue = Mystagogue
 loadout-category-JobsEpistemicsMystic = Mystic
 loadout-category-JobsEpistemicsNoviciate = Noviciate
-loadout-category-JobsEpistemicsPsionicMantis = Psionic Mantis
 
 # Logistics
 loadout-category-JobsLogistics = Logistics
 loadout-category-JobsLogisticsAUncategorized = All Logistics
 loadout-category-JobsLogisticsCargoTechnician = Cargo Technician
-loadout-category-JobsLogisticsCourier = Courier
 loadout-category-JobsLogisticsLogisticsOfficer = Logistics Officer
 loadout-category-JobsLogisticsSalvageSpecialist = Salvage Specialist
 
@@ -60,7 +57,6 @@ loadout-category-JobsMedicalMedicalDoctor = Medical Doctor
 loadout-category-JobsMedicalMedicalIntern = Medical Intern
 loadout-category-JobsMedicalParamedic = Paramedic
 loadout-category-JobsMedicalPsychologist = Psychologist
-loadout-category-JobsMedicalSeniorPhysician = Senior Physician
 
 # Security
 loadout-category-JobsSecurity = Security
@@ -71,7 +67,6 @@ loadout-category-JobsSecurityCorpsman = Corpsman
 loadout-category-JobsSecurityDetective = Detective
 loadout-category-JobsSecurityHeadOfSecurity = Head of Security
 loadout-category-JobsSecuritySecurityOfficer = Security Officer
-loadout-category-JobsSecuritySeniorOfficer = Senior Officer
 loadout-category-JobsSecurityWarden = Warden
 
 # Service
@@ -84,7 +79,6 @@ loadout-category-JobsServiceClown = Clown
 loadout-category-JobsServiceJanitor = Janitor
 loadout-category-JobsServiceLawyer = Lawyer
 loadout-category-JobsServiceMime = Mime
-loadout-category-JobsServiceMusician = Musician
 loadout-category-JobsServiceReporter = Reporter
 
 # Misc

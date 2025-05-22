@@ -6,7 +6,6 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
-  - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
 
 - type: department
   id: Civilian
@@ -16,7 +15,6 @@
   roles:
   - Bartender
   - Botanist
-  - Boxer
   # - Chaplain # DeltaV - Move Chaplain into Epistemics
   - Chef
   - Clown
@@ -24,15 +22,9 @@
   - Janitor
   # - Lawyer # DeltaV - Move Lawyer into Justice
   - Mime
-  - Musician
   - Passenger
   - Reporter
   - Visitor
-  - Zookeeper
-  - ServiceWorker
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
 
 - type: department
   id: Command
@@ -47,7 +39,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - ChiefJustice # DeltaV - chief justice is in command staff
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -62,24 +53,12 @@
   weight: 100
 
 - type: department
-  id: Dignitary
-  description: department-Dignitary-description
-  color: "#33FE6D"
-  roles:
-  - BlueshieldOfficer # Goobstation
-  - NanotrasenRepresentative # Goobstation
-  - Magistrate # Goobstation
-  primary: false
-  weight: 101
-
-- type: department
   id: Engineering
   description: department-Engineering-description
   color: "#EFB341"
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
-  - SeniorEngineer
   - StationEngineer
   - TechnicalAssistant
 
@@ -94,7 +73,6 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - SeniorPhysician
   - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
 
 - type: department
@@ -106,10 +84,8 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-  - SeniorOfficer
   - Detective
   - Warden
-  - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
 
 - type: department
@@ -118,11 +94,9 @@
   color: "#D381C9"
   roles:
   - ResearchDirector
-  - SeniorResearcher
   - Scientist
   - ResearchAssistant
   - Chaplain # DeltaV - Move Chaplain into Epistemics
-  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
   - Librarian
   - Roboticist
 
@@ -133,19 +107,3 @@
   roles:
   - Borg
   - StationAi
-
-- type: department
-  id: Specific
-  description: department-Specific-description
-  color: "#9FED58"
-  weight: 10
-  roles:
-  - Boxer
-  - Reporter
-  - Zookeeper
-  - Psychologist
-  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
-  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
-  - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
-  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
-  primary: false

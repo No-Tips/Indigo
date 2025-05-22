@@ -139,18 +139,6 @@
       - state: researchassistant
 
 - type: entity
-  id: SpawnPointServiceWorker
-  parent: SpawnPointJobBase
-  name: service worker
-  components:
-  - type: SpawnPoint
-    job_id: ServiceWorker
-  - type: Sprite
-    layers:
-      - state: green
-      - state: serviceworker
-
-- type: entity
   id: SpawnPointBartender
   parent: SpawnPointJobBase
   name: bartender
@@ -259,30 +247,6 @@
       - state: janitor
 
 - type: entity
-  id: SpawnPointMusician
-  parent: SpawnPointJobBase
-  name: musician
-  components:
-  - type: SpawnPoint
-    job_id: Musician
-  - type: Sprite
-    layers:
-      - state: green
-      - state: musician
-
-- type: entity
-  id: SpawnPointBoxer
-  parent: SpawnPointJobBase
-  name: boxer
-  components:
-  - type: SpawnPoint
-    job_id: Boxer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: boxer
-
-- type: entity
   id: SpawnPointBorg
   parent: SpawnPointJobBase
   name: cyborg
@@ -338,18 +302,6 @@
       - state: ce
 
 - type: entity
-  id: SpawnPointSeniorEngineer
-  parent: SpawnPointJobBase
-  name: seniorengineer
-  components:
-  - type: SpawnPoint
-    job_id: SeniorEngineer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: seniorengineer
-
-- type: entity
   id: SpawnPointStationEngineer
   parent: SpawnPointJobBase
   name: stationengineer
@@ -386,18 +338,6 @@
     layers:
       - state: green
       - state: cmo
-
-- type: entity
-  id: SpawnPointSeniorPhysician
-  parent: SpawnPointJobBase
-  name: seniorphysician
-  components:
-  - type: SpawnPoint
-    job_id: SeniorPhysician
-  - type: Sprite
-    layers:
-      - state: green
-      - state: seniorphysician
 
 - type: entity
   id: SpawnPointMedicalDoctor
@@ -451,18 +391,6 @@
         state: mystagogue
 
 - type: entity
-  id: SpawnPointSeniorResearcher
-  parent: SpawnPointJobBase
-  name: seniorresearcher
-  components:
-  - type: SpawnPoint
-    job_id: SeniorResearcher
-  - type: Sprite
-    layers:
-      - state: green
-      - state: seniorresearcher
-
-- type: entity
   id: SpawnPointScientist
   parent: SpawnPointJobBase
   name: scientist
@@ -512,18 +440,6 @@
     layers:
       - state: green
       - state: warden
-
-- type: entity
-  id: SpawnPointSeniorOfficer
-  parent: SpawnPointJobBase
-  name: seniorofficer
-  components:
-  - type: SpawnPoint
-    job_id: SeniorOfficer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: seniorofficer
 
 - type: entity
   id: SpawnPointSecurityOfficer
@@ -660,15 +576,3 @@
     layers:
       - state: green
       - state: psychologist
-
-- type: entity
-  id: SpawnPointZookeeper
-  parent: SpawnPointJobBase
-  name: zookeeper
-  components:
-  - type: SpawnPoint
-    job_id: Zookeeper
-  - type: Sprite
-    layers:
-      - state: green
-      - state: zookeeper

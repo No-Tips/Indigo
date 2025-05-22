@@ -313,59 +313,11 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsChiefJustice
-  suffix: ChiefJustice, Locked
-  components:
-  - type: AccessReader
-    access: [["ChiefJustice"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsClerk
-  suffix: Clerk, Locked
-  components:
-  - type: AccessReader
-    access: [["Clerk"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsJustice
-  suffix: Justice, Locked
-  components:
-  - type: AccessReader
-    access: [["Justice"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsProsecutor
-  suffix: Prosecutor, Locked
-  components:
-  - type: AccessReader
-    access: [["Prosecutor"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsMantis
-  suffix: Mantis, Locked
-  components:
-  - type: AccessReader
-    access: [["Mantis"]]
-
-- type: entity
-  parent: DoorElectronics
   id: DoorElectronicsCorpsman
   suffix: Corpsman, Locked
   components:
   - type: AccessReader
     access: [["Corpsman"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsBoxer
-  suffix: Boxer, Locked
-  components:
-  - type: AccessReader
-    access: [["Boxer"]]
 
 - type: entity
   parent: DoorElectronics
@@ -382,15 +334,6 @@
   components:
   - type: AccessReader
     access: [["Mime"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsMusician
-  suffix: Musician, Locked
-  components:
-  - type: AccessReader
-    access: [["Musician"]]
-
 
 - type: entity
   parent: DoorElectronics
@@ -411,27 +354,11 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsZookeeper
-  suffix: Zookeeper, Locked
-  components:
-  - type: AccessReader
-    access: [["Zookeeper"]]
-
-- type: entity
-  parent: DoorElectronics
   id: DoorElectronicsPsychologist
   suffix: Psychologist, Locked
   components:
   - type: AccessReader
     access: [["Psychologist"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsMail
-  suffix: Mail, Locked
-  components:
-  - type: AccessReader
-    access: [["Mail"]]
 
 # Sol Alliance
 - type: entity

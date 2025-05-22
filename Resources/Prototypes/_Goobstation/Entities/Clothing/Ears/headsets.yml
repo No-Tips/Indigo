@@ -9,8 +9,6 @@
       key_slots:
       - EncryptionKeyCommand
       - EncryptionKeyCentCom
-      - EncryptionKeyJustice
-      - EncryptionKeyPrison
       - EncryptionKeySecurity
       - EncryptionKeyCommon
   - type: Sprite

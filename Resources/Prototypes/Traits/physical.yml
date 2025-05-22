@@ -294,9 +294,6 @@
     jobs:
       - Borg
       - MedicalBorg
-      - Boxer
-      - MartialArtist
-      - Gladiator
   functions:
     - !type:TraitModifyUnarmed
       heavyOnLightMiss: true
@@ -468,10 +465,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -492,10 +485,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
@@ -530,7 +519,6 @@
           departments:
           - Security
           - Command
-          - Dignitary
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -561,10 +549,6 @@
   category: Physical
   points: -10
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
@@ -592,33 +576,10 @@
           bloodLossPercentage: -0.025
 
 - type: trait
-  id: DermalArmor
-  category: Physical
-  points: -6
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  functions:
-    - !type:TraitAddArmor
-      damageModifierSets:
-        - DermalArmor
-    - !type:TraitPushDescription
-      descriptionExtensions:
-        - description: examine-dermal-armor-message
-          fontSize: 12
-          requireDetailRange: true
-
-- type: trait
   id: CyberEyes
   category: Physical
   points: -3
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
         inverted: true
         species:
@@ -663,15 +624,10 @@
   category: Physical
   points: -1
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
         - Command
-        - Dignitary
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -691,10 +647,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -719,10 +671,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -745,15 +693,10 @@
   category: Physical
   points: -3
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
         - Command
-        - Dignitary
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -788,11 +731,6 @@
   - !type:CVarRequirement
     cvar: trait.restrictedgear_enabled
     requiredValue: true
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-      - Prisoner # Smuggling for prisoners = immediate jailbreak.
-
 - type: trait
   id: Redshirt
   category: Physical
@@ -846,10 +784,6 @@
   category: Physical
   points: -4
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -863,10 +797,6 @@
   category: Physical
   points: -4
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -887,10 +817,6 @@
   category: Physical
   points: -10
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -965,15 +891,10 @@
   category: Physical
   points: -1
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
         - Command
-        - Dignitary
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -996,10 +917,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1027,10 +944,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1056,15 +969,10 @@
   category: Physical
   points: -3
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
         - Command
-        - Dignitary
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1099,10 +1007,6 @@
   category: Physical
   points: -4
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1122,10 +1026,6 @@
   category: Physical
   points: -4
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1215,10 +1115,6 @@
   category: Physical
   points: -2
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
     - !type:CharacterTraitRequirement
       inverted: true
       traits:

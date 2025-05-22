@@ -146,21 +146,6 @@ character-item-group-LoadoutChiefEngineerOuter = Chief Engineer Outerwear
 character-item-group-LoadoutChiefEngineerShoes = Chief Engineer Shoes
 character-item-group-LoadoutChiefEngineerUniforms = Chief Engineer Uniforms
 
-# Engineering - Senior Engineer
-character-item-group-LoadoutSeniorEngineerBackpacks = Senior Engineer Backpacks
-character-item-group-LoadoutSeniorEngineerBelt = Senior Engineer Belt
-character-item-group-LoadoutSeniorEngineerEars = Senior Engineer Ears
-character-item-group-LoadoutSeniorEngineerEquipment = Senior Engineer Equipment
-character-item-group-LoadoutSeniorEngineerEyes = Senior Engineer Eyewear
-character-item-group-LoadoutSeniorEngineerGloves = Senior Engineer Gloves
-character-item-group-LoadoutSeniorEngineerHead = Senior Engineer Headgear
-character-item-group-LoadoutSeniorEngineerId = Senior Engineer Id
-character-item-group-LoadoutSeniorEngineerNeck = Senior Engineer Neckwear
-character-item-group-LoadoutSeniorEngineerMask = Senior Engineer Masks
-character-item-group-LoadoutSeniorEngineerOuter = Senior Engineer Outerwear
-character-item-group-LoadoutSeniorEngineerShoes = Senior Engineer Shoes
-character-item-group-LoadoutSeniorEngineerUniforms = Senior Engineer Uniforms
-
 # Engineering - Station Engineer
 character-item-group-LoadoutStationEngineerBackpacks = Station Engineer Backpacks
 character-item-group-LoadoutStationEngineerBelt = Station Engineer Belt
@@ -311,21 +296,6 @@ character-item-group-LoadoutNoviciateOuter = Noviciate Outerwear
 character-item-group-LoadoutNoviciateShoes = Noviciate Shoes
 character-item-group-LoadoutNoviciateUniforms = Noviciate Uniforms
 
-# Epistemics - Psionic Mantis
-character-item-group-LoadoutPsionicMantisBackpacks = Psionic Mantis Backpacks
-character-item-group-LoadoutPsionicMantisBelt = Psionic Mantis Belt
-character-item-group-LoadoutPsionicMantisEars = Psionic Mantis Ears
-character-item-group-LoadoutPsionicMantisEquipment = Psionic Mantis Equipment
-character-item-group-LoadoutPsionicMantisEyes = Psionic Mantis Eyewear
-character-item-group-LoadoutPsionicMantisGloves = Psionic Mantis Gloves
-character-item-group-LoadoutPsionicMantisHead = Psionic Mantis Headgear
-character-item-group-LoadoutPsionicMantisId = Psionic Mantis Id
-character-item-group-LoadoutPsionicMantisNeck = Psionic Mantis Neckwear
-character-item-group-LoadoutPsionicMantisMask = Psionic Mantis Masks
-character-item-group-LoadoutPsionicMantisOuter = Psionic Mantis Outerwear
-character-item-group-LoadoutPsionicMantisShoes = Psionic Mantis Shoes
-character-item-group-LoadoutPsionicMantisUniforms = Psionic Mantis Uniforms
-
 # Logistics
 character-item-group-LoadoutLogisticsBackpacks = Logistics Backpacks
 character-item-group-LoadoutLogisticsBelt = Logistics Belt
@@ -355,21 +325,6 @@ character-item-group-LoadoutCargoTechnicianMask = Cargo Technician Masks
 character-item-group-LoadoutCargoTechnicianOuter = Cargo Technician Outerwear
 character-item-group-LoadoutCargoTechnicianShoes = Cargo Technician Shoes
 character-item-group-LoadoutCargoTechnicianUniforms = Cargo Technician Uniforms
-
-# Logistics - Courier
-character-item-group-LoadoutCourierBackpacks = Courier Backpacks
-character-item-group-LoadoutCourierBelt = Courier Belt
-character-item-group-LoadoutCourierEars = Courier Ears
-character-item-group-LoadoutCourierEquipment = Courier Equipment
-character-item-group-LoadoutCourierEyes = Courier Eyewear
-character-item-group-LoadoutCourierGloves = Courier Gloves
-character-item-group-LoadoutCourierHead = Courier Headgear
-character-item-group-LoadoutCourierId = Courier Id
-character-item-group-LoadoutCourierNeck = Courier Neckwear
-character-item-group-LoadoutCourierMask = Courier Masks
-character-item-group-LoadoutCourierOuter = Courier Outerwear
-character-item-group-LoadoutCourierShoes = Courier Shoes
-character-item-group-LoadoutCourierUniforms = Courier Uniforms
 
 # Logistics - Logistics Officer
 character-item-group-LoadoutLogisticsOfficerBackpacks = Logistics Officer Backpacks
@@ -507,21 +462,6 @@ character-item-group-LoadoutPsychologistOuter = Psychologist Outerwear
 character-item-group-LoadoutPsychologistShoes = Psychologist Shoes
 character-item-group-LoadoutPsychologistUniforms = Psychologist Uniforms
 
-# Medical - Senior Physician
-character-item-group-LoadoutSeniorPhysicianBackpacks = Senior Physician Backpacks
-character-item-group-LoadoutSeniorPhysicianBelt = Senior Physician Belt
-character-item-group-LoadoutSeniorPhysicianEars = Senior Physician Ears
-character-item-group-LoadoutSeniorPhysicianEquipment = Senior Physician Equipment
-character-item-group-LoadoutSeniorPhysicianEyes = Senior Physician Eyewear
-character-item-group-LoadoutSeniorPhysicianGloves = Senior Physician Gloves
-character-item-group-LoadoutSeniorPhysicianHead = Senior Physician Headgear
-character-item-group-LoadoutSeniorPhysicianId = Senior Physician Id
-character-item-group-LoadoutSeniorPhysicianNeck = Senior Physician Neckwear
-character-item-group-LoadoutSeniorPhysicianMask = Senior Physician Masks
-character-item-group-LoadoutSeniorPhysicianOuter = Senior Physician Outerwear
-character-item-group-LoadoutSeniorPhysicianShoes = Senior Physician Shoes
-character-item-group-LoadoutSeniorPhysicianUniforms = Senior Physician Uniforms
-
 # Security
 character-item-group-LoadoutSecurityBackpacks = Security Backpacks
 character-item-group-LoadoutSecurityBelt = Security Belt
@@ -614,21 +554,6 @@ character-item-group-LoadoutSecurityOfficerMask = Security Officer Masks
 character-item-group-LoadoutSecurityOfficerOuter = Security Officer Outerwear
 character-item-group-LoadoutSecurityOfficerShoes = Security Officer Shoes
 character-item-group-LoadoutSecurityOfficerUniforms = Security Officer Uniforms
-
-# Security - Senior Officer
-character-item-group-LoadoutSeniorOfficerBackpacks = Senior Officer Backpacks
-character-item-group-LoadoutSeniorOfficerBelt = Senior Officer Belt
-character-item-group-LoadoutSeniorOfficerEars = Senior Officer Ears
-character-item-group-LoadoutSeniorOfficerEquipment = Senior Officer Equipment
-character-item-group-LoadoutSeniorOfficerEyes = Senior Officer Eyewear
-character-item-group-LoadoutSeniorOfficerGloves = Senior Officer Gloves
-character-item-group-LoadoutSeniorOfficerHead = Senior Officer Headgear
-character-item-group-LoadoutSeniorOfficerId = Senior Officer Id
-character-item-group-LoadoutSeniorOfficerNeck = Senior Officer Neckwear
-character-item-group-LoadoutSeniorOfficerMask = Senior Officer Masks
-character-item-group-LoadoutSeniorOfficerOuter = Senior Officer Outerwear
-character-item-group-LoadoutSeniorOfficerShoes = Senior Officer Shoes
-character-item-group-LoadoutSeniorOfficerUniforms = Senior Officer Uniforms
 
 # Security - Warden
 character-item-group-LoadoutWardenBackpacks = Warden Backpacks
@@ -767,21 +692,6 @@ character-item-group-LoadoutMimeOuter = Mime Outerwear
 character-item-group-LoadoutMimeShoes = Mime Shoes
 character-item-group-LoadoutMimeUniforms = Mime Uniforms
 
-# Service - Musician
-character-item-group-LoadoutMusicianBackpacks = Musician Backpacks
-character-item-group-LoadoutMusicianBelt = Musician Belt
-character-item-group-LoadoutMusicianEars = Musician Ears
-character-item-group-LoadoutMusicianEquipment = Musician Equipment
-character-item-group-LoadoutMusicianEyes = Musician Eyewear
-character-item-group-LoadoutMusicianGloves = Musician Gloves
-character-item-group-LoadoutMusicianHead = Musician Headgear
-character-item-group-LoadoutMusicianId = Musician Id
-character-item-group-LoadoutMusicianNeck = Musician Neckwear
-character-item-group-LoadoutMusicianMask = Musician Masks
-character-item-group-LoadoutMusicianOuter = Musician Outerwear
-character-item-group-LoadoutMusicianShoes = Musician Shoes
-character-item-group-LoadoutMusicianUniforms = Musician Uniforms
-
 # Service - Reporter
 character-item-group-LoadoutReporterBackpacks = Reporter Backpacks
 character-item-group-LoadoutReporterBelt = Reporter Belt
@@ -796,21 +706,6 @@ character-item-group-LoadoutReporterMask = Reporter Masks
 character-item-group-LoadoutReporterOuter = Reporter Outerwear
 character-item-group-LoadoutReporterShoes = Reporter Shoes
 character-item-group-LoadoutReporterUniforms = Reporter Uniforms
-
-# Misc - Prisoner
-character-item-group-LoadoutPrisonerBackpacks = Prisoner Backpacks
-character-item-group-LoadoutPrisonerBelt = Prisoner Belt
-character-item-group-LoadoutPrisonerEars = Prisoner Ears
-character-item-group-LoadoutPrisonerEquipment = Prisoner Equipment
-character-item-group-LoadoutPrisonerEyes = Prisoner Eyewear
-character-item-group-LoadoutPrisonerloves = Prisoner Gloves
-character-item-group-LoadoutPrisonerHead = Prisoner Headgear
-character-item-group-LoadoutPrisonerId = Prisoner Id
-character-item-group-LoadoutPrisonerNeck = Prisoner Neckwear
-character-item-group-LoadoutPrisonerMask = Prisoner Masks
-character-item-group-LoadoutPrisonerOuter = Prisoner Outerwear
-character-item-group-LoadoutPrisonerShoes = Prisoner Shoes
-character-item-group-LoadoutPrisonerUniforms = Prisoner Uniforms
 
 # Traits - Languages
 character-item-group-TraitsLanguagesBasic = Basic Languages

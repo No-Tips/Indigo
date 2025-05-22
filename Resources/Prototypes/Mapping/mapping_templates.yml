@@ -215,8 +215,6 @@
           id: BedsheetMime
         - !type:MappingTemplatePrototype
           id: FoodTartMime
-        - !type:MappingTemplatePrototype
-          id: SpawnPointMusician
     - !type:MappingTemplatePrototype
       id: ReportersOffice
       children:

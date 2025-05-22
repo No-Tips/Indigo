@@ -16,7 +16,6 @@
         - Paramedic
         - ChiefMedicalOfficer
         - Brigmedic
-        - SeniorPhysician
         - BlueshieldOfficer
 
 - type: trait
@@ -272,7 +271,6 @@
         - Paramedic
         - ChiefMedicalOfficer
         - Brigmedic
-        - SeniorPhysician
 
 - type: trait
   id: ExperiencedSurgeon
@@ -290,5 +288,4 @@
       - Chemist
       - Paramedic
       - Brigmedic
-      - SeniorPhysician
 

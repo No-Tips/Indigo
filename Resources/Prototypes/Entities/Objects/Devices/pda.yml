@@ -228,21 +228,6 @@
 
 - type: entity
   parent: BasePDA
-  id: ServiceWorkerPDA
-  name: service worker PDA
-  description: Why isn't it gray?
-  components:
-  - type: Pda
-    id: ServiceWorkerIDCard
-    state: pda-internservice
-  - type: PdaBorderColor
-    borderColor: "#717059"
-    accentVColor: "#00cc35"
-  - type: Icon
-    state: pda-internservice
-
-- type: entity
-  parent: BasePDA
   id: ChefPDA
   name: chef PDA
   description: Covered in grease and flour.
@@ -374,7 +359,6 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
       - PsiWatchCartridge
 
@@ -506,7 +490,6 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - GlimmerMonitorCartridge
       - NanoChatCartridge
       - PsiWatchCartridge
 
@@ -816,7 +799,6 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
       - PsiWatchCartridge
 
@@ -840,7 +822,6 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - GlimmerMonitorCartridge
       - NanoChatCartridge
       - PsiWatchCartridge
 
@@ -863,7 +844,6 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
-      - GlimmerMonitorCartridge
       - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -1040,25 +1020,6 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-
-- type: entity
-  parent: BasePDA
-  id: MusicianPDA
-  name: musician PDA
-  description: It fills you with inspiration.
-  components:
-  - type: Pda
-    id: MusicianIDCard
-    state: pda-musician
-  - type: PdaBorderColor
-    borderColor: "#333333"
-  - type: Icon
-    state: pda-musician
-  - type: Instrument
-    allowPercussion: false
-    handheld: true
-    bank: 1
-    program: 2
 
 - type: entity
   parent: BasePDA
@@ -1267,35 +1228,6 @@
 
 - type: entity
   parent: BasePDA
-  id: ZookeeperPDA
-  name: zookeeper PDA
-  description: Made with genuine synthetic leather. Crikey!
-  components:
-  - type: Pda
-    id: ZookeeperIDCard
-    state: pda-zookeeper
-  - type: PdaBorderColor
-    borderColor: "#ffe685"
-  - type: Icon
-    state: pda-zookeeper
-
-- type: entity
-  parent: BasePDA
-  id: BoxerPDA
-  name: boxer PDA
-  description: Float like a butterfly, ringtone like a bee.
-  components:
-  - type: Pda
-    id: BoxerIDCard
-    state: pda-boxer
-  - type: PdaBorderColor
-    borderColor: "#333333"
-    accentVColor: "#390504"
-  - type: Icon
-    state: pda-boxer
-
-- type: entity
-  parent: BasePDA
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1369,82 +1301,6 @@
         tags:
         - Write
   - type: Unremoveable
-
-- type: entity
-  parent: BasePDA
-  id: SeniorEngineerPDA
-  name: senior engineer PDA
-  description: Seems to have been taken apart and put back together several times.
-  components:
-  - type: Pda
-    id: SeniorEngineerIDCard
-    state: pda-seniorengineer
-  - type: PdaBorderColor
-    borderColor: "#949137"
-    accentVColor: "#CD6900"
-  - type: Icon
-    state: pda-seniorengineer
-
-- type: entity
-  parent: SciencePDA
-  id: SeniorResearcherPDA
-  name: senior researcher PDA
-  description: Looks like it's been through years of chemical burns and explosions.
-  components:
-  - type: Pda
-    id: SeniorResearcherIDCard
-    state: pda-seniorresearcher
-  - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
-  - type: Icon
-    state: pda-seniorresearcher
-
-- type: entity
-  parent: BaseMedicalPDA
-  id: SeniorPhysicianPDA
-  name: senior physician PDA
-  description: Smells faintly like iron and chemicals.
-  components:
-  - type: Pda
-    id: SeniorPhysicianIDCard
-    state: pda-seniorphysician
-    penSlot: # Pen Lights
-      startingItem: PenLightBase
-      priority: -1
-      whitelist:
-        tags:
-        - Write
-  - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#447987"
-    accentVColor: "#B34200"
-  - type: Icon
-    state: pda-seniorphysician
-
-- type: entity
-  parent: BasePDA
-  id: SeniorOfficerPDA
-  name: senior officer PDA
-  description: Beaten, battered and broken, but just barely useable.
-  components:
-  - type: Pda
-    id: SeniorOfficerIDCard
-    state: pda-seniorofficer
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-seniorofficer
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - CrimeAssistCartridge
-      - SecWatchCartridge
-      - NanoChatCartridge
 
 - type: entity
   parent: SyndiPDA

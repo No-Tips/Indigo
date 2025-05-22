@@ -5,7 +5,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsMail ]
+      board: [ DoorElectronicsCargo ]
 
 - type: entity
   parent: AirlockCargoGlass
@@ -14,4 +14,4 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsMail ]
+      board: [ DoorElectronicsCargo ]

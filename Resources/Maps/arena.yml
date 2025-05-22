@@ -57486,13 +57486,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 67.5,-33.5
       parent: 2
-- proto: CryogenicSleepUnitSpawnerPrisoner
-  entities:
-  - uid: 8695
-    components:
-    - type: Transform
-      pos: -50.5,11.5
-      parent: 2
 - proto: CryoPod
   entities:
   - uid: 8696
@@ -136867,13 +136860,6 @@ entities:
     - type: Transform
       pos: -16.5,-27.5
       parent: 2
-- proto: SpawnPointForensicMantis
-  entities:
-  - uid: 20600
-    components:
-    - type: Transform
-      pos: 4.5,-60.5
-      parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 20601
@@ -137023,23 +137009,6 @@ entities:
     - type: Transform
       pos: -44.5,-13.5
       parent: 2
-- proto: SpawnPointMailCarrier
-  entities:
-  - uid: 20628
-    components:
-    - type: Transform
-      pos: 13.5,28.5
-      parent: 2
-  - uid: 20629
-    components:
-    - type: Transform
-      pos: 10.5,26.5
-      parent: 2
-  - uid: 20630
-    components:
-    - type: Transform
-      pos: 17.5,24.5
-      parent: 2
 - proto: SpawnPointMedicalBorg
   entities:
   - uid: 20631
@@ -137137,23 +137106,6 @@ entities:
     components:
     - type: Transform
       pos: -30.5,-39.5
-      parent: 2
-- proto: SpawnPointMusician
-  entities:
-  - uid: 20649
-    components:
-    - type: Transform
-      pos: 35.5,-5.5
-      parent: 2
-  - uid: 20650
-    components:
-    - type: Transform
-      pos: 37.5,-5.5
-      parent: 2
-  - uid: 20651
-    components:
-    - type: Transform
-      pos: 35.5,-6.5
       parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:
@@ -137257,23 +137209,6 @@ entities:
     components:
     - type: Transform
       pos: 36.5,-24.5
-      parent: 2
-- proto: SpawnPointPrisoner
-  entities:
-  - uid: 20671
-    components:
-    - type: Transform
-      pos: -47.5,-1.5
-      parent: 2
-  - uid: 20672
-    components:
-    - type: Transform
-      pos: -45.5,-1.5
-      parent: 2
-  - uid: 20673
-    components:
-    - type: Transform
-      pos: -43.5,-1.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:
@@ -137457,23 +137392,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,1.5
-      parent: 2
-- proto: SpawnPointServiceWorker
-  entities:
-  - uid: 20707
-    components:
-    - type: Transform
-      pos: 45.5,-12.5
-      parent: 2
-  - uid: 20708
-    components:
-    - type: Transform
-      pos: 45.5,-16.5
-      parent: 2
-  - uid: 20709
-    components:
-    - type: Transform
-      pos: 17.5,-2.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:

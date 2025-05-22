@@ -19,11 +19,6 @@
   abstract: true
 
 - type: quickPhrase
-  parent: [ BaseJusticePhrase, BaseJobPhrase ]
-  id: BaseJusticeJobPhrase
-  abstract: true
-
-- type: quickPhrase
   parent: [ BaseLogisticsPhrase, BaseJobPhrase ]
   id: BaseLogisticsJobPhrase
   abstract: true
@@ -74,7 +69,7 @@
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
-  id: StationAIPhrase 
+  id: StationAIPhrase
   text: job-name-station-ai
 
 # Engineering
@@ -105,11 +100,6 @@
   parent: BaseEpistemicsJobPhrase
   id: MystagoguePhrase
   text: job-name-rd
-
-- type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
-  id: PsionicMantisPhrase
-  text: job-name-mantis
 
 - type: quickPhrase
   parent: BaseEpistemicsJobPhrase
@@ -147,33 +137,6 @@
   parent: BaseLogisticsJobPhrase
   id: SalvageSpecialistPhrase
   text: job-name-salvagespec
-
-- type: quickPhrase
-  parent: BaseLogisticsJobPhrase
-  id: CourierPhrase
-  text: job-name-courier
-
-# Justice
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ChiefJusticePhrase
-  text: job-name-chief-justice
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: LawyerPhrase
-  text: job-name-lawyer
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ProsecutorPhrase
-  text: job-name-prosecutor
-
-- type: quickPhrase
-  parent: BaseJusticeJobPhrase
-  id: ClerkPhrase
-  text: job-name-clerk
 
 # Medical
 
@@ -226,11 +189,6 @@
 
 - type: quickPhrase
   parent: BaseSecurityJobPhrase
-  id: PrisonGuardPhrase
-  text: job-name-guard
-
-- type: quickPhrase
-  parent: BaseSecurityJobPhrase
   id: DetectivePhrase
   text: job-name-detective
 
@@ -263,16 +221,6 @@
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
-  id: MusicianPhrase
-  text: job-name-musician
-
-- type: quickPhrase
-  parent: BaseServiceJobPhrase
-  id: ServiceWorkerPhrase
-  text: job-name-serviceworker
-
-- type: quickPhrase
-  parent: BaseServiceJobPhrase
   id: ClownPhrase
   text: job-name-clown
 
@@ -289,11 +237,6 @@
 # Wildcard
 
 - type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: BoxerPhrase
-  text: job-name-boxer
-
-- type: quickPhrase
   parent: BaseMedicalJobPhrase
   id: PsychologistPhrase
   text: job-name-psychologist
@@ -302,26 +245,6 @@
   parent: BaseServiceJobPhrase
   id: ReporterPhrase
   text: job-name-reporter
-
-- type: quickPhrase
-  parent: BaseServiceJobPhrase
-  id: ZookeeperPhrase
-  text: job-name-zookeeper
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: MartialArtistPhease
-  text: job-name-martialartist
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: PrisonerPhrase
-  text: job-name-prisoner
-
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: GladiatorPhrase
-  text: job-name-gladiator
 
 - type: quickPhrase
   parent: BaseSecurityJobPhrase

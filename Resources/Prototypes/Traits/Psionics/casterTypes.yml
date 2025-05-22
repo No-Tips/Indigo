@@ -15,10 +15,8 @@
         - Borg
         - MedicalBorg
         - ResearchDirector
-        - ForensicMantis
         - Chaplain
         - Librarian
-        - Prisoner
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement
@@ -47,7 +45,6 @@
         - Borg
         - MedicalBorg
         - ResearchDirector
-        - ForensicMantis
         - Chaplain
         - Librarian
     - !type:CharacterLogicOrRequirement
@@ -84,10 +81,8 @@
         - Borg
         - MedicalBorg
         - ResearchDirector
-        - ForensicMantis
         - Chaplain
         - Librarian
-        - Prisoner
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement

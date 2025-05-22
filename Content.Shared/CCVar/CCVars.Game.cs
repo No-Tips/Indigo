@@ -112,14 +112,14 @@ public sealed partial class CCVars
     ///     Controls whether to use world persistence or not.
     /// </summary>
     public static readonly CVarDef<bool>
-        UsePersistence = CVarDef.Create("game.usepersistence", false, CVar.ARCHIVE);
+        UsePersistence = CVarDef.Create("game.usepersistence", true, CVar.ARCHIVE);
 
     /// <summary>
     ///     If world persistence is used, what map prototype should be initially loaded.
     ///     If the save file exists, it replaces MapPath but everything else stays the same (station name and such).
     /// </summary>
     public static readonly CVarDef<string>
-        PersistenceMap = CVarDef.Create("game.persistencemap", "Empty", CVar.ARCHIVE);
+        PersistenceMap = CVarDef.Create("game.persistencemap", "Cyberiad", CVar.ARCHIVE);
 
     /// <summary>
     ///     Prototype to use for map pool.
@@ -138,7 +138,7 @@ public sealed partial class CCVars
     /// Is map rotation enabled?
     /// </summary>
     public static readonly CVarDef<bool>
-        GameMapRotation = CVarDef.Create("game.map_rotation", true, CVar.SERVERONLY);
+        GameMapRotation = CVarDef.Create("game.map_rotation", false, CVar.SERVERONLY);
 
     /// <summary>
     /// If roles should be restricted based on time.
