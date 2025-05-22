@@ -345,6 +345,12 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.HideUI);
             AddButton(ContentKeyFunctions.InspectEntity);
 
+            AddHeader("ui-options-header-system");
+            AddButton(EngineKeyFunctions.TextCopy);
+            AddButton(EngineKeyFunctions.TextPaste);
+            AddButton(EngineKeyFunctions.TextCut);
+            AddButton(EngineKeyFunctions.TextSelectAll);
+            AddButton(EngineKeyFunctions.TextDelete);
 
             foreach (var control in _keyControls.Values)
             {

@@ -126,6 +126,7 @@ ui-options-header-shuttle = Shuttle
 ui-options-header-map-editor = Map Editor
 ui-options-header-dev = Development
 ui-options-header-general = General
+ui-options-header-system = System
 
 ui-options-hotkey-keymap = Use US QWERTY Keys
 ui-options-hotkey-toggle-walk = Toggle Speed
@@ -259,6 +260,12 @@ ui-options-function-shuttle-strafe-down = Strafe down
 ui-options-function-shuttle-rotate-left = Rotate left
 ui-options-function-shuttle-rotate-right = Rotate right
 ui-options-function-shuttle-brake = Brake
+
+ui-options-function-text-copy = Copy Text
+ui-options-function-text-paste = Paste Text
+ui-options-function-text-cut = Cut Text
+ui-options-function-text-select-all = Select All Text
+ui-options-function-text-delete = Delete
 
 ## Network menu
 
