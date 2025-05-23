@@ -2,8 +2,7 @@
   id: Cyberiad
   mapName: 'Cyberiad Station'
   mapPath: /Maps/cyberiad.yml
-  minPlayers: 30
-  maxPlayers: 85
+  minPlayers: 0
   stations:
     Cyberiad:
       stationProto: StandardNanotrasenStationCargoOnly
