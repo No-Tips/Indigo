@@ -1326,6 +1326,13 @@ namespace Content.Client.Lobby.UI
 
         private void SetName(string newName)
         {
+            // Sanitize the name to strip all non ASCII characters
+            foreach (var c in newName)
+            {
+                if (c > 127)
+                    newName = newName.Replace(c.ToString(), "");
+            }
+
             Profile = Profile?.WithName(newName);
             IsDirty = true;
         }
