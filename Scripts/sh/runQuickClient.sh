@@ -6,4 +6,5 @@ if [ "$(dirname $0)" != "." ]; then
 fi
 
 cd ../../
+sh -e Scripts/sh/pklEval.sh
 dotnet run --project Content.Client --no-build
