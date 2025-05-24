@@ -26,7 +26,7 @@ You can use scripts `Scripts/sh/genTypings.sh` and `Scripts/sh/pklEval.sh` for t
 > 4. Run `Scripts/bat/runQuickAll.bat` to launch the client and the server
 > 5. Connect to localhost in the client and play
 
-### Linux & MacOs
+### Linux & MacOS
 
 > 1. Clone this repository
 > 2. Run `git submodule update --init --recursive` in a terminal to download the engine
