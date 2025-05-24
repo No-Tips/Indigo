@@ -62,6 +62,84 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "generate typings",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "Content.TypingsGenerator",
+                "--no-build"
+            ],
+            "dependsOn": "build"
+        },
+        {
+            "label": "generate typings (Tools)",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "Content.TypingsGenerator",
+                "--no-build"
+            ],
+            "dependsOn": "build (Tools)"
+        },
+        {
+            "label": "generate typings (Release)",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "Content.TypingsGenerator",
+                "--no-build"
+            ],
+            "dependsOn": "build (Release)"
+        },
+        {
+            "label": "pkl eval",
+            "command": "echo",
+            "type": "process",
+            "args": [
+                "eval",
+                "${cwd}/Pkl/Prototypes/*.pkl",
+                "--format",
+                "yaml",
+                "-o",
+                "${workspaceFolder}/Resources/Prototypes/pkl.yml"
+            ],
+            "dependsOn": "generate typings",
+        },
+        {
+            "label": "pkl eval (Tools)",
+            "command": "pkl",
+            "type": "process",
+            "args": [
+                "eval",
+                "${cwd}/Pkl/Prototypes/*.pkl",
+                "--format",
+                "yaml",
+                "-o",
+                "${workspaceFolder}/Resources/Prototypes/pkl.yml"
+            ],
+            "dependsOn": "generate typings (Tools)"
+        },
+        {
+            "label": "pkl eval (Release)",
+            "command": "pkl",
+            "type": "process",
+            "args": [
+                "eval",
+                "${cwd}/Pkl/Prototypes/*.pkl",
+                "--format",
+                "yaml",
+                "-o",
+                "${workspaceFolder}/Resources/Prototypes/pkl.yml"
+            ],
+            "dependsOn": "generate typings (Release)"
+        },
+        {
             "label": "build-yaml-linter",
             "command": "dotnet",
             "type": "process",
@@ -71,7 +149,8 @@
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$msCompile"
-        }
+            "problemMatcher": "$msCompile",
+            "dependsOn": "pkl eval"
+        },
     ]
 }

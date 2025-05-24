@@ -12,57 +12,28 @@
             "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
             "args": [],
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval",
         },
         {
             "name": "Client (Tools)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build (Tools)",
             "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
             "args": [],
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval (Tools)",
         },
         {
             "name": "Client (Release)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build (Release)",
             "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
             "args": [],
             "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        // COMPATABILITY RENDERERS
-        {
-            "name": "Client (Compatibility Renderer)",
-            "type": "coreclr",
-            "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
-            "args": "--cvar display.compat=true",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Client (Tools) - (Compatability Renderer)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build (Tools)",
-            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
-            "args": ["--cvar display.compat=true"],
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Client (Release) - (Compatability Renderer)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build (Release)",
-            "program": "${workspaceFolder}/bin/Debug/Content.Client/Content.Client.dll",
-            "args": ["--cvar display.compat=true"],
-            "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval (Release)",
         },
         // SERVER CONFIGS
         {
@@ -72,38 +43,39 @@
             "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
             "args": [],
             "console": "integratedTerminal",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval"
         },
         {
             "name": "Server (Tools)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build (Tools)",
             "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
             "args": [],
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval (Tools)",
         },
         {
             "name": "Server (Release)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build (Release)",
             "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
             "args": [],
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "pkl eval (Release)",
         },
         // LINTER
         {
             "name": "YAML Linter",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build-yaml-linter",
             "program": "${workspaceFolder}/bin/Content.YAMLLinter/Content.YAMLLinter.dll",
             "cwd": "${workspaceFolder}/Content.YAMLLinter",
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "preLaunchTask": "build-yaml-linter",
         }
     ],
     "compounds": [
@@ -113,7 +85,7 @@
                 "Server",
                 "Client"
             ],
-            "preLaunchTask": "build"
+            "preLaunchTask": "pkl eval"
         },
         {
             "name": "Server/Client (Tools)",
@@ -121,7 +93,7 @@
                 "Server (Tools)",
                 "Client (Tools)"
             ],
-            "preLaunchTask": "build (Tools)"
+            "preLaunchTask": "pkl eval (Tools)"
         },
         {
             "name": "Server/Client (Release)",
@@ -129,7 +101,7 @@
                 "Server (Release)",
                 "Client (Release)"
             ],
-            "preLaunchTask": "build (Release)"
+            "preLaunchTask": "pkl eval (Release)"
         }
     ]
 }
