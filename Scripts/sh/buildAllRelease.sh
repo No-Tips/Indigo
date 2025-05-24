@@ -9,3 +9,4 @@ cd ../../
 
 git submodule update --init --recursive
 dotnet build -c Release
+sh -e Scripts/sh/genTypings.sh

@@ -1,0 +1,9 @@
+amends "../base.pkl"
+import "../typings.pkl"
+
+content {
+    new typings.GameMapPoolPrototype {
+        id = "DefaultMapPool"
+        maps = Set("Cyberiad")
+    }
+}
