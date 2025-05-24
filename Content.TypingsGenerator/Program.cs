@@ -29,6 +29,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Content.IntegrationTests;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Maths;
@@ -202,6 +203,12 @@ internal record struct Type
 
         if (t == typeof(ResPath))
             return new Type("ResPath", false, BaseModuleName);
+
+        if (t == typeof(AudioParams))
+            return new Type("AudioParams", false, BaseModuleName);
+
+        if (t == typeof(SoundSpecifier))
+            return new Type("SoundSpecifier", false, BaseModuleName);
 
         if (t == typeof(Vector2i))
             return new Type("Vector2i", false, BaseModuleName);
@@ -514,7 +521,7 @@ internal static class Program
             if (prototype.FullName!.StartsWith("Robust.UnitTesting"))
                 continue;
 
-            var typeValue = JsonNamingPolicy.CamelCase.ConvertName(prototype.Name.Replace("Prototype", null));
+            var typeValue = CalculatePrototypeTypeName(prototype);
 
             var classDef = GenerateClassDefinition(
                     prototype,
@@ -699,5 +706,20 @@ internal static class Program
             name = JsonNamingPolicy.CamelCase.ConvertName(fieldInfo.Name);
 
         return ReservedWords.Contains(name) ? $"`{name}`" : name;
+    }
+
+    private static string CalculatePrototypeTypeName(System.Type type)
+    {
+        if (type.GetCustomAttribute<PrototypeAttribute>() is { } prototypeAttribute &&
+            prototypeAttribute.Type is { } typeOverride)
+            return typeOverride;
+
+        const string prototype = "Prototype";
+
+        if (!type.Name.EndsWith(prototype))
+            throw new InvalidPrototypeNameException($"Prototype {type} must end with the word Prototype");
+
+        var name = type.Name.AsSpan();
+        return $"{char.ToLowerInvariant(name[0])}{name[1..^prototype.Length]}";
     }
 }

@@ -2,15 +2,44 @@ module base
 
 // Base types
 
-typealias EntityUid = String;
+typealias EntityUid = String
 
-typealias ProtoId = String;
+typealias ProtoId = String
 
-typealias EntProtoId = String;
+typealias EntProtoId = String
 
-typealias LocId = String;
+typealias LocId = String
 
-typealias ResPath = String(read("file:Resources\(this)") != null)
+local const function IsResourceExists(p: String): Boolean = read("file:Resources\(p)") != null
+
+typealias ResPath = String(IsResourceExists(this))
+
+// typealias SoundSpecifier = String(IsResourceExists(this))
+
+class AudioParams {
+    volume: Float?
+    pitch: Float?
+    maxDistance: Float?
+    rolloffFactor: Float?
+    referenceDistance: Float?
+    loop: Boolean?
+    playOffsetSeconds: Float?
+    variation: Float?
+}
+
+abstract class SoundSpecifierBase {
+    params: AudioParams?
+}
+
+class SoundPathSpecifier extends SoundSpecifierBase {
+    path: ResPath
+}
+
+class SoundCollectionSpecifier extends SoundSpecifierBase {
+    collection: String|Null
+}
+
+typealias SoundSpecifier = SoundSpecifierBase|ResPath
 
 class Vector2i {
     x: Int

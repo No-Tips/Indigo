@@ -1,0 +1,10 @@
+amends "../base.pkl"
+
+import "../typings.pkl"
+
+content {
+    new typings.RoundAnnouncementPrototype {
+        id = "Welcome"
+        sound = "/Audio/Announcements/welcome.ogg"
+    }
+}
