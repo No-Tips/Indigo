@@ -1,3 +1,3 @@
 @echo off
 
-call dotnet run --project Content.TypingsGenerator --no-build > /dev/null
+call dotnet run --project Content.TypingsGenerator --no-build
