@@ -1,9 +1,7 @@
-amends ".../base.pkl"
-
-import ".../typings.pkl"
+amends ".../Typings.pkl"
 
 content {
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceEngineering"
         files {
             "/Audio/Ambience/ambiatmos.ogg"
@@ -17,7 +15,7 @@ content {
             "/Audio/Ambience/ambitech3.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceGeneral"
         files {
             "/Audio/Ambience/ambigen1.ogg"
@@ -35,7 +33,7 @@ content {
             "/Audio/Ambience/ambigen15.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceHoly"
         files {
             "/Audio/Ambience/ambicha1.ogg"
@@ -47,7 +45,7 @@ content {
             "/Audio/Ambience/ambiholy3.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceMaintenance"
         files {
             "/Audio/Ambience/ambimaint1.ogg"
@@ -63,13 +61,13 @@ content {
             "/Audio/Ambience/maintambience.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceMedical"
         files {
             "/Audio/Ambience/ambinice.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceMining"
         files {
             "/Audio/Ambience/ambicave.ogg"
@@ -91,7 +89,7 @@ content {
             "/Audio/Ambience/unanchored.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceRuins"
         files {
             "/Audio/Ambience/ambicave.ogg"
@@ -109,7 +107,7 @@ content {
             "/Audio/Ambience/ambiruin7.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceSpace"
         files {
             "/Audio/Ambience/constellations.ogg"
@@ -120,7 +118,7 @@ content {
             "/Audio/Ambience/ambispace2.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceSpooky"
         files {
             "/Audio/Ambience/ambimo1.ogg"
@@ -131,7 +129,7 @@ content {
             "/Audio/Ambience/ambiruin7.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceTrain"
         files {
             "/Audio/Ambience/ambitrain1.ogg"
@@ -142,7 +140,7 @@ content {
             "/Audio/Ambience/ambiruin6.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceSpookyFog"
         files {
             "/Audio/Ambience/spookyspace1.ogg"
@@ -161,7 +159,7 @@ content {
             "/Audio/Ambience/ambimine.ogg"
         }
     }
-    new typings.SoundCollectionPrototype {
+    new SoundCollectionPrototype {
         id = "AmbienceStation"
         files {
             "/Audio/Ambience/shipambience.ogg"

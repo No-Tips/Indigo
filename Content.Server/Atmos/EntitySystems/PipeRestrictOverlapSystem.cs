@@ -120,11 +120,14 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         var otherDirs = GetAllDirections(other).ToList();
         var entDirsCollapsed = PipeDirection.None;
 
-        foreach (var dir in entDirs)
+        foreach (var (dir, layer) in entDirs)
         {
             entDirsCollapsed |= dir;
-            foreach (var otherDir in otherDirs)
+            foreach (var (otherDir, otherLayer) in otherDirs)
             {
+                if (layer != otherLayer)
+                    continue;
+
                 takenDirs |= otherDir;
                 if (StrictPipeStacking)
                     if ((dir & otherDir) != 0)
@@ -139,13 +142,13 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         return (StrictPipeStacking ? false : ((takenDirs & entDirsCollapsed) == entDirsCollapsed), takenDirs);
 
 
-        IEnumerable<PipeDirection> GetAllDirections(Entity<NodeContainerComponent, TransformComponent> pipe)
+        IEnumerable< (PipeDirection Direction, int Layer)> GetAllDirections(Entity<NodeContainerComponent, TransformComponent> pipe)
         {
             foreach (var node in pipe.Comp1.Nodes.Values)
             {
                 // we need to rotate the pipe manually like this because the rotation doesn't update for pipes that are unanchored.
                 if (node is PipeNode pipeNode)
-                    yield return pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation);
+                    yield return (pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.Layer);
             }
         }
     }

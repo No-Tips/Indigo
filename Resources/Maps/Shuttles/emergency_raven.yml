@@ -8167,7 +8167,7 @@ entities:
       inletOneConcentration: 0.78
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 1265
     components:
@@ -8181,7 +8181,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,-27.5
       parent: 2
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 1267
     components:
@@ -8299,7 +8299,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 1283
     components:
@@ -8336,7 +8336,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 1288
     components:
@@ -9874,7 +9874,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 1489
     components:
@@ -10470,7 +10470,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 1566
     components:

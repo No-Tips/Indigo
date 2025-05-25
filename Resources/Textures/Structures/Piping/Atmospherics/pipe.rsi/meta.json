@@ -1,87 +1,183 @@
 {
-   "version":1,
-   "size":{
-      "x":32,
-      "y":32
-   },
-   "license":"CC-BY-SA-3.0",
-   "copyright":"Inhand sprites by alzore_(discord) for SS14. pipeTrinaryConnectors made by Menshin for SS14 based on pipeTJunction, the rest is taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f295f818e573da.",
-   "states":[
-      {
-         "name": "inhand-left",
-         "directions":4
-      },
-      {
-         "name":"inhand-right",
-         "directions":4
-      },
-      {
-         "name": "Bend-inhand-left",
-         "directions":4
-      },
-      {
-         "name":"Bend-inhand-right",
-         "directions":4
-      },
-      {
-         "name": "TJunction-inhand-left",
-         "directions":4
-      },
-      {
-         "name":"TJunction-inhand-right",
-         "directions":4
-      },
-      {
-         "name": "Fourway-inhand-left",
-         "directions":4
-      },
-      {
-         "name":"Fourway-inhand-right",
-         "directions":4
-      },
-      {
-         "name":"pipeBroken",
-         "directions":1
-      },
-      {
-         "name":"pipeTJunction",
-         "directions":4
-      },
-      {
-         "name":"pipeHalf",
-         "directions":4
-      },
-      {
-         "name":"pipeBend",
-         "directions":4
-      },
-      {
-         "name": "pipeFourway",
-         "directions":4
-      },
-      {
-         "name":"pipeStraight",
-         "directions":4
-      },
-      {
-         "name":"pipeConnector",
-         "directions":4
-      },
-	  {
-         "name":"pipeTrinaryConnectors",
-         "directions":4
-      },
-      {
-         "name":"storageStraight",
-         "directions":4
-      },
-      {
-         "name":"storageBend",
-         "directions":4
-      },
-      {
-         "name":"storageTJunction",
-         "directions":4
-      }
-   ]
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f295f818e573da",
+    "states": [
+        {
+            "name": "inhand-left",
+            "directions":4
+        },
+        {
+            "name":"inhand-right",
+            "directions":4
+        },
+        {
+            "name": "Bend-inhand-left",
+            "directions":4
+        },
+        {
+            "name":"Bend-inhand-right",
+            "directions":4
+        },
+        {
+            "name": "TJunction-inhand-left",
+            "directions":4
+        },
+        {
+            "name":"TJunction-inhand-right",
+            "directions":4
+        },
+        {
+            "name": "Fourway-inhand-left",
+            "directions":4
+        },
+        {
+            "name":"Fourway-inhand-right",
+            "directions":4
+        },
+        {
+            "name": "pipeTJunction",
+            "directions": 4
+        },
+        {
+            "name": "pipeTJunction_0",
+            "directions": 4
+        },
+        {
+            "name": "pipeTJunction_1",
+            "directions": 4
+        },
+        {
+            "name": "pipeTJunction_2",
+            "directions": 4
+        },
+        {
+            "name": "pipeTJunction_3",
+            "directions": 4
+        },
+        {
+            "name": "pipeTJunction_4",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf_0",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf_1",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf_2",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf_3",
+            "directions": 4
+        },
+        {
+            "name": "pipeHalf_4",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend_0",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend_1",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend_2",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend_3",
+            "directions": 4
+        },
+        {
+            "name": "pipeBend_4",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway_0",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway_1",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway_2",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway_3",
+            "directions": 4
+        },
+        {
+            "name": "pipeFourway_4",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight_0",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight_1",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight_2",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight_3",
+            "directions": 4
+        },
+        {
+            "name": "pipeStraight_4",
+            "directions": 4
+        },
+        {
+            "name": "pipeBroken",
+            "directions": 1
+        },
+        {
+            "name": "pipeTrinaryConnectors",
+            "directions": 4
+        },
+        {
+            "name": "storageStraight",
+            "directions": 4
+        },
+        {
+            "name": "storageBend",
+            "directions": 4
+        },
+        {
+            "name": "storageTJunction",
+            "directions": 4
+        }
+    ]
 }

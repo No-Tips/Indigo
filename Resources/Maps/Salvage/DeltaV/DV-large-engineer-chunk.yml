@@ -1164,7 +1164,7 @@ entities:
     - type: Transform
       pos: 0.5256669,-4.4903
       parent: 15
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 538
     components:
@@ -1182,7 +1182,7 @@ entities:
       parent: 15
     - type: AtmosPipeColor
       color: '#FF8800FF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 495
     components:
@@ -1198,7 +1198,7 @@ entities:
       parent: 15
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 464
     components:
@@ -1671,7 +1671,7 @@ entities:
       parent: 15
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 470
     components:
@@ -1724,7 +1724,7 @@ entities:
       parent: 15
     - type: AtmosPipeColor
       color: '#FF8800FF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 520
     components:
@@ -1784,7 +1784,7 @@ entities:
       joinedGrid: 15
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 521
     components:

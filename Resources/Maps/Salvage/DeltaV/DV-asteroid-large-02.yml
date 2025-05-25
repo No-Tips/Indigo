@@ -1635,7 +1635,7 @@ entities:
     - type: Transform
       pos: 2.5,-1.5
       parent: 770
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 763
     components:
@@ -1643,7 +1643,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-2.5
       parent: 770
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 758
     components:
@@ -1675,7 +1675,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-1.5
       parent: 770
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 765
     components:
@@ -1685,7 +1685,7 @@ entities:
       parent: 770
     - type: AtmosDevice
       joinedGrid: 770
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 764
     components:

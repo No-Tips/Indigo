@@ -439,7 +439,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 90
     components:
@@ -458,14 +458,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,0.5
       parent: 1
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 91
     components:
     - type: Transform
       pos: 2.5,0.5
       parent: 1
-- proto: GasPipeHalf
+- proto: GasPipeHalf2
   entities:
   - uid: 98
     components:
@@ -478,7 +478,7 @@ entities:
     - type: Transform
       pos: -0.5,1.5
       parent: 1
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 88
     components:
@@ -525,7 +525,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 87
     components:

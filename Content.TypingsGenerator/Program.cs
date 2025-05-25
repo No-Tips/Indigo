@@ -205,7 +205,7 @@ internal static class MetaTypes
             typeof(Vector3),
             ("Vector3",
                 """
-                const function Vector3(_x: Float, _y: Float, _z: Float): Vector2 = new Vector2 {
+                const function Vector3(_x: Float, _y: Float, _z: Float): Vector3 = new Vector3 {
                     x = _x
                     y = _y
                     z = _z
@@ -633,7 +633,7 @@ internal record struct ModuleDefinition
 internal static class Program
 {
     private const string PklFolder = "Pkl";
-    private const string PklTypingsFile = $"{PklFolder}/typings.pkl";
+    private const string PklTypingsFile = $"{PklFolder}/Typings.pkl";
 
     private static readonly Dictionary<System.Type, ITypeDefinition> GlobalTypes = [];
     private static readonly HashSet<string> ReservedWords = ["hidden", "abstract", "open", "delete", "true", "false",];
@@ -692,6 +692,33 @@ internal static class Program
             sb.AppendLine(kvp.Value.Stringify());
             saved.Add(kvp.Value.Name);
         }
+
+        sb.AppendLine(
+            """
+            // END
+
+            content: Listing<Prototype|EntityPrototype> = new {}
+
+            local const function RenderTaggedClass(v: TaggedClass): Any = new Mapping {
+                [new RenderDirective { text = "!type" }] = new RenderDirective { text = v.getClass().simpleName }
+                ...v.toMap()
+            }
+
+            output {
+                value = content
+                renderer = new YamlRenderer {
+                    converters {
+                        [Vector2] = (v) -> "\(v.x),\(v.y)"
+                        [Vector2i] = (v) -> "\(v.x),\(v.y)"
+                        [Vector3] = (v) -> "\(v.x),\(v.y),\(v.z)"
+                        [Box2] = (v) -> "\(v.left),\(v.bottom),\(v.right),\(v.top)"
+                        [Box2i] = (v) -> "\(v.left),\(v.bottom),\(v.right),\(v.top)"
+                        [TaggedClass] = (v) -> RenderTaggedClass(v)
+                    }
+                }
+            }
+            """
+        );
 
         await File.WriteAllTextAsync(PklTypingsFile, sb.ToString());
 
@@ -1019,45 +1046,56 @@ internal static class Program
 
     public static Type? TryToMetaType(System.Type t, bool skipGenericCheck = false)
     {
-        if (!skipGenericCheck && t.IsGenericType)
+        if (!skipGenericCheck)
         {
-            var genericDef = t.GetGenericTypeDefinition();
-
-            if (genericDef == typeof(Nullable<>))
+            if (t.IsGenericType)
             {
-                var ty = TryToMetaType(t.GenericTypeArguments[0]);
+                var genericDef = t.GetGenericTypeDefinition();
 
-                if (ty.HasValue)
-                    ty = ty.Value with { IsNullable = true, };
-
-                return ty;
-            }
-
-            if (TryToMetaType(genericDef, true) is not { } type)
-                return null;
-
-            foreach (var p in t.GenericTypeArguments)
-            {
-                var pType = TryToMetaType(p) ?? GenerateTypeDefinition(p);
-
-                if (pType is null)
+                if (genericDef == typeof(Nullable<>))
                 {
-                    Console.WriteLine(
-                        $"Couldn't make the typings for the generic type argument '{p.FullName} {p.Name}' in type '{t.FullName}'");
+                    var ty = TryToMetaType(t.GenericTypeArguments[0]);
 
-                    type.TypeArguments.Add(new("Any", false, null));
+                    if (ty.HasValue)
+                        ty = ty.Value with { IsNullable = true, };
 
-                    continue;
+                    return ty;
                 }
 
-                type.TypeArguments.Add(pType.Value);
+                if (TryToMetaType(genericDef, true) is not { } type)
+                    return null;
+
+                foreach (var p in t.GenericTypeArguments)
+                {
+                    var pType = TryToMetaType(p) ?? GenerateTypeDefinition(p);
+
+                    if (pType is null)
+                    {
+                        Console.WriteLine(
+                            $"Couldn't make the typings for the generic type argument '{p.FullName} {p.Name}' in type '{t.FullName}'");
+
+                        type.TypeArguments.Add(new("Any", false, null));
+
+                        continue;
+                    }
+
+                    type.TypeArguments.Add(pType.Value);
+                }
+
+                return type;
             }
 
-            return type;
-        }
+            if (t.IsArray)
+            {
+                var elementType = t.GetElementType()!;
+                var type = TryToMetaType(elementType) ?? GenerateTypeDefinition(elementType);
 
-        if (t.IsArray)
-            return new Type("Listing", false, null);
+                if (type is null)
+                    return null;
+
+                return new Type("Listing", false, null, [type.Value,]);
+            }
+        }
 
         if (MetaTypes.BuiltinTypes.TryGetValue(t, out var builtinType))
             return builtinType();

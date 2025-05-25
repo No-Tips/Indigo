@@ -18,14 +18,17 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: North
+          layer: 2
         filter:
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: West
+          layer: 2
         outlet:
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
+          layer: 2
 
 - type: entity
   parent: GasTrinaryBase
@@ -101,7 +104,6 @@
           False: { state: gasFilterF }
   - type: Construction
     node: filterflipped
-
   - type: PipeColorVisuals
   - type: NodeContainer
     nodes:
@@ -109,14 +111,17 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
+        layer: 2
       filter:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: West
+        layer: 2
       outlet:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+        layer: 2
 
 - type: entity
   parent: GasTrinaryBase
@@ -197,14 +202,17 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
+        layer: 2
       filter:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: West
+        layer: 2
       outlet:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+        layer: 2
   - type: Construction
     node: mixerflipped
 
@@ -229,14 +237,17 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: North
+          layer: 2
         control:
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: West
+          layer: 2
         outlet:
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
+          layer: 2
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
       layers:

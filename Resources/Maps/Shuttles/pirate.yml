@@ -2257,7 +2257,7 @@ entities:
       inletOneConcentration: 0.78
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 329
     components:
@@ -2299,7 +2299,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 334
     components:
@@ -2342,7 +2342,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,8.5
       parent: 1
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 341
     components:
@@ -2359,7 +2359,7 @@ entities:
     - type: Transform
       pos: 2.5,6.5
       parent: 1
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 344
     components:
@@ -2668,7 +2668,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.5,6.5
       parent: 1
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 397
     components:
@@ -2735,7 +2735,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasPressurePump
+- proto: GasPressurePump2
   entities:
   - uid: 407
     components:
@@ -2761,7 +2761,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 410
     components:
@@ -2856,7 +2856,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 422
     components:

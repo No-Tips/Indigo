@@ -24565,7 +24565,7 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 3130
     components:
@@ -24585,7 +24585,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,33.5
       parent: 2
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 6103
     components:
@@ -25084,7 +25084,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 6333
     components:
@@ -25212,7 +25212,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 3132
     components:
@@ -33243,7 +33243,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 777
     components:
@@ -33786,7 +33786,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 6179
     components:
@@ -34199,7 +34199,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 6926
     components:
@@ -34621,7 +34621,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasVolumePump
+- proto: GasVolumePump2
   entities:
   - uid: 6106
     components:

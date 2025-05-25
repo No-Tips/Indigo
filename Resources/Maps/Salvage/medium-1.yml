@@ -657,7 +657,7 @@ entities:
       parent: 85
     - type: Fixtures
       fixtures: {}
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 162
     components:
@@ -675,7 +675,7 @@ entities:
       parent: 85
     - type: AtmosDevice
       joinedGrid: 85
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 63
     components:
@@ -717,7 +717,7 @@ entities:
       parent: 85
     - type: AtmosDevice
       joinedGrid: 85
-- proto: GasPressurePump
+- proto: GasPressurePump2
   entities:
   - uid: 62
     components:

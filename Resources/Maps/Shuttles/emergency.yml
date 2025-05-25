@@ -1254,7 +1254,7 @@ entities:
       parent: 410
     - type: AtmosDevice
       joinedGrid: 410
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 270
     components:
@@ -1264,7 +1264,7 @@ entities:
       parent: 410
     - type: AtmosDevice
       joinedGrid: 410
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 291
     components:
@@ -1277,14 +1277,14 @@ entities:
     - type: Transform
       pos: -1.5,-0.5
       parent: 410
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 250
     components:
     - type: Transform
       pos: -2.5,2.5
       parent: 410
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 252
     components:
@@ -1432,7 +1432,7 @@ entities:
     - type: Transform
       pos: -2.5,11.5
       parent: 410
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 248
     components:
@@ -1462,7 +1462,7 @@ entities:
       parent: 410
     - type: AtmosDevice
       joinedGrid: 410
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 242
     components:
