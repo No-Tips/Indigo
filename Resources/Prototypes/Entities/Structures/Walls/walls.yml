@@ -654,8 +654,9 @@
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
     color: '#1b1613'
-  - type: Sprite
+  - type: Icon
     sprite: Structures/Walls/solid.rsi
+    color: '#1b1613'
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -956,8 +957,9 @@
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
     color: '#1b1613'
-  - type: Sprite
+  - type: Icon
     sprite: Structures/Walls/solid.rsi
+    color: '#1b1613'
     state: rgeneric
   - type: Construction
     graph: Girder
