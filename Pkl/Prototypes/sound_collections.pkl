@@ -1,6 +1,6 @@
-amends "../base.pkl"
+amends ".../base.pkl"
 
-import "../typings.pkl"
+import ".../typings.pkl"
 
 content {
     new typings.SoundCollectionPrototype {

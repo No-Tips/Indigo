@@ -1,5 +1,6 @@
-amends "../base.pkl"
-import "../typings.pkl"
+amends ".../base.pkl"
+
+import ".../typings.pkl"
 
 content {
     new typings.GameMapPoolPrototype {
