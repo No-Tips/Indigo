@@ -652,9 +652,10 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
-  - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: Structures/Walls/solid.rsi
+    color: '#1b1613'
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -869,6 +870,7 @@
       - Wall
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
+    color: '#ffffff'
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
     state: full
@@ -952,10 +954,11 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
-  - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
-    state: full
+    sprite: Structures/Walls/solid.rsi
+    color: '#1b1613'
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+    state: rgeneric
   - type: Construction
     graph: Girder
     node: wallrust
