@@ -457,7 +457,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 27
     components:
@@ -489,7 +489,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 35
     components:
@@ -515,7 +515,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 28
     components:
@@ -534,7 +534,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 29
     components:
@@ -558,7 +558,7 @@ entities:
       - 81
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 31
     components:

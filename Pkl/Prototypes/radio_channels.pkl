@@ -1,16 +1,14 @@
-amends "../base.pkl"
-
-import "../typings.pkl"
+amends ".../Typings.pkl"
 
 content {
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Common"
         name = "chat-radio-common"
         keycode = ";"
         frequency = 1459
         color = "#32cd32"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "CentCom"
         name = "chat-radio-centcom"
         keycode = "y"
@@ -18,56 +16,56 @@ content {
         color = "#2681a5"
         longRange = true
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Command"
         name = "chat-radio-command"
         keycode = "c"
         frequency = 1353
         color = "#fcdf03"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Engineering"
         name = "chat-radio-engineering"
         keycode = "e"
         frequency = 1357
         color = "#f37746"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Medical"
         name = "chat-radio-medical"
         keycode = "m"
         frequency = 1355
         color = "#57b8f0"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Science"
         name = "chat-radio-science"
         keycode = "n"
         frequency = 1351
         color = "#c68cfa"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Security"
         name = "chat-radio-security"
         keycode = "s"
         frequency = 1359
         color = "#dd3535"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Service"
         name = "chat-radio-service"
         keycode = "v"
         frequency = 1349
         color = "#6ca729"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Supply"
         name = "chat-radio-supply"
         keycode = "u"
         frequency = 1347
         color = "#b88646"
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Syndicate"
         name = "chat-radio-syndicate"
         keycode = "t"
@@ -75,7 +73,7 @@ content {
         color = "#8f4a4b"
         longRange = true
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Handheld"
         name = "chat-radio-handheld"
         frequency = 1330
@@ -83,7 +81,7 @@ content {
         longRange = true
         showFrequency = true
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Binary"
         name = "chat-radio-binary"
         keycode = "b"
@@ -91,7 +89,7 @@ content {
         color = "#2ed2fd"
         longRange = true
     }
-    new typings.RadioChannelPrototype {
+    new RadioChannelPrototype {
         id = "Freelance"
         name = "chat-radio-freelance"
         keycode = "f"

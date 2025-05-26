@@ -21719,7 +21719,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,-30.5
       parent: 1668
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 3430
     components:
@@ -21745,7 +21745,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 20.5,-28.5
       parent: 1668
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 3660
     components:
@@ -22090,7 +22090,7 @@ entities:
       parent: 1668
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 3678
     components:
@@ -22118,7 +22118,7 @@ entities:
       parent: 1668
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 3664
     components:
@@ -24710,7 +24710,7 @@ entities:
       parent: 1668
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 3671
     components:
@@ -25137,7 +25137,7 @@ entities:
       parent: 1668
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPressurePump
+- proto: GasPressurePump2
   entities:
   - uid: 3663
     components:
@@ -25168,7 +25168,7 @@ entities:
     - type: Transform
       pos: 13.5,-4.5
       parent: 1668
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 3687
     components:
@@ -25540,7 +25540,7 @@ entities:
       parent: 1668
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 6140
     components:

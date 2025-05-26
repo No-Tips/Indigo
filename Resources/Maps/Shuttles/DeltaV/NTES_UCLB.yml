@@ -4684,7 +4684,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 1200
     components:
@@ -4696,7 +4696,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 772
     components:
@@ -4838,7 +4838,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 801
     components:
@@ -4847,7 +4847,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 568
     components:
@@ -5913,7 +5913,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 570
     components:
@@ -6164,7 +6164,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 483
     components:
@@ -6309,7 +6309,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 637
     components:

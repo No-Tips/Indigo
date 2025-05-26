@@ -321,7 +321,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 18
     components:
@@ -355,7 +355,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 24
     components:
@@ -368,7 +368,7 @@ entities:
       - 27
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 25
     components:

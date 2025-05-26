@@ -828,7 +828,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 88
     components:
@@ -838,7 +838,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF0000FF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 77
     components:
@@ -868,7 +868,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF0000FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 44
     components:
@@ -887,7 +887,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF0000FF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 68
     components:

@@ -72507,7 +72507,7 @@ entities:
     - type: Transform
       pos: -26.5,15.5
       parent: 2
-- proto: GasPassiveGate
+- proto: GasPassiveGate2
   entities:
   - uid: 11103
     components:
@@ -72532,7 +72532,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 11106
     components:
@@ -72618,7 +72618,7 @@ entities:
     - type: Transform
       pos: 57.5,41.5
       parent: 2
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 11118
     components:
@@ -75099,7 +75099,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 11442
     components:
@@ -75479,7 +75479,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 11496
     components:
@@ -99174,7 +99174,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 14563
     components:
@@ -102532,7 +102532,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 10.5,-19.5
       parent: 2
-- proto: GasPressurePump
+- proto: GasPressurePump2
   entities:
   - uid: 15001
     components:
@@ -102815,7 +102815,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasValve
+- proto: GasValve2
   entities:
   - uid: 15040
     components:
@@ -102903,7 +102903,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#E5CCFFFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 15050
     components:
@@ -104768,7 +104768,7 @@ entities:
       - 12
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 15282
     components:
@@ -106543,7 +106543,7 @@ entities:
       - 21
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasVolumePump
+- proto: GasVolumePump2
   entities:
   - uid: 15505
     components:

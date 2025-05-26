@@ -704,7 +704,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 173
     components:

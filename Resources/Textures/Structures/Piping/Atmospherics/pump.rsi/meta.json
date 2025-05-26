@@ -1,62 +1,299 @@
 {
-   "version":1,
-   "size":{
-      "x":32,
-      "y":32
-   },
-   "license":"CC-BY-SA-3.0",
-   "copyright":"Taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f295f818e573da. Signal valve is a digital valve modified by deltanedas.",
-   "states":[
-      {
-         "name":"pumpDigitalValve",
-         "directions":4
-      },
-      {
-         "name":"pumpManualValve",
-         "directions":4
-      },
-      {
-         "name":"pumpManualValveOn",
-         "directions":4
-      },
-      {
-         "name":"pumpSignalValve",
-         "directions":4
-      },
-      {
-         "name":"pumpSignalValveOn",
-         "directions":4
-      },
-      {
-         "name":"pumpPassiveGate",
-         "directions":4
-      },
-      {
-         "name":"pumpPassiveGateOn",
-         "directions":4
-      },
-      {
-         "name":"pumpPressure",
-         "directions":4
-      },
-      {
-         "name":"pumpPressureOn",
-         "directions":4,
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
-      },
-      {
-         "name":"pumpVolume",
-         "directions":4
-      },
-      {
-         "name":"pumpVolumeOn",
-         "directions":4,
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ], [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
-      },
-      {
-         "name":"pumpVolumeBlocked",
-         "directions":4,
-         "delays":[ [ 1.0, 1.0 ], [ 1.0, 1.0 ], [ 1.0, 1.0 ], [ 1.0, 1.0 ] ]
-      }
-   ]
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f295f818e573da",
+    "states": [
+        {
+            "name": "pumpManualValve",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValve_0",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValve_1",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValve_2",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValve_3",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValve_4",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn_0",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn_1",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn_2",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn_3",
+            "directions": 4
+        },
+        {
+            "name": "pumpManualValveOn_4",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate_0",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate_1",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate_2",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate_3",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGate_4",
+            "directions": 4
+        },
+        {
+            "name": "pumpPassiveGateOn",
+            "directions": 4
+        },
+        {
+            "name": "pumpPressure",
+            "directions": 4
+        },
+        {
+            "name": "pumpPressure_0",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpPressure_1",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpPressure_2",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpPressure_3",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpPressure_4",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpPressureOn_0",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpPressureOn_1",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpPressureOn_2",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpPressureOn_3",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpPressureOn_4",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpVolume",
+            "directions": 4
+        },
+        {
+            "name": "pumpVolume_0",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpVolume_1",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpVolume_2",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpVolume_3",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpVolume_4",
+            "directions": 4,
+            "delays": [
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5],
+                [0.5, 0.5]
+            ]
+        },
+        {
+            "name": "pumpVolumeOn_0",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpVolumeOn_1",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpVolumeOn_2",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpVolumeOn_3",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpVolumeOn_4",
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+            ]
+        },
+        {
+            "name": "pumpSignalValve",
+            "direction": 4
+        }
+    ]
 }

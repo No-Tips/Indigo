@@ -8480,7 +8480,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.5,47.5
       parent: 588
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 1412
     components:
@@ -8505,7 +8505,7 @@ entities:
     - type: Transform
       pos: 13.5,47.5
       parent: 588
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 1418
     components:
@@ -8519,7 +8519,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.5,46.5
       parent: 588
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 1410
     components:
@@ -8557,7 +8557,7 @@ entities:
     - type: Transform
       pos: 12.5,48.5
       parent: 588
-- proto: GasPressurePump
+- proto: GasPressurePump2
   entities:
   - uid: 1409
     components:

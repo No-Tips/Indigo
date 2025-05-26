@@ -1567,7 +1567,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.114485,-1.643019
       parent: 273
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 223
     components:
@@ -1579,7 +1579,7 @@ entities:
     - type: Transform
       pos: -2.5,0.5
       parent: 273
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 220
     components:
@@ -1688,7 +1688,7 @@ entities:
     - type: Transform
       pos: -2.5,2.5
       parent: 273
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 225
     components:
@@ -1705,7 +1705,7 @@ entities:
     - type: Transform
       pos: -6.5,0.5
       parent: 273
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 216
     components:
@@ -1746,7 +1746,7 @@ entities:
       parent: 273
     - type: AtmosDevice
       joinedGrid: 273
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 217
     components:

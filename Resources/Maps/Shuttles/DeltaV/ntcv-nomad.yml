@@ -512,7 +512,7 @@ entities:
     - type: PointLight
       enabled: True
     - type: ActiveEmergencyLight
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 158
     components:
@@ -522,7 +522,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 62
     components:
@@ -616,7 +616,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 68
     components:
@@ -659,7 +659,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 71
     components:
@@ -684,7 +684,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 148
     components:

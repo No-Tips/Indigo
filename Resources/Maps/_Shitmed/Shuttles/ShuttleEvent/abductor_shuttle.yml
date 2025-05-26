@@ -685,7 +685,7 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 1
-- proto: GasPassiveVent
+- proto: GasPassiveVent2
   entities:
   - uid: 58
     components:
@@ -705,7 +705,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,4.5
       parent: 1
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 246
     components:
@@ -734,7 +734,7 @@ entities:
     - type: Transform
       pos: 0.5,-4.5
       parent: 1
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 240
     components:

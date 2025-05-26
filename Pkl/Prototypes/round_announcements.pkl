@@ -1,10 +1,10 @@
-amends "../base.pkl"
-
-import "../typings.pkl"
+amends ".../Typings.pkl"
 
 content {
-    new typings.RoundAnnouncementPrototype {
+    new RoundAnnouncementPrototype {
         id = "Welcome"
-        sound = "/Audio/Announcements/welcome.ogg"
+        sound = new SoundPathSpecifier {
+            path = "/Audio/Announcements/welcome.ogg"
+        }
     }
 }

@@ -1554,7 +1554,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.0864897,1.0626472
       parent: 509
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 418
     components:
@@ -1602,7 +1602,7 @@ entities:
       parent: 509
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 416
     components:
@@ -2014,7 +2014,7 @@ entities:
       parent: 509
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 417
     components:
@@ -2100,7 +2100,7 @@ entities:
       parent: 509
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 409
     components:
@@ -2157,7 +2157,7 @@ entities:
       joinedGrid: 509
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasVentScrubber
+- proto: GasVentScrubber2
   entities:
   - uid: 464
     components:

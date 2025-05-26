@@ -1349,7 +1349,7 @@ entities:
     - type: Transform
       pos: -4.1251473,5.6412144
       parent: 2
-- proto: GasPipeBend
+- proto: GasPipeBend2
   entities:
   - uid: 8
     components:
@@ -1397,7 +1397,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,3.5
       parent: 2
-- proto: GasPipeFourway
+- proto: GasPipeFourway2
   entities:
   - uid: 16
     components:
@@ -1409,7 +1409,7 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 2
-- proto: GasPipeStraight
+- proto: GasPipeStraight2
   entities:
   - uid: 22
     components:
@@ -1423,7 +1423,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,1.5
       parent: 2
-- proto: GasPipeTJunction
+- proto: GasPipeTJunction2
   entities:
   - uid: 14
     components:
@@ -1477,7 +1477,7 @@ entities:
       targetTemperature: 593.15
     - type: AtmosDevice
       joinedGrid: 2
-- proto: GasVolumePump
+- proto: GasVolumePump2
   entities:
   - uid: 6
     components:

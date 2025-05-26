@@ -44,6 +44,7 @@
         nodeGroupID: Pipe
         rotationsEnabled: false
         volume: 1
+        layer: 2
   - type: ApcPowerReceiver
     powerLoad: 2000
   - type: Appearance

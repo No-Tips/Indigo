@@ -913,7 +913,7 @@ entities:
       parent: 181
     - type: AtmosDevice
       joinedGrid: 181
-- proto: GasVentPump
+- proto: GasVentPump2
   entities:
   - uid: 26
     components:

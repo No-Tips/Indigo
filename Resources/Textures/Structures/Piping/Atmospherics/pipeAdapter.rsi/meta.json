@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base",
+            "directions": 4
+        },
+        {
+            "name": "inletSelected_0",
+            "directions": 4
+        },
+        {
+            "name": "inletSelected_1",
+            "directions": 4
+        },
+        {
+            "name": "inletSelected_2",
+            "directions": 4
+        },
+        {
+            "name": "inletSelected_3",
+            "directions": 4
+        },
+        {
+            "name": "inletSelected_4",
+            "directions": 4
+        },
+        {
+            "name": "outletSelected_0",
+            "directions": 4
+        },
+        {
+            "name": "outletSelected_1",
+            "directions": 4
+        },
+        {
+            "name": "outletSelected_2",
+            "directions": 4
+        },
+        {
+            "name": "outletSelected_3",
+            "directions": 4
+        },
+        {
+            "name": "outletSelected_4",
+            "directions": 4
+        }
+    ]
+}
