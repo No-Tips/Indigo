@@ -19,8 +19,8 @@
   Vents and scrubbers are core atmospherics devices that fill and cleanse rooms, respectively. By default, they are configured for filling rooms to standard pressure (101.24kPa) and to remove all non-O2/N2 gasses from a room. They can be reconfigured from their default settings by linking them to an Air Alarm, allowing you to configure how they respond to various types of gasses or pressure levels.
 
   <Box>
-    <GuideEntityEmbed Entity="GasVentPump"/>
-    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="GasVentPump2"/>
+    <GuideEntityEmbed Entity="GasVentScrubber2"/>
   </Box>
   During standard operation, if a normal vent detects that the outside environment is space, it will automatically cease operation until a minimum pressure is reached to avoid destruction of useful gasses. This can be fixed by pressurizing the room up to that minimum pressure by refilling it with gas canister (potentially multiple, if the room is of significant size).
 
@@ -38,7 +38,7 @@
   <Box>
     <GuideEntityEmbed Entity="PlasmaCanister"/>
     <GuideEntityEmbed Entity="OxygenCanister"/>
-    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="GasVentScrubber2"/>
     <GuideEntityEmbed Entity="TritiumCanister"/>
   </Box>
 
@@ -48,7 +48,7 @@
   <Box>
     <GuideEntityEmbed Entity="TritiumCanister"/>
     <GuideEntityEmbed Entity="AirCanister"/>
-    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="GasVentScrubber2"/>
     <GuideEntityEmbed Entity="StorageCanister" Caption="Frezon Canister"/>
   </Box>
 
