@@ -168,7 +168,13 @@ internal static class MetaTypes
         },
         {
             typeof(ResPath),
-            ("ResPath", "typealias ResPath = String(read(\"file:Resources\\(this)\") != null)")
+            ("ResPath",
+                """
+                const function UriEncode(s: String): String = s.replaceAll(" ", "%20").replaceAll("'", "%27")
+
+                typealias ResPath = String(read("file:Resources\(UriEncode(this))") != null)
+                """
+            )
         },
         {
             typeof(Vector2i),
