@@ -77,6 +77,17 @@ content {
                             }
                         }
                     }
+
+                    new {
+                        to = "gaspipeadapter"
+                        steps {
+                            new MaterialConstructionGraphStep {
+                                material = "Steel"
+                                amount = 2
+                                doAfter = 1.0
+                            }
+                        }
+                    }
                 }
             }
 
@@ -202,6 +213,40 @@ content {
                 node = "radiator"
                 entity = new StaticNodeEntity {
                     id = "HeatExchanger"
+                }
+                edges {
+                    new {
+                        to = "start"
+                        conditions {
+                            new EntityAnchored {
+                                anchored = false
+                            }
+                        }
+                        completed {
+                            new SpawnPrototype {
+                                prototype = "SheetSteel1"
+                                amount = 2
+                            }
+                            new DeleteEntity {}
+                        }
+                        steps {
+                            new ToolConstructionGraphStep {
+                                tool = "Screwing"
+                                doAfter = 1.0
+                            }
+                            new ToolConstructionGraphStep {
+                                tool = "Welding"
+                                doAfter = 1.0
+                            }
+                        }
+                    }
+                }
+            }
+
+            new {
+                node = "gaspipeadapter"
+                entity = new StaticNodeEntity {
+                    id = "GasPipeAdapter"
                 }
                 edges {
                     new {
