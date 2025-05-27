@@ -81,6 +81,14 @@ content {
     generatePressurePump(3)
     generatePressurePump(4)
 
+    // Pressure pump subtypes:
+
+    generatePressurePumpHigh(0)
+    generatePressurePumpHigh(1)
+    generatePressurePumpHigh(2)
+    generatePressurePumpHigh(3)
+    generatePressurePumpHigh(4)
+
     new EntityPrototype {
         parent { commonParent }
         id = "GasVolumePump"
@@ -136,6 +144,14 @@ content {
     generateVolumePump(2)
     generateVolumePump(3)
     generateVolumePump(4)
+
+    // Volume pump subtypes:
+
+    generateVolumePumpHigh(0)
+    generateVolumePumpHigh(1)
+    generateVolumePumpHigh(2)
+    generateVolumePumpHigh(3)
+    generateVolumePumpHigh(4)
 
     new EntityPrototype {
         parent { commonParent }
@@ -414,6 +430,20 @@ content {
     }
 
     new EntityPrototype {
+        parent { "GasDualPortVentPump" }
+        id = "GasDualPortVentPumpHighFlow"
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new GasVentPumpComponent {
+                maxPressure = 13500.0
+                PumpPower = 6.0
+            }
+        }
+    }
+
+    new EntityPrototype {
         parent {
             "BaseMachine"
             "ConstructibleMachine"
@@ -619,7 +649,7 @@ content {
     }
 }
 
-local const function generatePressurePump(l: PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generatePressurePump(l: PipeLayer): EntityPrototype = new {
     parent { "GasPressurePump" }
     id = "GasPressurePump\(l)"
     suffix = "\(l)"
@@ -672,7 +702,22 @@ local const function generatePressurePump(l: PipeLayer): EntityPrototype = new E
     }
 }
 
-local const function generateVolumePump(l: PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generatePressurePumpHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPressurePump\(l)" }
+    id = "GasPressurePumpHighFlow\(l)"
+    suffix = "\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasPressurePumpComponent {
+            enabled = false
+            maxTargetPressure = 13500.0
+        }
+    }
+}
+
+local const function generateVolumePump(l: PipeLayer): EntityPrototype = new {
     parent { "GasVolumePump" }
     id = "GasVolumePump\(l)"
     suffix = "\(l)"
@@ -725,7 +770,21 @@ local const function generateVolumePump(l: PipeLayer): EntityPrototype = new Ent
     }
 }
 
-local const function generatePassiveGate(l: PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generateVolumePumpHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasVolumePump\(l)" }
+    id = "GasVolumePumpHighFlow\(l)"
+    suffix = "\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasVolumePumpComponent {
+            maxTransferRate = 600.0
+        }
+    }
+}
+
+local const function generatePassiveGate(l: PipeLayer): EntityPrototype = new {
     parent { "GasPassiveGate" }
     id = "GasPassiveGate\(l)"
     suffix = "\(l)"
@@ -764,7 +823,7 @@ local const function generatePassiveGate(l: PipeLayer): EntityPrototype = new En
     }
 }
 
-local const function generateValve(l: PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generateValve(l: PipeLayer): EntityPrototype = new {
     parent { "GasValve" }
     id = "GasValve\(l)"
     suffix = "\(l)"
