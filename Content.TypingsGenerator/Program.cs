@@ -32,6 +32,7 @@ using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Maths;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
 using Robust.Shared.Serialization.Manager.Attributes;
@@ -346,6 +347,30 @@ internal static class MetaTypes
         {
             typeof(ComponentRegistry),
             ("ComponentRegistry", "typealias ComponentRegistry = Listing<Component>(isDistinctBy((c) -> c.type))")
+        },
+        {
+            typeof(Fixture),
+            ("Fixture",
+                """
+                class Fixture {
+                  shape: IPhysShape?
+                  friction: Float?
+                  restitution: Float?
+                  hard: Boolean?
+                  density: Float?
+                  layer: Set<CollisionGroup>?
+                  mask: Set<CollisionGroup>?
+                }
+                """
+            )
+        },
+        {
+            typeof(SpriteSpecifier),
+            ("SpriteSpecifier",
+                """
+                typealias SpriteSpecifier = ResPath|Rsi
+                """
+            )
         }
     };
 
@@ -948,6 +973,9 @@ internal static class Program
                         continue;
 
                     if (GlobalTypes.ContainsKey(child))
+                        continue;
+
+                    if (TryToMetaType(child) is not null)
                         continue;
 
                     var childDef = GenerateClassDefinition(child) with
