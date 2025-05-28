@@ -11,6 +11,6 @@ public record struct JukeboxTrack(string Id, string? Title, string? Artist, Time
         var title = string.IsNullOrEmpty(Title) ? "Unknown" : Title;
         var artist = string.IsNullOrEmpty(Artist) ? "Unknown" : Artist;
 
-        return $"{title} - {artist}";
+        return $"{artist} - {title}";
     }
 }
