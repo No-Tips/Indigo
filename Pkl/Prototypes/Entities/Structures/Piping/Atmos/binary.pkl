@@ -751,13 +751,16 @@ local const function generateVolumePump(l: PipeLayer): EntityPrototype = new {
         }
         new GenericVisualizerComponent {
             visuals {
-                ["enum.PumpVisuals.Enabled"] {
+                ["enum.GasVolumePumpVisuals.State"] {
                     ["enabled"] {
-                        ["True"] {
+                        ["On"] {
                             state = "pumpVolumeOn_\(l)"
                         }
-                        ["False"] {
+                        ["Off"] {
                             state = "pumpVolume_\(l)"
+                        }
+                        ["Blocked"] {
+                            state = "pumpVolumeBlocked_\(l)"
                         }
                     }
                 }
