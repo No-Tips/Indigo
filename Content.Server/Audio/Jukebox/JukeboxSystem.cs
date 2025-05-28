@@ -5,18 +5,18 @@ using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
+
 
 namespace Content.Server.Audio.Jukebox;
 
 
 public sealed class JukeboxSystem : SharedJukeboxSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
+    [Dependency] private readonly AppearanceSystem _appearanceSystem = null!;
 
     public override void Initialize()
     {
@@ -35,36 +35,29 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void OnComponentInit(EntityUid uid, JukeboxComponent component, ComponentInit args)
     {
         if (HasComp<ApcPowerReceiverComponent>(uid))
-        {
             TryUpdateVisualState(uid, component);
-        }
     }
 
     private void OnJukeboxPlay(EntityUid uid, JukeboxComponent component, ref JukeboxPlayingMessage args)
     {
         if (Exists(component.AudioStream))
-        {
             Audio.SetState(component.AudioStream, AudioState.Playing);
-        }
         else
         {
             component.AudioStream = Audio.Stop(component.AudioStream);
 
-            if (string.IsNullOrEmpty(component.SelectedSongId) ||
-                !_protoManager.TryIndex(component.SelectedSongId, out var jukeboxProto))
-            {
+            if (string.IsNullOrEmpty(component.SelectedTrackId) ||
+                !_prototypeManager.TryIndex<JukeboxPrototype>(component.SelectedTrackId, out var jukeboxProto))
                 return;
-            }
 
-            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f))?.Entity;
+            component.AudioStream =
+                Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f))?.Entity;
             Dirty(uid, component);
         }
     }
 
-    private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
-    {
+    private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args) =>
         Audio.SetState(ent.Comp.AudioStream, AudioState.Paused);
-    }
 
     private void OnJukeboxSetTime(EntityUid uid, JukeboxComponent component, JukeboxSetTimeMessage args)
     {
@@ -80,15 +73,10 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         TryUpdateVisualState(entity);
 
         if (!this.IsPowered(entity.Owner, EntityManager))
-        {
             Stop(entity);
-        }
     }
 
-    private void OnJukeboxStop(Entity<JukeboxComponent> entity, ref JukeboxStopMessage args)
-    {
-        Stop(entity);
-    }
+    private void OnJukeboxStop(Entity<JukeboxComponent> entity, ref JukeboxStopMessage args) => Stop(entity);
 
     private void Stop(Entity<JukeboxComponent> entity)
     {
@@ -100,7 +88,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     {
         if (!Audio.IsPlaying(component.AudioStream))
         {
-            component.SelectedSongId = args.SongId;
+            component.SelectedTrackId = args.TrackId;
             DirectSetVisualState(uid, JukeboxVisualState.Select);
             component.Selecting = true;
             component.AudioStream = Audio.Stop(component.AudioStream);
@@ -116,29 +104,26 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         var query = EntityQueryEnumerator<JukeboxComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Selecting)
-            {
-                comp.SelectAccumulator += frameTime;
-                if (comp.SelectAccumulator >= 0.5f)
-                {
-                    comp.SelectAccumulator = 0f;
-                    comp.Selecting = false;
+            if (!comp.Selecting)
+                continue;
 
-                    TryUpdateVisualState(uid, comp);
-                }
-            }
+            comp.SelectAccumulator += frameTime;
+
+            if (!(comp.SelectAccumulator >= 0.5f))
+                continue;
+
+            comp.SelectAccumulator = 0f;
+            comp.Selecting = false;
+
+            TryUpdateVisualState(uid, comp);
         }
     }
 
-    private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
-    {
+    private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args) =>
         component.AudioStream = Audio.Stop(component.AudioStream);
-    }
 
-    private void DirectSetVisualState(EntityUid uid, JukeboxVisualState state)
-    {
+    private void DirectSetVisualState(EntityUid uid, JukeboxVisualState state) =>
         _appearanceSystem.SetData(uid, JukeboxVisuals.VisualState, state);
-    }
 
     private void TryUpdateVisualState(EntityUid uid, JukeboxComponent? jukeboxComponent = null)
     {
@@ -148,9 +133,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         var finalState = JukeboxVisualState.On;
 
         if (!this.IsPowered(uid, EntityManager))
-        {
             finalState = JukeboxVisualState.Off;
-        }
 
         _appearanceSystem.SetData(uid, JukeboxVisuals.VisualState, finalState);
     }

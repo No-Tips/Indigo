@@ -1,0 +1,17 @@
+amends ".../Typings.pkl"
+
+local const tracks = read* ("../../../Resources/Audio/Jukebox/**.ogg").keys
+
+content = tracks
+    .map((t) -> generatePrototype(t))
+    .toListing()
+
+local const function generatePrototype(_p: String): JukeboxPrototype = new {
+    local const _path = _p.replaceFirst("../../../Resources", "")
+    local const _id = _path.split("/").last.replaceLast(".ogg", "")
+
+    id = _id
+    path = new SoundPathSpecifier {
+        path = _path
+    }
+}

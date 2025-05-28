@@ -2,16 +2,18 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
+
 namespace Content.Shared.Audio.Jukebox;
 
-[NetworkedComponent, RegisterComponent, AutoGenerateComponentState(true)]
+
+[NetworkedComponent, RegisterComponent, AutoGenerateComponentState(true),]
 [Access(typeof(SharedJukeboxSystem))]
 public sealed partial class JukeboxComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public ProtoId<JukeboxPrototype>? SelectedSongId;
+    [DataField, AutoNetworkedField,]
+    public string? SelectedTrackId;
 
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField,]
     public EntityUid? AudioStream;
 
     /// <summary>
@@ -39,39 +41,39 @@ public sealed partial class JukeboxComponent : Component
     public float SelectAccumulator;
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public sealed class JukeboxPlayingMessage : BoundUserInterfaceMessage;
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public sealed class JukeboxPauseMessage : BoundUserInterfaceMessage;
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public sealed class JukeboxStopMessage : BoundUserInterfaceMessage;
 
-[Serializable, NetSerializable]
-public sealed class JukeboxSelectedMessage(ProtoId<JukeboxPrototype> songId) : BoundUserInterfaceMessage
+[Serializable, NetSerializable,]
+public sealed class JukeboxSelectedMessage(string trackId) : BoundUserInterfaceMessage
 {
-    public ProtoId<JukeboxPrototype> SongId { get; } = songId;
+    public ProtoId<JukeboxPrototype> TrackId { get; } = trackId;
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMessage
 {
     public float SongTime { get; } = songTime;
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public enum JukeboxVisuals : byte
 {
     VisualState
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable,]
 public enum JukeboxVisualState : byte
 {
     On,
     Off,
-    Select,
+    Select
 }
 
 public enum JukeboxVisualLayers : byte

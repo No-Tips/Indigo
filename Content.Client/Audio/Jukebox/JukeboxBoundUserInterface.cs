@@ -1,17 +1,19 @@
 using Content.Shared.Audio.Jukebox;
-using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Components;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
 
 namespace Content.Client.Audio.Jukebox;
 
+
 public sealed class JukeboxBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-
     [ViewVariables]
     private JukeboxMenu? _menu;
+
+    [ViewVariables]
+    private JukeboxUiState _state = new();
 
     public JukeboxBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -27,13 +29,9 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         _menu.OnPlayPressed += args =>
         {
             if (args)
-            {
                 SendMessage(new JukeboxPlayingMessage());
-            }
             else
-            {
                 SendMessage(new JukeboxPauseMessage());
-            }
         };
 
         _menu.OnStopPressed += () =>
@@ -41,48 +39,24 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             SendMessage(new JukeboxStopMessage());
         };
 
-        _menu.OnSongSelected += SelectSong;
+        _menu.OnSongSelected += trackId => SendMessage(new JukeboxSelectedMessage(trackId));
+        _menu.SetTime += OnSetTime;
 
-        _menu.SetTime += SetTime;
-        PopulateMusic();
         Reload();
     }
 
-    /// <summary>
-    /// Reloads the attached menu if it exists.
-    /// </summary>
-    public void Reload()
+    protected override void UpdateState(BoundUserInterfaceState state)
     {
-        if (_menu == null || !EntMan.TryGetComponent(Owner, out JukeboxComponent? jukebox))
+        if (state is not JukeboxUiState castedState)
             return;
 
-        _menu.SetAudioStream(jukebox.AudioStream);
+        _state = castedState;
 
-        if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
-        {
-            var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
-            _menu.SetSelectedSong(songProto.Name, (float) length.TotalSeconds);
-        }
-        else
-        {
-            _menu.SetSelectedSong(string.Empty, 0f);
-        }
+        Reload();
     }
 
-    public void PopulateMusic()
+    public void OnSetTime(float time)
     {
-        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>());
-    }
-
-    public void SelectSong(ProtoId<JukeboxPrototype> songid)
-    {
-        SendMessage(new JukeboxSelectedMessage(songid));
-    }
-
-    public void SetTime(float time)
-    {
-        var sentTime = time;
-
         // You may be wondering, what the fuck is this
         // Well we want to be able to predict the playback slider change, of which there are many ways to do it
         // We can't just use SendPredictedMessage because it will reset every tick and audio updates every frame
@@ -95,7 +69,27 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             audioComp.PlaybackPosition = time;
         }
 
-        SendMessage(new JukeboxSetTimeMessage(sentTime));
+        SendMessage(new JukeboxSetTimeMessage(time));
+    }
+
+    /// <summary>
+    /// Reloads the attached menu if it exists.
+    /// </summary>
+    private void Reload()
+    {
+        if (_menu == null)
+            return;
+
+        _menu.Populate(with: _state.Tracks);
+        _menu.SetAudioStream(fromEntity: _state.AudioStream);
+
+        if (_state.SelectedTrackId is { } trackId)
+        {
+            var track = _state.Tracks.FirstOrNull(t => t.Id == trackId);
+
+            _menu.SetSelectedTrack(fromTrack: track);
+        }
+        else
+            _menu.SetSelectedTrack(fromTrack: null);
     }
 }
-
