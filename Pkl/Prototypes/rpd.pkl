@@ -223,7 +223,7 @@ local const function generatePipeTJunction(l: PipeLayer): RCDPrototype = new {
 
 local const function generatePressurePump(l: PipeLayer): RCDPrototype = new {
     id = "PressurePump\(l)"
-    category = "PumpValves"
+    category = "PumpsValves"
     sprite = "/Textures/Interface/Radial/RPD/pump_pressure.png"
     mode = "ConstructObject"
     prototype = "GasPressurePump\(l)"
