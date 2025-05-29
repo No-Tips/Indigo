@@ -46,16 +46,11 @@ content {
                     generatePortEdge(3)
                     generatePortEdge(4)
 
-                    new {
-                        to = "dualportventpump"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generateDualPort(0)
+                    generateDualPort(1)
+                    generateDualPort(2)
+                    generateDualPort(3)
+                    generateDualPort(4)
 
                     new {
                         to = "radiator"
@@ -117,39 +112,11 @@ content {
             generatePortNode(3)
             generatePortNode(4)
 
-            new {
-                node = "dualportventpump"
-                entity = new StaticNodeEntity {
-                    id = "GasDualPortVentPump"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Screwing"
-                                doAfter = 1.0
-                            }
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generateDualPortNode(0)
+            generateDualPortNode(1)
+            generateDualPortNode(2)
+            generateDualPortNode(3)
+            generateDualPortNode(4)
 
             new {
                 node = "radiator"
@@ -378,6 +345,17 @@ local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraph
     }
 }
 
+local const function generateDualPort(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "dualportventpump\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
 local const function generateValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
     node = "valve\(l)"
     entity = new StaticNodeEntity {
@@ -459,6 +437,40 @@ local const function generatePortNode(l: constants.PipeLayer): ConstructionGraph
                 new DeleteEntity {}
             }
             steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateDualPortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "dualportventpump\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasDualPortVentPump\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Screwing"
+                    doAfter = 1.0
+                }
                 new ToolConstructionGraphStep {
                     tool = "Welding"
                     doAfter = 1.0

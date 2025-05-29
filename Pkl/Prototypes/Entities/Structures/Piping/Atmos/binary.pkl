@@ -360,6 +360,7 @@ content {
     new EntityPrototype {
         parent { "GasVentPump" }
         id = "GasDualPortVentPump"
+        `abstract` = true
         placement {
             mode = "SnapgridCenter"
         }
@@ -370,8 +371,8 @@ content {
                 state = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
                 layers {
                     new {
-                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
-                        state = "pipe_2"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                        state = "pipeStraight_2"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }
                     new {
@@ -439,19 +440,19 @@ content {
         }
     }
 
-    new EntityPrototype {
-        parent { "GasDualPortVentPump" }
-        id = "GasDualPortVentPumpHighFlow"
-        placement {
-            mode = "SnapgridCenter"
-        }
-        components {
-            new GasVentPumpComponent {
-                maxPressure = 13500.0
-                PumpPower = 6.0
-            }
-        }
-    }
+    generateDualPort(0)
+    generateDualPort(1)
+    generateDualPort(2)
+    generateDualPort(3)
+    generateDualPort(4)
+
+    // Dual port subtypes
+
+    generateDualPortHigh(0)
+    generateDualPortHigh(1)
+    generateDualPortHigh(2)
+    generateDualPortHigh(3)
+    generateDualPortHigh(4)
 
     new EntityPrototype {
         parent {
@@ -951,7 +952,6 @@ local const function generateSignalControlledValve(l: PipeLayer): EntityPrototyp
 local const function generatePort(l: PipeLayer): EntityPrototype = new {
     parent { "GasPort" }
     id = "GasPort\(l)"
-    suffix = "\(l)"
     placement {
         mode = "SnapgridCenter"
     }
@@ -983,6 +983,60 @@ local const function generatePort(l: PipeLayer): EntityPrototype = new {
                     layer = l
                 }
             }
+        }
+    }
+}
+
+local const function generateDualPort(l: PipeLayer): EntityPrototype = new {
+    parent { "GasDualPortVentPump" }
+    id = "GasDualPortVentPump\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            drawdepth = "FloorObjects"
+            netsync = false
+            state = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            layers {
+                new {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeStraight_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new {
+                    state = "vent_off"
+                    map = Set("enabled", "enum.SubfloorLayers.FirstLayer")
+                }
+            }
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+    }
+}
+
+local const function generateDualPortHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasDualPortVentPump\(l)" }
+    id = "GasDualPortVentPumpHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasVentPumpComponent {
+            maxPressure = 13500.0
+            PumpPower = 6.0
         }
     }
 }
