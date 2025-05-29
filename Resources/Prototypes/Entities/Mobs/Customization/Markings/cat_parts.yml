@@ -2,7 +2,7 @@
   id: CatEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:
@@ -16,16 +16,16 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-  - sprite: Mobs/Customization/cat_parts.rsi
+  - sprite: Mobs/Customization/Tajaran/cat_parts.rsi
     state: ears_cat_outer
-  - sprite: Mobs/Customization/cat_parts.rsi
+  - sprite: Mobs/Customization/Tajaran/cat_parts.rsi
     state: ears_cat_inner
 
 - type: marking
   id: CatTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:
@@ -36,5 +36,5 @@
           category: FacialHair
         - !type:SkinColoring
   sprites:
-  - sprite: Mobs/Customization/cat_parts.rsi
+  - sprite: Mobs/Customization/Tajaran/cat_parts.rsi
     state: tail_cat

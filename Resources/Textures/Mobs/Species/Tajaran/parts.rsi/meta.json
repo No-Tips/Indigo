@@ -54,10 +54,6 @@
         {
             "name": "torso_m",
             "directions": 4
-        },
-        {
-            "name": "tail",
-            "directions": 4
         }
     ]
 }
