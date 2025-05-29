@@ -8,28 +8,28 @@ Cryogenics can be a bit daunting to understand, but hopefully, quick run through
 - Gas filters: Removes waste gas (Carbon Dioxide and Nitrous Oxide) from the loop.
 - Air out: Waste gasses go here, either into a storage tank, or into the waste network.
 <Box>
-<GuideEntityEmbed Entity="GasPipeBend" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeBend" Rotation="0"/>
+<GuideEntityEmbed Entity="GasPipeBend2" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeStraight2" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeStraight2" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeBend2" Rotation="0"/>
 <GuideEntityEmbed Entity="CryoPod" Caption="cryo pod" Rotation="0"/>
 <GuideEntityEmbed Entity="GasThermoMachineFreezerEnabled" Rotation="0"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="GasPipeBend" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeBend2" Rotation="180"/>
 <GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
 <GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
-<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
-<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="270"/>
+<GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="270"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="GasPort" Caption="air out" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
-<GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
+<GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeBend2" Rotation="270"/>
 <GuideEntityEmbed Entity="GasPort" Caption="air in" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPressurePump" Rotation="90"/>
-<GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
+<GuideEntityEmbed Entity="GasPressurePump2" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeBend2" Rotation="270"/>
 </Box>
 
 Not every network will look like this, but hopefully, it's enough to give you the basic gist of how it's functioning.

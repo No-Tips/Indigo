@@ -3,6 +3,7 @@ amends ".../Typings.pkl"
 import ".../Typings.pkl"
 import "constants.pkl"
 
+local typealias PipeLayer = constants.PipeLayer
 local const commonParent = "GasUnaryBase"
 
 content {
@@ -114,6 +115,14 @@ content {
     generateVentPump(2)
     generateVentPump(3)
     generateVentPump(4)
+
+    // Vent Pump subtypes
+
+    generateVentPumpHigh(0)
+    generateVentPumpHigh(1)
+    generateVentPumpHigh(2)
+    generateVentPumpHigh(3)
+    generateVentPumpHigh(4)
 
     new EntityPrototype {
         parent { commonParent }
@@ -232,6 +241,14 @@ content {
     generateVentScrubber(3)
     generateVentScrubber(4)
 
+    // Vent Scrubber subtypes
+
+    generateVentScrubberHigh(0)
+    generateVentScrubberHigh(1)
+    generateVentScrubberHigh(2)
+    generateVentScrubberHigh(3)
+    generateVentScrubberHigh(4)
+
     new EntityPrototype {
         parent { commonParent }
         id = "GasOutletInjector"
@@ -286,6 +303,20 @@ content {
             }
             new AtmosMonitoringConsoleDeviceComponent {
                 navMapBlip = "GasVentOpening"
+            }
+        }
+    }
+
+    new EntityPrototype {
+        parent { "GasOutletInjector" }
+        id = "GasOutletInjectorHighFlow"
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new GasOutletInjectorComponent {
+                maxTransferRate = 600.0
+                maxPressure = 13500.0
             }
         }
     }
@@ -660,7 +691,7 @@ content {
     }
 }
 
-local const function generateVentPump(l: constants.PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generateVentPump(l: PipeLayer): EntityPrototype = new {
     parent { "GasVentPump" }
     id = "GasVentPump\(l)"
     suffix = "\(l)"
@@ -693,7 +724,21 @@ local const function generateVentPump(l: constants.PipeLayer): EntityPrototype =
     }
 }
 
-local const function generatePassiveVent(l: constants.PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generateVentPumpHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasVentPump\(l)" }
+    id = "GasVentPumpHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasVentPumpComponent {
+            maxPressure = 13500.0
+            PumpPower = 6.0
+        }
+    }
+}
+
+local const function generatePassiveVent(l: PipeLayer): EntityPrototype = new {
     parent { "GasPassiveVent" }
     id = "GasPassiveVent\(l)"
     suffix = "\(l)"
@@ -727,7 +772,7 @@ local const function generatePassiveVent(l: constants.PipeLayer): EntityPrototyp
     }
 }
 
-local const function generateVentScrubber(l: constants.PipeLayer): EntityPrototype = new EntityPrototype {
+local const function generateVentScrubber(l: PipeLayer): EntityPrototype = new {
     parent { "GasVentScrubber" }
     id = "GasVentScrubber\(l)"
     suffix = "\(l)"
@@ -756,6 +801,20 @@ local const function generateVentScrubber(l: constants.PipeLayer): EntityPrototy
         new ConstructionComponent {
             graph = "GasUnary"
             node = "ventscrubber\(l)"
+        }
+    }
+}
+
+local const function generateVentScrubberHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasVentScrubber\(l)" }
+    id = "GasVentScrubberHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasVentScrubberComponent {
+            maxPressure = 13500.0
+            maxTransferRate = 600.0
         }
     }
 }

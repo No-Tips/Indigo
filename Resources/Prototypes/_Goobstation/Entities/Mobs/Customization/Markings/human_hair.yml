@@ -3,6 +3,7 @@
   id: HumanHairBraidedExtension
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: braidedExtensions
@@ -11,6 +12,7 @@
   id: HumanHairCometTail
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: cometTail
@@ -19,6 +21,7 @@
   id: HumanHairFantasyHair
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: fantasyHair
@@ -27,6 +30,7 @@
   id: HumanHairFlatTwistsUpdo
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: flatTwistsUpdo
@@ -35,6 +39,7 @@
   id: HumanHairFloorlengthBraid
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: floorlengthBraid
@@ -43,6 +48,7 @@
   id: HumanHairFloorlengthWavy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: floorlengthWavy
@@ -51,6 +57,7 @@
   id: HumanHairFrontBraidsLong
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frontBraidsLong
@@ -59,6 +66,7 @@
   id: HumanHairFrontBraidsMedium
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frontBraidsMedium
@@ -67,6 +75,7 @@
   id: HumanHairFrontBraidsShort
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frontBraidsShort
@@ -75,6 +84,7 @@
   id: HumanHairHairnet
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: hairnet
@@ -83,6 +93,7 @@
   id: HumanHairJellyfish
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: jellyfish
@@ -91,6 +102,7 @@
   id: HumanHairKazuyaMishima
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: kazuyaMishima
@@ -99,6 +111,7 @@
   id: HumanHairLongBraids
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: longBraids
@@ -107,6 +120,7 @@
   id: HumanHairLongCurvy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: longCurvy
@@ -115,6 +129,7 @@
   id: HumanHairLongPompadour
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: longPompadour
@@ -123,6 +138,7 @@
   id: HumanHairMediumCurls
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: mediumCurls
@@ -131,6 +147,7 @@
   id: HumanHairMullet
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: mullet
@@ -139,6 +156,7 @@
   id: HumanHairPelvicLengthBraid
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: pelvicLengthBraid
@@ -147,6 +165,7 @@
   id: HumanHairPlateau
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: plateau
@@ -155,6 +174,7 @@
   id: HumanHairQueenBee
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: queenBee
@@ -163,6 +183,7 @@
   id: HumanHairSaggedMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: saggedMohawk
@@ -171,6 +192,7 @@
   id: HumanHairSharpMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: sharpMohawk
@@ -179,6 +201,7 @@
   id: HumanHairShortAndPoofy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: shortAndPoofy
@@ -187,6 +210,7 @@
   id: HumanHairShortCurls
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: shortCurls
@@ -195,6 +219,7 @@
   id: HumanHairShoulderLengthBraid
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: shoulderLengthBraid
@@ -203,6 +228,7 @@
   id: HumanHairSideSpike
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: sideSpike
@@ -211,6 +237,7 @@
   id: HumanHairSpaceLoops
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: spaceLoops
@@ -219,6 +246,7 @@
   id: HumanHairStar
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: star
@@ -227,6 +255,7 @@
   id: HumanHairStarFro
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: starFro
@@ -235,6 +264,7 @@
   id: HumanHairStyledCurls
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: styledCurls
@@ -243,6 +273,7 @@
   id: HumanHairUnkemptScientist
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: unkemptScientist
@@ -251,6 +282,7 @@
   id: HumanHairFrizzyBraid
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frizzyBraid
@@ -259,6 +291,7 @@
   id: HumanHairWispy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: wispy

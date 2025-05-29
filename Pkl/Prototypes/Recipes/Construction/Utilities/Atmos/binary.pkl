@@ -126,6 +126,22 @@ content {
             state = "heStraight"
         }
     }
+
+    new ConstructionPrototype {
+        id = "GasPipeAdapter"
+        name = "pipe adapter"
+        description = "suppose to switch between pipe layers"
+        graph = "GasBinary"
+        startNode = "start"
+        targetNode = "gaspipeadapter"
+        category = "construction-category-utilities"
+        placementMode = "SnapgridCenter"
+        canBuildInImpassable = false
+        icon = new Rsi {
+            sprite = "/Textures/Structures/Piping/Atmospherics/pipeAdapter.rsi"
+            state = "base"
+        }
+    }
 }
 
 local const function generatePressurePumpConstruction(l: constants.PipeLayer): ConstructionPrototype = new {

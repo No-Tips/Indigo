@@ -113,14 +113,38 @@
         entries:
         - prototype: GasPort
         - prototype: GasOutletInjector
-        - prototype: GasVentScrubber
-        - prototype: GasPassiveVent
-        - prototype: GasVentPump
+        - prototype: GasVentScrubber0
+        - prototype: GasVentScrubber1
+        - prototype: GasVentScrubber2
+        - prototype: GasVentScrubber3
+        - prototype: GasVentScrubber4
+        - prototype: GasPassiveVent0
+        - prototype: GasPassiveVent1
+        - prototype: GasPassiveVent2
+        - prototype: GasPassiveVent3
+        - prototype: GasPassiveVent4
+        - prototype: GasVentPump0
+        - prototype: GasVentPump1
+        - prototype: GasVentPump2
+        - prototype: GasVentPump3
+        - prototype: GasVentPump4
         - prototype: GasMixer
         - prototype: GasFilter
-        - prototype: GasVolumePump
-        - prototype: GasPressurePump
-        - prototype: GasValve
+        - prototype: GasVolumePump0
+        - prototype: GasVolumePump1
+        - prototype: GasVolumePump2
+        - prototype: GasVolumePump3
+        - prototype: GasVolumePump4
+        - prototype: GasPressurePump0
+        - prototype: GasPressurePump1
+        - prototype: GasPressurePump2
+        - prototype: GasPressurePump3
+        - prototype: GasPressurePump4
+        - prototype: GasValve0
+        - prototype: GasValve1
+        - prototype: GasValve2
+        - prototype: GasValve3
+        - prototype: GasValve4
     - category:
         name: Piping
         icon:
@@ -128,11 +152,31 @@
           state: pipeFourway
         entries:
         - prototype: HeatExchanger
-        - prototype: GasPipeBend
-        - prototype: GasPipeFourway
-        - prototype: GasPipeHalf
-        - prototype: GasPipeStraight
-        - prototype: GasPipeTJunction
+        - prototype: GasPipeBend0
+        - prototype: GasPipeBend1
+        - prototype: GasPipeBend2
+        - prototype: GasPipeBend3
+        - prototype: GasPipeBend4
+        - prototype: GasPipeFourway0
+        - prototype: GasPipeFourway1
+        - prototype: GasPipeFourway2
+        - prototype: GasPipeFourway3
+        - prototype: GasPipeFourway4
+        - prototype: GasPipeHalf0
+        - prototype: GasPipeHalf1
+        - prototype: GasPipeHalf2
+        - prototype: GasPipeHalf3
+        - prototype: GasPipeHalf4
+        - prototype: GasPipeStraight0
+        - prototype: GasPipeStraight1
+        - prototype: GasPipeStraight2
+        - prototype: GasPipeStraight3
+        - prototype: GasPipeStraight4
+        - prototype: GasPipeTJunction0
+        - prototype: GasPipeTJunction1
+        - prototype: GasPipeTJunction2
+        - prototype: GasPipeTJunction3
+        - prototype: GasPipeTJunction4
     - category:
         name: Disposals
         icon:

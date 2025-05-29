@@ -292,6 +292,36 @@
             ]
         },
         {
+            "name": "pumpVolumeBlocked",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
+            "name": "pumpVolumeBlocked_0",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
+            "name": "pumpVolumeBlocked_1",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
+            "name": "pumpVolumeBlocked_2",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
+            "name": "pumpVolumeBlocked_3",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
+            "name": "pumpVolumeBlocked_4",
+            "directions": 4,
+            "delays": [ [1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0] ]
+        },
+        {
             "name": "pumpSignalValve",
             "direction": 4
         }

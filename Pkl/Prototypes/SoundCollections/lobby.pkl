@@ -1,0 +1,12 @@
+amends ".../Typings.pkl"
+
+local const tracks = read* ("../../../Resources/Audio/Lobby/**.ogg").keys
+
+content {
+    new SoundCollectionPrototype {
+        id = "LobbyMusic"
+        files = tracks
+            .map((p) -> p.replaceFirst("../../../Resources", ""))
+            .toListing()
+    }
+}

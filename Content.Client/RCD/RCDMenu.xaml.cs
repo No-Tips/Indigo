@@ -11,7 +11,9 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
+
 namespace Content.Client.RCD;
+
 
 [GenerateTypedNameReferences]
 public sealed partial class RCDMenu : RadialMenu
@@ -61,7 +63,19 @@ public sealed partial class RCDMenu : RadialMenu
             if (proto.Mode == RcdMode.Invalid)
                 continue;
 
-            var parent = FindControl<RadialContainer>(proto.Category);
+            RadialContainer? parent = null;
+
+            try
+            {
+                parent = FindControl<RadialContainer>(proto.Category);
+            }
+            catch (Exception e)
+            {
+                Logger.GetSawmill("RCDMenu").Error("Control with category '{}' not found", proto.Category);
+
+                continue;
+            }
+
             var tooltip = Loc.GetString(proto.SetName);
 
             if ((proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject) &&
@@ -173,8 +187,5 @@ public sealed class RCDMenuButton : RadialMenuTextureButton
 {
     public ProtoId<RCDPrototype> ProtoId { get; set; }
 
-    public RCDMenuButton()
-    {
-
-    }
+    public RCDMenuButton() { }
 }

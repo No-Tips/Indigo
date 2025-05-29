@@ -2,6 +2,7 @@
   id: HumanHairArabicGathered
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-arabicgatheredhair
@@ -9,6 +10,7 @@
   id: HumanHairClassicHair
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-classichairmale
@@ -16,6 +18,7 @@
   id: HumanHairSideComb
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-combedfromside
@@ -23,6 +26,7 @@
   id: HumanHairLong4
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-longhair
@@ -30,6 +34,7 @@
   id: HumanHairManbun2
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-manbunold
@@ -37,6 +42,7 @@
   id: HumanHairPigtailTajaran
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-pigtailtajaran
@@ -44,6 +50,7 @@
   id: HumanHairShavedSide
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shavedside
@@ -51,6 +58,7 @@
   id: HumanHairShorthair8
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shorthaired
@@ -58,6 +66,7 @@
   id: HumanFembun
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: hair-womenbun
@@ -65,6 +74,7 @@
   id: HumanHairAfricanPigtails
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_hair.rsi
       state: africanpigtails
@@ -72,6 +82,7 @@
   id: HumanHairAfropuffDouble
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_hair.rsi
       state: afropuffdouble
@@ -79,6 +90,7 @@
   id: HumanHairAfropuffLeft
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_hair.rsi
       state: afropuffleft
@@ -86,6 +98,7 @@
   id: HumanHairAfropuffRight
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_hair.rsi
       state: afropuffright
@@ -94,6 +107,7 @@
   id: HumanHairHightight
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: hightight
@@ -102,6 +116,7 @@
   id: HumanHairBuzzhawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: buzzhawk
@@ -110,6 +125,7 @@
   id: HumanHairShavedbun
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: loosebunshaved
@@ -118,6 +134,7 @@
   id: HumanHairLoosebun
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: loosebun
@@ -126,6 +143,7 @@
   id: HumanHairSergeantcut
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: sergeantcut
@@ -134,6 +152,7 @@
   id: HumanHairFullshave
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: fullshave
@@ -142,6 +161,7 @@
   id: HumanHairCiacombover
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: ciacombover
@@ -150,6 +170,7 @@
   id: HumanHairFlyboy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: flyboy
@@ -158,6 +179,7 @@
   id: HumanHairOutwardponytail
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: outwardponytail
@@ -166,6 +188,7 @@
   id: HumanHairStubbleshave
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: stubbleshave
@@ -174,6 +197,7 @@
   id: HumanHairOvereyeponytail
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, Tajaran]
   sprites:
     - sprite: _EE/Mobs/Customization/human_hair.rsi
       state: overeyeponytail

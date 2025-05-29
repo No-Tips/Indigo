@@ -1,0 +1,11 @@
+import "Typings.pkl"
+import* "Prototypes/**.pkl" as modules
+
+output {
+    value = modules
+        .toMap()
+        .values
+        .map((m) -> m.output.value)
+        .flatten()
+    renderer = Typings.output.renderer
+}

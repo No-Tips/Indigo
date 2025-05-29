@@ -2,6 +2,7 @@
   id: HumanFacialHairChin2
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardchin
@@ -9,6 +10,7 @@
   id: HumanFacialHairSuperLong
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardlong
@@ -16,6 +18,7 @@
   id: HumanFacialHairShort
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardshort
@@ -23,6 +26,7 @@
   id: HumanFacialHairThick
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardthick
@@ -30,6 +34,7 @@
   id: HumanFacialHairViking
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardviking
@@ -37,6 +42,7 @@
   id: HumanFacialHairBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-bristle
@@ -44,6 +50,7 @@
   id: HumanFacialHairMoustacheWithStubble
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-mustachewithstubble
@@ -51,6 +58,7 @@
   id: HumanFacialHairThickBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-thickbristle
@@ -58,6 +66,7 @@
   id: HumanFacialHairHandlebar
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
       state: handlebar
@@ -65,6 +74,7 @@
   id: HumanFacialHairHandlebar2
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
       state: handlebar2

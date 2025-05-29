@@ -99,11 +99,11 @@
         },
         {
             "label": "pkl eval",
-            "command": "echo",
+            "command": "pkl",
             "type": "process",
             "args": [
                 "eval",
-                "${cwd}/Pkl/Prototypes/**/*.pkl",
+                "${cwd}/Pkl/Index.pkl",
                 "--format",
                 "yaml",
                 "-o",
@@ -117,7 +117,7 @@
             "type": "process",
             "args": [
                 "eval",
-                "${cwd}/Pkl/Prototypes/**/*.pkl",
+                "${cwd}/Pkl/Index.pkl",
                 "--format",
                 "yaml",
                 "-o",
@@ -131,7 +131,7 @@
             "type": "process",
             "args": [
                 "eval",
-                "${cwd}/Pkl/Prototypes/**/*.pkl",
+                "${cwd}/Pkl/Index.pkl",
                 "--format",
                 "yaml",
                 "-o",
