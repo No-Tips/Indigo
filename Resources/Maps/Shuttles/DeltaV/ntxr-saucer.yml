@@ -992,7 +992,7 @@ entities:
     - type: Transform
       pos: -7.6862683,-0.79131925
       parent: 1
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 140
     components:

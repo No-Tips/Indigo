@@ -3571,7 +3571,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-3.5
       parent: 179
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 747
     components:

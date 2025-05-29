@@ -4668,7 +4668,7 @@ entities:
     - type: Transform
       pos: -5.206231,-16.428482
       parent: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 146
     components:

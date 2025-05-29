@@ -53,18 +53,11 @@ content {
     generateSignalControlledValve(3)
     generateSignalControlledValve(4)
 
-    new RCDPrototype {
-        id = "PressureValve"
-        category = "PumpsValves"
-        sprite = "/Textures/Interface/Radial/RPD/pneumatic_valve.png"
-        mode = "ConstructObject"
-        prototype = "PressureControlledValve"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generatePressureControlledValve(0)
+    generatePressureControlledValve(1)
+    generatePressureControlledValve(2)
+    generatePressureControlledValve(3)
+    generatePressureControlledValve(4)
 
     generateOutletInjector(0)
     generateOutletInjector(1)
@@ -109,19 +102,11 @@ content {
         fx = "EffectRCDConstruct0"
     }
 
-    new RCDPrototype {
-        id = "MixerGas"
-        category = "AtmosphericUtility"
-        sprite = "/Textures/Interface/Radial/RPD/gas_mixer.png"
-        mode = "ConstructObject"
-        prototype = "GasMixer"
-        mirrorPrototype = "GasMixerFlipped"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generateMixer(0)
+    generateMixer(1)
+    generateMixer(2)
+    generateMixer(3)
+    generateMixer(4)
 
     generateFilter(0)
     generateFilter(1)
@@ -237,6 +222,19 @@ local const function generateSignalControlledValve(l: PipeLayer): RCDPrototype =
     fx = "EffectRCDConstruct0"
 }
 
+local const function generatePressureControlledValve(l: PipeLayer): RCDPrototype = new {
+    id = "PressureValve\(l)"
+    category = "PumpsValves"
+    sprite = "/Textures/Interface/Radial/RPD/pneumatic_valve.png"
+    mode = "ConstructObject"
+    prototype = "PressureControlledValve\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
 local const function generateOutletInjector(l: PipeLayer): RCDPrototype = new {
     id = "OutletInjector\(l)"
     category = "Vents"
@@ -295,6 +293,20 @@ local const function generatePassiveVent(l: PipeLayer): RCDPrototype = new {
     sprite = "/Textures/Interface/Radial/RPD/vent_passive.png"
     mode = "ConstructObject"
     prototype = "GasPassiveVent\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
+local const function generateMixer(l: PipeLayer): RCDPrototype = new {
+    id = "MixerGas\(l)"
+    category = "AtmosphericUtility"
+    sprite = "/Textures/Interface/Radial/RPD/gas_mixer.png"
+    mode = "ConstructObject"
+    prototype = "GasMixer\(l)"
+    mirrorPrototype = "GasMixerFlipped\(l)"
     cost = 1
     delay = 0.0
     collisionMask = "Impassable"

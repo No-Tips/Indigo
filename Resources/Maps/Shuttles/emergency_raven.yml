@@ -8154,7 +8154,7 @@ entities:
     - type: Transform
       pos: 14.5,-26.5
       parent: 2
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 1264
     components:

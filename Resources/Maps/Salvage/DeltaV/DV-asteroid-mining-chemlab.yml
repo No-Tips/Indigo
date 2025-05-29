@@ -1345,7 +1345,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 787
     components:
@@ -1359,7 +1359,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 108
     components:

@@ -2135,7 +2135,7 @@ entities:
     - type: Transform
       pos: -2.904473,-0.44135267
       parent: 612
-- proto: GasFilterFlipped
+- proto: GasFilterFlipped2
   entities:
   - uid: 251
     components:
@@ -2173,7 +2173,7 @@ entities:
       parent: 612
     - type: AtmosDevice
       joinedGrid: 612
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 267
     components:

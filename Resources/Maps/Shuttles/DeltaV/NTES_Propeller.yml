@@ -6091,7 +6091,7 @@ entities:
     - type: Transform
       pos: 0.33226132,-0.42738038
       parent: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 728
     components:

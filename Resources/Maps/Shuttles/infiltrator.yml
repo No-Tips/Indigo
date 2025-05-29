@@ -2662,7 +2662,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 370
     components:

@@ -7814,7 +7814,7 @@ entities:
     - type: Transform
       pos: 23.5,38.5
       parent: 4
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 1124
     components:
