@@ -2,6 +2,7 @@
   id: ZetaEMWhiskers
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: emwhiskers
@@ -9,6 +10,7 @@
   id: ZetaSpiderWhiskers
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: spiderwhiskers
@@ -16,6 +18,7 @@
   id: ZetaTwirlable
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: twirlable
@@ -23,6 +26,7 @@
   id: ZetaVoluminous
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: voluminous
@@ -30,6 +34,7 @@
   id: ZetaWalrus
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: walrus
@@ -37,6 +42,7 @@
   id: ZetaWizardous
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: wizardous
@@ -44,6 +50,7 @@
   id: ZetaWorkinMan
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: workinman
@@ -51,6 +58,7 @@
   id: ZetaOnTheChin
   bodyPart: FacialHair
   markingCategory: FacialHair
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
     state: onthechin

@@ -99,7 +99,7 @@
         },
         {
             "label": "pkl eval",
-            "command": "echo",
+            "command": "pkl",
             "type": "process",
             "args": [
                 "eval",
