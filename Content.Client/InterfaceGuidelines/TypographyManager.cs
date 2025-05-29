@@ -27,7 +27,7 @@ public sealed class TypographyManager
     public StackedFont GetFont(
         FontType type,
         int customSize,
-        FontWeight weight = FontWeight.Medium,
+        FontWeight weight = FontWeight.Regular,
         FontModifier modifier = FontModifier.Normal
     )
     {
