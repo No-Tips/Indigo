@@ -4297,7 +4297,7 @@ entities:
       type: Transform
     - color: '#020F73FF'
       type: AtmosPipeColor
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 600
     components:

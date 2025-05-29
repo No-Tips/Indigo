@@ -40,16 +40,11 @@ content {
                     generateSignalControlledValveEdge(3)
                     generateSignalControlledValveEdge(4)
 
-                    new {
-                        to = "port"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generatePortEdge(0)
+                    generatePortEdge(1)
+                    generatePortEdge(2)
+                    generatePortEdge(3)
+                    generatePortEdge(4)
 
                     new {
                         to = "dualportventpump"
@@ -116,35 +111,11 @@ content {
             generateSignalControlledValveNode(3)
             generateSignalControlledValveNode(4)
 
-            new {
-                node = "port"
-                entity = new StaticNodeEntity {
-                    id = "GasPort"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generatePortNode(0)
+            generatePortNode(1)
+            generatePortNode(2)
+            generatePortNode(3)
+            generatePortNode(4)
 
             new {
                 node = "dualportventpump"
@@ -396,6 +367,17 @@ local const function generateSignalControlledValveEdge(l: constants.PipeLayer): 
     }
 }
 
+local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "port\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
 local const function generateValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
     node = "valve\(l)"
     entity = new StaticNodeEntity {
@@ -430,6 +412,36 @@ local const function generateSignalControlledValveNode(l: constants.PipeLayer): 
     node = "signalvalve\(l)"
     entity = new StaticNodeEntity {
         id = "SignalControlledValve\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generatePortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "port\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPort\(l)"
     }
     edges {
         new {

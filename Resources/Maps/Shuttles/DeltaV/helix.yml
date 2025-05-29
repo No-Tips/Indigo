@@ -1693,7 +1693,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 200
     components:

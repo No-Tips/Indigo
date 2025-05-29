@@ -313,6 +313,7 @@ content {
     new EntityPrototype {
         parent { commonParent }
         id = "GasPort"
+        `abstract` = true
         placement {
             mode = "SnapgridCenter"
         }
@@ -322,8 +323,8 @@ content {
                 sprite = "/Textures/Structures/Piping/Atmospherics/gascanisterport.rsi"
                 layers {
                     new {
-                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-                        state = "pipeHalf_2"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
+                        state = "pipe_2"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }
                     new {
@@ -344,15 +345,17 @@ content {
                     }
                 }
             }
-            new ConstructionComponent {
-                graph = "GasBinary"
-                node = "port"
-            }
             new AtmosMonitoringConsoleDeviceComponent {
                 navMapBlip = "GasVentOpening"
             }
         }
     }
+
+    generatePort(0)
+    generatePort(1)
+    generatePort(2)
+    generatePort(3)
+    generatePort(4)
 
     new EntityPrototype {
         parent { "GasVentPump" }
@@ -837,6 +840,9 @@ local const function generateValve(l: PipeLayer): EntityPrototype = new {
     parent { "GasValve" }
     id = "GasValve\(l)"
     suffix = "\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
     components {
         new SpriteComponent {
             layers {
@@ -935,6 +941,45 @@ local const function generateSignalControlledValve(l: PipeLayer): EntityPrototyp
                     nodeGroupID = "Pipe"
                     pipeDirection = "South"
                     volume = 100.0
+                    layer = l
+                }
+            }
+        }
+    }
+}
+
+local const function generatePort(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPort" }
+    id = "GasPort\(l)"
+    suffix = "\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            netsync = false
+            sprite = "/Textures/Structures/Piping/Atmospherics/gascanisterport.rsi"
+            layers {
+                new {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
+                    state = "pipe_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new {
+                    state = "gasCanisterPort"
+                    map = Set("enum.SubfloorLayers.FirstLayer")
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasBinary"
+            node = "port\(l)"
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["connected"] = new PortPipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
                     layer = l
                 }
             }

@@ -743,7 +743,7 @@ entities:
     - type: Transform
       pos: 1.5,-5.5
       parent: 1
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 153
     components:

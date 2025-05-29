@@ -144,18 +144,11 @@ content {
         fx = "EffectRCDConstruct0"
     }
 
-    new RCDPrototype {
-        id = "CanisterPort"
-        category = "AtmosphericUtility"
-        sprite = "/Textures/Interface/Radial/RPD/port.png"
-        mode = "ConstructObject"
-        prototype = "GasPort"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generatePort(0)
+    generatePort(1)
+    generatePort(2)
+    generatePort(3)
+    generatePort(4)
 }
 
 local const function generatePipeFourway(l: PipeLayer): RCDPrototype = new {
@@ -304,6 +297,19 @@ local const function generatePassiveVent(l: PipeLayer): RCDPrototype = new {
     sprite = "/Textures/Interface/Radial/RPD/vent_passive.png"
     mode = "ConstructObject"
     prototype = "GasPassiveVent\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
+local const function generatePort(l: PipeLayer): RCDPrototype = new {
+    id = "CanisterPort\(l)"
+    category = "AtmosphericUtility"
+    sprite = "/Textures/Interface/Radial/RPD/port.png"
+    mode = "ConstructObject"
+    prototype = "GasPort\(l)"
     cost = 1
     delay = 0.0
     collisionMask = "Impassable"

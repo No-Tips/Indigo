@@ -1033,7 +1033,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-5.5
       parent: 325
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 59
     components:
