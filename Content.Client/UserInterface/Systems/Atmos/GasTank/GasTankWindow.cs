@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Message;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
@@ -16,6 +17,7 @@ public sealed class GasTankWindow
     : BaseWindow
 {
     [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
 
     private readonly RichTextLabel _lblPressure;
     private readonly FloatSpinBox _spbPressure;
@@ -84,7 +86,7 @@ public sealed class GasTankWindow
 
         LayoutContainer.SetAnchorPreset(topContainerWrap, LayoutContainer.LayoutPreset.Wide);
 
-        var font = _cache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
+        var font = _typographyManager.GetFont(FontType.SansSerif);
 
         _topLabel = new Label
         {

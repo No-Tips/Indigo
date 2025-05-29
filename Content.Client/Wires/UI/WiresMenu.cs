@@ -147,8 +147,8 @@ namespace Content.Client.Wires.UI
 
             LayoutContainer.SetAnchorPreset(topContainerWrap, LayoutContainer.LayoutPreset.Wide);
 
-            var font = _resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
-            var fontSmall = _resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 10);
+            var font = _typographyManager.GetFont(FontType.SansSerif);
+            var fontSmall = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
 
             Button helpButton;
             var topRow = new BoxContainer
@@ -268,7 +268,7 @@ namespace Content.Client.Wires.UI
             {
                 if (status.Value is StatusLightData statusLightData)
                 {
-                    _statusContainer.AddChild(new StatusLight(statusLightData, _resourceCache));
+                    _statusContainer.AddChild(new StatusLight(statusLightData, _resourceCache, _typographyManager));
                 }
                 else
                 {
@@ -503,7 +503,7 @@ namespace Content.Client.Wires.UI
                 }
             };
 
-            public StatusLight(StatusLightData data, IResourceCache resourceCache)
+            public StatusLight(StatusLightData data, IResourceCache resourceCache, TypographyManager typographyManager)
             {
                 HorizontalAlignment = HAlignment.Right;
 
@@ -566,7 +566,7 @@ namespace Content.Client.Wires.UI
                     };
                 }
 
-                var font = resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 12);
+                var font = typographyManager.GetFont(FontType.SansSerif);
 
                 var hBox = new BoxContainer
                 {
