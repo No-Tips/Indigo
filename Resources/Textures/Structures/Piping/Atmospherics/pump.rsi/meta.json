@@ -324,6 +324,50 @@
         {
             "name": "pumpSignalValve",
             "direction": 4
+        },
+        {
+            "name": "pumpSignalValve_0",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValve_1",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValve_2",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValve_3",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValve_4",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn_0",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn_1",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn_2",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn_3",
+            "direction": 4
+        },
+        {
+            "name": "pumpSignalValveOn_4",
+            "direction": 4
         }
     ]
 }

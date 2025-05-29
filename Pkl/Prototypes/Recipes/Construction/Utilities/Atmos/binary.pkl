@@ -27,34 +27,11 @@ content {
     generateValveConstruction(3)
     generateValveConstruction(4)
 
-    new ConstructionPrototype {
-        id = "SignalControlledValve"
-        name = "signal valve"
-        description = "Valve controlled by signal inputs."
-        graph = "GasBinary"
-        startNode = "start"
-        targetNode = "signalvalve"
-        category = "construction-category-utilities"
-        placementMode = "SnapgridCenter"
-        canBuildInImpassable = false
-        icon = new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-            state = "pumpSignalValve"
-        }
-        layers {
-            new Rsi {
-                sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-                state = "pipeStraight"
-            }
-            new Rsi {
-                sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-                state = "pumpSignalValve"
-            }
-        }
-        conditions {
-            new NoUnstackableInTile {}
-        }
-    }
+    generateSignalControlledValveConstruction(0)
+    generateSignalControlledValveConstruction(1)
+    generateSignalControlledValveConstruction(2)
+    generateSignalControlledValveConstruction(3)
+    generateSignalControlledValveConstruction(4)
 
     new ConstructionPrototype {
         id = "GasPort"
@@ -252,6 +229,35 @@ local const function generateValveConstruction(l: constants.PipeLayer): Construc
         new Rsi {
             sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
             state = "pumpManualValve"
+        }
+    }
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateSignalControlledValveConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+    id = "SignalControlledValve\(l)"
+    name = "signal valve, \(l)"
+    description = "Valve controlled by signal inputs."
+    graph = "GasBinary"
+    startNode = "start"
+    targetNode = "signalvalve\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
+        state = "pumpSignalValve_\(l)"
+    }
+    layers {
+        new Rsi {
+            sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+            state = "pipeStraight_\(l)"
+        }
+        new Rsi {
+            sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
+            state = "pumpSignalValve_\(l)"
         }
     }
     conditions {

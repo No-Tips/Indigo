@@ -47,18 +47,11 @@ content {
     generateValve(3)
     generateValve(4)
 
-    new RCDPrototype {
-        id = "SignalValve"
-        category = "PumpsValves"
-        sprite = "/Textures/Interface/Radial/RPD/pump_signal_valve.png"
-        mode = "ConstructObject"
-        prototype = "SignalControlledValve"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generateSignalControlledValve(0)
+    generateSignalControlledValve(1)
+    generateSignalControlledValve(2)
+    generateSignalControlledValve(3)
+    generateSignalControlledValve(4)
 
     new RCDPrototype {
         id = "PressureValve"
@@ -246,6 +239,19 @@ local const function generateValve(l: PipeLayer): RCDPrototype = new {
     sprite = "/Textures/Interface/Radial/RPD/pump_manual_valve.png"
     mode = "ConstructObject"
     prototype = "GasValve\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
+local const function generateSignalControlledValve(l: PipeLayer): RCDPrototype = new {
+    id = "SignalValve\(l)"
+    category = "PumpsValves"
+    sprite = "/Textures/Interface/Radial/RPD/pump_signal_valve.png"
+    mode = "ConstructObject"
+    prototype = "SignalControlledValve\(l)"
     cost = 1
     delay = 0.0
     collisionMask = "Impassable"

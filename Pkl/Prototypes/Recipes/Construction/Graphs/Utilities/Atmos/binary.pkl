@@ -34,16 +34,11 @@ content {
                     generateValveEdge(3)
                     generateValveEdge(4)
 
-                    new {
-                        to = "signalvalve"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generateSignalControlledValveEdge(0)
+                    generateSignalControlledValveEdge(1)
+                    generateSignalControlledValveEdge(2)
+                    generateSignalControlledValveEdge(3)
+                    generateSignalControlledValveEdge(4)
 
                     new {
                         to = "port"
@@ -115,35 +110,11 @@ content {
             generateValveNode(3)
             generateValveNode(4)
 
-            new {
-                node = "signalvalve"
-                entity = new StaticNodeEntity {
-                    id = "SignalControlledValve"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generateSignalControlledValveNode(0)
+            generateSignalControlledValveNode(1)
+            generateSignalControlledValveNode(2)
+            generateSignalControlledValveNode(3)
+            generateSignalControlledValveNode(4)
 
             new {
                 node = "port"
@@ -414,10 +385,51 @@ local const function generateValveEdge(l: constants.PipeLayer): ConstructionGrap
     }
 }
 
+local const function generateSignalControlledValveEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "signalvalve\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
 local const function generateValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
     node = "valve\(l)"
     entity = new StaticNodeEntity {
         id = "GasValve\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateSignalControlledValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "signalvalve\(l)"
+    entity = new StaticNodeEntity {
+        id = "SignalControlledValve\(l)"
     }
     edges {
         new {
