@@ -607,7 +607,7 @@ content {
         id = "GasPipeAdapter"
         components {
             new SpriteComponent {
-                sprite = "/Textures/Structures/Piping/Atmospherics/pipeAdapter.rsi"
+                sprite = "/Textures/Structures/Piping/Atmospherics/pipe_adapter.rsi"
                 layers {
                     new {
                         state = "base"

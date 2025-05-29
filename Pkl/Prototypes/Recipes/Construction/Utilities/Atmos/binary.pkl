@@ -115,7 +115,7 @@ content {
         placementMode = "SnapgridCenter"
         canBuildInImpassable = false
         icon = new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/pipeAdapter.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/pipe_adapter.rsi"
             state = "base"
         }
     }
