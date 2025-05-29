@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.NodeContainer;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -18,7 +19,7 @@ namespace Content.Client.NodeContainer
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private readonly TypographyManager _typographyManager = null!;
 
         public bool VisEnabled { get; private set; }
 
@@ -90,7 +91,7 @@ namespace Content.Client.NodeContainer
                     _entityLookup,
                     _mapManager,
                     _inputManager,
-                    _resourceCache,
+                    _typographyManager,
                     EntityManager);
 
                 _overlayManager.AddOverlay(overlay);

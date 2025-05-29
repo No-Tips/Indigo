@@ -1,23 +1,25 @@
+using Content.Client.InterfaceGuidelines;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Shared.IoC;
 
-namespace Content.Client.Stylesheets
+
+namespace Content.Client.Stylesheets;
+
+
+public sealed class StylesheetManager : IStylesheetManager
 {
-    public sealed class StylesheetManager : IStylesheetManager
+    [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = null!;
+    [Dependency] private readonly IResourceCache _resourceCache = null!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
+
+    public Stylesheet SheetNano { get; private set; } = null!;
+    public Stylesheet SheetSpace { get; private set; } = null!;
+
+    public void Initialize()
     {
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        SheetNano = new StyleNano(_resourceCache, _typographyManager).Stylesheet;
+        SheetSpace = new StyleSpace(_resourceCache, _typographyManager).Stylesheet;
 
-        public Stylesheet SheetNano { get; private set; } = default!;
-        public Stylesheet SheetSpace { get; private set; } = default!;
-
-        public void Initialize()
-        {
-            SheetNano = new StyleNano(_resourceCache).Stylesheet;
-            SheetSpace = new StyleSpace(_resourceCache).Stylesheet;
-
-            _userInterfaceManager.Stylesheet = SheetNano;
-        }
+        _userInterfaceManager.Stylesheet = SheetNano;
     }
 }

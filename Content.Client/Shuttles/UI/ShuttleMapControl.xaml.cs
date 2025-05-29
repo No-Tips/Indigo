@@ -1,5 +1,6 @@
 using System.Buffers;
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.UI.MapObjects;
@@ -75,11 +76,11 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         RobustXamlLoader.Load(this);
         _shuttles = EntManager.System<ShuttleSystem>();
         _xformSystem = EntManager.System<SharedTransformSystem>();
-        var cache = IoCManager.Resolve<IResourceCache>();
+        var typographyManager = IoCManager.Resolve<TypographyManager>();
 
         _physicsQuery = EntManager.GetEntityQuery<PhysicsComponent>();
 
-        _font = new VectorFont(cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        _font = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     public void SetMap(MapId mapId, Vector2 offset, bool recentering = false)

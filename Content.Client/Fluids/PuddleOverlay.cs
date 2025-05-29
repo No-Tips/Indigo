@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -13,6 +14,7 @@ public sealed class PuddleOverlay : Overlay
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
     private readonly PuddleDebugOverlaySystem _debugOverlaySystem;
 
     private readonly Color _heavyPuddle = new(0, 255, 255, 50);
@@ -27,8 +29,7 @@ public sealed class PuddleOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _debugOverlaySystem = _entitySystemManager.GetEntitySystem<PuddleDebugOverlaySystem>();
-        var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 8);
+        _font = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

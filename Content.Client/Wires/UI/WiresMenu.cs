@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Examine;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Shared.Wires;
@@ -18,6 +19,7 @@ namespace Content.Client.Wires.UI
     public sealed class WiresMenu : BaseWindow
     {
         [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private readonly TypographyManager _typographyManager = null!;
 
         private readonly Control _wiresHBox;
         private readonly Control _topContainer;
@@ -243,7 +245,7 @@ namespace Content.Client.Wires.UI
                 var mirror = random.Next(2) == 0;
                 var flip = random.Next(2) == 0;
                 var type = random.Next(2);
-                var control = new WireControl(wire.Color, wire.Letter, wire.IsCut, flip, mirror, type, _resourceCache)
+                var control = new WireControl(wire.Color, wire.Letter, wire.IsCut, flip, mirror, type, _resourceCache, _typographyManager)
                 {
                     VerticalAlignment = VAlignment.Bottom
                 };
@@ -301,7 +303,7 @@ namespace Content.Client.Wires.UI
             public event Action? ContactsClicked;
 
             public WireControl(WireColor color, WireLetter letter, bool isCut, bool flip, bool mirror, int type,
-                IResourceCache resourceCache)
+                IResourceCache resourceCache, TypographyManager typographyManager)
             {
                 _resourceCache = resourceCache;
 
@@ -317,7 +319,7 @@ namespace Content.Client.Wires.UI
                     VerticalAlignment = VAlignment.Bottom,
                     HorizontalAlignment = HAlignment.Center,
                     Align = Label.AlignMode.Center,
-                    FontOverride = _resourceCache.GetFont("/Fonts/NotoSansDisplay/NotoSansDisplay-Bold.ttf", 12),
+                    FontOverride = typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold),
                     FontColorOverride = Color.Gray,
                     ToolTip = letter.Name(),
                     MouseFilter = MouseFilterMode.Stop

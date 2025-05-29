@@ -11,6 +11,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
+
 
 namespace Content.Client._EE.Supermatter.Consoles;
 
@@ -20,7 +22,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     public NetEntity NetEntity;
 
     private readonly IEntityManager _entManager;
-    private readonly IResourceCache _cache;
+    private readonly TypographyManager _typographyManager;
 
     private Dictionary<SupermatterStatusType, string> _statusStrings = new()
     {
@@ -38,14 +40,14 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         RobustXamlLoader.Load(this);
 
         _entManager = IoCManager.Resolve<IEntityManager>();
-        _cache = IoCManager.Resolve<IResourceCache>();
+        _typographyManager = IoCManager.Resolve<TypographyManager>();
 
         NetEntity = uid;
 
         // Load fonts
-        var headerFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), 11);
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
-        var monoFont = new VectorFont(_cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf"), 10);
+        var headerFont = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Title3, FontWeight.Bold);
+        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
+        var monoFont = _typographyManager.GetFont(FontType.Mono);
 
         // Set fonts
         SupermatterNameLabel.FontOverride = headerFont;
@@ -74,9 +76,6 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     public void UpdateEntry(SupermatterConsoleEntry entry, bool isFocus, SupermatterFocusData? focusData = null)
     {
         NetEntity = entry.NetEntity;
-
-        // Load fonts
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
 
         // Update supermatter name
         SupermatterNameLabel.Text = Loc.GetString("supermatter-console-window-label-sm", ("name", entry.EntityName));

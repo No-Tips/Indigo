@@ -18,6 +18,7 @@ using System.Numerics;
 using JetBrains.Annotations;
 using Content.Shared.Atmos;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Pinpointer.UI;
@@ -28,7 +29,8 @@ namespace Content.Client.Pinpointer.UI;
 [UsedImplicitly, Virtual]
 public partial class NavMapControl : MapGridControl
 {
-    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
+
     private readonly SharedTransformSystem _transformSystem;
     private readonly SharedNavMapSystem _navMapSystem;
 
@@ -436,7 +438,7 @@ public partial class NavMapControl : MapGridControl
 
             // Calculate font size for current zoom level
             var fontSize = (int)Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * _targetFontsize, 0);
-            var font = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), fontSize);
+            var font = _typographyManager.GetFont(FontType.SansSerif, customSize: fontSize);
 
             foreach (var beacon in _navMap.Beacons.Values)
             {

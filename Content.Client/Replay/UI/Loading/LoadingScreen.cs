@@ -1,3 +1,4 @@
+using Content.Client.InterfaceGuidelines;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
@@ -10,6 +11,7 @@ namespace Content.Client.Replay.UI.Loading;
 public class LoadingScreen<TResult> : State
 {
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
     [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
 
     public event Action<TResult?, Exception?>? OnJobFinished;
@@ -32,7 +34,7 @@ public class LoadingScreen<TResult> : State
 
     protected override void Startup()
     {
-        _screen = new(_resourceCache);
+        _screen = new(_typographyManager);
         _userInterfaceManager.StateRoot.AddChild(_screen);
     }
 

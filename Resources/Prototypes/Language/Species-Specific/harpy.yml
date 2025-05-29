@@ -2,7 +2,6 @@
   id: ValyrianStandard
   isVisibleLanguage: true
   speech:
-    fontId: Cambria
     color: "#008ecc"
   obfuscation:
     !type:SyllableObfuscation

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.NPC;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -20,10 +21,10 @@ namespace Content.Client.NPC
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IResourceCache _cache = default!;
         [Dependency] private readonly NPCSteeringSystem _steering = default!;
         [Dependency] private readonly MapSystem _mapSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly TypographyManager _typographyManager = null!;
 
         public PathfindingDebugMode Modes
         {
@@ -40,7 +41,7 @@ namespace Content.Client.NPC
                 }
                 else if (!overlayManager.HasOverlay<PathfindingOverlay>())
                 {
-                    overlayManager.AddOverlay(new PathfindingOverlay(EntityManager, _eyeManager, _inputManager, _mapManager, _cache, this, _mapSystem, _transformSystem));
+                    overlayManager.AddOverlay(new PathfindingOverlay(EntityManager, _eyeManager, _inputManager, _mapManager, _typographyManager, this, _mapSystem, _transformSystem));
                 }
 
                 if ((value & PathfindingDebugMode.Steering) != 0x0)
@@ -153,7 +154,7 @@ namespace Content.Client.NPC
             IEyeManager eyeManager,
             IInputManager inputManager,
             IMapManager mapManager,
-            IResourceCache cache,
+            TypographyManager typographyManager,
             PathfindingSystem system,
             MapSystem mapSystem,
             SharedTransformSystem transformSystem)
@@ -165,7 +166,7 @@ namespace Content.Client.NPC
             _system = system;
             _mapSystem = mapSystem;
             _transformSystem = transformSystem;
-            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+            _font = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
         }
 
         protected override void Draw(in OverlayDrawArgs args)

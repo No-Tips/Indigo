@@ -9,6 +9,8 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
+
 
 namespace Content.Client.Atmos.Consoles;
 
@@ -19,12 +21,14 @@ public sealed partial class AtmosMonitoringEntryContainer : BoxContainer
 
     private readonly IEntityManager _entManager;
     private readonly IResourceCache _cache;
+    private readonly TypographyManager _typographyManager;
 
     public AtmosMonitoringEntryContainer(AtmosMonitoringConsoleEntry data)
     {
         RobustXamlLoader.Load(this);
         _entManager = IoCManager.Resolve<IEntityManager>();
         _cache = IoCManager.Resolve<IResourceCache>();
+        _typographyManager = IoCManager.Resolve<TypographyManager>();
 
         Data = data;
 
@@ -32,8 +36,8 @@ public sealed partial class AtmosMonitoringEntryContainer : BoxContainer
         NetworkColorStripe.Modulate = data.Color;
 
         // Load fonts
-        var headerFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), 11);
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
+        var headerFont = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Title3, FontWeight.Bold);
+        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
 
         // Set fonts
         TemperatureHeaderLabel.FontOverride = headerFont;
@@ -51,7 +55,7 @@ public sealed partial class AtmosMonitoringEntryContainer : BoxContainer
     public void UpdateEntry(AtmosMonitoringConsoleEntry updatedData, bool isFocus)
     {
         // Load fonts
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
+        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
 
         // Update name and values
         if (!string.IsNullOrEmpty(updatedData.Address))

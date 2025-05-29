@@ -11,6 +11,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Map;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
+
 
 namespace Content.Client.Atmos.Consoles;
 
@@ -22,6 +24,7 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
 
     private readonly IEntityManager _entManager;
     private readonly IResourceCache _cache;
+    private readonly TypographyManager _typographyManager;
 
     private Dictionary<AtmosAlarmType, string> _alarmStrings = new Dictionary<AtmosAlarmType, string>()
     {
@@ -51,13 +54,15 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         _entManager = IoCManager.Resolve<IEntityManager>();
         _cache = IoCManager.Resolve<IResourceCache>();
 
+        _typographyManager = IoCManager.Resolve<TypographyManager>();
+
         NetEntity = uid;
         Coordinates = coordinates;
 
         // Load fonts
-        var headerFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), 11);
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
-        var smallFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        var headerFont = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Title3, FontWeight.Bold);
+        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
+        var smallFont = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
 
         // Set fonts
         TemperatureHeaderLabel.FontOverride = headerFont;
@@ -81,7 +86,7 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         Coordinates = _entManager.GetCoordinates(entry.Coordinates);
 
         // Load fonts
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
+        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
 
         // Update alarm state
         if (!_alarmStrings.TryGetValue(entry.AlarmState, out var alarmString))
