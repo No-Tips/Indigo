@@ -50,31 +50,9 @@ namespace Content.IntegrationTests.Tests
             "TestTeg",
             "CentCommMain",
             "CentCommHarmony",
-            "MeteorArena",
             "NukieOutpost",
-            "Core", // No current maintainer. In need of a rework...
-            "Pebble", // Maintained by Plyushune
-            // "Edge", // De-rotated, no current maintainer.
-            "Saltern", // Maintained by the Sin Mapping Team, ODJ, and TCJ.
-            "Shoukou", // Maintained by Violet
-            // "Tortuga", // De-rotated, no current maintainer.
-            "Arena", // Maintained by astriloqua.
-            "Asterisk", // Maintained by mrs.
-            "Glacier", // Maintained by Violet
-            "TheHive", // Maintained by dootythefrooty
-            // "Hammurabi", // De-rotated, maintained by Ichai.
-            "Lighthouse", // Maintained by Violet
-            // "Submarine", // De-rotated, no current maintainer.
-            "Gax", // Maintained by Ichaai
             "Lavatest", // Lavaland Change
-            "Rad", // Maintained by Ichai
-            // "Europa", // De-rotated, has significant issues.
-            "Meta", // Maintained by Ichai
             "Cyberiad", // Maintained by Ichai
-            "Lambda", // Maintained by Ichai
-            "Bagel", // Maintained by Ichai
-            "Northway", // Maintained by Violet
-            "Anchor" // Maintained by the SiN Mapping Team.
         };
 
         /// <summary>

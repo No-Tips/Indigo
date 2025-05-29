@@ -5372,20 +5372,6 @@ entities:
     - type: Transform
       pos: 8.5,-6.5
       parent: 1
-- proto: ReinforcedPlasmaWindowDiagonal
-  entities:
-  - uid: 586
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,8.5
-      parent: 1
-  - uid: 587
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,6.5
-      parent: 1
 - proto: RubberStampApproved
   entities:
   - uid: 830
@@ -5420,13 +5406,6 @@ entities:
     components:
     - type: Transform
       pos: 8.539552,4.440462
-      parent: 1
-- proto: RubberStampChiefJustice
-  entities:
-  - uid: 903
-    components:
-    - type: Transform
-      pos: 8.836427,4.612337
       parent: 1
 - proto: RubberStampClown
   entities:
