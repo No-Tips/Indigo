@@ -5896,7 +5896,7 @@ entities:
       inletOneConcentration: 0.21
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 844
     components:

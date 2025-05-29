@@ -1632,7 +1632,7 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 778
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 314
     components:

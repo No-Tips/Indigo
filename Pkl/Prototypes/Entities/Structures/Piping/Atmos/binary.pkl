@@ -360,7 +360,7 @@ content {
                 state = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
                 layers {
                     new {
-                        sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                         state = "pipe_2"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }

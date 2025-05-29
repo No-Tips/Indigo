@@ -2878,7 +2878,7 @@ entities:
     - Food
     - InjectableSolution
     - RefillableSolution
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 438
     components:

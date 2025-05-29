@@ -73,18 +73,11 @@ content {
         fx = "EffectRCDConstruct0"
     }
 
-    new RCDPrototype {
-        id = "OutletInjector"
-        category = "Vents"
-        sprite = "/Textures/Interface/Radial/RPD/injector.png"
-        mode = "ConstructObject"
-        prototype = "GasOutletInjector"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generateOutletInjector(0)
+    generateOutletInjector(1)
+    generateOutletInjector(2)
+    generateOutletInjector(3)
+    generateOutletInjector(4)
 
     generateVentScrubber(0)
     generateVentScrubber(1)
@@ -253,6 +246,19 @@ local const function generateValve(l: PipeLayer): RCDPrototype = new {
     sprite = "/Textures/Interface/Radial/RPD/pump_manual_valve.png"
     mode = "ConstructObject"
     prototype = "GasValve\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
+local const function generateOutletInjector(l: PipeLayer): RCDPrototype = new {
+    id = "OutletInjector\(l)"
+    category = "Vents"
+    sprite = "/Textures/Interface/Radial/RPD/injector.png"
+    mode = "ConstructObject"
+    prototype = "GasOutletInjector"
     cost = 1
     delay = 0.0
     collisionMask = "Impassable"

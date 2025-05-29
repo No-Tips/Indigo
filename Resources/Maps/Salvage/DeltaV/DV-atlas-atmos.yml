@@ -2183,7 +2183,7 @@ entities:
       parent: 612
     - type: AtmosDevice
       joinedGrid: 612
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 225
     components:

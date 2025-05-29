@@ -311,7 +311,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 65
     components:

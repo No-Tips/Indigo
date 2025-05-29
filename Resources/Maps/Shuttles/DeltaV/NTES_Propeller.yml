@@ -6106,7 +6106,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 1014
     components:

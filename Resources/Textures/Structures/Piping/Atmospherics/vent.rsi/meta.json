@@ -16,26 +16,6 @@
             "directions": 4
         },
         {
-            "name": "pipe_0",
-            "directions": 4
-        },
-        {
-            "name": "pipe_1",
-            "directions": 4
-        },
-        {
-            "name": "pipe_2",
-            "directions": 4
-        },
-        {
-            "name": "pipe_3",
-            "directions": 4
-        },
-        {
-            "name": "pipe_4",
-            "directions": 4
-        },
-        {
             "name": "vent_out",
             "directions": 4,
             "delays": [

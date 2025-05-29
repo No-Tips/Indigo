@@ -156,7 +156,7 @@ local const function generatePressurePumpConstruction(l: constants.PipeLayer): C
     canBuildInImpassable = false
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-        state = "pumpPressure"
+        state = "pumpPressure_\(l)"
     }
     layers {
         new Rsi {
@@ -184,7 +184,7 @@ local const function generateVolumePumpConstruction(l: constants.PipeLayer): Con
     canBuildInImpassable = false
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-        state = "pumpVolume"
+        state = "pumpVolume_\(l)"
     }
     layers {
         new Rsi {
@@ -213,7 +213,7 @@ local const function generatePassiveGateConstruction(l: constants.PipeLayer): Co
     canBuildInImpassable = false
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-        state = "pumpPassiveGate"
+        state = "pumpPassiveGate_\(l)"
     }
     layers {
         new Rsi {
@@ -242,7 +242,7 @@ local const function generateValveConstruction(l: constants.PipeLayer): Construc
     canBuildInImpassable = false
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pump.rsi"
-        state = "pumpManualValve"
+        state = "pumpManualValve_\(l)"
     }
     layers {
         new Rsi {

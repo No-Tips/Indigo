@@ -6597,7 +6597,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 10500
     components:

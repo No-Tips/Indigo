@@ -804,7 +804,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.641858,-1.5760336
       parent: 2
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 100
     components:

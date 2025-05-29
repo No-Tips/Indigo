@@ -3310,7 +3310,7 @@ entities:
     - pos: 0.49291778,7.754779
       parent: 1
       type: Transform
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 474
     components:

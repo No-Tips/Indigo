@@ -1369,7 +1369,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 92
     components:

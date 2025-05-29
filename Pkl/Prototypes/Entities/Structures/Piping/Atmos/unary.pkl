@@ -65,6 +65,7 @@ content {
                 layers {
                     new {
                         state = "pipe_2"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }
                     new {
@@ -139,6 +140,7 @@ content {
                 layers {
                     new {
                         state = "pipe_2"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }
                     new {
@@ -187,6 +189,7 @@ content {
                 layers {
                     new {
                         state = "pipe_2"
+                        sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                         map = Set("enum.PipeVisualLayers.Pipe")
                     }
                     new {
@@ -252,6 +255,7 @@ content {
     new EntityPrototype {
         parent { commonParent }
         id = "GasOutletInjector"
+        `abstract` = true
         placement {
             mode = "SnapgridCenter"
         }
@@ -294,10 +298,6 @@ content {
             new AppearanceComponent {}
             new PipeColorVisualsComponent {}
             new GasOutletInjectorComponent {}
-            new ConstructionComponent {
-                graph = "GasUnary"
-                node = "outletinjector"
-            }
             new SubFloorHideComponent {
                 visibleLayers = Set("enum.SubfloorLayers.FirstLayer", "enum.LightLayers.Unshaded")
             }
@@ -307,19 +307,19 @@ content {
         }
     }
 
-    new EntityPrototype {
-        parent { "GasOutletInjector" }
-        id = "GasOutletInjectorHighFlow"
-        placement {
-            mode = "SnapgridCenter"
-        }
-        components {
-            new GasOutletInjectorComponent {
-                maxTransferRate = 600.0
-                maxPressure = 13500.0
-            }
-        }
-    }
+    generateOutletInjector(0)
+    generateOutletInjector(1)
+    generateOutletInjector(2)
+    generateOutletInjector(3)
+    generateOutletInjector(4)
+
+    // Outlet injector subtypes
+
+    generateOutletInjectorHigh(0)
+    generateOutletInjectorHigh(1)
+    generateOutletInjectorHigh(2)
+    generateOutletInjectorHigh(3)
+    generateOutletInjectorHigh(4)
 
     new EntityPrototype {
         parent {
@@ -700,6 +700,7 @@ local const function generateVentPump(l: PipeLayer): EntityPrototype = new {
             layers {
                 new {
                     state = "pipe_\(l)"
+                    sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                     map = Set("enum.PipeVisualLayers.Pipe")
                 }
                 new {
@@ -747,6 +748,7 @@ local const function generatePassiveVent(l: PipeLayer): EntityPrototype = new {
             layers {
                 new {
                     state = "pipe_\(l)"
+                    sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                     map = Set("enum.PipeVisualLayers.Pipe")
                 }
                 new {
@@ -781,6 +783,7 @@ local const function generateVentScrubber(l: PipeLayer): EntityPrototype = new {
             layers {
                 new {
                     state = "pipe_\(l)"
+                    sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
                     map = Set("enum.PipeVisualLayers.Pipe")
                 }
                 new {
@@ -815,6 +818,64 @@ local const function generateVentScrubberHigh(l: PipeLayer): EntityPrototype = n
         new GasVentScrubberComponent {
             maxPressure = 13500.0
             maxTransferRate = 600.0
+        }
+    }
+}
+
+local const function generateOutletInjector(l: PipeLayer): EntityPrototype = new {
+    parent { "GasOutletInjector" }
+    id = "GasOutletInjector\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            drawdepth = "FloorObjects"
+            netsync = false
+            sprite = "/Textures/Structures/Piping/Atmospherics/outletinjector.rsi"
+            layers {
+                new {
+                    state = "pipe_\(l)"
+                    sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new {
+                    state = "injector"
+                    map = Set("enum.SubfloorLayers.FirstLayer")
+                }
+                new {
+                    state = "injector-unshaded"
+                    map = Set("enum.LightLayers.Unshaded")
+                    color = "#990000"
+                }
+            }
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["pipe"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasUnary"
+            node = "outletinjector\(l)"
+        }
+    }
+}
+
+local const function generateOutletInjectorHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasOutletInjector\(l)" }
+    id = "GasOutletInjectorHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasOutletInjectorComponent {
+            maxTransferRate = 600.0
+            maxPressure = 13500.0
         }
     }
 }

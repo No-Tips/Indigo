@@ -22996,7 +22996,7 @@ entities:
       enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 3724
     components:

@@ -67,7 +67,7 @@ local const function generateVentPumpConstruction(l: constants.PipeLayer): Const
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
@@ -96,7 +96,7 @@ local const function generatePassiveVentPumpConstruction(l: constants.PipeLayer)
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
@@ -125,7 +125,7 @@ local const function generateVentScrubberConstruction(l: constants.PipeLayer): C
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
