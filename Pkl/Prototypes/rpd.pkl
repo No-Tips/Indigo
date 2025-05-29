@@ -84,18 +84,11 @@ content {
     generateVentPump(3)
     generateVentPump(4)
 
-    new RCDPrototype {
-        id = "DualPortVent"
-        category = "Vents"
-        sprite = "/Textures/Interface/Radial/RPD/dual_port.png"
-        mode = "ConstructObject"
-        prototype = "GasDualPortVentPump"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generateDualPortVentPump(0)
+    generateDualPortVentPump(1)
+    generateDualPortVentPump(2)
+    generateDualPortVentPump(3)
+    generateDualPortVentPump(4)
 
     generatePassiveVent(0)
     generatePassiveVent(1)
@@ -130,19 +123,11 @@ content {
         fx = "EffectRCDConstruct0"
     }
 
-    new RCDPrototype {
-        id = "FilterGas"
-        category = "AtmosphericUtility"
-        sprite = "/Textures/Interface/Radial/RPD/gas_filter.png"
-        mode = "ConstructObject"
-        prototype = "GasFilter"
-        mirrorPrototype = "GasFilterFlipped"
-        cost = 1
-        delay = 0.0
-        collisionMask = "Impassable"
-        rotation = "User"
-        fx = "EffectRCDConstruct0"
-    }
+    generateFilter(0)
+    generateFilter(1)
+    generateFilter(2)
+    generateFilter(3)
+    generateFilter(4)
 
     generatePort(0)
     generatePort(1)
@@ -291,12 +276,39 @@ local const function generateVentPump(l: PipeLayer): RCDPrototype = new {
     fx = "EffectRCDConstruct0"
 }
 
+local const function generateDualPortVentPump(l: PipeLayer): RCDPrototype = new {
+    id = "DualPortVent\(l)"
+    category = "Vents"
+    sprite = "/Textures/Interface/Radial/RPD/dual_port.png"
+    mode = "ConstructObject"
+    prototype = "GasDualPortVentPump\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
 local const function generatePassiveVent(l: PipeLayer): RCDPrototype = new {
     id = "VentPassive\(l)"
     category = "Vents"
     sprite = "/Textures/Interface/Radial/RPD/vent_passive.png"
     mode = "ConstructObject"
     prototype = "GasPassiveVent\(l)"
+    cost = 1
+    delay = 0.0
+    collisionMask = "Impassable"
+    rotation = "User"
+    fx = "EffectRCDConstruct0"
+}
+
+local const function generateFilter(l: PipeLayer): RCDPrototype = new {
+    id = "FilterGas\(l)"
+    category = "AtmosphericUtility"
+    sprite = "/Textures/Interface/Radial/RPD/gas_filter.png"
+    mode = "ConstructObject"
+    prototype = "GasFilter\(l)"
+    mirrorPrototype = "GasFilterFlipped\(l)"
     cost = 1
     delay = 0.0
     collisionMask = "Impassable"

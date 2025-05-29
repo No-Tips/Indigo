@@ -1,0 +1,60 @@
+amends ".../Typings.pkl"
+
+import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    generateFilter(0)
+    generateFilter(1)
+    generateFilter(2)
+    generateFilter(3)
+    generateFilter(4)
+
+    generateFilterFlipped(0)
+    generateFilterFlipped(1)
+    generateFilterFlipped(2)
+    generateFilterFlipped(3)
+    generateFilterFlipped(4)
+}
+
+local const function generateFilter(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasFilter\(l)"
+    name = "gas filter"
+    description = "Very useful for filtering gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "filter\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+        state = "gasFilter"
+    }
+    mirror = "GasFilterFlipped\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateFilterFlipped(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasFilterFlipped\(l)"
+    hide = true
+    name = "gas filter"
+    description = "Very useful for filtering gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "filterflipped\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Sprites/Piping/Atmospherics/gasfilter.rsi"
+        state = "gasFilterF"
+    }
+    mirror = "GasFilter\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}

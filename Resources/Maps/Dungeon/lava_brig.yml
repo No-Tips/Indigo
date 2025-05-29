@@ -8472,7 +8472,7 @@ entities:
     - type: Transform
       pos: 17.405733,12.600882
       parent: 588
-- proto: GasFilter
+- proto: GasFilter2
   entities:
   - uid: 1415
     components:

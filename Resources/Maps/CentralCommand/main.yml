@@ -21685,7 +21685,7 @@ entities:
     - type: Transform
       pos: 0.20438054,-25.436565
       parent: 1668
-- proto: GasFilter
+- proto: GasFilter2
   entities:
   - uid: 6652
     components:

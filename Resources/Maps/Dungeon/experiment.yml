@@ -6990,7 +6990,7 @@ entities:
     - type: Transform
       pos: 43.5,15.5
       parent: 1653
-- proto: GasFilter
+- proto: GasFilter2
   entities:
   - uid: 1612
     components:
