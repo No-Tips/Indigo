@@ -610,7 +610,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 237
-- proto: BookChemistryInsane
+- proto: BookRandomStory
   entities:
   - uid: 179
     components:

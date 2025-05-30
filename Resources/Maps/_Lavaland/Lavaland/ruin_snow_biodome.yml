@@ -1488,7 +1488,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterWinterColorBlue
+- proto: ClothingOuterWinterMed
   entities:
   - uid: 481
     components:
@@ -1499,7 +1499,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterWinterColorBrown
+- proto: ClothingOuterWinterHydro
   entities:
   - uid: 480
     components:

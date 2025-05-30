@@ -3385,7 +3385,7 @@ entities:
     - type: Transform
       pos: -2.401044,-8.401007
       parent: 612
-- proto: SignAtmosMinsky
+- proto: SignAtmos
   entities:
   - uid: 211
     components:

@@ -80,8 +80,8 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
         foreach (var grid in args.NewGrids)
         {
-            var newComp = EnsureComp<MapGridComponent>(grid);
-            RefreshGrid(args.Grid, comp, newComp);
+            var newComp = EnsureComp<NavMapComponent>(grid);
+            RefreshGrid(grid, newComp, _gridQuery.GetComponent(grid));
         }
 
         RefreshGrid(args.Grid, comp, _gridQuery.GetComponent(args.Grid));
@@ -100,30 +100,36 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
-        if (!ev.EmptyChanged || !_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
+        if (!_navQuery.TryComp(ev.Entity, out var navMap))
             return;
 
-        var tile = ev.NewTile.GridIndices;
-        var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
-
-        var chunk = EnsureChunk(navMap, chunkOrigin);
-
-        // This could be easily replaced in the future to accommodate diagonal tiles
-        var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
-        ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
-
-        if (ev.NewTile.IsSpace(_tileDefManager))
+        foreach (var change in ev.Changes)
         {
-            tileData = 0;
-            if (PruneEmpty((ev.NewTile.GridUid, navMap), chunk))
-                return;
-        }
-        else
-        {
-            tileData = FloorMask;
-        }
+            if (!change.EmptyChanged)
+                continue;
 
-        DirtyChunk((ev.NewTile.GridUid, navMap), chunk);
+            var tile = change.GridIndices;
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
+
+            var chunk = EnsureChunk(navMap, chunkOrigin);
+
+            // This could be easily replaced in the future to accommodate diagonal tiles
+            var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
+            ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
+
+            if (change.NewTile.IsSpace(_tileDefManager))
+            {
+                tileData = 0;
+                if (PruneEmpty((ev.Entity, navMap), chunk))
+                    continue;
+            }
+            else
+            {
+                tileData = FloorMask;
+            }
+
+            DirtyChunk((ev.Entity, navMap), chunk);
+        }
     }
 
     private void DirtyChunk(Entity<NavMapComponent> entity, NavMapChunk chunk)
@@ -199,6 +205,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         beacon.Text = args.Text;
         beacon.Color = args.Color;
         beacon.Enabled = args.Enabled;
+        Dirty(ent, beacon);
 
         UpdateBeaconEnabledVisuals((ent, beacon));
         UpdateNavMapBeaconData(ent, beacon);
@@ -327,9 +334,13 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void UpdateNavMapBeaconData(EntityUid uid, NavMapBeaconComponent component, TransformComponent? xform = null)
     {
-        if (!Resolve(uid, ref xform)
-            || xform.GridUid == null
-            || !_navQuery.TryComp(xform.GridUid, out var navMap))
+        if (!Resolve(uid, ref xform))
+            return;
+
+        if (xform.GridUid == null)
+            return;
+
+        if (!_navQuery.TryComp(xform.GridUid, out var navMap))
             return;
 
         var meta = MetaData(uid);
@@ -427,19 +438,31 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         return beacon != null;
     }
 
+    /// <summary>
+    /// Returns a string describing the rough distance and direction
+    /// to the position of <paramref name="ent"/> from the nearest beacon.
+    /// </summary>
     [PublicAPI]
-    public string GetNearestBeaconString(Entity<TransformComponent?> ent)
+    public string GetNearestBeaconString(Entity<TransformComponent?> ent, bool onlyName = false)
     {
         if (!Resolve(ent, ref ent.Comp))
             return Loc.GetString("nav-beacon-pos-no-beacons");
 
-        return GetNearestBeaconString(_transformSystem.GetMapCoordinates(ent, ent.Comp));
+        return GetNearestBeaconString(_transformSystem.GetMapCoordinates(ent, ent.Comp), onlyName);
     }
 
-    public string GetNearestBeaconString(MapCoordinates coordinates)
+    /// <summary>
+    /// Returns a string describing the rough distance and direction
+    /// to <paramref name="coordinates"/> from the nearest beacon.
+    /// </summary>
+
+    public string GetNearestBeaconString(MapCoordinates coordinates, bool onlyName = false)
     {
         if (!TryGetNearestBeacon(coordinates, out var beacon, out var pos))
             return Loc.GetString("nav-beacon-pos-no-beacons");
+
+        if (onlyName)
+            return beacon.Value.Comp.Text!;
 
         var gridOffset = Angle.Zero;
         if (_mapManager.TryFindGridAt(pos.Value, out var grid, out _))
@@ -447,10 +470,11 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
         // get the angle between the two positions, adjusted for the grid rotation so that
         // we properly preserve north in relation to the grid.
-        var dir = (pos.Value.Position - coordinates.Position).ToWorldAngle();
+        var offset = coordinates.Position - pos.Value.Position;
+        var dir = offset.ToWorldAngle();
         var adjustedDir = (dir - gridOffset).GetDir();
 
-        var length = (pos.Value.Position - coordinates.Position).Length();
+        var length = offset.Length();
         if (length < CloseDistance)
         {
             return Loc.GetString("nav-beacon-pos-format",

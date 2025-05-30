@@ -235,7 +235,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: AirlockBrigLocked
+- proto: AirlockSecurityLawyerLocked
   entities:
   - uid: 77
     components:

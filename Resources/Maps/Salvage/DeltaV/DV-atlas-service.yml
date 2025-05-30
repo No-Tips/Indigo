@@ -4085,7 +4085,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -10.430396,-7.4117246
       parent: 683
-- proto: SignHydro3
+- proto: SignHydro1
   entities:
   - uid: 258
     components:
@@ -4106,7 +4106,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,0.5
       parent: 683
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 210
     components:

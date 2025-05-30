@@ -1346,7 +1346,7 @@ entities:
         143:
         - On: Open
         - Off: Close
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 127
     components:

@@ -2700,7 +2700,7 @@ entities:
     - type: Transform
       pos: -3.882896,-2.509187
       parent: 1
-- proto: chem_master
+- proto: ChemMaster
   entities:
   - uid: 891
     components:
@@ -5303,7 +5303,7 @@ entities:
     - type: Transform
       pos: -1.5,-7.5
       parent: 1
-- proto: SignChemistry1
+- proto: SignChem
   entities:
   - uid: 893
     components:
@@ -5377,7 +5377,7 @@ entities:
     - type: Transform
       pos: 2.4920845,-8.564493
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 785
     components:

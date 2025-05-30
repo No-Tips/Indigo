@@ -2379,7 +2379,7 @@ entities:
           occludes: True
           ents:
           - 346
-- proto: YellowOxygenTankFilled
+- proto: OxygenTankFilled
   entities:
   - uid: 167
     components:

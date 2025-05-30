@@ -12292,7 +12292,7 @@ entities:
     - type: Transform
       pos: -10.5,-40.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 635
     components:

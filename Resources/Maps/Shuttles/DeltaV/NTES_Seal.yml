@@ -7253,7 +7253,7 @@ entities:
     - type: Transform
       pos: -8.5,-7.5
       parent: 60
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 606
     components:

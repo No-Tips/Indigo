@@ -39,20 +39,17 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            "/Maps/CentralCommand/main.yml",
             "/Maps/CentralCommand/harmony.yml", // Harmony CC version
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
-            "/Maps/centcomm.yml"
         };
 
         private static readonly string[] GameMaps =
         {
             "Dev",
             "TestTeg",
-            "CentCommMain",
-            "CentCommHarmony",
+            "CentComm",
             "NukieOutpost",
             "Lavatest", // Lavaland Change
             "Cyberiad", // Maintained by Ichai

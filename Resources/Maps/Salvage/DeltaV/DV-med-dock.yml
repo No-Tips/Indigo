@@ -792,7 +792,7 @@ entities:
         - Pressed: Toggle
         87:
         - Pressed: Toggle
-- proto: SignMinerDock
+- proto: SignShipDock
   entities:
   - uid: 106
     components:

@@ -1531,7 +1531,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: FoamThrongler
+- proto: PlushieThrongler
   entities:
   - uid: 213
     components:
@@ -1589,18 +1589,6 @@ entities:
     components:
     - type: Transform
       pos: 14.5,1.5
-      parent: 2
-- proto: GlueGrenade
-  entities:
-  - uid: 528
-    components:
-    - type: Transform
-      pos: 3.971548,17.845459
-      parent: 2
-  - uid: 529
-    components:
-    - type: Transform
-      pos: 3.971548,17.564209
       parent: 2
 - proto: GoldenBikeHorn
   entities:
@@ -1669,7 +1657,7 @@ entities:
     - type: Transform
       pos: 1.4654441,9.545338
       parent: 2
-- proto: LubeGrenade
+- proto: CleanerGrenade
   entities:
   - uid: 530
     components:
@@ -1735,20 +1723,6 @@ entities:
     - type: Transform
       pos: 5.7824163,3.117793
       parent: 2
-- proto: PlushieBlackburn
-  entities:
-  - uid: 223
-    components:
-    - type: Transform
-      pos: 7.4444375,5.6425996
-      parent: 2
-- proto: PlushieBlackburnMatryoskya
-  entities:
-  - uid: 224
-    components:
-    - type: Transform
-      pos: 7.777771,5.569683
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 226
@@ -1756,26 +1730,12 @@ entities:
     - type: Transform
       pos: 5.8761663,3.633418
       parent: 2
-- proto: PlushieDesislavaBlackburn
-  entities:
-  - uid: 227
-    components:
-    - type: Transform
-      pos: 7.527771,4.8300996
-      parent: 2
 - proto: PlushieDiona
   entities:
   - uid: 228
     components:
     - type: Transform
       pos: 5.9386663,4.060789
-      parent: 2
-- proto: PlushieDurk
-  entities:
-  - uid: 229
-    components:
-    - type: Transform
-      pos: 14.221777,2.5374165
       parent: 2
 - proto: PlushieHampter
   entities:
@@ -1822,16 +1782,6 @@ entities:
     - type: Transform
       pos: 4.8353815,5.040293
       parent: 2
-- proto: PlushieLouie
-  entities:
-  - uid: 236
-    components:
-    - type: Transform
-      pos: 11.428225,2.8811665
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PlushieMagicarp
   entities:
   - uid: 237
@@ -1876,13 +1826,6 @@ entities:
     components:
     - type: Transform
       pos: 6.0369644,3.685728
-      parent: 2
-- proto: PlushieRainbowLizard
-  entities:
-  - uid: 243
-    components:
-    - type: Transform
-      pos: 4.3182144,5.045103
       parent: 2
 - proto: PlushieRatvar
   entities:
@@ -2024,7 +1967,7 @@ entities:
     - type: Transform
       pos: 1.5587192,16.23759
       parent: 2
-- proto: SoapHomemadeBanana
+- proto: Soap
   entities:
   - uid: 561
     components:

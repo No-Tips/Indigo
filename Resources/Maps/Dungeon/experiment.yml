@@ -6131,7 +6131,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 44.5,1.5
       parent: 1653
-- proto: chem_master
+- proto: ChemMaster
   entities:
   - uid: 1454
     components:
@@ -8969,7 +8969,7 @@ entities:
     - type: Transform
       pos: 12.5,13.5
       parent: 1653
-- proto: SignXenolab
+- proto: SignXenobio
   entities:
   - uid: 1461
     components:
@@ -9921,13 +9921,6 @@ entities:
     components:
     - type: Transform
       pos: 24.538218,15.750836
-      parent: 1653
-- proto: VehicleJanicartDestroyed
-  entities:
-  - uid: 729
-    components:
-    - type: Transform
-      pos: 6.5,25.5
       parent: 1653
 - proto: VendingMachineCigs
   entities:

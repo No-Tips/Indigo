@@ -33,7 +33,7 @@ public sealed class SalvageTest
                 mapSystem.CreateMap(out var mapId);
                 try
                 {
-                    Assert.That(mapLoader.TryLoadGrid(mapId, salvage.MapPath, out var grid));
+                    Assert.That(mapLoader.TryLoadGrid(mapId, salvage.MapPath, out _));
                 }
                 catch (Exception ex)
                 {
