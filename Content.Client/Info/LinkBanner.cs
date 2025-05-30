@@ -7,6 +7,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 
+
 namespace Content.Client.Info
 {
     public sealed class LinkBanner : BoxContainer
@@ -26,7 +27,8 @@ namespace Content.Client.Info
             var uriOpener = IoCManager.Resolve<IUriOpener>();
             _cfg = IoCManager.Resolve<IConfigurationManager>();
 
-            var rulesButton = new Button() {Text = Loc.GetString("server-info-rules-button")};
+            var rulesButton = new Button()
+                { Text = Loc.GetString("server-info-rules-button"), Margin = new Thickness(4.0f, 4.0f), };
             rulesButton.OnPressed += args => new RulesAndInfoWindow().Open();
             buttons.AddChild(rulesButton);
 
@@ -36,20 +38,25 @@ namespace Content.Client.Info
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };
+            var guidebookButton = new Button()
+                { Text = Loc.GetString("server-info-guidebook-button"), Margin = new Thickness(4.0f, 4.0f) };
             guidebookButton.OnPressed += _ =>
             {
                 guidebookController.ToggleGuidebook();
             };
             buttons.AddChild(guidebookButton);
 
-            var changelogButton = new ChangelogButton();
-            changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
+            var changelogButton = new ChangelogButton()
+            {
+                Margin = new Thickness(4.0f, 4.0f)
+            };
+            changelogButton.OnPressed += args =>
+                UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             buttons.AddChild(changelogButton);
 
             void AddInfoButton(string loc, CVarDef<string> cVar)
             {
-                var button = new Button { Text = Loc.GetString(loc) };
+                var button = new Button { Text = Loc.GetString(loc), Margin = new Thickness(4.0f, 4.0f), };
                 button.OnPressed += _ => uriOpener.OpenUri(_cfg.GetCVar(cVar));
                 buttons.AddChild(button);
                 _infoLinks.Add((cVar, button));
