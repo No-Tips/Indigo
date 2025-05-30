@@ -17,15 +17,6 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         RobustXamlLoader.Load(this);
 
         _entManager = IoCManager.Resolve<IEntityManager>();
-        var typographyManager = IoCManager.Resolve<TypographyManager>();
-
-        // Load fonts
-        var normalFont = typographyManager.GetFont(FontType.SansSerif);
-        var monoFont = typographyManager.GetFont(FontType.Mono);
-
-        // Set fonts
-        GasLabel.FontOverride = normalFont;
-        GasBarLabel.FontOverride = monoFont;
     }
 
     public void UpdateEntry(string name, Color color, float value)

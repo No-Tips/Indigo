@@ -161,7 +161,6 @@ namespace Content.Client.Wires.UI
                     {
                         Text = Loc.GetString("wires-menu-name-label"),
                         FontOverride = font,
-                        FontColorOverride = StyleNano.NanoGold,
                         VerticalAlignment = VAlignment.Center,
                     }),
                     (_serialLabel = new Label

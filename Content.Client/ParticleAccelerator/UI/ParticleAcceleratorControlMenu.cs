@@ -159,14 +159,13 @@ namespace Content.Client.ParticleAccelerator.UI
                             {
                                 Text = Loc.GetString("particle-accelerator-control-menu-device-version-label"),
                                 FontOverride = font,
-                                FontColorOverride = StyleNano.NanoGold,
                             },
                             closeButton
                         }
                     },
                     new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = StyleNano.NanoGold},
+                        PanelOverride = new StyleBoxFlat(),
                         MinSize = new Vector2(0, 2),
                     },
                     new Control

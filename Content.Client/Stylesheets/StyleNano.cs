@@ -75,7 +75,6 @@ public sealed class StyleNano : StyleBase
 
     public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
-    public static readonly Color NanoGold = Color.FromHex("#A88B5E");
     public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
     public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
     public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
@@ -1114,8 +1113,7 @@ public sealed class StyleNano : StyleBase
                         [
                             new(
                                 Label.StylePropertyFont,
-                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
-                            new(Control.StylePropertyModulateSelf, NanoGold)
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     // alert tooltip
@@ -1342,8 +1340,7 @@ public sealed class StyleNano : StyleBase
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
-                                    weight: FontWeight.Bold)),
-                            new(Label.StylePropertyFontColor, NanoGold)
+                                    weight: FontWeight.Bold))
                         ]),
 
                     // Bigger Label
@@ -1355,8 +1352,7 @@ public sealed class StyleNano : StyleBase
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title2,
-                                    weight: FontWeight.Bold)),
-                            new(Label.StylePropertyFontColor, NanoGold)
+                                    weight: FontWeight.Bold))
                         ]),
 
                     // Small Label
@@ -1378,8 +1374,7 @@ public sealed class StyleNano : StyleBase
                         [
                             new(
                                 Label.StylePropertyFont,
-                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
-                            new(Label.StylePropertyFontColor, NanoGold)
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     new(
@@ -1745,7 +1740,6 @@ public sealed class StyleNano : StyleBase
                                 PanelContainer.StylePropertyPanel,
                                 new StyleBoxFlat
                                 {
-                                    BackgroundColor = NanoGold, ContentMarginBottomOverride = 2,
                                     ContentMarginLeftOverride = 2
                                 })
                         ]),
@@ -1984,10 +1978,6 @@ public sealed class StyleNano : StyleBase
                             Label.StylePropertyFont,
                             typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote)),
                     // ---
-
-                    Element<Label>()
-                        .Class("StatusFieldTitle")
-                        .Prop("font-color", NanoGold),
 
                     Element<Label>()
                         .Class("Good")
@@ -2255,10 +2245,6 @@ public sealed class StyleNano : StyleBase
                         .Prop(Control.StylePropertyModulateSelf, JusticeColorHovered),
                     // End DeltaV
 
-                    // Silicon law edit ui
-                    Element<Label>()
-                        .Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
-                        .Prop(Label.StylePropertyFontColor, NanoGold),
                     // Pinned button style
                     new(
                         new SelectorElement(typeof(TextureButton), [StyleClassPinButtonPinned,], null, null),

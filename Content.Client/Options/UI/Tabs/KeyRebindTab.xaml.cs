@@ -195,7 +195,6 @@ namespace Content.Client.Options.UI.Tabs
                     new Label
                     {
                         Text = Loc.GetString(headerContents),
-                        FontColorOverride = StyleNano.NanoGold,
                         StyleClasses = { StyleNano.StyleClassLabelKeyText }
                     });
             }

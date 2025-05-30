@@ -180,8 +180,7 @@ public abstract class StyleBase
                     null,
                     null),
                 [
-                    new(TextureButton.StylePropertyTexture, textureCloseButton),
-                    new(Control.StylePropertyModulateSelf, StyleNano.NanoGold)
+                    new(TextureButton.StylePropertyTexture, textureCloseButton)
                 ]),
             // Window close button hover.
             new(

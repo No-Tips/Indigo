@@ -46,31 +46,9 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
         // Load fonts
         var headerFont = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Title3, FontWeight.Bold);
-        var normalFont = _typographyManager.GetFont(FontType.SansSerif);
-        var monoFont = _typographyManager.GetFont(FontType.Mono);
 
         // Set fonts
         SupermatterNameLabel.FontOverride = headerFont;
-
-        SupermatterStatusLabel.FontOverride = normalFont;
-
-        IntegrityLabel.FontOverride = normalFont;
-        PowerLabel.FontOverride = normalFont;
-        RadiationLabel.FontOverride = normalFont;
-        MolesLabel.FontOverride = normalFont;
-        TemperatureLabel.FontOverride = normalFont;
-        TemperatureLimitLabel.FontOverride = normalFont;
-        WasteLabel.FontOverride = normalFont;
-        AbsorptionLabel.FontOverride = normalFont;
-
-        IntegrityBarLabel.FontOverride = monoFont;
-        PowerBarLabel.FontOverride = monoFont;
-        RadiationBarLabel.FontOverride = monoFont;
-        MolesBarLabel.FontOverride = monoFont;
-        TemperatureBarLabel.FontOverride = monoFont;
-        TemperatureLimitBarLabel.FontOverride = monoFont;
-        WasteBarLabel.FontOverride = monoFont;
-        AbsorptionBarLabel.FontOverride = monoFont;
     }
 
     public void UpdateEntry(SupermatterConsoleEntry entry, bool isFocus, SupermatterFocusData? focusData = null)
