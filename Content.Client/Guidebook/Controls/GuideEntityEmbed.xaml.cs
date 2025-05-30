@@ -90,7 +90,7 @@ public sealed partial class GuideEntityEmbed : BoxContainer, IDocumentTag
             return;
 
         // open verb menu?
-        if (args.Function == EngineKeyFunctions.UseSecondary)
+        if (args.Function == ContentKeyFunctions.OpenContextMenu)
         {
             _ui.GetUIController<VerbMenuUIController>().OpenVerbMenu(entity.Value);
             args.Handle();

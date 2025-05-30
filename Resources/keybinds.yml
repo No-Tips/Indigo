@@ -22,6 +22,11 @@ binds:
   key: MouseRight
   canFocus: true
   priority: -1 # UIRightClick & EditorCancelPlace should fire first.
+- function: OpenContextMenu
+  type: State
+  key: MouseRight
+  canFocus: true
+  priority: -10 # UIRightClick & EditorCancelPlace should fire first.
 - function: ShowDebugMonitors
   type: Toggle
   key: F3

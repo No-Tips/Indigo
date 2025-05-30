@@ -191,7 +191,7 @@ namespace Content.Client.Inventory
 
             if (ev.Function == ContentKeyFunctions.ExamineEntity)
                 _examine.DoExamine(slot.Entity.Value);
-            else if (ev.Function == EngineKeyFunctions.UseSecondary)
+            else if (ev.Function == ContentKeyFunctions.OpenContextMenu)
                 _ui.GetUIController<VerbMenuUIController>().OpenVerbMenu(slot.Entity.Value);
         }
 
