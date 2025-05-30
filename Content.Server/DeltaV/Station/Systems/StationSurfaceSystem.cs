@@ -1,6 +1,9 @@
 using Content.Server.Parallax;
 using Content.Server.Station.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+
 
 namespace Content.Server.Station.Systems;
 
@@ -22,17 +25,19 @@ public sealed class StationSurfaceSystem : EntitySystem
         if (ent.Comp.MapPath is not {} path)
             return;
 
-        var map = _map.CreateMap(out var mapId);
-        if (!_mapLoader.TryLoad(mapId, path.ToString(), out _))
+        if (!_mapLoader.TryLoadMap(
+            path,
+            out var map,
+            out _,
+            new DeserializationOptions()
+            {
+                PauseMaps = true
+            }))
         {
             Log.Error($"Failed to load surface map {ent.Comp.MapPath}!");
-            Del(map);
+
             return;
         }
-
-        // loading replaced the map entity with a new one so get the latest id
-        map = _map.GetMap(mapId);
-        _map.SetPaused(map, false);
 
         // Needs a cherrypick, but this system is unused entirely for now
         //_biome.SetEnabled(map); // generate the terrain after the grids loaded to prevent it getting hidden under it

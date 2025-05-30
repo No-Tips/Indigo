@@ -5,6 +5,7 @@ using Content.Server.GridPreloader;
 using Content.Shared._Lavaland.Shelter;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
@@ -63,18 +64,18 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
 
         if (!_preloader.TryGetPreloadedGrid(comp.PreloadedGrid, out var shelter))
         {
-            _mapSystem.CreateMap(out var dummyMap);
-            if (!_mapLoader.TryLoad(dummyMap, path, out var roots) || roots.Count != 1)
+            if (!_mapLoader.TryLoadMap(new(path), out var map, out var roots) || roots.Count != 1)
             {
                 Log.Error("Failed to load Shelter grid properly on it's deployment.");
                 return false;
             }
 
-            var shelters = _mapMan.GetAllGrids(dummyMap);
+            var shelters = _mapMan.GetAllGrids(map.Value.Comp.MapId);
             shelter = shelters.FirstOrDefault(x => !TerminatingOrDeleted(x));
 
             SetupShelter(shelter.Value, new EntityCoordinates(mapEnt, posFixed.Position));
-            _mapMan.DeleteMap(dummyMap);
+            _mapSystem.DeleteMap(map.Value.Comp.MapId);
+
             return true;
         }
 
