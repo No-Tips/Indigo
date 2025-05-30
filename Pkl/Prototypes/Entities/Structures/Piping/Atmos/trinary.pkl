@@ -187,10 +187,6 @@ content {
                 inletOne = "inlet"
                 inletTwo = "filter"
             }
-            new ConstructionComponent {
-                graph = "GasTrinary"
-                node = "mixer"
-            }
             new AmbientSoundComponent {
                 enabled = false
                 volume = -9.0
@@ -496,6 +492,10 @@ local const function generateMixer(l: PipeLayer): EntityPrototype = new {
                     layer = l
                 }
             }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "mixer\(l)"
         }
     }
 }

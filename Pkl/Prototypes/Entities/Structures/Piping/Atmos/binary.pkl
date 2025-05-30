@@ -286,10 +286,6 @@ content {
                     }
                 }
             }
-            new ConstructionComponent {
-                graph = "GasBinary"
-                node = "signalvalve"
-            }
             new AmbientSoundComponent {
                 enabled = true
                 volume = -9.0
@@ -415,10 +411,6 @@ content {
             }
             new DeviceLinkSinkComponent {
                 ports = Set("Pressurize", "Depressurize")
-            }
-            new ConstructionComponent {
-                graph = "GasBinary"
-                node = "dualportventpump"
             }
             new NodeContainerComponent {
                 nodes {
@@ -946,6 +938,10 @@ local const function generateSignalControlledValve(l: PipeLayer): EntityPrototyp
                 }
             }
         }
+        new ConstructionComponent {
+            graph = "GasBinary"
+            node = "signalvalve\(l)"
+        }
     }
 }
 
@@ -1009,6 +1005,10 @@ local const function generateDualPort(l: PipeLayer): EntityPrototype = new {
                     map = Set("enabled", "enum.SubfloorLayers.FirstLayer")
                 }
             }
+        }
+        new ConstructionComponent {
+            graph = "GasBinary"
+            node = "dualportventpump\(l)"
         }
         new NodeContainerComponent {
             nodes {

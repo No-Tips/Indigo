@@ -46,11 +46,11 @@ content {
                     generatePortEdge(3)
                     generatePortEdge(4)
 
-                    generateDualPort(0)
-                    generateDualPort(1)
-                    generateDualPort(2)
-                    generateDualPort(3)
-                    generateDualPort(4)
+                    generateDualPortEdge(0)
+                    generateDualPortEdge(1)
+                    generateDualPortEdge(2)
+                    generateDualPortEdge(3)
+                    generateDualPortEdge(4)
 
                     new {
                         to = "radiator"
@@ -345,7 +345,7 @@ local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraph
     }
 }
 
-local const function generateDualPort(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateDualPortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
     to = "dualportventpump\(l)"
     steps {
         new MaterialConstructionGraphStep {
