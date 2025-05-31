@@ -1,10 +1,11 @@
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat;
 using Robust.Client.UserInterface.Controls;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
-public sealed class ChannelSelectorPopup : Popup
+public sealed class ChannelSelectorPopup : FancyPopup
 {
     // order in which the channels show up in the channel selector
     public static readonly ChatSelectChannel[] ChannelSelectorOrder =
@@ -13,7 +14,7 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.Whisper,
         ChatSelectChannel.Emotes,
         ChatSelectChannel.Radio,
-        ChatSelectChannel.Telepathic, //Nyano - Summary: determines the order in which telepathic shows. 
+        ChatSelectChannel.Telepathic, //Nyano - Summary: determines the order in which telepathic shows.
         ChatSelectChannel.LOOC,
         ChatSelectChannel.OOC,
         ChatSelectChannel.Dead,

@@ -3,6 +3,7 @@ using Content.Client.Examine;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Wires;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
@@ -585,7 +586,7 @@ namespace Content.Client.Wires.UI
             }
         }
 
-        private sealed class HelpPopup : Popup
+        private sealed class HelpPopup : FancyPopup
         {
             public HelpPopup()
             {
