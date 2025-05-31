@@ -155,7 +155,8 @@ public sealed class IndigoKeysPreset : KeysPreset
                     new()
                     {
                         BaseKey = Keyboard.Key.Q,
-                        Mod2 = Keyboard.Key.Alt
+                        Mod1 = Keyboard.Key.Alt,
+                        Mod2 = Keyboard.Key.Shift
                     }
                 }
             },
@@ -238,6 +239,16 @@ public sealed class IndigoKeysPreset : KeysPreset
                     {
                         BaseKey = Keyboard.Key.MouseRight,
                         Mod1 = Keyboard.Key.Control
+                    }
+                }
+            },
+            {
+                ContentKeyFunctions.ReleasePulledObject, new()
+                {
+                    new()
+                    {
+                        BaseKey = Keyboard.Key.Q,
+                        Mod1 = Keyboard.Key.Alt
                     }
                 }
             },
