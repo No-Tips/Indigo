@@ -248,7 +248,7 @@ public sealed class IndigoKeysPreset : KeysPreset
                     new()
                     {
                         BaseKey = Keyboard.Key.Q,
-                        Mod1 = Keyboard.Key.Alt
+                        Mod1 = Keyboard.Key.Control
                     }
                 }
             },
