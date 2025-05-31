@@ -140,7 +140,6 @@ public sealed class IndigoKeysPreset : KeysPreset
                     new()
                     {
                         BaseKey = Keyboard.Key.Q,
-                        Mod1 = Keyboard.Key.Shift,
                         Mod2 = Keyboard.Key.Alt
                     }
                 }
@@ -202,7 +201,7 @@ public sealed class IndigoKeysPreset : KeysPreset
                 {
                     new()
                     {
-                        BaseKey = Keyboard.Key.Q,
+                        BaseKey = Keyboard.Key.MouseRight,
                         Mod1 = Keyboard.Key.Alt
                     }
                 }

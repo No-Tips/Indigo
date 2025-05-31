@@ -139,7 +139,6 @@ public sealed class IndigoMacOSKeysPreset : KeysPreset
                 new()
                 {
                     BaseKey = Keyboard.Key.Q,
-                    Mod1 = Keyboard.Key.Shift,
                     Mod2 = Keyboard.Key.Alt
                 }
             }
@@ -201,8 +200,8 @@ public sealed class IndigoMacOSKeysPreset : KeysPreset
             {
                 new()
                 {
-                    BaseKey = Keyboard.Key.Q,
-                    Mod1 = Keyboard.Key.Alt
+                    BaseKey = Keyboard.Key.MouseRight,
+                    Mod1 = Keyboard.Key.LSystem
                 }
             }
         },
