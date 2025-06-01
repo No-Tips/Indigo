@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
@@ -12,10 +13,10 @@ public sealed class HTNOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
-    public HTNOverlay(IEntityManager entManager, IResourceCache resourceCache)
+    public HTNOverlay(IEntityManager entManager, TypographyManager typographyManager)
     {
         _entManager = entManager;
-        _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        _font = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

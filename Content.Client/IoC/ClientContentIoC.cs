@@ -10,6 +10,8 @@ using Content.Client.Eui;
 using Content.Client.Fullscreen;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
+using Content.Client.InterfaceGuidelines;
+using Content.Client.KeyPresets;
 using Content.Client.Launcher;
 using Content.Client.Mapping;
 using Content.Client.Parallax.Managers;
@@ -62,6 +64,8 @@ namespace Content.Client.IoC
             collection.Register<NanoChatSystem>();
             collection.Register<MappingManager>();
             collection.Register<DebugMonitorManager>();
+            collection.Register<TypographyManager>();
+            collection.Register<KeyPresetsManager>();
         }
     }
 }

@@ -1223,7 +1223,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,11.5
       parent: 1
-- proto: chem_master
+- proto: ChemMaster
   entities:
   - uid: 140
     components:
@@ -1693,7 +1693,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 200
     components:

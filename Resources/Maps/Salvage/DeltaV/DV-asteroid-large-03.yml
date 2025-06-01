@@ -1632,7 +1632,7 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 778
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 314
     components:
@@ -1695,7 +1695,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-4.5
       parent: 778
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 320
     components:

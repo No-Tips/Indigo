@@ -1,4 +1,5 @@
-﻿using Robust.Client.UserInterface;
+﻿using Content.Client.UserInterface.Controls;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
@@ -11,7 +12,7 @@ namespace Content.Client.UserInterface.Systems.Chat.Controls;
 /// Base type of <see cref="ChannelFilterButton"/> and <see cref="ChannelSelectorButton"/>.
 /// </summary>
 public abstract class ChatPopupButton<TPopup> : Button
-    where TPopup : Popup, new()
+    where TPopup : FancyPopup, new()
 {
     private readonly IGameTiming _gameTiming;
 

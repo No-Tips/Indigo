@@ -290,7 +290,7 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
             EntityManager.System<ExamineSystem>().DoExamine(control.Entity);
             args.Handle();
         }
-        else if (args.Function == EngineKeyFunctions.UseSecondary)
+        else if (args.Function == ContentKeyFunctions.OpenContextMenu)
         {
             UIManager.GetUIController<VerbMenuUIController>().OpenVerbMenu(control.Entity);
             args.Handle();

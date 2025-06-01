@@ -1903,7 +1903,7 @@ entities:
     - type: Transform
       pos: 2.5,-7.5
       parent: 1
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 271
     components:
@@ -2573,7 +2573,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 310
     components:

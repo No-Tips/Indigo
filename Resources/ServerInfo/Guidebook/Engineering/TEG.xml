@@ -44,7 +44,7 @@
     Gas input -> High-pressure pump -> Pipe segment (with heater) -> Low-pressure pump -> Circulator
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="GasMixer" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasMixer2" Rotation="90" Caption="" Margin="-1"/>
     <GuideEntityEmbed Entity="GasPressurePump2" Rotation="90" Caption="" Margin="-1"/>
     <GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="0" Caption="" Margin="-1"/>
     <GuideEntityEmbed Entity="GasPressurePump2" Rotation="90" Caption="" Margin="-1"/>
@@ -187,7 +187,7 @@
   </Box>
   <Box>
     <GuideEntityEmbed Entity="TegCenter" Rotation="0" Caption="" Margin="-1"/>
-    <GuideEntityEmbed Entity="GasPort" Rotation="180" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPort2" Rotation="180" Caption="" Margin="-1"/>
   </Box>
 
   - Connector Port: Use this to input a gas with high heat capacity; most of the time, Plasma or Frezon is used to do so, as they both have very high specific heat capacities (although most any gas will do). (Yes, Plasma =/= Hot. You can cool it down, and it acts as a really good heat exchange medium.)
@@ -200,7 +200,7 @@
 
   Just follow the steps for the Coolant array, but use a freezer in place of the Heat-Exchangers. As so:
   <Box>
-    <GuideEntityEmbed Entity="GasPort" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPort2" Rotation="90" Caption="" Margin="-1"/>
     <GuideEntityEmbed Entity="GasPipeBend2" Rotation="0" Caption="" Margin="-1"/>
     <GuideEntityEmbed Entity="GasThermoMachineFreezerEnabled" Caption="" Rotation="0" Margin="0"/>
   </Box>

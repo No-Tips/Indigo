@@ -12,6 +12,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
@@ -161,8 +162,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (ent.Comp.Shuttle != null || UpdateShuttle(ent) || HasComp<DockingShuttleComponent>(ent.Comp.Shuttle))
             return;
 
-        _mapSystem.CreateMap(out var dummyMap);
-        _mapLoader.TryLoad(dummyMap, MiningShuttlePath, out _);
+        if (!_mapLoader.TryLoadMap(new(MiningShuttlePath), out var map, out _))
+            return;
 
         // Find the target
         var targetMap = Transform(ent).MapID;
@@ -170,7 +171,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
             return;
 
         // Find the mining shuttle
-        var shuttle = _mapMan.GetAllGrids(dummyMap).FirstOrNull(x => HasComp<DockingShuttleComponent>(x));
+        var shuttle = _mapMan.GetAllGrids(map.Value.Comp.MapId).FirstOrNull(x => HasComp<DockingShuttleComponent>(x));
         if (!TryComp<DockingShuttleComponent>(shuttle, out var docking))
         {
             Log.Error("Failed to call Mining shuttle since it failed to load.");
@@ -198,7 +199,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         Dirty(ent);
 
         // shitcode because funny
-        Timer.Spawn(TimeSpan.FromSeconds(15), () => _mapMan.DeleteMap(dummyMap));
+        Timer.Spawn(TimeSpan.FromSeconds(15), () => _mapSystem.DeleteMap(map.Value.Comp.MapId));
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -13,6 +12,10 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage;
 using System.Linq;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map.Components;
+
 
 namespace Content.Server.StationEvents.Events;
 
@@ -55,51 +58,42 @@ public sealed class PirateRadioSpawnRule : StationEventSystem<PirateRadioSpawnRu
         var outpostOptions = new MapLoadOptions
         {
             Offset = _xform.GetWorldPosition(targetStation) + randomOffset,
-            LoadMap = false,
         };
 
-        if (!_map.TryLoad(Transform(targetStation).MapID, _random.Pick(component.PirateRadioShuttlePath), out var outpostids, outpostOptions))
+        if (!_map.TryLoadGrid(Transform(targetStation).MapID, new(_random.Pick(component.PirateRadioShuttlePath)), out var outpostGrid, offset: _xform.GetWorldPosition(targetStation) + randomOffset))
             return;
 
-        SpawnDebris(component, outpostids);
+        SpawnDebris(component, outpostGrid.Value);
     }
 
-    private void SpawnDebris(PirateRadioSpawnRuleComponent component, IReadOnlyList<EntityUid> outpostids)
+    private void SpawnDebris(PirateRadioSpawnRuleComponent component, Entity<MapGridComponent> outpostids)
     {
         if (_confMan.GetCVar(CCVars.WorldgenEnabled)
             || component.DebrisCount <= 0)
             return;
 
-        foreach (var id in outpostids)
+        var outpostaabb = _xform.GetWorldPosition(outpostids);
+        var k = 0;
+
+        while (k < component.DebrisCount)
         {
-            var outpostaabb = _xform.GetWorldPosition(id);
-            var k = 0;
+            var debrisRandomOffset = _random.NextVector2(component.MinimumDebrisDistance, component.MaximumDebrisDistance);
+            var randomer = _random.NextVector2(component.DebrisMinimumOffset, component.DebrisMaximumOffset); //Second random vector to ensure the outpost isn't perfectly centered in the debris field
 
-            while (k < component.DebrisCount)
-            {
-                var debrisRandomOffset = _random.NextVector2(component.MinimumDebrisDistance, component.MaximumDebrisDistance);
-                var randomer = _random.NextVector2(component.DebrisMinimumOffset, component.DebrisMaximumOffset); //Second random vector to ensure the outpost isn't perfectly centered in the debris field
-                var debrisOptions = new MapLoadOptions
-                {
-                    Offset = outpostaabb + debrisRandomOffset + randomer,
-                    LoadMap = false,
-                };
+            var salvPrototypes = _prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList();
+            var salvageProto = _random.Pick(salvPrototypes);
 
-                var salvPrototypes = _prototypeManager.EnumeratePrototypes<SalvageMapPrototype>().ToList();
-                var salvageProto = _random.Pick(salvPrototypes);
+            if (!_mapSystem.MapExists(GameTicker.DefaultMap))
+                return;
 
-                if (!_mapSystem.MapExists(GameTicker.DefaultMap))
-                    return;
+            // Round didn't start before running this, leading to a null-space test fail.
+            if (GameTicker.DefaultMap == MapId.Nullspace)
+                return;
 
-                // Round didn't start before running this, leading to a null-space test fail.
-                if (GameTicker.DefaultMap == MapId.Nullspace)
-                    return;
+            if (!_map.TryLoadGrid(GameTicker.DefaultMap, salvageProto.MapPath, out _, offset: outpostaabb + debrisRandomOffset + randomer))
+                return;
 
-                if (!_map.TryLoad(GameTicker.DefaultMap, salvageProto.MapPath.ToString(), out _, debrisOptions))
-                    return;
-
-                k++;
-            }
+            k++;
         }
     }
 

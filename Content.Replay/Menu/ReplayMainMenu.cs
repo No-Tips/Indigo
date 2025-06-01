@@ -1,5 +1,6 @@
 using System.IO.Compression;
 using System.Linq;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Message;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Robust.Client;
@@ -28,6 +29,7 @@ public sealed class ReplayMainScreen : State
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IReplayLoadManager _loadMan = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = default!;
     [Dependency] private readonly IGameController _controllerProxy = default!;
     [Dependency] private readonly IClientRobustSerializer _serializer = default!;
     [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
@@ -40,7 +42,7 @@ public sealed class ReplayMainScreen : State
 
     protected override void Startup()
     {
-        _mainMenuControl = new(_resourceCache);
+        _mainMenuControl = new(_resourceCache, _typographyManager);
         _userInterfaceManager.StateRoot.AddChild(_mainMenuControl);
 
         _mainMenuControl.SelectButton.OnPressed += OnSelectPressed;

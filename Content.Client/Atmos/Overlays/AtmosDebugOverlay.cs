@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Atmos.EntitySystems;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Shared.Atmos;
 using Robust.Client.Graphics;
@@ -24,6 +25,8 @@ public sealed class AtmosDebugOverlay : Overlay
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
     [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
+
     private readonly SharedTransformSystem _transform;
     private readonly AtmosDebugOverlaySystem _system;
     private readonly SharedMapSystem _map;
@@ -39,7 +42,7 @@ public sealed class AtmosDebugOverlay : Overlay
         _system = system;
         _transform = _entManager.System<SharedTransformSystem>();
         _map = _entManager.System<SharedMapSystem>();
-        _font = _cache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 12);
+        _font = _typographyManager.GetFont(FontType.SansSerif);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

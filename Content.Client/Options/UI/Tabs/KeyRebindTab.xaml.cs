@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.KeyPresets;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
 using Content.Shared.Input;
@@ -14,6 +15,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
+
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
@@ -28,8 +30,11 @@ namespace Content.Client.Options.UI.Tabs
 
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly KeyPresetsManager _keyPresetsManager = null!;
 
         private BindButton? _currentlyRebinding;
+
+        private int _selectedKeysPreset = 0;
 
         private readonly Dictionary<BoundKeyFunction, KeyControl> _keyControls =
             new();
@@ -143,13 +148,39 @@ namespace Content.Client.Options.UI.Tabs
                 PopulateOptions();
             };
 
+            KeyPresetsOption.OnItemSelected += OnKeyPresetsItemSelected;
+            ApplyKeysPreset.OnButtonDown += OnApplyKeysPresetButtonDown;
+
             PopulateOptions();
+        }
+
+        private void OnKeyPresetsItemSelected(OptionButton.ItemSelectedEventArgs ev)
+        {
+            KeyPresetsOption.SelectId(ev.Id);
+            _selectedKeysPreset = ev.Id;
+        }
+
+        private void OnApplyKeysPresetButtonDown(BaseButton.ButtonEventArgs ev)
+        {
+            var preset = _keyPresetsManager.GetKeyPresets()[KeyPresetsOption.SelectedId];
+
+            _deferCommands.Add(() =>
+            {
+                _keyPresetsManager.ApplyPreset(preset);
+                PopulateOptions();
+            });
         }
 
         private void PopulateOptions()
         {
             KeybindsContainer.RemoveAllChildren();
             _keyControls.Clear();
+
+            KeyPresetsOption.Clear();
+
+            foreach (var preset in _keyPresetsManager.GetKeyPresets())
+                KeyPresetsOption.AddItem(preset.Name);
+
             var first = true;
 
             void AddHeader(string headerContents)
@@ -160,12 +191,12 @@ namespace Content.Client.Options.UI.Tabs
                 }
 
                 first = false;
-                KeybindsContainer.AddChild(new Label
-                {
-                    Text = Loc.GetString(headerContents),
-                    FontColorOverride = StyleNano.NanoGold,
-                    StyleClasses = { StyleNano.StyleClassLabelKeyText }
-                });
+                KeybindsContainer.AddChild(
+                    new Label
+                    {
+                        Text = Loc.GetString(headerContents),
+                        StyleClasses = { StyleNano.StyleClassLabelKeyText }
+                    });
             }
 
             bool ShouldDisplayButton(BoundKeyFunction function)
@@ -173,7 +204,8 @@ namespace Content.Client.Options.UI.Tabs
                 if (_searchText == string.Empty)
                     return true;
 
-                var optionText = Loc.GetString($"ui-options-function-{CaseConversion.PascalToKebab(function.FunctionName)}");
+                var optionText = Loc.GetString(
+                    $"ui-options-function-{CaseConversion.PascalToKebab(function.FunctionName)}");
                 return optionText.StartsWith(_searchText, StringComparison.OrdinalIgnoreCase)
                     || _searchText.Contains(optionText, StringComparison.OrdinalIgnoreCase);
             }
@@ -198,7 +230,11 @@ namespace Content.Client.Options.UI.Tabs
                 _keyControls.Add(function, control);
             }
 
-            void AddCheckBox(string checkBoxName, bool currentState, Action<BaseButton.ButtonToggledEventArgs>? callBackOnClick)
+            void AddCheckBox(
+                string checkBoxName,
+                bool currentState,
+                Action<BaseButton.ButtonToggledEventArgs>? callBackOnClick
+            )
             {
                 if (!ShouldDisplayCheckBox(checkBoxName))
                     return;
@@ -211,7 +247,10 @@ namespace Content.Client.Options.UI.Tabs
             }
 
             AddHeader("ui-options-header-general");
-            AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
+            AddCheckBox(
+                "ui-options-hotkey-keymap",
+                _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys),
+                HandleToggleUSQWERTYCheckbox);
 
             AddHeader("ui-options-header-movement");
             AddButton(EngineKeyFunctions.MoveUp);
@@ -234,6 +273,7 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-basic");
             AddButton(EngineKeyFunctions.Use);
             AddButton(EngineKeyFunctions.UseSecondary);
+            AddButton(ContentKeyFunctions.OpenContextMenu);
             AddButton(ContentKeyFunctions.UseItemInHand);
             AddButton(ContentKeyFunctions.AltUseItemInHand);
             AddButton(ContentKeyFunctions.ActivateItemInWorld);
@@ -265,13 +305,13 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-ui");
             AddButton(ContentKeyFunctions.FocusChat);
             AddButton(ContentKeyFunctions.FocusLocalChat);
-            AddButton(ContentKeyFunctions.FocusEmote);
-            AddButton(ContentKeyFunctions.FocusWhisperChat);
             AddButton(ContentKeyFunctions.FocusRadio);
+            AddButton(ContentKeyFunctions.FocusWhisperChat);
+            AddButton(ContentKeyFunctions.FocusEmote);
             AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);
-            AddButton(ContentKeyFunctions.FocusAdminChat);
             AddButton(ContentKeyFunctions.FocusDeadChat);
+            AddButton(ContentKeyFunctions.FocusAdminChat);
             AddButton(ContentKeyFunctions.FocusConsoleChat);
             AddButton(ContentKeyFunctions.CycleChatChannelForward);
             AddButton(ContentKeyFunctions.CycleChatChannelBackward);
@@ -499,8 +539,8 @@ namespace Content.Client.Options.UI.Tabs
                 Priority = _currentlyRebinding.Binding?.Priority ?? 0,
                 Type = bindType,
                 CanFocus = key == Keyboard.Key.MouseLeft
-                           || key == Keyboard.Key.MouseRight
-                           || key == Keyboard.Key.MouseMiddle,
+                    || key == Keyboard.Key.MouseRight
+                    || key == Keyboard.Key.MouseMiddle,
                 CanRepeat = false
             };
 
@@ -567,18 +607,19 @@ namespace Content.Client.Options.UI.Tabs
 
                 BindButton1 = new BindButton(parent, this, StyleBase.ButtonOpenRight);
                 BindButton2 = new BindButton(parent, this, StyleBase.ButtonOpenLeft);
-                ResetButton = new Button { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonDanger } };
+                ResetButton = new Button
+                    { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonDanger } };
 
                 var hBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     Children =
                     {
-                        new Control {MinSize = new Vector2(5, 0)},
+                        new Control { MinSize = new Vector2(5, 0) },
                         name,
                         BindButton1,
                         BindButton2,
-                        new Control {MinSize = new Vector2(10, 0)},
+                        new Control { MinSize = new Vector2(10, 0) },
                         ResetButton
                     }
                 };

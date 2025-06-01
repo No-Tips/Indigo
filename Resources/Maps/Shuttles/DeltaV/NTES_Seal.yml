@@ -4098,7 +4098,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.51886475,9.655112
       parent: 60
-- proto: GasFilterFlipped
+- proto: GasFilterFlipped2
   entities:
   - uid: 658
     components:
@@ -4138,7 +4138,7 @@ entities:
       parent: 60
     - type: AtmosDevice
       joinedGrid: 60
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 638
     components:
@@ -4153,7 +4153,7 @@ entities:
       joinedGrid: 60
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 572
     components:
@@ -5607,7 +5607,7 @@ entities:
       parent: 60
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 648
     components:
@@ -7253,7 +7253,7 @@ entities:
     - type: Transform
       pos: -8.5,-7.5
       parent: 60
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 606
     components:

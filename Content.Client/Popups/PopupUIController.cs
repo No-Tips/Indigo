@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -24,11 +25,11 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
     public override void Initialize()
     {
         base.Initialize();
-        var cache = IoCManager.Resolve<IResourceCache>();
+        var typographyManager = IoCManager.Resolve<TypographyManager>();
 
-        _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 10);
-        _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 12);
-        _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-BoldItalic.ttf"), 14);
+        _smallFont = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
+        _mediumFont = typographyManager.GetFont(FontType.SansSerif);
+        _largeFont = typographyManager.GetFont(FontType.SansSerif, TextStyle.Title3);
     }
 
     public void OnStateEntered(GameplayState state)

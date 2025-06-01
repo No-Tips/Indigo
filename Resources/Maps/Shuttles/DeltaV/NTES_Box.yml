@@ -1861,7 +1861,7 @@ entities:
     - type: Transform
       pos: 1.4663568,11.604567
       parent: 1
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 435
     components:
@@ -2368,7 +2368,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 289
     components:

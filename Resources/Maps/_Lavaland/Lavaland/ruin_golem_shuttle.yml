@@ -2125,16 +2125,6 @@ entities:
     - type: Transform
       pos: -6.0706463,14.491428
       parent: 1
-- proto: MineralScanner
-  entities:
-  - uid: 242
-    components:
-    - type: Transform
-      pos: -6.5304337,2.5159988
-      parent: 1
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: OperatingTable
   entities:
   - uid: 196

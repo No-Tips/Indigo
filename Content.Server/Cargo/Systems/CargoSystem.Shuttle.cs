@@ -13,13 +13,13 @@ using Content.Shared.GameTicking;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Tiles;
 using Content.Shared.Whitelist;
-using Robust.Server.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Cargo.Systems;
@@ -378,20 +378,12 @@ public sealed partial class CargoSystem
             return;
         }
 
-        // It gets mapinit which is okay... buuutt we still want it paused to avoid power draining.
-        var mapEntId = _mapSystem.CreateMap();
-        CargoMap = _entityManager.GetComponent<MapComponent>(mapEntId).MapId;
-
-        var options = new MapLoadOptions
-        {
-            LoadMap = true,
-        };
-
-        _mapLoader.TryLoad((MapId) CargoMap, "/Maps/Shuttles/trading_outpost.yml", out var rootUids, options); // Oh boy oh boy, hardcoded paths!
-
+        // Oh boy oh boy, hardcoded paths!
         // If this fails to load for whatever reason, cargo is fucked
-        if (rootUids == null || !rootUids.Any())
+        if ( !_mapLoader.TryLoadMap(new("/Maps/Shuttles/trading_outpost.yml"), out var map, out var rootUids) || !rootUids.Any())
             return;
+
+        CargoMap = map.Value.Comp.MapId;
 
         foreach (var grid in rootUids)
         {

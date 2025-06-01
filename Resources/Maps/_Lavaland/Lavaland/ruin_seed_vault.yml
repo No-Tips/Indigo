@@ -235,7 +235,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,4.5
       parent: 1
-- proto: AirlockHydroponics
+- proto: AirlockHydroponicsLocked
   entities:
   - uid: 174
     components:
@@ -283,13 +283,6 @@ entities:
     components:
     - type: Transform
       pos: -0.99697924,11.780481
-      parent: 1
-- proto: Biogenerator
-  entities:
-  - uid: 156
-    components:
-    - type: Transform
-      pos: 3.5,6.5
       parent: 1
 - proto: BluespaceBeaker
   entities:

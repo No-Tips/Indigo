@@ -24554,7 +24554,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -10.5,35.5
       parent: 2
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 6104
     components:
@@ -42876,7 +42876,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 17.5,-29.5
       parent: 2
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 1612
     components:
@@ -53052,16 +53052,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5111954,11.4883375
-      parent: 2
-    missingComponents:
-    - Item
-    - Pullable
-- proto: WeaponTetherGun
-  entities:
-  - uid: 3059
-    components:
-    - type: Transform
-      pos: -5.5782247,14.510563
       parent: 2
     missingComponents:
     - Item

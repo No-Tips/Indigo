@@ -2135,7 +2135,7 @@ entities:
     - type: Transform
       pos: -2.904473,-0.44135267
       parent: 612
-- proto: GasFilterFlipped
+- proto: GasFilterFlipped2
   entities:
   - uid: 251
     components:
@@ -2173,7 +2173,7 @@ entities:
       parent: 612
     - type: AtmosDevice
       joinedGrid: 612
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 267
     components:
@@ -2183,7 +2183,7 @@ entities:
       parent: 612
     - type: AtmosDevice
       joinedGrid: 612
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 225
     components:
@@ -2757,7 +2757,7 @@ entities:
       parent: 612
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 275
     components:
@@ -3385,7 +3385,7 @@ entities:
     - type: Transform
       pos: -2.401044,-8.401007
       parent: 612
-- proto: SignAtmosMinsky
+- proto: SignAtmos
   entities:
   - uid: 211
     components:

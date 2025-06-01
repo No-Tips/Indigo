@@ -5,7 +5,6 @@
   isVisibleLanguage: true
   speech:
     color: "#c7df2edd"
-    fontId: Copperplate
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2 # Replacements are really short

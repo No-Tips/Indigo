@@ -668,7 +668,7 @@ entities:
     - type: Transform
       pos: -1.5,-11.5
       parent: 768
-- proto: BookFishing
+- proto: BookRandomStory
   entities:
   - uid: 587
     components:
@@ -2200,7 +2200,7 @@ entities:
       parent: 768
     - type: AtmosDevice
       joinedGrid: 768
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 250
     components:

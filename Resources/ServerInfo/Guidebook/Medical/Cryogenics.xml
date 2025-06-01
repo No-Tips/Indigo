@@ -17,17 +17,17 @@ Cryogenics can be a bit daunting to understand, but hopefully, quick run through
 </Box>
 <Box>
 <GuideEntityEmbed Entity="GasPipeBend2" Rotation="180"/>
-<GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
-<GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
+<GuideEntityEmbed Entity="GasFilterFlipped2" Rotation="90"/>
+<GuideEntityEmbed Entity="GasFilterFlipped2" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
 <GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
 <GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="270"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="GasPort" Caption="air out" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort2" Caption="air out" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeTJunction2" Rotation="180"/>
 <GuideEntityEmbed Entity="GasPipeBend2" Rotation="270"/>
-<GuideEntityEmbed Entity="GasPort" Caption="air in" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort2" Caption="air in" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPressurePump2" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeBend2" Rotation="270"/>
 </Box>

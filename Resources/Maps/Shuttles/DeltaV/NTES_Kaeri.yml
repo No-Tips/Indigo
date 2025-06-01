@@ -2177,7 +2177,7 @@ entities:
       parent: 617
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 383
     components:
@@ -3385,7 +3385,7 @@ entities:
     - type: Transform
       pos: 5.5,-9.5
       parent: 617
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 129
     components:

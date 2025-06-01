@@ -609,7 +609,7 @@ entities:
         - DoorStatus: DoorBolt
         836:
         - DoorStatus: DoorBolt
-- proto: AirlockExternalGlassEasyPry
+- proto: AirlockExternalGlass
   entities:
   - uid: 91
     components:
@@ -700,7 +700,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -9.5,-4.5
       parent: 1
-- proto: AirlockGlassShuttleEasyPry
+- proto: AirlockGlassShuttle
   entities:
   - uid: 3
     components:
@@ -3467,7 +3467,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 831
     components:
@@ -5948,7 +5948,7 @@ entities:
     - type: Transform
       pos: 0.5,-21.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 663
     components:
@@ -6948,7 +6948,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,2.5
       parent: 1
-- proto: YellowOxygenTankFilled
+- proto: OxygenTankFilled
   entities:
   - uid: 799
     components:

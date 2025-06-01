@@ -1,3 +1,4 @@
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.NPC;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -19,7 +20,7 @@ public sealed class HTNSystem : EntitySystem
 
             if (_enableOverlay)
             {
-                overlayManager.AddOverlay(new HTNOverlay(EntityManager, IoCManager.Resolve<IResourceCache>()));
+                overlayManager.AddOverlay(new HTNOverlay(EntityManager, IoCManager.Resolve<TypographyManager>()));
                 RaiseNetworkEvent(new RequestHTNMessage()
                 {
                     Enabled = true,

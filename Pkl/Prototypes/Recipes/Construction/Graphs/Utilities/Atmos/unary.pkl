@@ -28,17 +28,11 @@ content {
                     generateVentScrubberEdge(3)
                     generateVentScrubberEdge(4)
 
-                    new {
-                        to = "outletinjector"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-
+                    generateOutletInjectorEdge(0)
+                    generateOutletInjectorEdge(1)
+                    generateOutletInjectorEdge(2)
+                    generateOutletInjectorEdge(3)
+                    generateOutletInjectorEdge(4)
                 }
             }
 
@@ -60,35 +54,11 @@ content {
             generateVentScrubberNode(3)
             generateVentScrubberNode(4)
 
-            new {
-                node = "outletinjector"
-                entity = new StaticNodeEntity {
-                    id = "GasOutletInjector"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generateOutletInjectorNode(0)
+            generateOutletInjectorNode(1)
+            generateOutletInjectorNode(2)
+            generateOutletInjectorNode(3)
+            generateOutletInjectorNode(4)
         }
     }
 }
@@ -194,6 +164,17 @@ local const function generateVentScrubberEdge(l: constants.PipeLayer): Construct
     }
 }
 
+local const function generateOutletInjectorEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "outletinjector\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
 local const function generateVentScrubberNode(l: constants.PipeLayer): ConstructionGraphNode = new {
     node = "ventscrubber\(l)"
     entity = new StaticNodeEntity {
@@ -219,6 +200,36 @@ local const function generateVentScrubberNode(l: constants.PipeLayer): Construct
                     tool = "Screwing"
                     doAfter = 1.0
                 }
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateOutletInjectorNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "outletinjector\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasOutletInjector\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
                 new ToolConstructionGraphStep {
                     tool = "Welding"
                     doAfter = 1.0

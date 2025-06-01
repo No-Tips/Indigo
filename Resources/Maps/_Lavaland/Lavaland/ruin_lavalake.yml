@@ -2187,7 +2187,7 @@ entities:
     - type: Transform
       pos: -19.5,-2.5
       parent: 2
-- proto: WallRockBasaltBSCrystal
+- proto: WallRockBasaltBluespace
   entities:
   - uid: 10
     components:

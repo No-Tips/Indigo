@@ -2244,7 +2244,7 @@ entities:
     - type: Transform
       pos: -7.5,10.5
       parent: 1
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 328
     components:
@@ -2717,7 +2717,7 @@ entities:
     - type: Transform
       pos: -6.5,10.5
       parent: 1
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 405
     components:
@@ -3631,30 +3631,6 @@ entities:
     - type: Transform
       pos: 8.5,1.5
       parent: 1
-- proto: ReinforcedPlasmaWindowDiagonal
-  entities:
-  - uid: 540
-    components:
-    - type: Transform
-      pos: -5.5,13.5
-      parent: 1
-  - uid: 541
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,14.5
-      parent: 1
-  - uid: 542
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,13.5
-      parent: 1
-  - uid: 543
-    components:
-    - type: Transform
-      pos: -3.5,14.5
-      parent: 1
 - proto: RollerBed
   entities:
   - uid: 544
@@ -3691,7 +3667,7 @@ entities:
     - type: Transform
       pos: -3.5,-1.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 549
     components:

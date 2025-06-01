@@ -6479,7 +6479,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitSyndicateDurathread
+- proto: ClothingOuterHardsuitSyndicate
   entities:
   - uid: 2267
     components:
@@ -13676,7 +13676,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 34.5,-15.5
       parent: 2
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 1041
     components:
@@ -18089,7 +18089,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 30.5,4.5
       parent: 2
-- proto: PoweredDimSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 1582
     components:
@@ -19791,7 +19791,7 @@ entities:
     - type: Transform
       pos: -4.341208,-17.386177
       parent: 2
-- proto: VendingMachineBoozeSyndicate
+- proto: VendingMachineBooze
   entities:
   - uid: 1863
     components:

@@ -610,7 +610,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 237
-- proto: BookChemistryInsane
+- proto: BookRandomStory
   entities:
   - uid: 179
     components:
@@ -1345,7 +1345,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 787
     components:
@@ -1359,7 +1359,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0335FCFF'
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 108
     components:
@@ -1369,7 +1369,7 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 92
     components:
@@ -1942,7 +1942,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 109
     components:

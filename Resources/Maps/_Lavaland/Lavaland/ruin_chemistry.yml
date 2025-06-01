@@ -15,8 +15,6 @@ entities:
     - type: MetaData
       name: grid
     - type: Transform
-      pos: -3.3828125,-2.9375
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -289,17 +287,6 @@ entities:
     - type: Transform
       pos: 10.174223,4.5496836
       parent: 2
-- proto: BoxAgrichem
-  entities:
-  - uid: 84
-    components:
-    - type: Transform
-      parent: 82
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: CableApcExtension
   entities:
   - uid: 51
@@ -535,7 +522,6 @@ entities:
           occludes: True
           ents:
           - 85
-          - 84
           - 83
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -580,13 +566,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,15.5
-      parent: 2
-- proto: portableChemicalMixer
-  entities:
-  - uid: 43
-    components:
-    - type: Transform
-      pos: 7.3070126,7.531024
       parent: 2
 - proto: PortableGeneratorPacman
   entities:

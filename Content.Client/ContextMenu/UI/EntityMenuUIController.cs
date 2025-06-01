@@ -69,7 +69,7 @@ namespace Content.Client.ContextMenu.UI
             _context.OnContextKeyEvent += OnKeyBindDown;
 
             CommandBinds.Builder
-                .Bind(EngineKeyFunctions.UseSecondary,  new PointerInputCmdHandler(HandleOpenEntityMenu, outsidePrediction: true))
+                .Bind(ContentKeyFunctions.OpenContextMenu,  new PointerInputCmdHandler(HandleOpenEntityMenu, outsidePrediction: true))
                 .Register<EntityMenuUIController>();
         }
 
@@ -166,9 +166,6 @@ namespace Content.Client.ContextMenu.UI
                 return false;
 
             if (_stateManager.CurrentState is not GameplayStateBase)
-                return false;
-
-            if (_combatMode.IsInCombatMode(args.Session?.AttachedEntity))
                 return false;
 
             var coords = args.Coordinates.ToMap(_entityManager, _xform);

@@ -15,6 +15,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
+
 
 namespace Content.Client.TurretController;
 
@@ -25,7 +27,6 @@ public sealed partial class TurretControllerWindow : BaseWindow
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
 
-    private readonly IResourceCache _cache;
     private readonly AccessReaderSystem _accessReaderSystem;
 
     private EntityUid? _owner;
@@ -54,7 +55,6 @@ public sealed partial class TurretControllerWindow : BaseWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        _cache = IoCManager.Resolve<IResourceCache>();
         _accessReaderSystem = _entManager.System<AccessReaderSystem>();
 
         CloseButton.OnPressed += _ => Close();
@@ -62,7 +62,9 @@ public sealed partial class TurretControllerWindow : BaseWindow
 
         OnAccessGroupChangedEvent += OnAccessGroupChanged;
 
-        var smallFont = _cache.NotoStack(size: 8);
+        var typographyManager = IoCManager.Resolve<TypographyManager>();
+        var smallFont = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
+
         Footer.FontOverride = smallFont;
     }
 

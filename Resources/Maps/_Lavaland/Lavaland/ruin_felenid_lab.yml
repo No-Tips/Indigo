@@ -229,7 +229,7 @@ entities:
     - type: Transform
       pos: 16.5,1.5
       parent: 2
-- proto: FelinidCube
+- proto: TajaranCube
   entities:
   - uid: 127
     components:

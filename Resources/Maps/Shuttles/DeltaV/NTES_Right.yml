@@ -4362,7 +4362,7 @@ entities:
     - type: Transform
       pos: 5.481609,-3.418507
       parent: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 831
     components:
@@ -4378,7 +4378,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 832
     components:
@@ -5897,7 +5897,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF0000FF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 126
     components:
@@ -8155,7 +8155,7 @@ entities:
     - type: Transform
       pos: 6.5,-17.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 739
     components:

@@ -1191,7 +1191,7 @@ entities:
     - type: Transform
       pos: 9.5,9.5
       parent: 2
-- proto: PoweredDimSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 136
     components:

@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Text;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.Parallax.Biomes;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -18,7 +19,7 @@ public sealed class BiomeDebugOverlay : Overlay
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     private BiomeSystem _biomes;
@@ -33,7 +34,7 @@ public sealed class BiomeDebugOverlay : Overlay
         _biomes = _entManager.System<BiomeSystem>();
         _maps = _entManager.System<SharedMapSystem>();
 
-        _font = new VectorFont(_cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSans-Regular.ttf"), 12);
+        _font = _typographyManager.GetFont(FontType.SansSerif);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

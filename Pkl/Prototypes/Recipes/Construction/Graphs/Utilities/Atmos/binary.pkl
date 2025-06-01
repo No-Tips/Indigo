@@ -34,38 +34,23 @@ content {
                     generateValveEdge(3)
                     generateValveEdge(4)
 
-                    new {
-                        to = "signalvalve"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generateSignalControlledValveEdge(0)
+                    generateSignalControlledValveEdge(1)
+                    generateSignalControlledValveEdge(2)
+                    generateSignalControlledValveEdge(3)
+                    generateSignalControlledValveEdge(4)
 
-                    new {
-                        to = "port"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generatePortEdge(0)
+                    generatePortEdge(1)
+                    generatePortEdge(2)
+                    generatePortEdge(3)
+                    generatePortEdge(4)
 
-                    new {
-                        to = "dualportventpump"
-                        steps {
-                            new MaterialConstructionGraphStep {
-                                material = "Steel"
-                                amount = 2
-                                doAfter = 1.0
-                            }
-                        }
-                    }
+                    generateDualPortEdge(0)
+                    generateDualPortEdge(1)
+                    generateDualPortEdge(2)
+                    generateDualPortEdge(3)
+                    generateDualPortEdge(4)
 
                     new {
                         to = "radiator"
@@ -115,99 +100,23 @@ content {
             generateValveNode(3)
             generateValveNode(4)
 
-            new {
-                node = "signalvalve"
-                entity = new StaticNodeEntity {
-                    id = "SignalControlledValve"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generateSignalControlledValveNode(0)
+            generateSignalControlledValveNode(1)
+            generateSignalControlledValveNode(2)
+            generateSignalControlledValveNode(3)
+            generateSignalControlledValveNode(4)
 
-            new {
-                node = "port"
-                entity = new StaticNodeEntity {
-                    id = "GasPort"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generatePortNode(0)
+            generatePortNode(1)
+            generatePortNode(2)
+            generatePortNode(3)
+            generatePortNode(4)
 
-            new {
-                node = "dualportventpump"
-                entity = new StaticNodeEntity {
-                    id = "GasDualPortVentPump"
-                }
-                edges {
-                    new {
-                        to = "start"
-                        conditions {
-                            new EntityAnchored {
-                                anchored = false
-                            }
-                        }
-                        completed {
-                            new SpawnPrototype {
-                                prototype = "SheetSteel1"
-                                amount = 2
-                            }
-                            new DeleteEntity {}
-                        }
-                        steps {
-                            new ToolConstructionGraphStep {
-                                tool = "Screwing"
-                                doAfter = 1.0
-                            }
-                            new ToolConstructionGraphStep {
-                                tool = "Welding"
-                                doAfter = 1.0
-                            }
-                        }
-                    }
-                }
-            }
+            generateDualPortNode(0)
+            generateDualPortNode(1)
+            generateDualPortNode(2)
+            generateDualPortNode(3)
+            generateDualPortNode(4)
 
             new {
                 node = "radiator"
@@ -414,6 +323,39 @@ local const function generateValveEdge(l: constants.PipeLayer): ConstructionGrap
     }
 }
 
+local const function generateSignalControlledValveEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "signalvalve\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "port\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateDualPortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+    to = "dualportventpump\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
 local const function generateValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
     node = "valve\(l)"
     entity = new StaticNodeEntity {
@@ -435,6 +377,100 @@ local const function generateValveNode(l: constants.PipeLayer): ConstructionGrap
                 new DeleteEntity {}
             }
             steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateSignalControlledValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "signalvalve\(l)"
+    entity = new StaticNodeEntity {
+        id = "SignalControlledValve\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generatePortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "port\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPort\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateDualPortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+    node = "dualportventpump\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasDualPortVentPump\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Screwing"
+                    doAfter = 1.0
+                }
                 new ToolConstructionGraphStep {
                     tool = "Welding"
                     doAfter = 1.0

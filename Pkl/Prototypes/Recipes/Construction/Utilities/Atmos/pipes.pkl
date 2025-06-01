@@ -46,7 +46,7 @@ local const function generateHalfConstruction(l: constants.PipeLayer): Construct
     canBuildInImpassable = true
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-        state = "pipeHalf"
+        state = "pipeHalf_\(l)"
     }
 }
 
@@ -94,7 +94,7 @@ local const function generateTJunctionConstruction(l: constants.PipeLayer): Cons
     canBuildInImpassable = true
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-        state = "pipeTJunction"
+        state = "pipeTJunction_\(l)"
     }
 }
 
@@ -110,6 +110,6 @@ local const function generateFourwayConstruction(l: constants.PipeLayer): Constr
     canBuildInImpassable = true
     icon = new Rsi {
         sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-        state = "pipeFourway"
+        state = "pipeFourway_\(l)"
     }
 }

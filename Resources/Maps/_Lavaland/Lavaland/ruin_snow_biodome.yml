@@ -1488,7 +1488,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterWinterColorBlue
+- proto: ClothingOuterWinterMed
   entities:
   - uid: 481
     components:
@@ -1499,7 +1499,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterWinterColorBrown
+- proto: ClothingOuterWinterHydro
   entities:
   - uid: 480
     components:
@@ -1675,7 +1675,7 @@ entities:
     - type: Transform
       pos: 8.500457,11.352543
       parent: 1
-- proto: GasMixerFlipped
+- proto: GasMixerFlipped2
   entities:
   - uid: 327
     components:
@@ -1766,7 +1766,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.5,2.5
       parent: 1
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 347
     components:

@@ -2,6 +2,8 @@ amends ".../Typings.pkl"
 
 import ".../Entities/Structures/Piping/Atmos/constants.pkl"
 
+local typealias PipeLayer = constants.PipeLayer
+
 content {
     generateVentPumpConstruction(0)
     generateVentPumpConstruction(1)
@@ -21,37 +23,14 @@ content {
     generateVentScrubberConstruction(3)
     generateVentScrubberConstruction(4)
 
-    new ConstructionPrototype {
-        id = "GasOutletInjector"
-        name = "air injector"
-        description = "Injects air into the atmosphere"
-        graph = "GasUnary"
-        startNode = "start"
-        targetNode = "outletinjector"
-        category = "construction-category-utilities"
-        placementMode = "SnapgridCenter"
-        canBuildInImpassable = false
-        icon = new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/outletinjector.rsi"
-            state = "injector"
-        }
-        layers {
-            new Rsi {
-                sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
-                state = "pipeHalf"
-            }
-            new Rsi {
-                sprite = "/Textures/Structures/Piping/Atmospherics/outletinjector.rsi"
-                state = "injector"
-            }
-        }
-        conditions {
-            new NoUnstackableInTile {}
-        }
-    }
+    generateOutletInjector(0)
+    generateOutletInjector(1)
+    generateOutletInjector(2)
+    generateOutletInjector(3)
+    generateOutletInjector(4)
 }
 
-local const function generateVentPumpConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateVentPumpConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasVentPump\(l)"
     name = "air vent, \(l)"
     description = "Pumps gas into the room"
@@ -67,7 +46,7 @@ local const function generateVentPumpConstruction(l: constants.PipeLayer): Const
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
@@ -80,7 +59,7 @@ local const function generateVentPumpConstruction(l: constants.PipeLayer): Const
     }
 }
 
-local const function generatePassiveVentPumpConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generatePassiveVentPumpConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasPassiveVent\(l)"
     name = "passive vent, \(l)"
     description = "Unpowered vent that equalises gases on both sides."
@@ -96,7 +75,7 @@ local const function generatePassiveVentPumpConstruction(l: constants.PipeLayer)
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
@@ -109,7 +88,7 @@ local const function generatePassiveVentPumpConstruction(l: constants.PipeLayer)
     }
 }
 
-local const function generateVentScrubberConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateVentScrubberConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasVentScrubber\(l)"
     name = "air scrubber, \(l)"
     description = "Sucks gas into connected pipes."
@@ -125,12 +104,41 @@ local const function generateVentScrubberConstruction(l: constants.PipeLayer): C
     }
     layers {
         new Rsi {
-            sprite = "/Textures/Structures/Piping/Atmospherics/vent.rsi"
+            sprite = "/Textures/Structures/Piping/Atmospherics/generic_device.rsi"
             state = "pipe_\(l)"
         }
         new Rsi {
             sprite = "/Textures/Structures/Piping/Atmospherics/scrubber.rsi"
             state = "scrub_off"
+        }
+    }
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateOutletInjector(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasOutletInjector\(l)"
+    name = "air injector, \(l)"
+    description = "Injects air into the atmosphere"
+    graph = "GasUnary"
+    startNode = "start"
+    targetNode = "outletinjector\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/outletinjector.rsi"
+        state = "injector"
+    }
+    layers {
+        new Rsi {
+            sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+            state = "pipeHalf_\(l)"
+        }
+        new Rsi {
+            sprite = "/Textures/Structures/Piping/Atmospherics/outletinjector.rsi"
+            state = "injector"
         }
     }
     conditions {

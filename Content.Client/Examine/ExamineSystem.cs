@@ -16,6 +16,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Client;
 using static Content.Shared.Interaction.SharedInteractionSystem;
@@ -39,7 +40,7 @@ namespace Content.Client.Examine
         private EntityUid _examinedEntity;
         private EntityUid _lastExaminedEntity;
         private EntityUid _playerEntity;
-        private Popup? _examineTooltipOpen;
+        private FancyPopup? _examineTooltipOpen;
         private ScreenCoordinates _popupPos;
         private CancellationTokenSource? _requestCancelTokenSource;
         private int _idCounter;
@@ -159,7 +160,7 @@ namespace Content.Client.Examine
             // since there's probably one open already if it's coming in from the server.
             var entity = GetEntity(ev.EntityUid);
 
-            OpenTooltip(player.Value, entity, ev.CenterAtCursor, ev.OpenAtOldTooltip, ev.KnowTarget);
+            OpenTooltip(player.Value, entity, ev.CenterAtCursor, ev.OpenAtOldTooltip, ev.KnowTarget, false);
             UpdateTooltipInfo(player.Value, entity, ev.Message, ev.Verbs);
         }
 
@@ -174,13 +175,15 @@ namespace Content.Client.Examine
         ///     not fill it with information. This is done when the server sends examine info/verbs,
         ///     or immediately if it's entirely clientside.
         /// </summary>
-        public void OpenTooltip(EntityUid player, EntityUid target, bool centeredOnCursor=true, bool openAtOldTooltip=true, bool knowTarget = true)
+        public void OpenTooltip(EntityUid player, EntityUid target, bool centeredOnCursor=true, bool openAtOldTooltip=true, bool knowTarget = true, bool closeOldTooltip = true)
         {
             // Close any examine tooltip that might already be opened
             // Before we do that, save its position. We'll prioritize opening any new popups there if
             // openAtOldTooltip is true.
             ScreenCoordinates? oldTooltipPos = _examineTooltipOpen != null ? _popupPos : null;
-            CloseTooltip();
+
+            if (closeOldTooltip)
+                CloseTooltip();
 
             // cache entity for Update function
             _examinedEntity = target;
@@ -202,7 +205,7 @@ namespace Content.Client.Examine
             }
 
             // Actually open the tooltip.
-            _examineTooltipOpen = new Popup { MaxWidth = 400 };
+            _examineTooltipOpen = new() { MaxWidth = 400, };
             _userInterfaceManager.ModalRoot.AddChild(_examineTooltipOpen);
             var panel = new PanelContainer() { Name = "ExaminePopupPanel" };
             panel.AddStyleClass(StyleClassEntityTooltip);
@@ -255,7 +258,8 @@ namespace Content.Client.Examine
             panel.Measure(Vector2Helpers.Infinity);
             var size = Vector2.Max(new Vector2(minWidth, 0), panel.DesiredSize);
 
-            _examineTooltipOpen.Open(UIBox2.FromDimensions(_popupPos.Position, size));
+            if (closeOldTooltip)
+                _examineTooltipOpen.Open(UIBox2.FromDimensions(_popupPos.Position, size));
         }
 
         /// <summary>

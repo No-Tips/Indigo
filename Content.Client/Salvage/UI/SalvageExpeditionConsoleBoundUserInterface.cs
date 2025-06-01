@@ -87,7 +87,6 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             offering.AddContent(new Label
             {
                 Text = difficultyProto.RecommendedPlayers.ToString(),
-                FontColorOverride = StyleNano.NanoGold,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
             });
@@ -103,7 +102,6 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             offering.AddContent(new Label
             {
                 Text = faction,
-                FontColorOverride = StyleNano.NanoGold,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
             });
@@ -117,7 +115,6 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             offering.AddContent(new Label
             {
                 Text = mission.Duration.ToString(),
-                FontColorOverride = StyleNano.NanoGold,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
             });
@@ -133,7 +130,6 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             offering.AddContent(new Label
             {
                 Text = Loc.GetString(_protoManager.Index<SalvageBiomeModPrototype>(biome).ID),
-                FontColorOverride = StyleNano.NanoGold,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
             });
@@ -149,7 +145,6 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             offering.AddContent(new Label
             {
                 Text = string.Join("\n", mods.Select(o => "- " + o)).TrimEnd(),
-                FontColorOverride = StyleNano.NanoGold,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
             });

@@ -6597,7 +6597,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 10500
     components:
@@ -8261,7 +8261,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 10880
     components:

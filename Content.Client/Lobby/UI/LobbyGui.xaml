@@ -24,24 +24,23 @@
                                         VerticalAlignment="Top">
                             <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
                                 <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center"
-                                                 Margin="3 3 3 3" />
+                                                 Margin="4 4" />
                                 <controls:StripeBack>
                                     <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="3 3 3 3">
                                         <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public"
                                                             Text="{Loc 'ui-lobby-observe-button'}"
-                                                            StyleClasses="ButtonBig"
                                                             WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
                                         <Label Name="StartTime"
                                                Access="Public"
                                                Align="Left"
                                                FontColorOverride="{x:Static maths:Color.DarkGray}"
-                                               StyleClasses="LabelBig" HorizontalExpand="True" />
+                                               HorizontalExpand="True" />
                                         <Button Name="ManifestButton" Access="Public"
                                                 Text="Manifest"
-                                                StyleClasses="ButtonBig" MinWidth="137" />
+                                                MinWidth="137" />
                                         <Button Name="ReadyButton" Access="Public" ToggleMode="True"
                                                 Text="{Loc 'ui-lobby-ready-up-button'}"
-                                                StyleClasses="ButtonBig" MinWidth="137" />
+                                                MinWidth="137" />
                                     </BoxContainer>
                                 </controls:StripeBack>
                             </BoxContainer>
@@ -80,17 +79,18 @@
                                HorizontalExpand="True" HorizontalAlignment="Center" />
                     </BoxContainer>
                     <!-- Gold line -->
-                    <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" />
+                    <controls:HLine Thickness="2" />
                     <controls:HSpacer Spacing="10" />
                     <!-- Voting & misc button bar -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" HorizontalAlignment="Right">
-                        <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}"
-                                StyleClasses="ButtonBig" />
-                        <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" />
-                        <Button Name="OptionsButton" Access="Public" StyleClasses="ButtonBig"
-                                Text="{Loc 'ui-lobby-options-button'}" />
-                        <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
-                                Text="{Loc 'ui-lobby-leave-button'}" />
+                        <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" Margin="4 4" />
+                        <vote:VoteCallMenuButton Name="CallVoteButton" Margin="4 4" />
+                        <Button Name="OptionsButton" Access="Public"
+                                Text="{Loc 'ui-lobby-options-button'}"
+                                Margin="4 4" />
+                        <Button Name="LeaveButton" Access="Public"
+                                Text="{Loc 'ui-lobby-leave-button'}"
+                                Margin="4 4" />
                     </BoxContainer>
                     <controls:HSpacer Spacing="10" />
                     <!-- Server info -->
@@ -104,7 +104,7 @@
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
                     <!-- Gold line -->
-                    <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
+                    <controls:HLine Thickness="2" Access="Public" />
                     <controls:HSpacer Spacing="10" />
                     <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
                 </BoxContainer>

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Radiation.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -22,8 +23,8 @@ public sealed class RadiationDebugOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _radiation = _entityManager.System<RadiationSystem>();
 
-        var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 8);
+        var typographyManager = IoCManager.Resolve<TypographyManager>();
+        _font = typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

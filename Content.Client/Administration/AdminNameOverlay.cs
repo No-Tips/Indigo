@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Systems;
+using Content.Client.InterfaceGuidelines;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Robust.Client.Graphics;
@@ -16,7 +17,7 @@ internal sealed class AdminNameOverlay : Overlay
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private ILocalizationManager _localization = default!;
-
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
 
     private readonly AdminSystem _system;
     private readonly IEntityManager _entityManager;
@@ -31,7 +32,7 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly string _antagLabelClassic = "";
     private readonly Color _antagColorClassic = Color.OrangeRed;
 
-    public AdminNameOverlay(AdminSystem system, IEntityManager entityManager, IEyeManager eyeManager, IResourceCache resourceCache, EntityLookupSystem entityLookup, IUserInterfaceManager userInterfaceManager)
+    public AdminNameOverlay(AdminSystem system, IEntityManager entityManager, IEyeManager eyeManager, EntityLookupSystem entityLookup, IUserInterfaceManager userInterfaceManager)
     {
         IoCManager.InjectDependencies(this);
         _antagLabelClassic = _localization.GetString("admin-overlay-antag-classic");
@@ -41,7 +42,7 @@ internal sealed class AdminNameOverlay : Overlay
         _entityLookup = entityLookup;
         _userInterfaceManager = userInterfaceManager;
         ZIndex = 200;
-        _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        _font = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -15,6 +16,7 @@ public sealed class ExplosionDebugOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
 
     public Dictionary<int, List<Vector2i>>? SpaceTiles;
     public Dictionary<EntityUid, Dictionary<int, List<Vector2i>>> Tiles = new();
@@ -34,8 +36,7 @@ public sealed class ExplosionDebugOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 8);
+        _font = _typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

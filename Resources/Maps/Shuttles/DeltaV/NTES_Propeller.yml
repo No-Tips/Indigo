@@ -1605,7 +1605,7 @@ entities:
         - DoorStatus: DoorBolt
         1637:
         - DoorStatus: DoorBolt
-- proto: AirlockExternalGlassEasyPry
+- proto: AirlockExternalGlass
   entities:
   - uid: 25
     components:
@@ -1775,7 +1775,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,0.5
       parent: 1
-- proto: AirlockGlassShuttleEasyPry
+- proto: AirlockGlassShuttle
   entities:
   - uid: 63
     components:
@@ -6091,7 +6091,7 @@ entities:
     - type: Transform
       pos: 0.33226132,-0.42738038
       parent: 1
-- proto: GasMixer
+- proto: GasMixer2
   entities:
   - uid: 728
     components:
@@ -6106,7 +6106,7 @@ entities:
       joinedGrid: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasOutletInjector
+- proto: GasOutletInjector2
   entities:
   - uid: 1014
     components:
@@ -9262,7 +9262,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 1016
     components:
@@ -12983,7 +12983,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,-17.5
       parent: 1
-- proto: SignAtmosMinsky
+- proto: SignAtmos
   entities:
   - uid: 2078
     components:
@@ -13131,7 +13131,7 @@ entities:
     - type: Transform
       pos: 4.5,1.5
       parent: 1
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 419
     components:

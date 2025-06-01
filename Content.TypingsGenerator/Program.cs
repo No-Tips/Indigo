@@ -960,7 +960,6 @@ internal static class Program
                     return null;
             }
 
-            // TODO:
             if (t.IsAbstract || t.IsInterface)
             {
                 var newClass = GenerateClassDefinition(t) with
@@ -1010,6 +1009,12 @@ internal static class Program
                 GlobalTypes.Add(t, new ClassDefinition(t.Name, []));
 
                 var newClass = GenerateClassDefinition(t);
+
+                if (t.IsAssignableTo(typeof(IPrototype)))
+                    newClass = newClass with { Base = new Type("Prototype", false, null), };
+
+                if (t.IsAssignableTo(typeof(IInheritingPrototype)))
+                    newClass = newClass with { Modifier = ClassModifier.Open, };
 
                 def = new Type(newClass.Name, false, null);
 

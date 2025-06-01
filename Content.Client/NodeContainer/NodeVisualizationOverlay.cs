@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Text;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -38,7 +39,7 @@ namespace Content.Client.NodeContainer
             EntityLookupSystem lookup,
             IMapManager mapManager,
             IInputManager inputManager,
-            IResourceCache cache,
+            TypographyManager typographyManager,
             IEntityManager entityManager)
         {
             _system = system;
@@ -47,7 +48,7 @@ namespace Content.Client.NodeContainer
             _inputManager = inputManager;
             _entityManager = entityManager;
 
-            _font = cache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 12);
+            _font = typographyManager.GetFont(FontType.SansSerif);
         }
 
         protected override void Draw(in OverlayDrawArgs args)

@@ -2687,7 +2687,7 @@ entities:
     - type: GridTree
     - type: MovedGrids
     - type: GridPathfinding
-- proto: AirlockBrigGlassLocked
+- proto: AirlockSecurityLawyerGlassLocked
   entities:
   - uid: 1245
     components:
@@ -3157,7 +3157,7 @@ entities:
     - type: Transform
       pos: 15.616387,0.61007345
       parent: 588
-- proto: BookEscalationSecurity
+- proto: BookRandomStory
   entities:
   - uid: 373
     components:
@@ -8472,7 +8472,7 @@ entities:
     - type: Transform
       pos: 17.405733,12.600882
       parent: 588
-- proto: GasFilter
+- proto: GasFilter2
   entities:
   - uid: 1415
     components:
@@ -8545,7 +8545,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,46.5
       parent: 588
-- proto: GasPort
+- proto: GasPort2
   entities:
   - uid: 1404
     components:

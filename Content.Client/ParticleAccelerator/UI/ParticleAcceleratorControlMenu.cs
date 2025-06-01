@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -20,6 +21,7 @@ namespace Content.Client.ParticleAccelerator.UI
     {
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IResourceCache _cache = default!;
+        [Dependency] private readonly TypographyManager _typographyManager = null!;
 
         private readonly ShaderInstance _greyScaleShader;
 
@@ -65,7 +67,7 @@ namespace Content.Client.ParticleAccelerator.UI
             _drawNoiseGenerator.SetFractalType(FastNoiseLite.FractalType.FBm);
             _drawNoiseGenerator.SetFrequency(0.5f);
 
-            var font = _cache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
+            var font = _typographyManager.GetFont(FontType.SansSerif);
             var panelTex = _cache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
 
             MouseFilter = MouseFilterMode.Stop;
@@ -157,14 +159,13 @@ namespace Content.Client.ParticleAccelerator.UI
                             {
                                 Text = Loc.GetString("particle-accelerator-control-menu-device-version-label"),
                                 FontOverride = font,
-                                FontColorOverride = StyleNano.NanoGold,
                             },
                             closeButton
                         }
                     },
                     new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = StyleNano.NanoGold},
+                        PanelOverride = new StyleBoxFlat(),
                         MinSize = new Vector2(0, 2),
                     },
                     new Control

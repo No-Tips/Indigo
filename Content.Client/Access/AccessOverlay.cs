@@ -1,4 +1,5 @@
 using System.Text;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Shared.Access.Components;
 using Robust.Client.Graphics;
@@ -9,20 +10,17 @@ namespace Content.Client.Access;
 
 public sealed class AccessOverlay : Overlay
 {
-    private const string TextFontPath = "/Fonts/NotoSans/NotoSans-Regular.ttf";
-    private const int TextFontSize = 12;
-
     private readonly IEntityManager _entityManager;
     private readonly SharedTransformSystem _transformSystem;
     private readonly Font _font;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
-    public AccessOverlay(IEntityManager entityManager, IResourceCache resourceCache, SharedTransformSystem transformSystem)
+    public AccessOverlay(IEntityManager entityManager, TypographyManager typographyManager, SharedTransformSystem transformSystem)
     {
         _entityManager = entityManager;
         _transformSystem = transformSystem;
-        _font = resourceCache.GetFont(TextFontPath, TextFontSize);
+        _font = typographyManager.GetFont(FontType.SansSerif, TextStyle.Callout);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

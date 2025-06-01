@@ -10193,7 +10193,7 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 104
-- proto: chem_master
+- proto: ChemMaster
   entities:
   - uid: 2444
     components:
@@ -12821,7 +12821,7 @@ entities:
     - type: Transform
       pos: 2.5,-12.5
       parent: 104
-- proto: SignToxins2
+- proto: SignToxins
   entities:
   - uid: 1318
     components:
@@ -12903,7 +12903,7 @@ entities:
     - type: Transform
       pos: 23.5,-18.5
       parent: 104
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 225
     components:

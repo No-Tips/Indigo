@@ -11,6 +11,7 @@ using Content.Client.GhostKick;
 using Content.Client.Guidebook;
 using Content.Client.Input;
 using Content.Client.IoC;
+using Content.Client.KeyPresets;
 using Content.Client.Launcher;
 using Content.Client.Lobby;
 using Content.Client.MainMenu;
@@ -75,6 +76,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly JoinQueueManager _joinQueue = default!;
         [Dependency] private readonly DiscordAuthManager _discordAuth = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private readonly KeyPresetsManager _keyPresetsManager = null!;
 
         public override void Init()
         {
@@ -149,6 +151,7 @@ namespace Content.Client.Entry
         {
             base.PostInit();
 
+            _keyPresetsManager.Initialize();
             _stylesheetManager.Initialize();
 
             // Setup key contexts

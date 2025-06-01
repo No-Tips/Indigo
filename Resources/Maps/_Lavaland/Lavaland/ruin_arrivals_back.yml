@@ -190,13 +190,6 @@ entities:
     - type: Transform
       pos: -2.5021338,0.6326382
       parent: 2
-- proto: FloraGreyStalagmite
-  entities:
-  - uid: 23
-    components:
-    - type: Transform
-      pos: -8.084797,-3.9632692
-      parent: 2
 - proto: FloraRockSolid
   entities:
   - uid: 24
