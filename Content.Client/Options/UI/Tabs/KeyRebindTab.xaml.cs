@@ -246,23 +246,57 @@ namespace Content.Client.Options.UI.Tabs
                 KeybindsContainer.AddChild(newCheckBox);
             }
 
-            AddHeader("ui-options-header-general");
             AddCheckBox(
                 "ui-options-hotkey-keymap",
                 _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys),
                 HandleToggleUSQWERTYCheckbox);
 
+            #region Global
+
+            AddHeader("ui-options-header-global");
+
+            AddButton(ContentKeyFunctions.ExamineEntity);
+            AddButton(ContentKeyFunctions.OpenAHelp);
+            AddButton(ContentKeyFunctions.OpenActionsMenu);
+            AddButton(ContentKeyFunctions.OpenAdminMenu);
+            AddButton(ContentKeyFunctions.OpenCharacterMenu);
+            AddButton(ContentKeyFunctions.OpenCraftingMenu);
+            AddButton(ContentKeyFunctions.OpenDecalSpawnWindow);
+            AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
+            AddButton(ContentKeyFunctions.OpenGuidebook);
+            AddButton(ContentKeyFunctions.OpenLanguageMenu);
+            AddButton(ContentKeyFunctions.OpenOptionsWindow);
+            AddButton(ContentKeyFunctions.OpenSandboxWindow);
+            AddButton(ContentKeyFunctions.OpenTileSpawnWindow);
+            AddButton(ContentKeyFunctions.TakeScreenshot);
+            AddButton(ContentKeyFunctions.TakeScreenshotNoUI);
+            AddButton(ContentKeyFunctions.ToggleFullscreen);
+            AddButton(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            AddButton(ContentKeyFunctions.OpenContextMenu);
+            AddButton(EngineKeyFunctions.EscapeMenu);
+
+            #endregion
+
+            #region Movement
+
             AddHeader("ui-options-header-movement");
+
             AddButton(EngineKeyFunctions.MoveUp);
             AddButton(EngineKeyFunctions.MoveLeft);
             AddButton(EngineKeyFunctions.MoveDown);
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
+
             AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
             AddCheckBox("ui-options-hotkey-default-walk", _cfg.GetCVar(CCVars.DefaultWalk), HandleDefaultWalk);
             InitToggleWalk();
 
+            #endregion
+
+            #region Camera
+
             AddHeader("ui-options-header-camera");
+
             AddButton(EngineKeyFunctions.CameraRotateLeft);
             AddButton(EngineKeyFunctions.CameraRotateRight);
             AddButton(EngineKeyFunctions.CameraReset);
@@ -270,71 +304,83 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.ZoomOut);
             AddButton(ContentKeyFunctions.ResetZoom);
 
-            AddHeader("ui-options-header-interaction-basic");
+            #endregion
+
+            #region Character
+
+            AddHeader("ui-options-header-character");
+
             AddButton(EngineKeyFunctions.Use);
             AddButton(EngineKeyFunctions.UseSecondary);
-            AddButton(ContentKeyFunctions.OpenContextMenu);
-            AddButton(ContentKeyFunctions.UseItemInHand);
-            AddButton(ContentKeyFunctions.AltUseItemInHand);
             AddButton(ContentKeyFunctions.ActivateItemInWorld);
             AddButton(ContentKeyFunctions.AltActivateItemInWorld);
+            AddButton(ContentKeyFunctions.UseItemInHand);
+            AddButton(ContentKeyFunctions.AltUseItemInHand);
+            AddButton(ContentKeyFunctions.ThrowItemInHand);
             AddButton(ContentKeyFunctions.Drop);
-            AddButton(ContentKeyFunctions.ExamineEntity);
             AddButton(ContentKeyFunctions.SwapHands);
-            AddButton(ContentKeyFunctions.MoveStoredItem);
-            AddButton(ContentKeyFunctions.RotateStoredItem);
-            AddButton(ContentKeyFunctions.OfferItem);
-            AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.ToggleStanding);
             AddButton(ContentKeyFunctions.ToggleCrawlingUnder);
-            AddButton(ContentKeyFunctions.LookUp);
-            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp);
-            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(CCVars.HoldLookUp), HandleHoldLookUp);
-
-            AddHeader("ui-options-header-interaction-adv");
-            AddButton(ContentKeyFunctions.SmartEquipBackpack);
-            AddButton(ContentKeyFunctions.SmartEquipBelt);
-            AddButton(ContentKeyFunctions.OpenBackpack);
-            AddButton(ContentKeyFunctions.OpenBelt);
-            AddButton(ContentKeyFunctions.ThrowItemInHand);
             AddButton(ContentKeyFunctions.TryPullObject);
             AddButton(ContentKeyFunctions.MovePulledObject);
             AddButton(ContentKeyFunctions.ReleasePulledObject);
             AddButton(ContentKeyFunctions.Point);
+            AddButton(ContentKeyFunctions.OfferItem);
+            AddButton(ContentKeyFunctions.LookUp);
 
-            AddHeader("ui-options-header-ui");
+            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp);
+            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(CCVars.HoldLookUp), HandleHoldLookUp);
+
+            #endregion
+
+            #region Inventory
+
+            AddHeader("ui-options-header-inventory");
+
+            AddButton(ContentKeyFunctions.OpenInventoryMenu);
+            AddButton(ContentKeyFunctions.OpenBackpack);
+            AddButton(ContentKeyFunctions.OpenBelt);
+            AddButton(ContentKeyFunctions.SmartEquipBackpack);
+            AddButton(ContentKeyFunctions.SmartEquipBelt);
+            AddButton(ContentKeyFunctions.MoveStoredItem);
+            AddButton(ContentKeyFunctions.RotateStoredItem);
+            AddButton(ContentKeyFunctions.SaveItemLocation);
+
+            #endregion
+
+            #region Chat
+
+            AddHeader("ui-options-header-chat");
+
             AddButton(ContentKeyFunctions.FocusChat);
-            AddButton(ContentKeyFunctions.FocusLocalChat);
             AddButton(ContentKeyFunctions.FocusRadio);
+            AddButton(ContentKeyFunctions.FocusLocalChat);
             AddButton(ContentKeyFunctions.FocusWhisperChat);
             AddButton(ContentKeyFunctions.FocusEmote);
-            AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);
+            AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusDeadChat);
             AddButton(ContentKeyFunctions.FocusAdminChat);
-            AddButton(ContentKeyFunctions.FocusConsoleChat);
             AddButton(ContentKeyFunctions.CycleChatChannelForward);
             AddButton(ContentKeyFunctions.CycleChatChannelBackward);
-            AddButton(ContentKeyFunctions.OpenCharacterMenu);
-            AddButton(ContentKeyFunctions.OpenCraftingMenu);
-            AddButton(ContentKeyFunctions.OpenGuidebook);
-            AddButton(ContentKeyFunctions.OpenInventoryMenu);
-            AddButton(ContentKeyFunctions.OpenLanguageMenu);
-            AddButton(ContentKeyFunctions.OpenAHelp);
-            AddButton(ContentKeyFunctions.OpenActionsMenu);
-            AddButton(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
-            AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
-            AddButton(ContentKeyFunctions.OpenSandboxWindow);
-            AddButton(ContentKeyFunctions.OpenTileSpawnWindow);
-            AddButton(ContentKeyFunctions.OpenDecalSpawnWindow);
-            AddButton(ContentKeyFunctions.OpenAdminMenu);
-            AddButton(EngineKeyFunctions.WindowCloseAll);
-            AddButton(EngineKeyFunctions.WindowCloseRecent);
-            AddButton(EngineKeyFunctions.EscapeMenu);
-            AddButton(ContentKeyFunctions.EscapeContext);
 
-            // Shitmed Change Start - TODO: Add groin targeting.
+            #endregion
+
+            #region Actions Bar
+
+            AddHeader("ui-options-header-actions-bar");
+
+            foreach (var boundKey in ContentKeyFunctions.GetHotbarBoundKeys())
+                AddButton(boundKey);
+            foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
+                AddButton(boundKey);
+
+            #endregion
+
+            #region Targeting
+
             AddHeader("ui-options-header-targeting");
+
             AddButton(ContentKeyFunctions.TargetHead);
             AddButton(ContentKeyFunctions.TargetTorso);
             AddButton(ContentKeyFunctions.TargetLeftArm);
@@ -345,18 +391,22 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.TargetLeftFoot);
             AddButton(ContentKeyFunctions.TargetRightLeg);
             AddButton(ContentKeyFunctions.TargetRightFoot);
-            // Shitmed Change End
 
-            AddHeader("ui-options-header-misc");
-            AddButton(ContentKeyFunctions.TakeScreenshot);
-            AddButton(ContentKeyFunctions.TakeScreenshotNoUI);
-            AddButton(ContentKeyFunctions.ToggleFullscreen);
+            #endregion
 
-            AddHeader("ui-options-header-hotbar");
-            foreach (var boundKey in ContentKeyFunctions.GetHotbarBoundKeys())
-                AddButton(boundKey);
-            foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
-                AddButton(boundKey);
+            #region Ghost
+
+            AddHeader("ui-options-header-ghost");
+
+            AddButton(ContentKeyFunctions.GhostBar);
+            AddButton(ContentKeyFunctions.GhostReturnToBody);
+            AddButton(ContentKeyFunctions.GhostReturnToRound);
+            AddButton(ContentKeyFunctions.GhostRoles);
+            AddButton(ContentKeyFunctions.GhostWarp);
+
+            #endregion
+
+            #region Shuttle
 
             AddHeader("ui-options-header-shuttle");
             AddButton(ContentKeyFunctions.ShuttleStrafeUp);
@@ -367,30 +417,45 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.ShuttleRotateRight);
             AddButton(ContentKeyFunctions.ShuttleBrake);
 
-            AddHeader("ui-options-header-map-editor");
-            AddButton(EngineKeyFunctions.EditorPlaceObject);
+            #endregion
+
+            #region Map Editor
+
+            AddButton(ContentKeyFunctions.InspectEntity);
+            AddButton(ContentKeyFunctions.EditorCopyObject);
+            AddButton(ContentKeyFunctions.EditorFlipObject);
+            AddButton(ContentKeyFunctions.MappingEnableDecalPick);
+            AddButton(ContentKeyFunctions.MappingEnableDelete);
+            AddButton(ContentKeyFunctions.MappingEnablePick);
             AddButton(EngineKeyFunctions.EditorCancelPlace);
             AddButton(EngineKeyFunctions.EditorGridPlace);
             AddButton(EngineKeyFunctions.EditorLinePlace);
+            AddButton(EngineKeyFunctions.EditorPlaceObject);
             AddButton(EngineKeyFunctions.EditorRotateObject);
-            AddButton(ContentKeyFunctions.EditorFlipObject);
-            AddButton(ContentKeyFunctions.EditorCopyObject);
-            AddButton(ContentKeyFunctions.MappingEnablePick);
-            AddButton(ContentKeyFunctions.MappingEnableDecalPick);
-            AddButton(ContentKeyFunctions.MappingEnableDelete);
 
-            AddHeader("ui-options-header-dev");
+            #endregion
+
+            #region Developer
+
+            AddHeader("ui-options-header-developer");
+
             AddButton(EngineKeyFunctions.ShowDebugConsole);
             AddButton(EngineKeyFunctions.ShowDebugMonitors);
             AddButton(EngineKeyFunctions.HideUI);
-            AddButton(ContentKeyFunctions.InspectEntity);
+
+            #endregion
+
+            #region System
 
             AddHeader("ui-options-header-system");
+
             AddButton(EngineKeyFunctions.TextCopy);
             AddButton(EngineKeyFunctions.TextPaste);
             AddButton(EngineKeyFunctions.TextCut);
             AddButton(EngineKeyFunctions.TextSelectAll);
             AddButton(EngineKeyFunctions.TextDelete);
+
+            #endregion
 
             foreach (var control in _keyControls.Values)
             {

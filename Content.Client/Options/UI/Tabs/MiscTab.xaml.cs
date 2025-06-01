@@ -38,27 +38,6 @@ namespace Content.Client.Options.UI.Tabs
                 _hudThemeIdToIndex.Add(gear.ID, HudThemeOption.GetItemId(HudThemeOption.ItemCount - 1));
             }
 
-            var hudLayout = _cfg.GetCVar(CCVars.UILayout);
-            var id = 0;
-            foreach (var layout in Enum.GetValues(typeof(ScreenType)))
-            {
-                var name = layout.ToString()!;
-                HudLayoutOption.AddItem(name, id);
-                if (name == hudLayout)
-                {
-                    HudLayoutOption.SelectId(id);
-                }
-                HudLayoutOption.SetItemMetadata(id, name);
-
-                id++;
-            }
-
-            HudLayoutOption.OnItemSelected += args =>
-            {
-                HudLayoutOption.SelectId(args.Id);
-                UpdateApplyButton();
-            };
-
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
@@ -174,11 +153,6 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
 
-            if (HudLayoutOption.SelectedMetadata is string opt)
-            {
-                _cfg.SetCVar(CCVars.UILayout, opt);
-            }
-
             _cfg.SaveToFile();
             UpdateApplyButton();
         }
@@ -186,7 +160,6 @@ namespace Content.Client.Options.UI.Tabs
         private void UpdateApplyButton()
         {
             var isHudThemeSame = HudThemeOption.SelectedId == _hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0);
-            var isLayoutSame = HudLayoutOption.SelectedMetadata is string opt && opt == _cfg.GetCVar(CCVars.UILayout);
             var isDiscordSame = DiscordRich.Pressed == _cfg.GetCVar(CVars.DiscordEnabled);
             var isShowHeldItemSame = ShowHeldItemCheckBox.Pressed == _cfg.GetCVar(CCVars.HudHeldItemShow);
             var isCombatModeIndicatorsSame = ShowCombatModeIndicatorsCheckBox.Pressed == _cfg.GetCVar(CCVars.CombatModeIndicatorsPointShow);
@@ -208,7 +181,6 @@ namespace Content.Client.Options.UI.Tabs
             var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
 
             ApplyButton.Disabled = isHudThemeSame &&
-                                   isLayoutSame &&
                                    isDiscordSame &&
                                    isShowHeldItemSame &&
                                    isCombatModeIndicatorsSame &&

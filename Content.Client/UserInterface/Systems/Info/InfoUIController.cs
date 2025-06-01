@@ -1,5 +1,6 @@
 using Content.Client.Gameplay;
 using Content.Client.Info;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.CCVar;
 using Content.Shared.Guidebook;
 using Content.Shared.Info;
@@ -14,10 +15,11 @@ namespace Content.Client.UserInterface.Systems.Info;
 
 public sealed class InfoUIController : UIController, IOnStateExited<GameplayState>
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IConfigurationManager _cfg               = default!;
+    [Dependency] private readonly IClientConsoleHost    _consoleHost       = default!;
+    [Dependency] private readonly INetManager           _netManager        = default!;
+    [Dependency] private readonly IPrototypeManager     _prototype         = default!;
+    [Dependency] private readonly GlobalMenuManager     _globalMenuManager = null!;
 
     private RulesPopup? _rulesPopup;
     private RulesAndInfoWindow? _infoWindow;
@@ -25,7 +27,6 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
     public override void Initialize()
     {
         base.Initialize();
-
 
         _netManager.RegisterNetMessage<RulesAcceptedMessage>();
         _netManager.RegisterNetMessage<ShowRulesPopupMessage>(OnShowRulesPopupMessage);
@@ -37,6 +38,15 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         {
             OnAcceptPressed();
         });
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Game)
+            .RegisterItem(
+                new(
+                    new("global-menu-game-info-item"),
+                    Callback: OpenWindow
+                )
+            );
     }
 
     private void OnShowRulesPopupMessage(ShowRulesPopupMessage message)

@@ -1,8 +1,7 @@
 using System.Linq;
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
-using Content.Client.Stylesheets;
-using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Client.UserInterface.Systems.Character.Controls;
 using Content.Client.UserInterface.Systems.Character.Windows;
 using Content.Client.UserInterface.Systems.Objectives.Controls;
@@ -16,21 +15,24 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
+
 namespace Content.Client.UserInterface.Systems.Character;
 
+
 [UsedImplicitly]
-public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
+public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
+    IOnSystemChanged<CharacterInfoSystem>
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly ILogManager _logMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IEntityManager    _ent               = default!;
+    [Dependency] private readonly ILogManager       _logMan            = default!;
+    [Dependency] private readonly IPlayerManager    _player            = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager  = default!;
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
@@ -44,10 +46,19 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _sawmill = _logMan.GetSawmill("character");
 
         SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged);
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Character)
+            .RegisterItem(
+                new(
+                    new("global-menu-character-window-item"),
+                    Callback: ToggleWindow,
+                    Function: ContentKeyFunctions.OpenCharacterMenu
+                )
+            );
     }
 
     private CharacterWindow? _window;
-    private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
 
     public void OnStateEntered(GameplayState state)
     {
@@ -55,13 +66,6 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
         _window = UIManager.CreateWindow<CharacterWindow>();
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
-
-
-
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenCharacterMenu,
-                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
-             .Register<CharacterUIController>();
     }
 
     public void OnStateExited(GameplayState state)
@@ -71,8 +75,6 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             _window.Dispose();
             _window = null;
         }
-
-        CommandBinds.Unregister<CharacterUIController>();
     }
 
     public void OnSystemLoaded(CharacterInfoSystem system)
@@ -86,37 +88,6 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         system.OnCharacterUpdate -= CharacterUpdated;
         _player.LocalPlayerDetached -= CharacterDetached;
     }
-
-    public void UnloadButton()
-    {
-        if (CharacterButton == null)
-        {
-            return;
-        }
-
-        CharacterButton.OnPressed -= CharacterButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (CharacterButton == null)
-        {
-            return;
-        }
-
-        CharacterButton.OnPressed += CharacterButtonPressed;
-
-        if (_window == null)
-        {
-            return;
-        }
-
-        _window.OnClose += DeactivateButton;
-        _window.OnOpen += ActivateButton;
-    }
-
-    private void DeactivateButton() => CharacterButton!.Pressed = false;
-    private void ActivateButton() => CharacterButton!.Pressed = true;
 
     private void CharacterUpdated(CharacterData data)
     {
@@ -144,11 +115,12 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
                 Modulate = Color.Gray
             };
 
-            objectiveControl.AddChild(new Label
-            {
-                Text = groupId,
-                Modulate = Color.LightSkyBlue
-            });
+            objectiveControl.AddChild(
+                new Label
+                {
+                    Text = groupId,
+                    Modulate = Color.LightSkyBlue
+                });
 
             foreach (var condition in conditions)
             {
@@ -213,7 +185,8 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             color = proto.Color;
         }
         else
-            _sawmill.Error($"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
+            _sawmill.Error(
+                $"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
 
         _window.RoleType.Text = roleText;
         _window.RoleType.FontColorOverride = color;
@@ -238,11 +211,6 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     {
         if (_window == null)
             return;
-
-        if (CharacterButton != null)
-        {
-            CharacterButton.SetClickPressed(!_window.IsOpen);
-        }
 
         if (_window.IsOpen)
         {

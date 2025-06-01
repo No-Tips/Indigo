@@ -50,7 +50,6 @@ namespace Content.Client.Gameplay
             UserInterfaceManager.PopupRoot.AddChild(_fpsCounter);
             _fpsCounter.Visible = _configurationManager.GetCVar(CCVars.HudFpsCounterVisible);
             _configurationManager.OnValueChanged(CCVars.HudFpsCounterVisible, (show) => { _fpsCounter.Visible = show; });
-            _configurationManager.OnValueChanged(CCVars.UILayout, ReloadMainScreenValueChange);
         }
 
         protected override void Shutdown()
@@ -62,7 +61,6 @@ namespace Content.Client.Gameplay
             _eyeManager.MainViewport = UserInterfaceManager.MainViewport;
             _fpsCounter.Dispose();
             _uiManager.ClearWindows();
-            _configurationManager.UnsubValueChanged(CCVars.UILayout, ReloadMainScreenValueChange);
             UnloadMainScreen();
         }
 
@@ -90,22 +88,7 @@ namespace Content.Client.Gameplay
 
         private void LoadMainScreen()
         {
-            var screenTypeString = _configurationManager.GetCVar(CCVars.UILayout);
-            if (!Enum.TryParse(screenTypeString, out ScreenType screenType))
-            {
-                screenType = ScreenType.Separated;
-            }
-
-            switch (screenType)
-            {
-                case ScreenType.Separated:
-                    _uiManager.LoadScreen<SeparatedChatGameScreen>();
-                    break;
-                case ScreenType.Overlay:
-                    _uiManager.LoadScreen<OverlayChatGameScreen>();
-                    break;
-            }
-
+            _uiManager.LoadScreen<SeparatedChatGameScreen>();
             _loadController.LoadScreen();
         }
 

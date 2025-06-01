@@ -17,15 +17,6 @@ public sealed partial class CCVars
         CVarDef.Create("interface.hover_sound", "/Audio/UserInterface/hover.ogg", CVar.REPLICATED);
 
     /// <summary>
-    /// The layout style of the UI
-    /// </summary>
-    public static readonly CVarDef<string> UILayout =
-        CVarDef.Create("ui.layout", "Separated", CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    public static readonly CVarDef<string> OverlayScreenChatSize =
-        CVarDef.Create("ui.overlay_chat_size", "", CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
     /// The dimensions for the chat window in Default UI mode
     /// </summary>
     public static readonly CVarDef<string> DefaultScreenChatSize =

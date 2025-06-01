@@ -1,0 +1,31 @@
+amends ".../Typings.pkl"
+
+content {
+    new EntityPrototype {
+        id = "ActionCombatModeToggle"
+        categories = Set("HideSpawnMenu")
+        components {
+            new InstantActionComponent {
+                checkCanInteract = false
+                checkConsciousness = false
+                icon = "/Textures/Interface/Actions/harmOff.png"
+                iconOn = "/Textures/Interface/Actions/harm.png"
+                event = new ToggleCombatActionEvent {}
+                priority = -100
+            }
+        }
+    }
+
+    new EntityPrototype {
+        parent { "ActionCombatModeToggle" }
+        id = "ActionCombatModeToggleOff"
+        categories = Set("HideSpawnMenu")
+        components {
+            new InstantActionComponent {
+                enabled = false
+                autoPopulate = false
+                priority = -100
+            }
+        }
+    }
+}

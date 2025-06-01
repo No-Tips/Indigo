@@ -1,21 +1,38 @@
 using Content.Client.Language;
 using Content.Client.Gameplay;
-using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Utility;
-using static Robust.Client.UserInterface.Controls.BaseButton;
 using JetBrains.Annotations;
+
 
 namespace Content.Client.UserInterface.Systems.Language;
 
+
 [UsedImplicitly]
-public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed class LanguageMenuUIController : UIController, IOnStateEntered<GameplayState>,
+    IOnStateExited<GameplayState>
 {
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
+
     public LanguageMenuWindow? LanguageWindow;
-    private MenuButton? LanguageButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.LanguageButton;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Character)
+            .RegisterItem(
+                new(
+                    new("global-menu-character-language-window-item"),
+                    Callback: ToggleWindow,
+                    Function: ContentKeyFunctions.OpenLanguageMenu
+                )
+            );
+    }
 
     public void OnStateEntered(GameplayState state)
     {
@@ -23,20 +40,6 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
 
         LanguageWindow = UIManager.CreateWindow<LanguageMenuWindow>();
         LayoutContainer.SetAnchorPreset(LanguageWindow, LayoutContainer.LayoutPreset.CenterTop);
-
-        LanguageWindow.OnClose += () =>
-        {
-            if (LanguageButton != null)
-                LanguageButton.Pressed = false;
-        };
-        LanguageWindow.OnOpen += () =>
-        {
-            if (LanguageButton != null)
-                LanguageButton.Pressed = true;
-        };
-
-        CommandBinds.Builder.Bind(ContentKeyFunctions.OpenLanguageMenu,
-            InputCmdHandler.FromDelegate(_ => ToggleWindow())).Register<LanguageMenuUIController>();
     }
 
     public void OnStateExited(GameplayState state)
@@ -46,38 +49,12 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
             LanguageWindow.Dispose();
             LanguageWindow = null;
         }
-
-        CommandBinds.Unregister<LanguageMenuUIController>();
-    }
-
-    public void UnloadButton()
-    {
-        if (LanguageButton == null)
-            return;
-
-        LanguageButton.OnPressed -= LanguageButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (LanguageButton == null)
-            return;
-
-        LanguageButton.OnPressed += LanguageButtonPressed;
-    }
-
-    private void LanguageButtonPressed(ButtonEventArgs args)
-    {
-        ToggleWindow();
     }
 
     private void ToggleWindow()
     {
         if (LanguageWindow == null)
             return;
-
-        if (LanguageButton != null)
-            LanguageButton.SetClickPressed(!LanguageWindow.IsOpen);
 
         if (LanguageWindow.IsOpen)
             LanguageWindow.Close();

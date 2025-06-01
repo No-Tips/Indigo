@@ -17,6 +17,8 @@ public sealed partial class ActionsBar : UIWidget
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        ActionsWindowButton.SetOnlyStyleClass("ghost");
+
         var keys = ContentKeyFunctions.GetHotbarBoundKeys();
         for (var index = 1; index < keys.Length; index++)
             ActionsContainer.Children.Add(MakeButton(index));

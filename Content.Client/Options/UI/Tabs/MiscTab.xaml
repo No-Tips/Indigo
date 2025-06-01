@@ -13,11 +13,6 @@
                     <Control MinSize="4 0" />
                     <OptionButton Name="HudThemeOption" />
                 </BoxContainer>
-                <BoxContainer Orientation="Horizontal">
-                    <Label Text="{Loc 'ui-options-hud-layout'}" />
-                    <Control MinSize="4 0" />
-                    <OptionButton Name="HudLayoutOption" />
-                </BoxContainer>
                 <Label Text="{Loc 'ui-options-general-accessibility'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ReducedMotionCheckBox" Text="{Loc 'ui-options-reduced-motion'}" />

@@ -9,18 +9,16 @@ using Content.Client.Gameplay;
 using Content.Client.Lobby;
 using Content.Client.Mapping;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Client.Verbs.UI;
 using Content.Shared.Administration.Events;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Console;
-using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
-using Robust.Shared.Input.Binding;
-using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.UserInterface.Systems.Admin;
 
@@ -31,22 +29,29 @@ public sealed class AdminUIController : UIController,
     IOnStateEntered<MappingState>,
     IOnSystemChanged<AdminSystem>
 {
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IClientConGroupController _conGroups = default!;
-    [Dependency] private readonly IClientConsoleHost _conHost = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly VerbMenuUIController _verb = default!;
+    [Dependency] private readonly IClientAdminManager       _adminManager      = null!;
+    [Dependency] private readonly IClientConGroupController _conGroups         = default!;
+    [Dependency] private readonly IClientConsoleHost        _conHost           = default!;
+    [Dependency] private readonly VerbMenuUIController      _verb              = default!;
+    [Dependency] private readonly GlobalMenuManager         _globalMenuManager = null!;
 
-    private AdminMenuWindow? _window;
-    private MenuButton? AdminButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.AdminButton;
+    private AdminMenuWindow?   _window;
     private PanicBunkerStatus? _panicBunker;
-    private BabyJailStatus? _babyJail;
+    private BabyJailStatus?    _babyJail;
+
+    private GlobalMenuItemDef _windowItem;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<PanicBunkerChangedEvent>(OnPanicBunkerUpdated);
         SubscribeNetworkEvent<BabyJailChangedEvent>(OnBabyJailUpdated);
+
+        _windowItem = new(
+            new("global-menu-admin-window-item"),
+            Callback: Toggle,
+            Function: ContentKeyFunctions.OpenAdminMenu
+        );
     }
 
     private void OnPanicBunkerUpdated(PanicBunkerChangedEvent msg, EntitySessionEventArgs args)
@@ -76,28 +81,43 @@ public sealed class AdminUIController : UIController,
     public void OnStateEntered(GameplayState state)
     {
         EnsureWindow();
-        AdminStatusUpdated();
+        OnAdminStatusUpdated();
     }
 
     public void OnStateEntered(LobbyState state)
     {
         EnsureWindow();
-        AdminStatusUpdated();
+        OnAdminStatusUpdated();
     }
 
     public void OnStateEntered(MappingState state)
     {
         EnsureWindow();
-        AdminStatusUpdated();
+        OnAdminStatusUpdated();
     }
 
     public void OnSystemLoaded(AdminSystem system)
     {
         EnsureWindow();
+        _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
+    }
 
-        _admin.AdminStatusUpdated += AdminStatusUpdated;
-        _input.SetInputCommand(ContentKeyFunctions.OpenAdminMenu,
-            InputCmdHandler.FromDelegate(_ => Toggle()));
+    private void OnAdminStatusUpdated()
+    {
+        var isAdmin = _conGroups.CanAdminMenu();
+
+        if (isAdmin)
+        {
+            _globalMenuManager
+                .GetCategory(GlobalMenuCategory.Admin)
+                .RegisterItem(_windowItem);
+        }
+        else
+        {
+            _globalMenuManager
+                .GetCategory(GlobalMenuCategory.Admin)
+                .RemoveItem(_windowItem);
+        }
     }
 
     public void OnSystemUnloaded(AdminSystem system)
@@ -105,9 +125,7 @@ public sealed class AdminUIController : UIController,
         if (_window != null)
             _window.Dispose();
 
-        _admin.AdminStatusUpdated -= AdminStatusUpdated;
-
-        CommandBinds.Unregister<AdminUIController>();
+        _adminManager.AdminStatusUpdated -= OnAdminStatusUpdated;
     }
 
     private void EnsureWindow()
@@ -133,66 +151,18 @@ public sealed class AdminUIController : UIController,
 
         _window.PlayerTabControl.OnEntryKeyBindDown += PlayerTabEntryKeyBindDown;
         _window.ObjectsTabControl.OnEntryKeyBindDown += ObjectsTabEntryKeyBindDown;
-        _window.OnOpen += OnWindowOpen;
-        _window.OnClose += OnWindowClosed;
         _window.OnDisposed += OnWindowDisposed;
-    }
-
-    public void UnloadButton()
-    {
-        if (AdminButton == null)
-        {
-            return;
-        }
-
-        AdminButton.OnPressed -= AdminButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (AdminButton == null)
-        {
-            return;
-        }
-
-        AdminButton.OnPressed += AdminButtonPressed;
-    }
-
-    private void OnWindowOpen()
-    {
-        AdminButton?.SetClickPressed(true);
-    }
-
-    private void OnWindowClosed()
-    {
-        AdminButton?.SetClickPressed(false);
     }
 
     private void OnWindowDisposed()
     {
-        if (AdminButton != null)
-            AdminButton.Pressed = false;
-
         if (_window == null)
             return;
 
         _window.PlayerTabControl.OnEntryKeyBindDown -= PlayerTabEntryKeyBindDown;
         _window.ObjectsTabControl.OnEntryKeyBindDown -= ObjectsTabEntryKeyBindDown;
-        _window.OnOpen -= OnWindowOpen;
-        _window.OnClose -= OnWindowClosed;
         _window.OnDisposed -= OnWindowDisposed;
         _window = null;
-    }
-
-    private void AdminStatusUpdated()
-    {
-        if (AdminButton != null)
-            AdminButton.Visible = _conGroups.CanAdminMenu();
-    }
-
-    private void AdminButtonPressed(ButtonEventArgs args)
-    {
-        Toggle();
     }
 
     private void Toggle()

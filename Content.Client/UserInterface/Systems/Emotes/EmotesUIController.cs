@@ -15,27 +15,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.UserInterface.Systems.Emotes;
 
 [UsedImplicitly]
-public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayState>
+public sealed class EmotesUIController : UIController
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
 
-    private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private EmotesMenu? _menu;
-
-    public void OnStateEntered(GameplayState state)
-    {
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenEmotesMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false)))
-            .Register<EmotesUIController>();
-    }
-
-    public void OnStateExited(GameplayState state)
-    {
-        CommandBinds.Unregister<EmotesUIController>();
-    }
 
     private void ToggleEmotesMenu(bool centered)
     {
@@ -44,11 +30,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
             // setup window
             _menu = UIManager.CreateWindow<EmotesMenu>();
             _menu.OnClose += OnWindowClosed;
-            _menu.OnOpen += OnWindowOpen;
             _menu.OnPlayEmote += OnPlayEmote;
-
-            if (EmotesButton != null)
-                EmotesButton.SetClickPressed(true);
 
             if (centered)
             {
@@ -64,30 +46,10 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         else
         {
             _menu.OnClose -= OnWindowClosed;
-            _menu.OnOpen -= OnWindowOpen;
             _menu.OnPlayEmote -= OnPlayEmote;
-
-            if (EmotesButton != null)
-                EmotesButton.SetClickPressed(false);
 
             CloseMenu();
         }
-    }
-
-    public void UnloadButton()
-    {
-        if (EmotesButton == null)
-            return;
-
-        EmotesButton.OnPressed -= ActionButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (EmotesButton == null)
-            return;
-
-        EmotesButton.OnPressed += ActionButtonPressed;
     }
 
     private void ActionButtonPressed(BaseButton.ButtonEventArgs args)
@@ -97,16 +59,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnWindowClosed()
     {
-        if (EmotesButton != null)
-            EmotesButton.Pressed = false;
-
         CloseMenu();
-    }
-
-    private void OnWindowOpen()
-    {
-        if (EmotesButton != null)
-            EmotesButton.Pressed = true;
     }
 
     private void CloseMenu()

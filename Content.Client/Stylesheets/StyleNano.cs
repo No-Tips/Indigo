@@ -24,155 +24,155 @@ namespace Content.Client.Stylesheets;
 // STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
 public sealed class StyleNano : StyleBase
 {
-    public const string StyleClassBorderedWindowPanel = "BorderedWindowPanel";
-    public const string StyleClassInventorySlotBackground = "InventorySlotBackground";
-    public const string StyleClassHandSlotHighlight = "HandSlotHighlight";
-    public const string StyleClassChatPanel = "ChatPanel";
-    public const string StyleClassChatSubPanel = "ChatSubPanel";
+    public const string StyleClassBorderedWindowPanel            = "BorderedWindowPanel";
+    public const string StyleClassInventorySlotBackground        = "InventorySlotBackground";
+    public const string StyleClassHandSlotHighlight              = "HandSlotHighlight";
+    public const string StyleClassChatPanel                      = "ChatPanel";
+    public const string StyleClassChatSubPanel                   = "ChatSubPanel";
     public const string StyleClassTransparentBorderedWindowPanel = "TransparentBorderedWindowPanel";
-    public const string StyleClassHotbarPanel = "HotbarPanel";
-    public const string StyleClassTooltipPanel = "tooltipBox";
-    public const string StyleClassTooltipAlertTitle = "tooltipAlertTitle";
-    public const string StyleClassTooltipAlertDescription = "tooltipAlertDesc";
-    public const string StyleClassTooltipAlertCooldown = "tooltipAlertCooldown";
-    public const string StyleClassTooltipActionTitle = "tooltipActionTitle";
-    public const string StyleClassTooltipActionDescription = "tooltipActionDesc";
-    public const string StyleClassTooltipActionCooldown = "tooltipActionCooldown";
-    public const string StyleClassTooltipActionRequirements = "tooltipActionCooldown";
-    public const string StyleClassTooltipActionCharges = "tooltipActionCharges";
-    public const string StyleClassHotbarSlotNumber = "hotbarSlotNumber";
-    public const string StyleClassActionSearchBox = "actionSearchBox";
-    public const string StyleClassActionMenuItemRevoked = "actionMenuItemRevoked";
-    public const string StyleClassChatLineEdit = "chatLineEdit";
-    public const string StyleClassChatChannelSelectorButton = "chatSelectorOptionButton";
-    public const string StyleClassChatFilterOptionButton = "chatFilterOptionButton";
-    public const string StyleClassStorageButton = "storageButton";
+    public const string StyleClassHotbarPanel                    = "HotbarPanel";
+    public const string StyleClassTooltipPanel                   = "tooltipBox";
+    public const string StyleClassTooltipAlertTitle              = "tooltipAlertTitle";
+    public const string StyleClassTooltipAlertDescription        = "tooltipAlertDesc";
+    public const string StyleClassTooltipAlertCooldown           = "tooltipAlertCooldown";
+    public const string StyleClassTooltipActionTitle             = "tooltipActionTitle";
+    public const string StyleClassTooltipActionDescription       = "tooltipActionDesc";
+    public const string StyleClassTooltipActionCooldown          = "tooltipActionCooldown";
+    public const string StyleClassTooltipActionRequirements      = "tooltipActionCooldown";
+    public const string StyleClassTooltipActionCharges           = "tooltipActionCharges";
+    public const string StyleClassHotbarSlotNumber               = "hotbarSlotNumber";
+    public const string StyleClassActionSearchBox                = "actionSearchBox";
+    public const string StyleClassActionMenuItemRevoked          = "actionMenuItemRevoked";
+    public const string StyleClassChatLineEdit                   = "chatLineEdit";
+    public const string StyleClassChatChannelSelectorButton      = "chatSelectorOptionButton";
+    public const string StyleClassChatFilterOptionButton         = "chatFilterOptionButton";
+    public const string StyleClassStorageButton                  = "storageButton";
 
-    public const string StyleClassConsoleHeading = "ConsoleHeading";
+    public const string StyleClassConsoleHeading    = "ConsoleHeading";
     public const string StyleClassConsoleSubHeading = "ConsoleSubHeading";
-    public const string StyleClassConsoleText = "ConsoleText";
+    public const string StyleClassConsoleText       = "ConsoleText";
 
-    public const string StyleClassSliderRed = "Red";
+    public const string StyleClassSliderRed   = "Red";
     public const string StyleClassSliderGreen = "Green";
-    public const string StyleClassSliderBlue = "Blue";
+    public const string StyleClassSliderBlue  = "Blue";
     public const string StyleClassSliderWhite = "White";
 
-    public const string StyleClassLabelHeadingBigger = "LabelHeadingBigger";
-    public const string StyleClassLabelKeyText = "LabelKeyText";
+    public const string StyleClassLabelHeadingBigger  = "LabelHeadingBigger";
+    public const string StyleClassLabelKeyText        = "LabelKeyText";
     public const string StyleClassLabelSecondaryColor = "LabelSecondaryColor";
-    public const string StyleClassLabelBig = "LabelBig";
-    public const string StyleClassLabelSmall = "LabelSmall";
-    public const string StyleClassButtonBig = "ButtonBig";
+    public const string StyleClassLabelBig            = "LabelBig";
+    public const string StyleClassLabelSmall          = "LabelSmall";
+    public const string StyleClassButtonBig           = "ButtonBig";
 
     public const string StyleClassButtonHelp = "HelpButton";
 
-    public const string StyleClassPopupMessageSmall = "PopupMessageSmall";
-    public const string StyleClassPopupMessageSmallCaution = "PopupMessageSmallCaution";
-    public const string StyleClassPopupMessageMedium = "PopupMessageMedium";
+    public const string StyleClassPopupMessageSmall         = "PopupMessageSmall";
+    public const string StyleClassPopupMessageSmallCaution  = "PopupMessageSmallCaution";
+    public const string StyleClassPopupMessageMedium        = "PopupMessageMedium";
     public const string StyleClassPopupMessageMediumCaution = "PopupMessageMediumCaution";
-    public const string StyleClassPopupMessageLarge = "PopupMessageLarge";
-    public const string StyleClassPopupMessageLargeCaution = "PopupMessageLargeCaution";
+    public const string StyleClassPopupMessageLarge         = "PopupMessageLarge";
+    public const string StyleClassPopupMessageLargeCaution  = "PopupMessageLargeCaution";
 
     public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
-    public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
+    public static readonly Color GoodGreenFore        = Color.FromHex("#31843E");
     public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
-    public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
-    public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
+    public static readonly Color DangerousRedFore     = Color.FromHex("#BB3232");
+    public static readonly Color DisabledFore         = Color.FromHex("#5A5A5A");
 
-    public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
+    public static readonly Color ButtonColorDefault    = Color.FromHex("#464950");
     public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-    public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
+    public static readonly Color ButtonColorHovered    = Color.FromHex("#575b61");
     public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
-    public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-    public static readonly Color ButtonColorDisabled = Color.FromHex("#292929");
+    public static readonly Color ButtonColorPressed    = Color.FromHex("#3e6c45");
+    public static readonly Color ButtonColorDisabled   = Color.FromHex("#292929");
 
-    public static readonly Color ButtonColorCautionDefault = Color.FromHex("#8F6A33");
-    public static readonly Color ButtonColorCautionHovered = Color.FromHex("#C0934E");
-    public static readonly Color ButtonColorCautionPressed = Color.FromHex("#E49F35");
+    public static readonly Color ButtonColorCautionDefault  = Color.FromHex("#8F6A33");
+    public static readonly Color ButtonColorCautionHovered  = Color.FromHex("#C0934E");
+    public static readonly Color ButtonColorCautionPressed  = Color.FromHex("#E49F35");
     public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#28251F");
 
-    public static readonly Color ButtonColorDangerDefault = Color.FromHex("#7B2D2D");
-    public static readonly Color ButtonColorDangerHovered = Color.FromHex("#BD524B");
-    public static readonly Color ButtonColorDangerPressed = Color.FromHex("#C12525");
+    public static readonly Color ButtonColorDangerDefault  = Color.FromHex("#7B2D2D");
+    public static readonly Color ButtonColorDangerHovered  = Color.FromHex("#BD524B");
+    public static readonly Color ButtonColorDangerPressed  = Color.FromHex("#C12525");
     public static readonly Color ButtonColorDangerDisabled = Color.FromHex("#2F2020");
 
-    public static readonly Color ButtonColorGoodDefault = Color.FromHex("#3E6C45");
-    public static readonly Color ButtonColorGoodHovered = Color.FromHex("#31843E");
+    public static readonly Color ButtonColorGoodDefault  = Color.FromHex("#3E6C45");
+    public static readonly Color ButtonColorGoodHovered  = Color.FromHex("#31843E");
     public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#164420");
 
     //NavMap
-    public static readonly Color PointRed = Color.FromHex("#B02E26");
-    public static readonly Color PointGreen = Color.FromHex("#38b026");
+    public static readonly Color PointRed     = Color.FromHex("#B02E26");
+    public static readonly Color PointGreen   = Color.FromHex("#38b026");
     public static readonly Color PointMagenta = Color.FromHex("#FF00FF");
 
     // Context menu button colors
-    public static readonly Color ButtonColorContext = Color.FromHex("#1119");
-    public static readonly Color ButtonColorContextHover = Color.FromHex("#575b61");
-    public static readonly Color ButtonColorContextPressed = Color.FromHex("#3e6c45");
+    public static readonly Color ButtonColorContext         = Color.FromHex("#1119");
+    public static readonly Color ButtonColorContextHover    = Color.FromHex("#575b61");
+    public static readonly Color ButtonColorContextPressed  = Color.FromHex("#3e6c45");
     public static readonly Color ButtonColorContextDisabled = Color.Black;
 
     // Examine button colors
-    public static readonly Color ExamineButtonColorContext = Color.Transparent;
-    public static readonly Color ExamineButtonColorContextHover = Color.FromHex("#575b61");
-    public static readonly Color ExamineButtonColorContextPressed = Color.FromHex("#3e6c45");
+    public static readonly Color ExamineButtonColorContext         = Color.Transparent;
+    public static readonly Color ExamineButtonColorContextHover    = Color.FromHex("#575b61");
+    public static readonly Color ExamineButtonColorContextPressed  = Color.FromHex("#3e6c45");
     public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#5A5A5A");
 
     // Fancy Tree elements
-    public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#25252A");
-    public static readonly Color FancyTreeOddRowColor = FancyTreeEvenRowColor * new Color(0.8f, 0.8f, 0.8f);
+    public static readonly Color FancyTreeEvenRowColor     = Color.FromHex("#25252A");
+    public static readonly Color FancyTreeOddRowColor      = FancyTreeEvenRowColor * new Color(0.8f, 0.8f, 0.8f);
     public static readonly Color FancyTreeSelectedRowColor = new(55, 55, 68);
 
     //Used by the APC and SMES menus
     public const string StyleClassPowerStateNone = "PowerStateNone";
-    public const string StyleClassPowerStateLow = "PowerStateLow";
+    public const string StyleClassPowerStateLow  = "PowerStateLow";
     public const string StyleClassPowerStateGood = "PowerStateGood";
 
-    public const string StyleClassItemStatus = "ItemStatus";
-    public const string StyleClassItemStatusNotHeld = "ItemStatusNotHeld";
-    public static readonly Color ItemStatusNotHeldColor = Color.Gray;
+    public const           string StyleClassItemStatus        = "ItemStatus";
+    public const           string StyleClassItemStatusNotHeld = "ItemStatusNotHeld";
+    public static readonly Color  ItemStatusNotHeldColor      = Color.Gray;
 
     //Background
     public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
 
     //Buttons
-    public const string StyleClassCrossButtonRed = "CrossButtonRed";
-    public const string StyleClassButtonColorRed = "ButtonColorRed";
+    public const string StyleClassCrossButtonRed   = "CrossButtonRed";
+    public const string StyleClassButtonColorRed   = "ButtonColorRed";
     public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
     public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
 
     // DeltaV - AAC button variables
-    public static readonly string CommandButtonClass = "CommandButton";
+    public static readonly string CommandButtonClass     = "CommandButton";
     public static readonly string EngineeringButtonClass = "EngineeringButton";
-    public static readonly string EpistemicsButtonClass = "EpistemicsButton";
-    public static readonly string JusticeButtonClass = "JusticeButton";
-    public static readonly string LogisticsButtonClass = "LogisticsButton";
-    public static readonly string MedicalButtonClass = "MedicalButton";
-    public static readonly string SecurityButtonClass = "SecurityButton";
-    public static readonly string ServiceButtonClass = "ServiceButton";
+    public static readonly string EpistemicsButtonClass  = "EpistemicsButton";
+    public static readonly string JusticeButtonClass     = "JusticeButton";
+    public static readonly string LogisticsButtonClass   = "LogisticsButton";
+    public static readonly string MedicalButtonClass     = "MedicalButton";
+    public static readonly string SecurityButtonClass    = "SecurityButton";
+    public static readonly string ServiceButtonClass     = "ServiceButton";
 
     // DeltaV - AAC button colors
-    public static readonly Color CommandButtonColorDefault = Color.FromHex("#404A58");
-    public static readonly Color CommandColorHovered = Color.FromHex("#4F587B");
+    public static readonly Color CommandButtonColorDefault     = Color.FromHex("#404A58");
+    public static readonly Color CommandColorHovered           = Color.FromHex("#4F587B");
     public static readonly Color EngineeringButtonColorDefault = Color.FromHex("#77684B");
-    public static readonly Color EngineeringColorHovered = Color.FromHex("#776D71");
-    public static readonly Color EpistemicsButtonColorDefault = Color.FromHex("#6F5973");
-    public static readonly Color EpistemicsColorHovered = Color.FromHex("#71638E");
-    public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#61503A");
-    public static readonly Color LogisticsColorHovered = Color.FromHex("#675C64");
-    public static readonly Color JusticeButtonColorDefault = Color.FromHex("#4F3D4C");
-    public static readonly Color JusticeColorHovered = Color.FromHex("#5C4B5A");
-    public static readonly Color MedicalButtonColorDefault = Color.FromHex("#49687D");
-    public static readonly Color MedicalColorHovered = Color.FromHex("#556E95");
-    public static readonly Color SecurityButtonColorDefault = Color.FromHex("#724449");
-    public static readonly Color SecurityColorHovered = Color.FromHex("#745370");
-    public static readonly Color ServiceButtonColorDefault = Color.FromHex("#607952");
-    public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
+    public static readonly Color EngineeringColorHovered       = Color.FromHex("#776D71");
+    public static readonly Color EpistemicsButtonColorDefault  = Color.FromHex("#6F5973");
+    public static readonly Color EpistemicsColorHovered        = Color.FromHex("#71638E");
+    public static readonly Color LogisticsButtonColorDefault   = Color.FromHex("#61503A");
+    public static readonly Color LogisticsColorHovered         = Color.FromHex("#675C64");
+    public static readonly Color JusticeButtonColorDefault     = Color.FromHex("#4F3D4C");
+    public static readonly Color JusticeColorHovered           = Color.FromHex("#5C4B5A");
+    public static readonly Color MedicalButtonColorDefault     = Color.FromHex("#49687D");
+    public static readonly Color MedicalColorHovered           = Color.FromHex("#556E95");
+    public static readonly Color SecurityButtonColorDefault    = Color.FromHex("#724449");
+    public static readonly Color SecurityColorHovered          = Color.FromHex("#745370");
+    public static readonly Color ServiceButtonColorDefault     = Color.FromHex("#607952");
+    public static readonly Color ServiceColorHovered           = Color.FromHex("#667A76");
     // End DeltaV
 
     //Bwoink
-    public const string StyleClassPinButtonPinned = "pinButtonPinned";
+    public const string StyleClassPinButtonPinned   = "pinButtonPinned";
     public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
 
@@ -183,17 +183,17 @@ public sealed class StyleNano : StyleBase
         var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
         var windowHeader = new StyleBoxTexture
         {
-            Texture = windowHeaderTex,
-            PatchMarginBottom = 3,
-            ExpandMarginBottom = 3,
+            Texture                     = windowHeaderTex,
+            PatchMarginBottom           = 3,
+            ExpandMarginBottom          = 3,
             ContentMarginBottomOverride = 0
         };
         var windowHeaderAlertTex = resCache.GetTexture("/Textures/Interface/Nano/window_header_alert.png");
         var windowHeaderAlert = new StyleBoxTexture
         {
-            Texture = windowHeaderAlertTex,
-            PatchMarginBottom = 3,
-            ExpandMarginBottom = 3,
+            Texture                     = windowHeaderAlertTex,
+            PatchMarginBottom           = 3,
+            ExpandMarginBottom          = 3,
             ContentMarginBottomOverride = 0
         };
         var windowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/window_background.png");
@@ -382,7 +382,7 @@ public sealed class StyleNano : StyleBase
         progressBarForeground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
         // CheckBox
-        var checkBoxTextureChecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_checked.svg.96dpi.png");
+        var checkBoxTextureChecked   = resCache.GetTexture("/Textures/Interface/Nano/checkbox_checked.svg.96dpi.png");
         var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_unchecked.svg.96dpi.png");
         var monotoneCheckBoxTextureChecked =
             resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_checkbox_checked.svg.96dpi.png");
@@ -409,7 +409,7 @@ public sealed class StyleNano : StyleBase
 
         // Placeholder
         var placeholderTexture = resCache.GetTexture("/Textures/Interface/Nano/placeholder.png");
-        var placeholder = new StyleBoxTexture { Texture = placeholderTexture, };
+        var placeholder        = new StyleBoxTexture { Texture = placeholderTexture, };
         placeholder.SetPatchMargin(StyleBox.Margin.All, 19);
         placeholder.SetExpandMargin(StyleBox.Margin.All, -5);
         placeholder.Mode = StyleBoxTexture.StretchMode.Tile;
@@ -430,7 +430,7 @@ public sealed class StyleNano : StyleBase
         var squareTex = resCache.GetTexture("/Textures/Interface/Nano/square.png");
         var listContainerButton = new StyleBoxTexture
         {
-            Texture = squareTex,
+            Texture                   = squareTex,
             ContentMarginLeftOverride = 10
         };
 
@@ -438,12 +438,12 @@ public sealed class StyleNano : StyleBase
         var nanoHeadingTex = resCache.GetTexture("/Textures/Interface/Nano/nanoheading.svg.96dpi.png");
         var nanoHeadingBox = new StyleBoxTexture
         {
-            Texture = nanoHeadingTex,
-            PatchMarginRight = 10,
-            PatchMarginTop = 10,
-            ContentMarginTopOverride = 2,
+            Texture                   = nanoHeadingTex,
+            PatchMarginRight          = 10,
+            PatchMarginTop            = 10,
+            ContentMarginTopOverride  = 2,
             ContentMarginLeftOverride = 10,
-            PaddingTop = 4
+            PaddingTop                = 4
         };
 
         nanoHeadingBox.SetPatchMargin(StyleBox.Margin.Left | StyleBox.Margin.Bottom, 2);
@@ -453,29 +453,29 @@ public sealed class StyleNano : StyleBase
         var stripeBack = new StyleBoxTexture
         {
             Texture = stripeBackTex,
-            Mode = StyleBoxTexture.StretchMode.Tile
+            Mode    = StyleBoxTexture.StretchMode.Tile
         };
 
         // Slider
         var sliderOutlineTex = resCache.GetTexture("/Textures/Interface/Nano/slider_outline.svg.96dpi.png");
-        var sliderFillTex = resCache.GetTexture("/Textures/Interface/Nano/slider_fill.svg.96dpi.png");
-        var sliderGrabTex = resCache.GetTexture("/Textures/Interface/Nano/slider_grabber.svg.96dpi.png");
+        var sliderFillTex    = resCache.GetTexture("/Textures/Interface/Nano/slider_fill.svg.96dpi.png");
+        var sliderGrabTex    = resCache.GetTexture("/Textures/Interface/Nano/slider_grabber.svg.96dpi.png");
 
         var sliderFillBox = new StyleBoxTexture
         {
-            Texture = sliderFillTex,
+            Texture  = sliderFillTex,
             Modulate = Color.FromHex("#3E6C45")
         };
 
         var sliderBackBox = new StyleBoxTexture
         {
-            Texture = sliderFillTex,
+            Texture  = sliderFillTex,
             Modulate = PanelDark
         };
 
         var sliderForeBox = new StyleBoxTexture
         {
-            Texture = sliderOutlineTex,
+            Texture  = sliderOutlineTex,
             Modulate = Color.FromHex("#494949")
         };
 
@@ -490,13 +490,13 @@ public sealed class StyleNano : StyleBase
         sliderGrabBox.SetPatchMargin(StyleBox.Margin.All, 12);
 
         var sliderFillGreen = new StyleBoxTexture(sliderFillBox) { Modulate = Color.LimeGreen, };
-        var sliderFillRed = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Red, };
-        var sliderFillBlue = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Blue, };
+        var sliderFillRed   = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Red, };
+        var sliderFillBlue  = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Blue, };
         var sliderFillWhite = new StyleBoxTexture(sliderFillBox) { Modulate = Color.White, };
 
         var insetBack = new StyleBoxTexture
         {
-            Texture = buttonTex,
+            Texture  = buttonTex,
             Modulate = Color.FromHex("#202023")
         };
         insetBack.SetPatchMargin(StyleBox.Margin.All, 10);
@@ -504,7 +504,7 @@ public sealed class StyleNano : StyleBase
         // Default paper background:
         var paperBackground = new StyleBoxTexture
         {
-            Texture = resCache.GetTexture("/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"),
+            Texture  = resCache.GetTexture("/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"),
             Modulate = Color.FromHex("#eaedde") // A light cream
         };
         paperBackground.SetPatchMargin(StyleBox.Margin.All, 16.0f);
@@ -513,9 +513,9 @@ public sealed class StyleNano : StyleBase
         var verbMenuConfirmationTexture = resCache.GetTexture("/Textures/Interface/VerbIcons/group.svg.192dpi.png");
 
         // south-facing arrow:
-        var directionIconArrowTex = resCache.GetTexture("/Textures/Interface/VerbIcons/drop.svg.192dpi.png");
+        var directionIconArrowTex    = resCache.GetTexture("/Textures/Interface/VerbIcons/drop.svg.192dpi.png");
         var directionIconQuestionTex = resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png");
-        var directionIconHereTex = resCache.GetTexture("/Textures/Interface/VerbIcons/dot.svg.192dpi.png");
+        var directionIconHereTex     = resCache.GetTexture("/Textures/Interface/VerbIcons/dot.svg.192dpi.png");
 
         Stylesheet = new(
             BaseRules.Concat(
@@ -619,6 +619,67 @@ public sealed class StyleNano : StyleBase
                         .Class(ContainerButton.StyleClassButton)
                         .Class(ButtonSquare)
                         .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonSquare),
+
+                    Element<ContainerButton>()
+                        .Class("ghost")
+                        .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
+
+                    // Global Menu
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClass.GlobalMenuCategoryButton)
+                        .Prop(
+                            ContainerButton.StylePropertyStyleBox,
+                            new StyleBoxEmpty
+                            {
+                                Padding = new(8.0f, 0.0f)
+                            }),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClass.GlobalMenuCategoryButton)
+                        .Pseudo(ContainerButton.StylePseudoClassHover)
+                        .Prop(
+                            ContainerButton.StylePropertyStyleBox,
+                            new StyleBoxFlat(new Color(255, 255, 255, 8))
+                            {
+                                Padding = new(8.0f, 0.0f)
+                            }),
+
+                    Element<Label>()
+                        .Class(UIStyleClass.GlobalMenuCategoryLabel)
+                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
+
+                    Element<Label>()
+                        .Class(UIStyleClass.GlobalMenuCategoryIcon)
+                        .Prop(
+                            "font",
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                TextStyle.Title1,
+                                weight: FontWeight.SemiBold)),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClass.GlobalMenuPopupItem)
+                        .Prop(
+                            ContainerButton.StylePropertyStyleBox,
+                            new StyleBoxEmpty
+                            {
+                                Padding = new(12.0f, 0.0f)
+                            }),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClass.GlobalMenuPopupItem)
+                        .Pseudo(ContainerButton.StylePseudoClassHover)
+                        .Prop(
+                            ContainerButton.StylePropertyStyleBox,
+                            new StyleBoxFlat(new Color(255, 255, 255, 8))
+                            {
+                                Padding = new(12.0f, 0.0f)
+                            }),
+
+                    Element<Label>()
+                        .Class(UIStyleClass.GlobalMenuPopupItemHotkeyLabel)
+                        .Prop(Label.StylePropertyFontColor, new Color(127, 127, 127)),
 
                     new(
                         new SelectorElement(typeof(Label), [ContainerButton.StyleClassButton,], null, null),
@@ -1308,7 +1369,7 @@ public sealed class StyleNano : StyleBase
                                 Tree.StylePropertyItemBoxSelected,
                                 new StyleBoxFlat
                                 {
-                                    BackgroundColor = new(55, 55, 68),
+                                    BackgroundColor           = new(55, 55, 68),
                                     ContentMarginLeftOverride = 4
                                 })
                         ]),
@@ -1791,8 +1852,8 @@ public sealed class StyleNano : StyleBase
                             PanelContainer.StylePropertyPanel,
                             new StyleBoxFlat
                             {
-                                BackgroundColor = Color.FromHex("#444"),
-                                ContentMarginLeftOverride = 2,
+                                BackgroundColor             = Color.FromHex("#444"),
+                                ContentMarginLeftOverride   = 2,
                                 ContentMarginBottomOverride = 2
                             }),
 

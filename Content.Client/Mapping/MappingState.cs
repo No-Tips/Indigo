@@ -3,6 +3,7 @@ using Content.Client.Administration.Managers;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Decals;
 using Content.Client.Gameplay;
+using Content.Client.Input;
 using Content.Client.Maps;
 using Content.Client.SubFloor;
 using Content.Client.UserInterface.Controls;
@@ -108,7 +109,7 @@ public sealed class MappingState : GameplayStateBase
         UserInterfaceManager.LoadScreen<MappingScreen>();
         _loadController.LoadScreen();
 
-        var context = _input.Contexts.GetContext("common");
+        var context = _input.Contexts.GetContext(ContentContexts.Common);
         context.AddFunction(ContentKeyFunctions.MappingUnselect);
         context.AddFunction(ContentKeyFunctions.SaveMap);
         context.AddFunction(ContentKeyFunctions.MappingEnablePick);
@@ -201,7 +202,7 @@ public sealed class MappingState : GameplayStateBase
         _loadController.UnloadScreen();
         UserInterfaceManager.UnloadScreen();
 
-        var context = _input.Contexts.GetContext("common");
+        var context = _input.Contexts.GetContext(ContentContexts.Common);
         context.RemoveFunction(ContentKeyFunctions.MappingUnselect);
         context.RemoveFunction(ContentKeyFunctions.SaveMap);
         context.RemoveFunction(ContentKeyFunctions.MappingEnablePick);

@@ -17,7 +17,6 @@ public abstract class SharedChatSystem : EntitySystem
     public const char RadioChannelPrefix = ':';
     public const char RadioChannelAltPrefix = '.';
     public const char LocalPrefix = '>';
-    public const char ConsolePrefix = '/';
     public const char DeadPrefix = '\\';
     public const char LOOCPrefix = '(';
     public const char OOCPrefix = '[';

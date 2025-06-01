@@ -79,7 +79,6 @@ public sealed class ChatUIController : UIController
     {
         {SharedChatSystem.LocalPrefix, ChatSelectChannel.Local},
         {SharedChatSystem.WhisperPrefix, ChatSelectChannel.Whisper},
-        {SharedChatSystem.ConsolePrefix, ChatSelectChannel.Console},
         {SharedChatSystem.LOOCPrefix, ChatSelectChannel.LOOC},
         {SharedChatSystem.OOCPrefix, ChatSelectChannel.OOC},
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
@@ -94,7 +93,6 @@ public sealed class ChatUIController : UIController
     {
         {ChatSelectChannel.Local, SharedChatSystem.LocalPrefix},
         {ChatSelectChannel.Whisper, SharedChatSystem.WhisperPrefix},
-        {ChatSelectChannel.Console, SharedChatSystem.ConsolePrefix},
         {ChatSelectChannel.LOOC, SharedChatSystem.LOOCPrefix},
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
@@ -223,9 +221,6 @@ public sealed class ChatUIController : UIController
         _input.SetInputCommand(ContentKeyFunctions.FocusDeadChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Dead)));
 
-        _input.SetInputCommand(ContentKeyFunctions.FocusConsoleChat,
-            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Console)));
-
         _input.SetInputCommand(ContentKeyFunctions.CycleChatChannelForward,
             InputCmdHandler.FromDelegate(_ => CycleChatChannel(true)));
 
@@ -307,11 +302,6 @@ public sealed class ChatUIController : UIController
                 chatSizeRaw = _config.GetCVar(CCVars.SeparatedScreenChatSize);
                 SetChatSizing(chatSizeRaw, separatedScreen, setting);
                 break;
-            case OverlayChatGameScreen overlayScreen:
-                chatBox = overlayScreen.ChatBox;
-                chatSizeRaw = _config.GetCVar(CCVars.OverlayScreenChatSize);
-                SetChatSizing(chatSizeRaw, overlayScreen, setting);
-                break;
             default:
                 // this could be better?
                 var maybeChat = UIManager.ActiveScreen.GetWidget<ChatBox>();
@@ -362,9 +352,6 @@ public sealed class ChatUIController : UIController
         {
             case SeparatedChatGameScreen _:
                 _config.SetCVar(CCVars.SeparatedScreenChatSize, stringSize);
-                break;
-            case OverlayChatGameScreen _:
-                _config.SetCVar(CCVars.OverlayScreenChatSize, stringSize);
                 break;
             default:
                 // do nothing
@@ -515,9 +502,6 @@ public sealed class ChatUIController : UIController
     {
         CanSendChannels = default;
         FilterableChannels = default;
-
-        // Can always send console stuff.
-        CanSendChannels |= ChatSelectChannel.Console;
 
         // can always send/recieve OOC
         CanSendChannels |= ChatSelectChannel.OOC;

@@ -134,9 +134,6 @@ binds:
 - function: FocusDeadChatWindow
   type: State
   key: Backslash
-- function: FocusConsoleChatWindow
-  type: State
-  key: Slash
 - function: EditorLinePlace
   type: State
   key: MouseLeft
@@ -192,9 +189,6 @@ binds:
 - function: OpenCharacterMenu
   type: State
   key: C
-- function: OpenEmotesMenu
-  type: State
-  key: Y
 - function: OpenLanguageMenu
   type: State
   key: L

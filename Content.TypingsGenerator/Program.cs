@@ -977,8 +977,14 @@ internal static class Program
                     if (child.IsGenericType)
                         continue;
 
-                    if (GlobalTypes.ContainsKey(child))
+                    if (GlobalTypes.TryGetValue(child, out var value))
+                    {
+                        var childClass = (ClassDefinition) value;
+
+                        GlobalTypes[child] = childClass with { Base = newClassType, };
+
                         continue;
+                    }
 
                     if (TryToMetaType(child) is not null)
                         continue;
@@ -1012,6 +1018,8 @@ internal static class Program
 
                 if (t.IsAssignableTo(typeof(IPrototype)))
                     newClass = newClass with { Base = new Type("Prototype", false, null), };
+                else if (t.IsAssignableTo(typeof(Component)))
+                    newClass = newClass with { Base = new Type("Component", false, null), };
 
                 if (t.IsAssignableTo(typeof(IInheritingPrototype)))
                     newClass = newClass with { Modifier = ClassModifier.Open, };

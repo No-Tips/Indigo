@@ -24,6 +24,7 @@ using Content.Client.Voting;
 using Content.Shared.Administration.Logs;
 using Content.Client.Lobby;
 using Content.Client.Players.RateLimiting;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
@@ -66,6 +67,7 @@ namespace Content.Client.IoC
             collection.Register<DebugMonitorManager>();
             collection.Register<TypographyManager>();
             collection.Register<KeyPresetsManager>();
+            collection.Register<GlobalMenuManager>();
         }
     }
 }

@@ -45,14 +45,10 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     private TileSpawningUIController TileSpawningController => UIManager.GetUIController<TileSpawningUIController>();
     private DecalPlacerUIController DecalPlacerController => UIManager.GetUIController<DecalPlacerUIController>();
 
-    private MenuButton? SandboxButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.SandboxButton;
-
     public void OnStateEntered(GameplayState state)
     {
         DebugTools.Assert(_window == null);
         EnsureWindow();
-
-        CheckSandboxVisibility();
 
         _input.SetInputCommand(ContentKeyFunctions.OpenEntitySpawnWindow,
             InputCmdHandler.FromDelegate(_ =>
@@ -83,26 +79,6 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             .Register<SandboxSystem>();
     }
 
-    public void UnloadButton()
-    {
-        if (SandboxButton == null)
-        {
-            return;
-        }
-
-        SandboxButton.OnPressed -= SandboxButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (SandboxButton == null)
-        {
-            return;
-        }
-
-        SandboxButton.OnPressed += SandboxButtonPressed;
-    }
-
     private void EnsureWindow()
     {
         if (_window is { Disposed: false })
@@ -111,9 +87,6 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
         // Pre-center the window without forcing it to the center every time.
         _window.OpenCentered();
         _window.Close();
-
-        _window.OnOpen += () => { SandboxButton!.Pressed = true; };
-        _window.OnClose += () => { SandboxButton!.Pressed = false; };
 
         // TODO: These need moving to opened so at least if they're not synced properly on open they work.
         _window.ToggleLightButton.Pressed = !_light.Enabled;
@@ -152,14 +125,6 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
         _window.ShowBbButton.OnPressed += _ => _sandbox.ShowBb();
     }
 
-    private void CheckSandboxVisibility()
-    {
-        if (SandboxButton == null)
-            return;
-
-        SandboxButton.Visible = _sandbox.SandboxAllowed;
-    }
-
     public void OnStateExited(GameplayState state)
     {
         if (_window != null)
@@ -174,15 +139,11 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     public void OnSystemLoaded(SandboxSystem system)
     {
         system.SandboxDisabled += CloseAll;
-        system.SandboxEnabled += CheckSandboxVisibility;
-        system.SandboxDisabled += CheckSandboxVisibility;
     }
 
     public void OnSystemUnloaded(SandboxSystem system)
     {
         system.SandboxDisabled -= CloseAll;
-        system.SandboxEnabled -= CheckSandboxVisibility;
-        system.SandboxDisabled -= CheckSandboxVisibility;
     }
 
     private void SandboxButtonPressed(ButtonEventArgs args)

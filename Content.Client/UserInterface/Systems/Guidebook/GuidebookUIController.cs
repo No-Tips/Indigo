@@ -3,15 +3,12 @@ using Content.Client.Gameplay;
 using Content.Client.Guidebook;
 using Content.Client.Guidebook.Controls;
 using Content.Client.Lobby;
-using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Guidebook;
-using Content.Shared.CCVar;
 using Content.Shared.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Shared.Configuration;
 using static Robust.Client.UserInterface.Controls.BaseButton;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -19,11 +16,27 @@ namespace Content.Client.UserInterface.Systems.Guidebook;
 
 public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>, IOnStateExited<LobbyState>, IOnStateExited<GameplayState>, IOnSystemChanged<GuidebookSystem>
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager  = default!;
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
+
     [UISystemDependency] private readonly GuidebookSystem _guidebookSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private GuidebookWindow? _guideWindow;
-    private MenuButton? GuidebookButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.GuidebookButton;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Game)
+            .RegisterItem(
+                new(
+                    new("global-menu-game-guide-book-item"),
+                    Callback: ToggleGuidebook,
+                    Function: ContentKeyFunctions.OpenGuidebook
+                )
+            );
+    }
 
     public void OnStateEntered(LobbyState state)
     {
@@ -41,14 +54,6 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
         // setup window
         _guideWindow = UIManager.CreateWindow<GuidebookWindow>();
-        _guideWindow.OnClose += OnWindowClosed;
-        _guideWindow.OnOpen += OnWindowOpen;
-
-        // setup keybinding
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenGuidebook,
-                InputCmdHandler.FromDelegate(_ => ToggleGuidebook()))
-            .Register<GuidebookUIController>();
     }
 
     public void OnStateExited(LobbyState state)
@@ -66,13 +71,9 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         if (_guideWindow == null)
             return;
 
-        _guideWindow.OnClose -= OnWindowClosed;
-        _guideWindow.OnOpen -= OnWindowOpen;
-
         // shutdown
         _guideWindow.Dispose();
         _guideWindow = null;
-        CommandBinds.Unregister<GuidebookUIController>();
     }
 
     public void OnSystemLoaded(GuidebookSystem system)
@@ -83,22 +84,6 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
     public void OnSystemUnloaded(GuidebookSystem system)
     {
         _guidebookSystem.OnGuidebookOpen -= OpenGuidebook;
-    }
-
-    internal void UnloadButton()
-    {
-        if (GuidebookButton == null)
-            return;
-
-        GuidebookButton.OnPressed -= GuidebookButtonOnPressed;
-    }
-
-    internal void LoadButton()
-    {
-        if (GuidebookButton == null)
-            return;
-
-        GuidebookButton.OnPressed += GuidebookButtonOnPressed;
     }
 
     private void GuidebookButtonOnPressed(ButtonEventArgs obj)
@@ -122,18 +107,6 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         }
     }
 
-    private void OnWindowClosed()
-    {
-        if (GuidebookButton != null)
-            GuidebookButton.Pressed = false;
-    }
-
-    private void OnWindowOpen()
-    {
-        if (GuidebookButton != null)
-            GuidebookButton.Pressed = true;
-    }
-
     /// <summary>
     ///     Opens or closes the guidebook.
     /// </summary>
@@ -155,9 +128,6 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
     {
         if (_guideWindow == null)
             return;
-
-        if (GuidebookButton != null)
-            GuidebookButton.SetClickPressed(!_guideWindow.IsOpen);
 
         if (guides == null)
         {
