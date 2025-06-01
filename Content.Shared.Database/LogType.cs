@@ -112,4 +112,9 @@ public enum LogType
     /// Storage & entity-storage related interactions
     /// </summary>
     Storage = 93,
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 102
 }

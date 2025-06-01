@@ -152,6 +152,17 @@
   - type: IconSmooth
     key: walls
     base: clown
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 8000 # really good ramming wall, bananium is rare so it's probably fine
 
 - type: entity
   parent: BaseWall
@@ -325,6 +336,17 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
   - type: IconSmooth
     key: walls
     base: gold
@@ -466,6 +488,20 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 4000
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallicStrong
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -644,6 +680,17 @@
     price: 150
   - type: RadiationBlocker
     resistance: 8
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: WallReinforced
@@ -900,6 +947,17 @@
   - type: IconSmooth
     key: walls
     base: state
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: BaseWall
@@ -1002,6 +1060,17 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 6000
   - type: IconSmooth
     key: walls
     base: uranium
