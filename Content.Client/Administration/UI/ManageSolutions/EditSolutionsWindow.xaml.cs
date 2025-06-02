@@ -335,6 +335,8 @@ namespace Content.Client.Administration.UI.ManageSolutions
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
+            base.FrameUpdate(args);
+
             // TODO: THIS IS FUCKING TERRIBLE.
             // Ok so the problem is that this shouldn't be via an EUI at all. Why?
             // The EUI update notification comes in *before* the game state it updates from.

@@ -32,6 +32,8 @@ public sealed partial class WarDeclaratorWindow : FancyWindow
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         UpdateTimer();
     }
 

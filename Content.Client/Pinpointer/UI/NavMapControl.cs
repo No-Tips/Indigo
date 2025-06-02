@@ -454,6 +454,8 @@ public partial class NavMapControl : MapGridControl
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         // Update the timer
         _updateTimer += args.DeltaSeconds;
 

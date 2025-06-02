@@ -32,6 +32,8 @@ namespace Content.Client.Strip
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
+            base.FrameUpdate(args);
+
             if (!Dirty)
                 return;
 

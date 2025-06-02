@@ -79,6 +79,8 @@ public sealed class ConfirmButton : Button
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         if (IsConfirming && _gameTiming.CurTime > _nextReset)
         {
             IsConfirming = false;

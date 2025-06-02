@@ -310,6 +310,8 @@ public sealed partial class LoadoutPreferenceSelector : Control
     private bool _initialized;
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         if (_initialized || SpecialMenu.Heading == null)
             return;
 

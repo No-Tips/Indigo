@@ -48,7 +48,7 @@ public partial class FancyWindow
         if (HasRunningAnimation(OpenOpacityAnimationKey))
             StopAnimation(OpenOpacityAnimationKey);
 
-        Modulate = new(255, 255, 255, 0);
+        Modulate = new(255, 255, 255, 127);
         PlayAnimation(OpenOpacityAnimation, OpenOpacityAnimationKey);
     }
 }
