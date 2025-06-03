@@ -384,12 +384,12 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.TargetHead);
             AddButton(ContentKeyFunctions.TargetTorso);
             AddButton(ContentKeyFunctions.TargetLeftArm);
-            AddButton(ContentKeyFunctions.TargetLeftHand);
             AddButton(ContentKeyFunctions.TargetRightArm);
+            AddButton(ContentKeyFunctions.TargetLeftHand);
             AddButton(ContentKeyFunctions.TargetRightHand);
             AddButton(ContentKeyFunctions.TargetLeftLeg);
-            AddButton(ContentKeyFunctions.TargetLeftFoot);
             AddButton(ContentKeyFunctions.TargetRightLeg);
+            AddButton(ContentKeyFunctions.TargetLeftFoot);
             AddButton(ContentKeyFunctions.TargetRightFoot);
 
             #endregion
@@ -409,6 +409,7 @@ namespace Content.Client.Options.UI.Tabs
             #region Shuttle
 
             AddHeader("ui-options-header-shuttle");
+
             AddButton(ContentKeyFunctions.ShuttleStrafeUp);
             AddButton(ContentKeyFunctions.ShuttleStrafeRight);
             AddButton(ContentKeyFunctions.ShuttleStrafeLeft);
@@ -420,6 +421,8 @@ namespace Content.Client.Options.UI.Tabs
             #endregion
 
             #region Map Editor
+
+            AddHeader("ui-options-header-map-editor");
 
             AddButton(ContentKeyFunctions.InspectEntity);
             AddButton(ContentKeyFunctions.EditorCopyObject);
