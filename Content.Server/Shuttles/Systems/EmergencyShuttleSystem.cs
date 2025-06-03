@@ -37,6 +37,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Announcements.Systems;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map;
 
 
@@ -446,13 +447,18 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             return;
         }
 
-        if (!_loader.TryLoadMap(new(mapPath), out var map, out var grids))
+        if (!_loader.TryLoadGrid(
+            new(mapPath),
+            out var map,
+            out var grid,
+            new DeserializationOptions
+            {
+                InitializeMaps = true
+            }))
         {
             Log.Error($"Failed to set up centcomm grid!");
             return;
         }
-
-        var grid = grids.First();
 
         component.MapEntity = map;
         component.Entity = grid;
@@ -502,9 +508,14 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
         // Load escape shuttle
         var shuttlePath = ent.Comp1.EmergencyShuttlePath;
-        if (!_loader.TryLoadGrid(map.MapId,
+        if (!_loader.TryLoadGrid(
+            map.MapId,
             shuttlePath,
             out var shuttle,
+            new DeserializationOptions
+            {
+                InitializeMaps = true
+            },
             // Should be far enough... right? I'm too lazy to bounds check CentCom rn.
             offset: new Vector2(500f + ent.Comp2.ShuttleIndex, 0f)))
         {
