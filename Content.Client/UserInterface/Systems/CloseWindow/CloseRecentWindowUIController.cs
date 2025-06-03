@@ -1,5 +1,6 @@
 using Content.Client.Gameplay;
 using Content.Client.Info;
+using Content.Shared.Input;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -28,8 +29,12 @@ public sealed class CloseRecentWindowUIController : UIController
         _uiManager.OnKeyBindDown += OnKeyBindDown;
         _uiManager.WindowRoot.OnChildAdded += OnRootChildAdded;
 
-        _inputManager.SetInputCommand(EngineKeyFunctions.WindowCloseRecent,
-            InputCmdHandler.FromDelegate(session => CloseMostRecentWindow()));
+        _inputManager.SetInputCommand(
+            ContentKeyFunctions.EscapeContext,
+            InputCmdHandler.FromDelegate(_ => CloseMostRecentWindow()));
+        _inputManager.SetInputCommand(
+            EngineKeyFunctions.WindowCloseRecent,
+            InputCmdHandler.FromDelegate(_ => CloseMostRecentWindow()));
     }
 
     /// <summary>
