@@ -664,7 +664,7 @@ public sealed class StyleNano : StyleBase
                             ContainerButton.StylePropertyStyleBox,
                             new StyleBoxEmpty
                             {
-                                Padding = new(12.0f, 0.0f)
+                                Padding = new(12.0f, 4.0f)
                             }),
 
                     Element<ContainerButton>()
@@ -674,7 +674,7 @@ public sealed class StyleNano : StyleBase
                             ContainerButton.StylePropertyStyleBox,
                             new StyleBoxFlat(new Color(255, 255, 255, 8))
                             {
-                                Padding = new(12.0f, 0.0f)
+                                Padding = new(12.0f, 4.0f)
                             }),
 
                     Element<Label>()

@@ -20,8 +20,7 @@
     xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI">
     <PanelContainer Name="MenuContainer">
         <BoxContainer
-            Margin="0 8"
-            Name="MenuPanel" Orientation="Vertical"
-            VerticalExpand="True" SeparationOverride="4" />
+            Margin="0 8" Name="MenuPanel"
+            Orientation="Vertical" VerticalExpand="True" />
     </PanelContainer>
 </ui:GlobalMenuPopup>
