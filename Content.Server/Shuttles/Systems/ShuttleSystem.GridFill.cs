@@ -8,6 +8,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Collections;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -71,16 +72,17 @@ public sealed partial class ShuttleSystem
         if (targetGrid == null)
             return;
 
-        if (_loader.TryLoadMap(component.Path, out var map, out var ents))
+        if (_loader.TryLoadGrid(component.Path, out var map, out var ent, new DeserializationOptions
+            {
+                InitializeMaps = true
+            }))
         {
-            var ent = ents.First();
-
             if (TryComp<ShuttleComponent>(ent, out var shuttle))
             {
-                TryFTLProximity(ent, targetGrid.Value);
+                TryFTLProximity(ent.Value, targetGrid.Value);
             }
 
-            _station.AddGridToStation(uid, ent);
+            _station.AddGridToStation(uid, ent.Value);
             _mapSystem.DeleteMap(map.Value.Comp.MapId);
         }
     }
