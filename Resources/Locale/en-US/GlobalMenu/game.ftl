@@ -3,11 +3,11 @@
 global-menu-game-category = 🐈
 
 global-menu-game-ahelp-item = Admin Help
-global-menu-game-changelog-item = Changelog Window
+global-menu-game-changelog-item = Changelog
 global-menu-game-disconnect-item = Disconnect
 global-menu-game-guide-book-item = Guide Book
-global-menu-game-info-item = Info Window
-global-menu-game-options-item = Options Window
+global-menu-game-info-item = Rules
+global-menu-game-options-item = Settings
 global-menu-game-quit-item = Quit
 
 ## Character
