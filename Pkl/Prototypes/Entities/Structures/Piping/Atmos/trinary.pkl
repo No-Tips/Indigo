@@ -22,6 +22,7 @@ content {
             new SubFloorHideComponent {
                 blockInteractions = false
                 blockAmbience = false
+                visibleLayers = Set("enum.SubfloorLayers.FirstLayer")
             }
             new NodeContainerComponent {
                 nodes {
@@ -242,6 +243,7 @@ content {
             new SubFloorHideComponent {
                 blockInteractions = false
                 blockAmbience = false
+                visibleLayers = Set("enum.SubfloorLayers.FirstLayer")
             }
             new SpriteComponent {
                 sprite = "/Textures/Structures/Piping/Atmospherics/pneumaticvalve.rsi"

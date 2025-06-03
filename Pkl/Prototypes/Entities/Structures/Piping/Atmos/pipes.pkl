@@ -25,7 +25,9 @@ content {
                 damageContainer = "Inorganic"
                 damageModifierSet = "Metallic"
             }
-            new SubFloorHideComponent {}
+            new SubFloorHideComponent {
+                visibleLayers = Set("enum.SubfloorLayers.FirstLayer")
+            }
             new CollideOnAnchorComponent {}
             new AnchorableComponent {}
             new RotatableComponent {}
