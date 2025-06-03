@@ -22,9 +22,9 @@ global-menu-character-crafting-window-item = Crafting Window
 
 global-menu-ghost-category = Ghost
 
-global-menu-ghost-warp-item = Warp Window
+global-menu-ghost-warp-item = Warp
 global-menu-ghost-return-to-body-item = Return to Body
-global-menu-ghost-roles-item = Roles Window
+global-menu-ghost-roles-item = Roles
 global-menu-ghost-return-to-round-item = Return to Round
 global-menu-ghost-bar-item = Ghost Bar
 
