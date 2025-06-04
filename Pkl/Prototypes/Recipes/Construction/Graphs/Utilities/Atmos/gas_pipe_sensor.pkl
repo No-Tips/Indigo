@@ -1,0 +1,74 @@
+amends ".../Typings.pkl"
+
+import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    new ConstructionGraphPrototype {
+        id = "GasPipeSensor"
+        start = "start"
+        graph {
+            new {
+                node = "start"
+                edges {
+                    generatePipeSensorEdge(0)
+                    generatePipeSensorEdge(1)
+                    generatePipeSensorEdge(2)
+                    generatePipeSensorEdge(3)
+                    generatePipeSensorEdge(4)
+                }
+            }
+
+            generatePipeSensorNode(0)
+            generatePipeSensorNode(1)
+            generatePipeSensorNode(2)
+            generatePipeSensorNode(3)
+            generatePipeSensorNode(4)
+        }
+    }
+}
+
+local const function generatePipeSensorEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "sensor\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generatePipeSensorNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "sensor\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeSensor\(l)"
+    }
+    actions {
+        new SetAnchor {}
+    }
+    edges {
+        new {
+            to = "start"
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}

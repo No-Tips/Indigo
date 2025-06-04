@@ -23425,7 +23425,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeSensorDistribution
+- proto: GasPipeSensorDistribution2
   entities:
   - uid: 3738
     components:
@@ -23434,7 +23434,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasPipeSensorWaste
+- proto: GasPipeSensorWaste2
   entities:
   - uid: 3740
     components:
