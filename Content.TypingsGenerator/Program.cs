@@ -389,6 +389,7 @@ internal static class MetaTypes
         { typeof(TimeSpan), () => new("String", false, null) },
         { typeof(bool), () => new("Boolean", false, null) },
         { typeof(short), () => new("Int16", false, null) },
+        { typeof(ushort), () => new("UInt16", false, null) },
         { typeof(int), () => new("Int32", false, null) },
         { typeof(uint), () => new("UInt32", false, null) },
         { typeof(float), () => new("Float", false, null) },
