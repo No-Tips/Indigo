@@ -39,7 +39,7 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            "/Maps/CentralCommand/harmony.yml", // Harmony CC version
+            "/Maps/CentralCommand/main.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
             "/Maps/Shuttles/infiltrator.yml",
@@ -49,7 +49,7 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
-            "CentComm",
+            "CentCommHarmony",
             "NukieOutpost",
             "Lavatest", // Lavaland Change
             "Cyberiad", // Maintained by Ichai
@@ -400,6 +400,7 @@ namespace Content.IntegrationTests.Tests
             var protoMan = server.ResolveDependency<IPrototypeManager>();
 
             var gameMaps = protoMan.EnumeratePrototypes<GameMapPrototype>()
+                .Where(x => !x.IsGrid)
                 .Where(x => !pair.IsTestPrototype(x))
                 .Select(x => x.ID)
                 .ToHashSet();
