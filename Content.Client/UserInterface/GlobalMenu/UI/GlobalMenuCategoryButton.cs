@@ -24,8 +24,8 @@ public sealed class GlobalMenuCategoryButton : Button
 {
     public GlobalMenuCategoryButton(bool isIcon)
     {
-        SetOnlyStyleClass(UIStyleClass.GlobalMenuCategoryButton);
-        Label.SetOnlyStyleClass(isIcon ? UIStyleClass.GlobalMenuCategoryIcon : UIStyleClass.GlobalMenuCategoryLabel);
+        SetOnlyStyleClass(UIStyleClasses.GlobalMenuCategoryButton);
+        Label.SetOnlyStyleClass(isIcon ? UIStyleClasses.GlobalMenuCategoryIcon : UIStyleClasses.GlobalMenuCategoryLabel);
 
         if (isIcon)
         {

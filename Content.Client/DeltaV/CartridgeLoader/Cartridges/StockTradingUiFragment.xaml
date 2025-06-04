@@ -8,7 +8,7 @@
     <!-- A parent container to hold the balance label and main content -->
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
         <!-- Header section with balance -->
-        <PanelContainer StyleClasses="AngleRect">
+        <PanelContainer StyleClasses="FancyWindowPanel">
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0,0,5,0">
                     <Label Text="{Loc stock-trading-title}"

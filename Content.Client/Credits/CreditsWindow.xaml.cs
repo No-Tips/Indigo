@@ -40,11 +40,9 @@ namespace Content.Client.Credits
             RobustXamlLoader.Load(this);
 
             TabContainer.SetTabTitle(Ss14ContributorsTab, Loc.GetString("credits-window-ss14contributorslist-tab"));
-            TabContainer.SetTabTitle(PatronsTab, Loc.GetString("credits-window-patrons-tab"));
             TabContainer.SetTabTitle(LicensesTab, Loc.GetString("credits-window-licenses-tab"));
 
             PopulateContributors(Ss14ContributorsContainer);
-            PopulatePatrons(PatronsContainer);
             PopulateLicenses(LicensesContainer);
         }
 
@@ -61,56 +59,6 @@ namespace Content.Client.Credits
                     licensesContainer.AddChild(new Label {Text = line, FontColorOverride = new Color(200, 200, 200)});
                 }
             }
-        }
-
-        private void PopulatePatrons(BoxContainer patronsContainer)
-        {
-            var patrons = LoadPatrons();
-
-            // Do not show "become a patron" button on Steam builds
-            // since Patreon violates Valve's rules about alternative storefronts.
-            var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
-            if (!_cfg.GetCVar(CCVars.BrandingSteam) && linkPatreon != "")
-            {
-                Button patronButton;
-                patronsContainer.AddChild(patronButton = new Button
-                {
-                    Text = Loc.GetString("credits-window-become-patron-button"),
-                    HorizontalAlignment = HAlignment.Center
-                });
-
-                patronButton.OnPressed +=
-                    _ => IoCManager.Resolve<IUriOpener>().OpenUri(linkPatreon);
-            }
-
-            var first = true;
-            foreach (var tier in patrons.GroupBy(p => p.Tier).OrderBy(p => PatronTierPriority[p.Key]))
-            {
-                if (!first)
-                {
-                    patronsContainer.AddChild(new Control {MinSize = new Vector2(0, 10)});
-                }
-
-                first = false;
-                patronsContainer.AddChild(new Label {StyleClasses = {StyleBase.StyleClassLabelHeading}, Text = $"{tier.Key}"});
-
-                var msg = string.Join(", ", tier.OrderBy(p => p.Name).Select(p => p.Name));
-
-                var label = new RichTextLabel();
-                label.SetMessage(msg);
-
-                patronsContainer.AddChild(label);
-            }
-        }
-
-        private IEnumerable<PatronEntry> LoadPatrons()
-        {
-            var yamlStream = _resourceManager.ContentFileReadYaml(new ("/Credits/Patrons.yml"));
-            var sequence = (YamlSequenceNode) yamlStream.Documents[0].RootNode;
-
-            return sequence
-                .Cast<YamlMappingNode>()
-                .Select(m => new PatronEntry(m["Name"].AsString(), m["Tier"].AsString()));
         }
 
         private void PopulateContributors(BoxContainer ss14ContributorsContainer)

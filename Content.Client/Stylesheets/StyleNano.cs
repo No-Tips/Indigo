@@ -1,11 +1,9 @@
 using System.Linq;
-using System.Numerics;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Examine;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.PDA;
 using Content.Client.Resources;
-using Content.Client.Silicons.Laws.SiliconLawEditUi;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Controls.FancyTree;
 using Content.Client.Verbs.UI;
@@ -42,7 +40,6 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassTooltipActionCharges           = "tooltipActionCharges";
     public const string StyleClassHotbarSlotNumber               = "hotbarSlotNumber";
     public const string StyleClassActionSearchBox                = "actionSearchBox";
-    public const string StyleClassActionMenuItemRevoked          = "actionMenuItemRevoked";
     public const string StyleClassChatLineEdit                   = "chatLineEdit";
     public const string StyleClassChatChannelSelectorButton      = "chatSelectorOptionButton";
     public const string StyleClassChatFilterOptionButton         = "chatFilterOptionButton";
@@ -65,13 +62,6 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassButtonBig           = "ButtonBig";
 
     public const string StyleClassButtonHelp = "HelpButton";
-
-    public const string StyleClassPopupMessageSmall         = "PopupMessageSmall";
-    public const string StyleClassPopupMessageSmallCaution  = "PopupMessageSmallCaution";
-    public const string StyleClassPopupMessageMedium        = "PopupMessageMedium";
-    public const string StyleClassPopupMessageMediumCaution = "PopupMessageMediumCaution";
-    public const string StyleClassPopupMessageLarge         = "PopupMessageLarge";
-    public const string StyleClassPopupMessageLargeCaution  = "PopupMessageLargeCaution";
 
     public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
@@ -101,11 +91,6 @@ public sealed class StyleNano : StyleBase
     public static readonly Color ButtonColorGoodHovered  = Color.FromHex("#31843E");
     public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#164420");
 
-    //NavMap
-    public static readonly Color PointRed     = Color.FromHex("#B02E26");
-    public static readonly Color PointGreen   = Color.FromHex("#38b026");
-    public static readonly Color PointMagenta = Color.FromHex("#FF00FF");
-
     // Context menu button colors
     public static readonly Color ButtonColorContext         = Color.FromHex("#1119");
     public static readonly Color ButtonColorContextHover    = Color.FromHex("#575b61");
@@ -132,11 +117,7 @@ public sealed class StyleNano : StyleBase
     public const           string StyleClassItemStatusNotHeld = "ItemStatusNotHeld";
     public static readonly Color  ItemStatusNotHeldColor      = Color.Gray;
 
-    //Background
-    public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
-
     //Buttons
-    public const string StyleClassCrossButtonRed   = "CrossButtonRed";
     public const string StyleClassButtonColorRed   = "ButtonColorRed";
     public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
@@ -175,6 +156,36 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassPinButtonPinned   = "pinButtonPinned";
     public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
+    #region Style Boxes
+
+    public static RectBox FancyWindowPanel =>
+        new()
+        {
+            Rounding        = new(14.0f),
+            Borders         = new(Colors.WindowBorderColor, 2.0f),
+            InsetBorders    = new(Colors.WindowInsetBorderColor, 2.0f),
+            BackgroundColor = Colors.WindowBackgroundColor
+        };
+
+    public static RectBox FancyWindowPanelSmall => new()
+    {
+        Rounding        = new(6.0f),
+        Borders         = new(Colors.WindowBorderColor, 2.0f),
+        InsetBorders    = new(Colors.WindowInsetBorderColor, 2.0f),
+        BackgroundColor = Colors.WindowBackgroundColor
+    };
+
+    public static RectBox FancyWindowTitlebarPanel =>
+        new()
+        {
+            Rounding                    = new(14.0f, 14.0f, 0.0f, 0.0f),
+            Borders                     = new(Colors.WindowTitlebarBorderColor, 2.0f),
+            InsetBorders                = new(Colors.WindowTitlebarInsetBorderColor, 2.0f),
+            BackgroundColor             = Colors.WindowTitlebarBackgroundColor,
+            ContentMarginBottomOverride = 14.0f
+        };
+
+    #endregion
 
     public override Stylesheet Stylesheet { get; }
 
@@ -620,14 +631,205 @@ public sealed class StyleNano : StyleBase
                         .Class(ButtonSquare)
                         .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonSquare),
 
+                    #region Labels
+
+                    #region Material Symbols
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontThin)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.Thin
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontExtraLight)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.ExtraLight
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontLight)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.Light
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontRegular)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.Regular
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontMedium)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontSemiBold)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontBold)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: false,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    #endregion
+
+                    #region Material Symbols Filled
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledThin)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.Thin
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledExtraLight)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.ExtraLight
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledLight)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.Light
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledRegular)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.Regular
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledMedium)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledSemiBold)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.SymbolsFontFilledBold)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    #endregion
+
+                    #endregion
+
+                    #region Buttons
+
                     Element<ContainerButton>()
-                        .Class("ghost")
+                        .Class(UIStyleClasses.GhostButton)
                         .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
 
-                    // Global Menu
+                    #endregion
+
+                    #region Windows
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanel),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanelSmall)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitle)
+                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarIcon)
+                        .Prop(
+                            "font",
+                            typographyManager.GetSymbolsFont(
+                                true,
+                                textStyle: TextStyle.Title3,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
+
+                    #endregion
+
+                    #region Global Menu
 
                     Element<ContainerButton>()
-                        .Class(UIStyleClass.GlobalMenuCategoryButton)
+                        .Class(UIStyleClasses.GlobalMenuCategoryButton)
                         .Prop(
                             ContainerButton.StylePropertyStyleBox,
                             new StyleBoxEmpty
@@ -636,7 +838,7 @@ public sealed class StyleNano : StyleBase
                             }),
 
                     Element<ContainerButton>()
-                        .Class(UIStyleClass.GlobalMenuCategoryButton)
+                        .Class(UIStyleClasses.GlobalMenuCategoryButton)
                         .Pseudo(ContainerButton.StylePseudoClassHover)
                         .Prop(
                             ContainerButton.StylePropertyStyleBox,
@@ -646,11 +848,11 @@ public sealed class StyleNano : StyleBase
                             }),
 
                     Element<Label>()
-                        .Class(UIStyleClass.GlobalMenuCategoryLabel)
+                        .Class(UIStyleClasses.GlobalMenuCategoryLabel)
                         .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
 
                     Element<Label>()
-                        .Class(UIStyleClass.GlobalMenuCategoryIcon)
+                        .Class(UIStyleClasses.GlobalMenuCategoryIcon)
                         .Prop(
                             "font",
                             typographyManager.GetFont(
@@ -659,7 +861,7 @@ public sealed class StyleNano : StyleBase
                                 weight: FontWeight.SemiBold)),
 
                     Element<ContainerButton>()
-                        .Class(UIStyleClass.GlobalMenuPopupItem)
+                        .Class(UIStyleClasses.GlobalMenuPopupItem)
                         .Prop(
                             ContainerButton.StylePropertyStyleBox,
                             new StyleBoxEmpty
@@ -668,7 +870,7 @@ public sealed class StyleNano : StyleBase
                             }),
 
                     Element<ContainerButton>()
-                        .Class(UIStyleClass.GlobalMenuPopupItem)
+                        .Class(UIStyleClasses.GlobalMenuPopupItem)
                         .Pseudo(ContainerButton.StylePseudoClassHover)
                         .Prop(
                             ContainerButton.StylePropertyStyleBox,
@@ -678,8 +880,10 @@ public sealed class StyleNano : StyleBase
                             }),
 
                     Element<Label>()
-                        .Class(UIStyleClass.GlobalMenuPopupItemHotkeyLabel)
+                        .Class(UIStyleClasses.GlobalMenuPopupItemHotkeyLabel)
                         .Prop(Label.StylePropertyFontColor, new Color(127, 127, 127)),
+
+                    #endregion
 
                     new(
                         new SelectorElement(typeof(Label), [ContainerButton.StyleClassButton,], null, null),
@@ -1830,11 +2034,6 @@ public sealed class StyleNano : StyleBase
 
                     // Different Background shapes ---
                     Element<PanelContainer>()
-                        .Class(ClassAngleRect)
-                        .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#252525")),
-
-                    Element<PanelContainer>()
                         .Class("BackgroundOpenRight")
                         .Prop(PanelContainer.StylePropertyPanel, BaseButtonOpenRight)
                         .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252A")),
@@ -1856,38 +2055,6 @@ public sealed class StyleNano : StyleBase
                                 ContentMarginLeftOverride   = 2,
                                 ContentMarginBottomOverride = 2
                             }),
-
-                    // Window Headers
-                    Element<Label>()
-                        .Class("FancyWindowTitle")
-                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
-
-                    Element<PanelContainer>()
-                        .Class("WindowHeadingBackground")
-                        .Prop("panel", new StyleBoxTexture(BaseButtonOpenLeft) { Padding = default, })
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F1F")),
-
-                    Element<PanelContainer>()
-                        .Class("WindowHeadingBackgroundLight")
-                        .Prop("panel", new StyleBoxTexture(BaseButtonOpenLeft) { Padding = default, }),
-
-                    // Window Header Help Button
-                    Element<TextureButton>()
-                        .Class(FancyWindow.StyleClassWindowHelpButton)
-                        .Prop(
-                            TextureButton.StylePropertyTexture,
-                            resCache.GetTexture("/Textures/Interface/Nano/help.png"))
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#4B596A")),
-
-                    Element<TextureButton>()
-                        .Class(FancyWindow.StyleClassWindowHelpButton)
-                        .Pseudo(ContainerButton.StylePseudoClassHover)
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#7F3636")),
-
-                    Element<TextureButton>()
-                        .Class(FancyWindow.StyleClassWindowHelpButton)
-                        .Pseudo(ContainerButton.StylePseudoClassPressed)
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#753131")),
 
                     //The lengths you have to go through to change a background color smh
                     Element<PanelContainer>()
