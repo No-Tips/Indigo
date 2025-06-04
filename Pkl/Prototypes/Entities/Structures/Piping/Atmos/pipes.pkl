@@ -15,6 +15,9 @@ content {
             mode = "SnapgridCenter"
         }
         components {
+            new VisibilityComponent {
+                layer = 1
+            }
             new ItemComponent {
                 size = "Normal"
             }
