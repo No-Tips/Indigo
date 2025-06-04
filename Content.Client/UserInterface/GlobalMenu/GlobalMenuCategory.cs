@@ -38,4 +38,9 @@ public static class GlobalMenuCategory
         new("global-menu-admin-category"),
         GlobalMenuCategoryPriority.Admin
     );
+
+    public static readonly GlobalMenuCategoryDef Sandbox = new(
+        new("global-menu-sandbox-category"),
+        GlobalMenuCategoryPriority.Sandbox
+    );
 }

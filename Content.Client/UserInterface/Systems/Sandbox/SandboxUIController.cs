@@ -3,6 +3,7 @@ using Content.Client.Gameplay;
 using Content.Client.Markers;
 using Content.Client.Sandbox;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Client.UserInterface.Systems.DecalPlacer;
 using Content.Client.UserInterface.Systems.Sandbox.Windows;
 using Content.Shared.Input;
@@ -27,12 +28,13 @@ namespace Content.Client.UserInterface.Systems.Sandbox;
 [UsedImplicitly]
 public sealed class SandboxUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<SandboxSystem>
 {
-    [Dependency] private readonly IConsoleHost _console = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly ILightManager _light = default!;
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IConsoleHost        _console           = default!;
+    [Dependency] private readonly IEyeManager         _eye               = default!;
+    [Dependency] private readonly IInputManager       _input             = default!;
+    [Dependency] private readonly ILightManager       _light             = default!;
+    [Dependency] private readonly IClientAdminManager _admin             = default!;
+    [Dependency] private readonly IPlayerManager      _player            = default!;
+    [Dependency] private readonly GlobalMenuManager   _globalMenuManager = null!;
 
     [UISystemDependency] private readonly DebugPhysicsSystem _debugPhysics = default!;
     [UISystemDependency] private readonly MarkerSystem _marker = default!;
@@ -45,38 +47,61 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     private TileSpawningUIController TileSpawningController => UIManager.GetUIController<TileSpawningUIController>();
     private DecalPlacerUIController DecalPlacerController => UIManager.GetUIController<DecalPlacerUIController>();
 
+    private GlobalMenuItemDef _panelItem;
+    private GlobalMenuItemDef _entitySpawningWindowItem;
+    private GlobalMenuItemDef _tileSpawnWindowItem;
+    private GlobalMenuItemDef _decalSpawnWindowItem;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _panelItem = new(
+            new("global-menu-sandbox-panel-item"),
+            Callback: ToggleWindow,
+            Function: ContentKeyFunctions.OpenSandboxWindow,
+            Priority: 1000
+        );
+
+        _entitySpawningWindowItem = new(
+            new("global-menu-sandbox-entity-spawning-window-item"),
+            Callback: () =>
+            {
+                if (_admin.CanAdminPlace())
+                    EntitySpawningController.ToggleWindow();
+            },
+            Function: ContentKeyFunctions.OpenEntitySpawnWindow
+        );
+
+        _tileSpawnWindowItem = new(
+            new("global-menu-sandbox-tile-spawn-window-item"),
+            Callback: () =>
+            {
+                if (_admin.CanAdminPlace())
+                    TileSpawningController.ToggleWindow();
+            },
+            Function: ContentKeyFunctions.OpenTileSpawnWindow
+        );
+
+        _decalSpawnWindowItem = new(
+            new("global-menu-sandbox-decal-spawn-window-item"),
+            Callback: () =>
+            {
+                if (_admin.CanAdminPlace())
+                    DecalPlacerController.ToggleWindow();
+            },
+            Function: ContentKeyFunctions.OpenDecalSpawnWindow
+        );
+
+        _admin.AdminStatusUpdated += OnAdminStatusUpdated;
+    }
+
     public void OnStateEntered(GameplayState state)
     {
         DebugTools.Assert(_window == null);
         EnsureWindow();
 
-        _input.SetInputCommand(ContentKeyFunctions.OpenEntitySpawnWindow,
-            InputCmdHandler.FromDelegate(_ =>
-            {
-                if (!_admin.CanAdminPlace())
-                    return;
-                EntitySpawningController.ToggleWindow();
-            }));
-        _input.SetInputCommand(ContentKeyFunctions.OpenSandboxWindow,
-            InputCmdHandler.FromDelegate(_ => ToggleWindow()));
-        _input.SetInputCommand(ContentKeyFunctions.OpenTileSpawnWindow,
-            InputCmdHandler.FromDelegate(_ =>
-            {
-                if (!_admin.CanAdminPlace())
-                    return;
-                TileSpawningController.ToggleWindow();
-            }));
-        _input.SetInputCommand(ContentKeyFunctions.OpenDecalSpawnWindow,
-            InputCmdHandler.FromDelegate(_ =>
-            {
-                if (!_admin.CanAdminPlace())
-                    return;
-                DecalPlacerController.ToggleWindow();
-            }));
-
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.EditorCopyObject, new PointerInputCmdHandler(Copy))
-            .Register<SandboxSystem>();
+        OnAdminStatusUpdated();
     }
 
     private void EnsureWindow()
@@ -133,7 +158,7 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             _window = null;
         }
 
-        CommandBinds.Unregister<SandboxSystem>();
+        OnAdminStatusUpdated();
     }
 
     public void OnSystemLoaded(SandboxSystem system)
@@ -146,9 +171,16 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
         system.SandboxDisabled -= CloseAll;
     }
 
-    private void SandboxButtonPressed(ButtonEventArgs args)
+    private void OnAdminStatusUpdated()
     {
-        ToggleWindow();
+        var isAdmin = _admin.CanAdminPlace();
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Sandbox)
+            .KeepItem(_panelItem, when: isAdmin)
+            .KeepItem(_entitySpawningWindowItem, when: isAdmin)
+            .KeepItem(_tileSpawnWindowItem, when: isAdmin)
+            .KeepItem(_decalSpawnWindowItem, when: isAdmin);
     }
 
     private void CloseAll()

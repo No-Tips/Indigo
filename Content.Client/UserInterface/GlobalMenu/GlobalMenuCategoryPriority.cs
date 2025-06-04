@@ -25,4 +25,6 @@ public static class GlobalMenuCategoryPriority
     public const int Ghost = 800;
 
     public const int Admin = 700;
+
+    public const int Sandbox = 0;
 }

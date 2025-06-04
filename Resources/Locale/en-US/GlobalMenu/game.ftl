@@ -34,3 +34,11 @@ global-menu-ghost-bar-item = Ghost Bar
 global-menu-admin-category = Admin
 
 global-menu-admin-window-item = Admin Window
+
+## Sandbox
+
+global-menu-sandbox-category = Sandbox
+global-menu-sandbox-panel-item = Sandbox Panel
+global-menu-sandbox-entity-spawning-window-item = Entity Spawn
+global-menu-sandbox-tile-spawn-window-item = Tile Spawn
+global-menu-sandbox-decal-spawn-window-item = Decal Spawn

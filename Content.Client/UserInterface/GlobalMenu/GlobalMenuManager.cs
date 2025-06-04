@@ -172,6 +172,9 @@ public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplaySt
             return this;
         }
 
+        public CategoryEntry KeepItem(GlobalMenuItemDef itemDef, bool when) =>
+            when ? RegisterItem(itemDef) : RemoveItem(itemDef);
+
         public IReadOnlyDictionary<LocalizedString, GlobalMenuItemDef> GetItems() => _items;
     }
 

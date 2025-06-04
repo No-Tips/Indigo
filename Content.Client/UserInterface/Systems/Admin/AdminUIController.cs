@@ -52,6 +52,8 @@ public sealed class AdminUIController : UIController,
             Callback: Toggle,
             Function: ContentKeyFunctions.OpenAdminMenu
         );
+
+        _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
     }
 
     private void OnPanicBunkerUpdated(PanicBunkerChangedEvent msg, EntitySessionEventArgs args)
@@ -99,33 +101,21 @@ public sealed class AdminUIController : UIController,
     public void OnSystemLoaded(AdminSystem system)
     {
         EnsureWindow();
-        _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
     }
 
     private void OnAdminStatusUpdated()
     {
         var isAdmin = _conGroups.CanAdminMenu();
 
-        if (isAdmin)
-        {
-            _globalMenuManager
-                .GetCategory(GlobalMenuCategory.Admin)
-                .RegisterItem(_windowItem);
-        }
-        else
-        {
-            _globalMenuManager
-                .GetCategory(GlobalMenuCategory.Admin)
-                .RemoveItem(_windowItem);
-        }
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Admin)
+            .KeepItem(_windowItem, when: isAdmin);
     }
 
     public void OnSystemUnloaded(AdminSystem system)
     {
         if (_window != null)
             _window.Dispose();
-
-        _adminManager.AdminStatusUpdated -= OnAdminStatusUpdated;
     }
 
     private void EnsureWindow()
