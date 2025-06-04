@@ -39,4 +39,11 @@ public sealed partial class NavMapBlipPrototype : IPrototype
     /// </summary>
     [DataField]
     public float Scale { get; private set; } = 1f;
+
+    /// <summary>
+    /// Describes how the blip should be positioned.
+    /// It's up to the individual system to enforce this
+    /// </summary>
+    [DataField]
+    public NavMapBlipPlacement Placement { get; private set; } = NavMapBlipPlacement.Centered;
 }

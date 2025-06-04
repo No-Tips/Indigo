@@ -1,0 +1,79 @@
+amends ".../Typings.pkl"
+
+import ".../colors.pkl"
+
+content {
+    new NavMapBlipPrototype {
+        id = "NavMapConsole"
+        blinks = true
+        color = colors.Cyan
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_circle.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "GasPipeSensor"
+        selectable = true
+        color = "#ffcd00"
+        placement = "Offset"
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_star.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "GasVentOpening"
+        scale = 0.75
+        color = colors.LightGray
+        placement = "Offset"
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_square.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "GasVentScrubber"
+        scale = 0.75
+        color = colors.LightGray
+        placement = "Offset"
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_circle.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "GasFlowRegulator"
+        scale = 0.75
+        color = colors.LightGray
+        placement = "Offset"
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_arrow_south.png"
+            "/Textures/Interface/NavMap/beveled_arrow_east.png"
+            "/Textures/Interface/NavMap/beveled_arrow_north.png"
+            "/Textures/Interface/NavMap/beveled_arrow_west.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "GasValve"
+        scale = 0.75
+        color = colors.LightGray
+        placement = "Offset"
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_diamond_north_south.png"
+            "/Textures/Interface/NavMap/beveled_diamond_east_west.png"
+            "/Textures/Interface/NavMap/beveled_diamond_north_south.png"
+            "/Textures/Interface/NavMap/beveled_diamond_east_west.png"
+        }
+    }
+
+    new NavMapBlipPrototype {
+        id = "Thermoregulator"
+        scale = 0.75
+        color = colors.LightGray
+        texturePaths {
+            "/Textures/Interface/NavMap/beveled_hexagon.png"
+        }
+    }
+}

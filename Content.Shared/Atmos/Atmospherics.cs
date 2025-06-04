@@ -334,6 +334,8 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float MaxTransferRate = 200;
 
+        public const int MaxPipeLayers = 5;
+
         #endregion
     }
 

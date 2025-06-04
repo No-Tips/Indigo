@@ -270,11 +270,13 @@ internal static class MetaTypes
             typeof(Color),
             ("Color",
                 """
+                local const function ToHexPadded(number: Number, padding: UInt): String = number.toRadixString(16).padStart(padding, "0")
+
                 local const function IsHexColor(hex: String): Boolean = hex.startsWith("#") && (hex.length == 7 || hex.length == 9)
 
                 const function ColorRGB(r: UInt8, g: UInt8, b: UInt8): Color = ColorRGBA(r, g, b, 255)
 
-                const function ColorRGBA(r: UInt8, g: UInt8, b: UInt8, a: UInt8): Color = "#\(r.toRadixString(16))\(g.toRadixString(16))\(b.toRadixString(16))\(a.toRadixString(16))"
+                const function ColorRGBA(r: UInt8, g: UInt8, b: UInt8, a: UInt8): Color = "#\(ToHexPadded(r, 2))\(ToHexPadded(g, 2))\(ToHexPadded(b, 2))\(ToHexPadded(a, 2))"
 
                 typealias Color = String(IsHexColor(this))
                 """
