@@ -12,6 +12,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -162,8 +163,17 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (ent.Comp.Shuttle != null || UpdateShuttle(ent) || HasComp<DockingShuttleComponent>(ent.Comp.Shuttle))
             return;
 
-        if (!_mapLoader.TryLoadMap(new(MiningShuttlePath), out var map, out _))
+        if (!_mapLoader.TryLoadGrid(
+            new(MiningShuttlePath),
+            out var map,
+            out _,
+            new DeserializationOptions
+            {
+                InitializeMaps = true
+            }))
+        {
             return;
+        }
 
         // Find the target
         var targetMap = Transform(ent).MapID;
