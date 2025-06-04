@@ -17,6 +17,7 @@ global-menu-character-category = Character
 global-menu-character-window-item = Character Window
 global-menu-character-language-window-item = Language Window
 global-menu-character-crafting-window-item = Crafting Window
+global-menu-character-emote-window-item = Emotes
 
 ## Ghost
 

@@ -13,14 +13,10 @@ public static class ContentKeyFunctions
     public static readonly BoundKeyFunction ExamineEntity               = "ExamineEntity";
     public static readonly BoundKeyFunction MouseMiddle                 = "MouseMiddle";
     public static readonly BoundKeyFunction OpenAHelp                   = "OpenAHelp";
-    public static readonly BoundKeyFunction OpenActionsMenu        = "OpenAbilitiesMenu";
+    public static readonly BoundKeyFunction OpenActionsMenu             = "OpenAbilitiesMenu";
     public static readonly BoundKeyFunction OpenAdminMenu               = "OpenAdminMenu";
     public static readonly BoundKeyFunction OpenContextMenu             = "OpenContextMenu";
-    public static readonly BoundKeyFunction OpenDecalSpawnWindow        = "OpenDecalSpawnWindow";
-    public static readonly BoundKeyFunction OpenEntitySpawnWindow       = "OpenEntitySpawnWindow";
     public static readonly BoundKeyFunction OpenOptionsWindow           = "OpenOptionsWindow";
-    public static readonly BoundKeyFunction OpenSandboxWindow           = "OpenSandboxWindow";
-    public static readonly BoundKeyFunction OpenTileSpawnWindow         = "OpenTileSpawnWindow";
     public static readonly BoundKeyFunction TakeScreenshot              = "TakeScreenshot";
     public static readonly BoundKeyFunction TakeScreenshotNoUI          = "TakeScreenshotNoUI";
     public static readonly BoundKeyFunction ToggleFullscreen            = "ToggleFullscreen";
@@ -40,7 +36,6 @@ public static class ContentKeyFunctions
 
     public static readonly BoundKeyFunction ActivateItemInWorld    = "ActivateItemInWorld";
     public static readonly BoundKeyFunction AltActivateItemInWorld = "AltActivateItemInWorld";
-    public static readonly BoundKeyFunction UseItemInHand          = "ActivateItemInHand";
     public static readonly BoundKeyFunction AltUseItemInHand       = "AltActivateItemInHand";
     public static readonly BoundKeyFunction Drop                   = "Drop";
     public static readonly BoundKeyFunction LookUp                 = "LookUp";
@@ -48,6 +43,7 @@ public static class ContentKeyFunctions
     public static readonly BoundKeyFunction OfferItem              = "OfferItem";
     public static readonly BoundKeyFunction OpenCharacterMenu      = "OpenCharacterMenu";
     public static readonly BoundKeyFunction OpenCraftingMenu       = "OpenCraftingMenu";
+    public static readonly BoundKeyFunction OpenEmotesMenu         = "OpenEmotesMenu";
     public static readonly BoundKeyFunction OpenGuidebook          = "OpenGuidebook";
     public static readonly BoundKeyFunction OpenLanguageMenu       = "OpenLanguageMenu";
     public static readonly BoundKeyFunction Point                  = "Point";
@@ -57,6 +53,7 @@ public static class ContentKeyFunctions
     public static readonly BoundKeyFunction ToggleCrawlingUnder    = "ToggleCrawlingUnder";
     public static readonly BoundKeyFunction ToggleStanding         = "ToggleStanding";
     public static readonly BoundKeyFunction TryPullObject          = "TryPullObject";
+    public static readonly BoundKeyFunction UseItemInHand          = "ActivateItemInHand";
 
     #endregion
 
@@ -65,7 +62,7 @@ public static class ContentKeyFunctions
     public static readonly BoundKeyFunction MoveStoredItem     = "MoveStoredItem";
     public static readonly BoundKeyFunction OpenBackpack       = "OpenBackpack";
     public static readonly BoundKeyFunction OpenBelt           = "OpenBelt";
-    public static readonly BoundKeyFunction OpenInventoryMenu      = "OpenInventoryMenu";
+    public static readonly BoundKeyFunction OpenInventoryMenu  = "OpenInventoryMenu";
     public static readonly BoundKeyFunction RotateStoredItem   = "RotateStoredItem";
     public static readonly BoundKeyFunction SaveItemLocation   = "SaveItemLocation";
     public static readonly BoundKeyFunction SmartEquipBackpack = "SmartEquipBackpack";
@@ -202,6 +199,15 @@ public static class ContentKeyFunctions
     public static readonly BoundKeyFunction MappingRemoveDecal      = "MappingRemoveDecal";
     public static readonly BoundKeyFunction MappingUnselect         = "MappingUnselect";
     public static readonly BoundKeyFunction SaveMap                 = "SaveMap";
+
+    #endregion
+
+    #region Developer
+
+    public static readonly BoundKeyFunction OpenDecalSpawnWindow  = "OpenDecalSpawnWindow";
+    public static readonly BoundKeyFunction OpenEntitySpawnWindow = "OpenEntitySpawnWindow";
+    public static readonly BoundKeyFunction OpenSandboxWindow     = "OpenSandboxWindow";
+    public static readonly BoundKeyFunction OpenTileSpawnWindow   = "OpenTileSpawnWindow";
 
     #endregion
 }

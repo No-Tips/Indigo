@@ -261,13 +261,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OpenAdminMenu);
             AddButton(ContentKeyFunctions.OpenCharacterMenu);
             AddButton(ContentKeyFunctions.OpenCraftingMenu);
-            AddButton(ContentKeyFunctions.OpenDecalSpawnWindow);
-            AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
             AddButton(ContentKeyFunctions.OpenGuidebook);
             AddButton(ContentKeyFunctions.OpenLanguageMenu);
             AddButton(ContentKeyFunctions.OpenOptionsWindow);
-            AddButton(ContentKeyFunctions.OpenSandboxWindow);
-            AddButton(ContentKeyFunctions.OpenTileSpawnWindow);
             AddButton(ContentKeyFunctions.TakeScreenshot);
             AddButton(ContentKeyFunctions.TakeScreenshotNoUI);
             AddButton(ContentKeyFunctions.ToggleFullscreen);
@@ -442,6 +438,10 @@ namespace Content.Client.Options.UI.Tabs
 
             AddHeader("ui-options-header-developer");
 
+            AddButton(ContentKeyFunctions.OpenDecalSpawnWindow);
+            AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
+            AddButton(ContentKeyFunctions.OpenSandboxWindow);
+            AddButton(ContentKeyFunctions.OpenTileSpawnWindow);
             AddButton(EngineKeyFunctions.ShowDebugConsole);
             AddButton(EngineKeyFunctions.ShowDebugMonitors);
             AddButton(EngineKeyFunctions.HideUI);

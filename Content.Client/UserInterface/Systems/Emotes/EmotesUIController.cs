@@ -1,6 +1,7 @@
 ﻿using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -12,24 +13,42 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
+
 namespace Content.Client.UserInterface.Systems.Emotes;
+
 
 [UsedImplicitly]
 public sealed class EmotesUIController : UIController
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly IEntityManager    _entityManager     = default!;
+    [Dependency] private readonly IClyde            _displayManager    = default!;
+    [Dependency] private readonly IInputManager     _inputManager      = default!;
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
 
     private EmotesMenu? _menu;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Character)
+            .RegisterItem(
+                new(
+                    new("global-menu-character-emote-window-item"),
+                    Callback: () => ToggleEmotesMenu(true),
+                    Function: ContentKeyFunctions.OpenEmotesMenu
+                )
+            );
+    }
 
     private void ToggleEmotesMenu(bool centered)
     {
         if (_menu == null)
         {
             // setup window
-            _menu = UIManager.CreateWindow<EmotesMenu>();
-            _menu.OnClose += OnWindowClosed;
+            _menu             =  UIManager.CreateWindow<EmotesMenu>();
+            _menu.OnClose     += OnWindowClosed;
             _menu.OnPlayEmote += OnPlayEmote;
 
             if (centered)
@@ -45,16 +64,11 @@ public sealed class EmotesUIController : UIController
         }
         else
         {
-            _menu.OnClose -= OnWindowClosed;
+            _menu.OnClose     -= OnWindowClosed;
             _menu.OnPlayEmote -= OnPlayEmote;
 
             CloseMenu();
         }
-    }
-
-    private void ActionButtonPressed(BaseButton.ButtonEventArgs args)
-    {
-        ToggleEmotesMenu(true);
     }
 
     private void OnWindowClosed()
