@@ -18,14 +18,27 @@ namespace Content.Client.InterfaceGuidelines;
 
 public static class SymbolIcons
 {
-    public const string Add            = "\uE145";
-    public const string ArrowUpward    = "\uE5D8";
-    public const string BugReport      = "\uE868";
-    public const string Build          = "\uE869";
-    public const string Cancel         = "\uE5C9";
-    public const string Close          = "\uE5CD";
-    public const string DoNotDisturbOn = "\uE644";
-    public const string Help           = "\uE887";
-    public const string Language       = "\uE894";
-    public const string Remove         = "\uE15B";
+    public const string Add             = "\uE145";
+    public const string ArrowUpward     = "\uE5D8";
+    public const string BugReport       = "\uE868";
+    public const string Build           = "\uE869";
+    public const string Cancel          = "\uE5C9";
+    public const string Chat            = "\uE0B7";
+    public const string Close           = "\uE5CD";
+    public const string Colorize        = "\uE3B8";
+    public const string DataObject      = "\uEAD3";
+    public const string Delete          = "\uE872";
+    public const string DoNotDisturbOn  = "\uE644";
+    public const string FormatPaint     = "\uE243";
+    public const string Help            = "\uE887";
+    public const string KeyboardArrowUp = "\uE316";
+    public const string Language        = "\uE894";
+    public const string OpenWith        = "\uE89F";
+    public const string Palette         = "\uE40A";
+    public const string Remove          = "\uE15B";
+    public const string RotateLeft      = "\uE419";
+    public const string RotateRight     = "\uE41A";
+    public const string Spo2            = "\uF6DB";
+    public const string Stacks          = "\uF500";
+    public const string WandShine       = "\uF31F";
 }
