@@ -34,6 +34,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Whitelist;
 using Robust.Shared.Configuration;
 using Content.Shared.Mood;
@@ -421,7 +422,7 @@ public sealed class FoodSystem : EntitySystem
             {
                 TryFeed(user, user, entity, entity.Comp);
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/cutlery.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Restaurant,
             Text = Loc.GetString("food-system-verb-eat"),
             Priority = -1
         };

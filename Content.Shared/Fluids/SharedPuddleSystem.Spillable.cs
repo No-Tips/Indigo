@@ -51,7 +51,6 @@ public abstract partial class SharedPuddleSystem
             Text = Loc.GetString("spill-target-verb-get-data-text")
         };
 
-        // TODO VERB ICONS spill icon? pouring out a glass/beaker?
         if (entity.Comp.SpillDelay == null)
         {
             var target = args.Target;

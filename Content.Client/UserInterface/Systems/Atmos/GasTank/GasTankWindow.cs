@@ -4,6 +4,7 @@ using Content.Client.Message;
 using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos.Components;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;

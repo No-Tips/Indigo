@@ -64,7 +64,7 @@ namespace Content.Server.Cocoon
                     StartCocooning(uid, component, args.Target);
                 },
                 Text = Loc.GetString("cocoon"),
-                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Actions/web.png")),
+                SpriteIcon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Actions/web.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);
@@ -82,7 +82,7 @@ namespace Content.Server.Cocoon
                     StartUnCocooning(uid, component, args.Target);
                 },
                 Text = Loc.GetString("uncocoon"),
-                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Actions/web.png")),
+                SpriteIcon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Actions/web.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);

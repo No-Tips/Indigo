@@ -7,6 +7,7 @@ using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Controls.FancyTree;
 using Content.Client.Verbs.UI;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -805,6 +806,28 @@ public sealed class StyleNano : StyleBase
                         ),
 
                     #endregion
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.VerbLabelIcon)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title1,
+                                weight: FontWeight.Regular
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.TooltipLabelIcon)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title1,
+                                weight: FontWeight.Regular
+                            )
+                        ),
 
                     #endregion
 

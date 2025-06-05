@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -35,7 +36,7 @@ namespace Content.Server.DetailExaminable
                 Category = VerbCategory.Examine,
                 Disabled = !detailsRange,
                 Message = detailsRange ? null : Loc.GetString("detail-examinable-verb-disabled"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
+                GlyphIcon = SymbolIcons.Search
             };
 
             args.Verbs.Add(verb);

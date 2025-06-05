@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

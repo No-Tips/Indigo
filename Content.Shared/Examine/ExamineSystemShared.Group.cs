@@ -1,3 +1,4 @@
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -7,7 +8,7 @@ namespace Content.Shared.Examine
     {
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
-        public const string DefaultIconTexture = "/Textures/Interface/examine-star.png";
+        public const string DefaultIconTexture = SymbolIcons.Search;
 
         public override void Initialize()
         {
@@ -38,7 +39,7 @@ namespace Content.Shared.Examine
                     Text = Loc.GetString(group.ContextText),
                     Message = Loc.GetString(group.HoverMessage),
                     Category = VerbCategory.Examine,
-                    Icon = group.Icon,
+                    GlyphIcon = group.Icon,
                 };
 
                 args.Verbs.Add(examineVerb);
@@ -108,7 +109,7 @@ namespace Content.Shared.Examine
         /// <summary>
         ///     Either sends the details to a GroupExamineComponent if it finds one, or adds a details examine verb itself.
         /// </summary>
-        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, List<ExamineEntry> entries, string verbText, string iconTexture = DefaultIconTexture, string hoverMessage = "")
+        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, List<ExamineEntry> entries, string verbText, string iconGlyph = DefaultIconTexture, string hoverMessage = "")
         {
             // If the entity has the GroupExamineComponent
             if (TryComp<GroupExamineComponent>(verbsEvent.Target, out var groupExamine))
@@ -149,7 +150,7 @@ namespace Content.Shared.Examine
                 Text = verbText,
                 Message = hoverMessage,
                 Category = VerbCategory.Examine,
-                Icon = new SpriteSpecifier.Texture(new(iconTexture)),
+                GlyphIcon = iconGlyph,
             };
 
             verbsEvent.Verbs.Add(examineVerb);
@@ -158,18 +159,18 @@ namespace Content.Shared.Examine
         /// <summary>
         ///     Either adds a details examine verb, or sends the details to a GroupExamineComponent if it finds one.
         /// </summary>
-        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, ExamineEntry entry, string verbText, string iconTexture = DefaultIconTexture, string hoverMessage = "")
+        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, ExamineEntry entry, string verbText, string iconGlyph = DefaultIconTexture, string hoverMessage = "")
         {
-            AddDetailedExamineVerb(verbsEvent, component, new List<ExamineEntry> { entry }, verbText, iconTexture, hoverMessage);
+            AddDetailedExamineVerb(verbsEvent, component, new List<ExamineEntry> { entry }, verbText, iconGlyph, hoverMessage);
         }
 
         /// <summary>
         ///     Either adds a details examine verb, or sends the details to a GroupExamineComponent if it finds one.
         /// </summary>
-        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, FormattedMessage message, string verbText, string iconTexture = DefaultIconTexture, string hoverMessage = "")
+        public void AddDetailedExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, FormattedMessage message, string verbText, string iconGlyph = DefaultIconTexture, string hoverMessage = "")
         {
             var componentName = _componentFactory.GetComponentName(component.GetType());
-            AddDetailedExamineVerb(verbsEvent, component, new ExamineEntry(componentName, 0f, message), verbText, iconTexture, hoverMessage);
+            AddDetailedExamineVerb(verbsEvent, component, new ExamineEntry(componentName, 0f, message), verbText, iconGlyph, hoverMessage);
         }
     }
 }

@@ -5,6 +5,7 @@ using Content.Server.PowerCell;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Rounding;
@@ -188,7 +189,7 @@ namespace Content.Server.Light.EntitySystems
             ActivationVerb verb = new()
             {
                 Text = Loc.GetString("verb-common-toggle-light"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.FlashlightOn,
                 Act = ent.Comp.Activated
                     ? () => TurnOff(ent)
                     : () => TurnOn(@event.User, ent)

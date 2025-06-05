@@ -2,6 +2,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Popups;
 using Content.Shared.Examine;
 using Content.Shared.Construction.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -33,8 +34,7 @@ public sealed class DiskBurnerSystem : EntitySystem
         {
             Act = () => BurnDisk(args.User, uid, component),
             Text = Loc.GetString(component.VerbName),
-            // TODO VERB ICON find a better icon
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Album,
         });
     }
 

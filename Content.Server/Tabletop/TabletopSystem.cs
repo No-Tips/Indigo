@@ -2,6 +2,7 @@ using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Content.Shared.Tabletop;
 using Content.Shared.Tabletop.Components;
@@ -132,7 +133,7 @@ namespace Content.Server.Tabletop
             var playVerb = new ActivationVerb()
             {
                 Text = Loc.GetString("tabletop-verb-play-game"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/die.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Casino,
                 Act = () => OpenSessionFor(actor.PlayerSession, uid)
             };
 

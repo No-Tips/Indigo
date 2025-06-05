@@ -3,6 +3,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Power.Generator;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
@@ -46,7 +47,7 @@ public sealed class PowerSwitchableSystem : SharedPowerSwitchableSystem
                 // don't need to check it again since if its disabled server wont let the verb act
                 Cycle(uid, args.User, comp);
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Bolt,
             Text = msg
         };
 

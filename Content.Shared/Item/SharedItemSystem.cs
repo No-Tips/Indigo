@@ -2,6 +2,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
@@ -109,7 +110,7 @@ public abstract class SharedItemSystem : EntitySystem
         InteractionVerb verb = new();
         verb.Act = () => _handsSystem.TryPickupAnyHand(args.User, args.Target, checkActionBlocker: false,
             handsComp: args.Hands, item: component);
-        verb.Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/pickup.svg.192dpi.png"));
+        verb.GlyphIcon = SymbolIcons.ArrowUpward;
 
         // if the item already in a container (that is not the same as the user's), then change the text.
         // this occurs when the item is in their inventory or in an open backpack

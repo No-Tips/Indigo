@@ -4,6 +4,7 @@ using Content.Client.Light;
 using Content.Client.Verbs;
 using Content.Shared.Guidebook;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Light.Components;
 using Content.Shared.Speech;
 using Content.Shared.Tag;
@@ -80,7 +81,7 @@ public sealed class GuidebookSystem : EntitySystem
         args.Verbs.Add(new()
         {
             Text = Loc.GetString("guide-help-verb"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.QuestionMark,
             Act = () => OnGuidebookOpen?.Invoke(component.Guides, null, null, component.IncludeChildren, component.Guides[0]),
             ClientExclusive = true,
             CloseMenu = true

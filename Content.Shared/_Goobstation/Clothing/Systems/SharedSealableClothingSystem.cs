@@ -6,6 +6,7 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -106,13 +107,11 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             && _actionBlockerSystem.CanInteract(comp.WearerEntity.Value, null))
             return;
 
-        var verbIcon = comp.IsCurrentlySealed ?
-            new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unlock.svg.192dpi.png")) :
-            new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/lock.svg.192dpi.png"));
+        var verbIcon = comp.IsCurrentlySealed ? SymbolIcons.LockOpen : SymbolIcons.Lock;
 
         var verb = new Verb()
         {
-            Icon = verbIcon,
+            GlyphIcon = verbIcon,
             Priority = 5,
             Text = Loc.GetString(comp.VerbText),
             Act = () => TryStartSealToggleProcess(control, user)

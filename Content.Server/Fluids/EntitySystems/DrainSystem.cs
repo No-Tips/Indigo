@@ -10,6 +10,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
@@ -63,7 +64,7 @@ public sealed class DrainSystem : SharedDrainSystem
                 Empty(used, spillable, target, drain);
             },
             Impact = LogImpact.Low,
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.Eject
 
         };
         args.Verbs.Add(verb);

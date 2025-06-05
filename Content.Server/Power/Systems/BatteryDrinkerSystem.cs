@@ -10,6 +10,7 @@ using Content.Server.Silicon.Charge;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -46,7 +47,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         {
             Act = () => DrinkBattery(uid, args.User, drinkerComp),
             Text = Loc.GetString("battery-drinker-verb-drink"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Bolt,
         };
 
         args.Verbs.Add(verb);

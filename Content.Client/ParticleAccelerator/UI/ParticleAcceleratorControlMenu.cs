@@ -3,6 +3,7 @@ using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Singularity.Components;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;

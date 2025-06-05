@@ -3,9 +3,10 @@ using Content.Shared.Materials;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Examine;   // Frontier
-using Content.Shared.Hands.Components;  // Frontier
-using Content.Shared.Verbs;     // Frontier
-using Robust.Shared.Utility;    // Frontier
+using Content.Shared.Hands.Components;
+using Content.Shared.InterfaceGuidelines; // Frontier
+using Content.Shared.Verbs;               // Frontier
+using Robust.Shared.Utility;              // Frontier
 
 namespace Content.Shared.Frontier.Storage.EntitySystems;
 
@@ -56,8 +57,8 @@ public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
             {
                 component.MagnetEnabled = !component.MagnetEnabled;
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
-            Text = Loc.GetString("magnet-pickup-component-toggle-verb"),
+            GlyphIcon     = SymbolIcons.PowerSettingsNew,
+            Text     = Loc.GetString("magnet-pickup-component-toggle-verb"),
             Priority = 3
         };
 

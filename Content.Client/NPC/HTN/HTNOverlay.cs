@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;

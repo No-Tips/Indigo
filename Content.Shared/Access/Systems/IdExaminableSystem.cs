@@ -1,5 +1,6 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Verbs;
@@ -34,7 +35,7 @@ public sealed class IdExaminableSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("id-examinable-component-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/character.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.Badge
         };
 
         args.Verbs.Add(verb);

@@ -1,4 +1,5 @@
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.NPC;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;

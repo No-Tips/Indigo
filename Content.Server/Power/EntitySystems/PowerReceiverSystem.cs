@@ -18,6 +18,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 using Content.Shared.Emp;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 
 
 namespace Content.Server.Power.EntitySystems
@@ -68,7 +69,7 @@ namespace Content.Server.Power.EntitySystems
             {
                 Text = Loc.GetString("verb-debug-toggle-need-power"),
                 Category = VerbCategory.Debug,
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")), // "smite" is a lightning bolt
+                GlyphIcon = SymbolIcons.Bolt, // "smite" is a lightning bolt
                 Act = () => component.NeedsPower = !component.NeedsPower
             });
         }
@@ -141,7 +142,7 @@ namespace Content.Server.Power.EntitySystems
                 {
                     TogglePower(uid, user: args.User);
                 },
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.PowerSettingsNew,
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
                 Priority = -3
             };

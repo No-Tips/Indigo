@@ -11,6 +11,7 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 
 
 namespace Content.Client.TurretController;

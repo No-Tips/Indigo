@@ -1,6 +1,7 @@
 using System.Numerics;
 using System.Text;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Parallax.Biomes;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

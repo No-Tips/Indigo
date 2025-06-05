@@ -42,7 +42,8 @@ using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared._Impstation.Thaven.Components; // DeltaV
-using Content.Server._Impstation.Thaven; // DeltaV
+using Content.Server._Impstation.Thaven;
+using Content.Shared.InterfaceGuidelines; // DeltaV
 
 namespace Content.Server.Administration.Systems
 {
@@ -119,7 +120,7 @@ namespace Content.Server.Administration.Systems
                     Verb verb = new();
                     verb.Text = Loc.GetString("ahelp-verb-get-data-text");
                     verb.Category = VerbCategory.Admin;
-                    verb.Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/gavel.svg.192dpi.png"));
+                    verb.GlyphIcon = SymbolIcons.Chat;
                     verb.Act = () =>
                         _console.RemoteExecuteCommand(player, $"openahelp \"{targetActor.PlayerSession.UserId}\"");
                     verb.Impact = LogImpact.Low;
@@ -129,7 +130,7 @@ namespace Content.Server.Administration.Systems
                     Verb prayerVerb = new();
                     prayerVerb.Text = Loc.GetString("prayer-verbs-subtle-message");
                     prayerVerb.Category = VerbCategory.Admin;
-                    prayerVerb.Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/pray.svg.png"));
+                    prayerVerb.GlyphIcon = SymbolIcons.FoldedHands;
                     prayerVerb.Act = () =>
                     {
                         _quickDialog.OpenDialog(player, "Subtle Message", "Message", "Popup Message", (string message, string popupMessage) =>
@@ -151,7 +152,7 @@ namespace Content.Server.Administration.Systems
                             Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
                             Text = Loc.GetString("admin-verbs-freeze"),
                             Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                            GlyphIcon = SymbolIcons.ModeCool,
                             Act = () =>
                             {
                                 EnsureComp<AdminFrozenComponent>(args.Target);
@@ -168,7 +169,7 @@ namespace Content.Server.Administration.Systems
                             Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
                             Text = Loc.GetString("admin-verbs-freeze-and-mute"),
                             Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                            GlyphIcon = SymbolIcons.VoiceSelectionOff,
                             Act = () =>
                             {
                                 _freeze.FreezeAndMute(args.Target);
@@ -184,7 +185,7 @@ namespace Content.Server.Administration.Systems
                             Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
                             Text = Loc.GetString("admin-verbs-unfreeze"),
                             Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                            GlyphIcon = SymbolIcons.ModeCoolOff,
                             Act = () =>
                             {
                                 RemComp<AdminFrozenComponent>(args.Target);
@@ -199,7 +200,7 @@ namespace Content.Server.Administration.Systems
                         Text = Loc.GetString("admin-verbs-erase"),
                         Message = Loc.GetString("admin-verbs-erase-description"),
                         Category = VerbCategory.Admin,
-                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                        GlyphIcon = SymbolIcons.PersonRemove,
                         Act = () =>
                         {
                             _adminSystem.Erase(targetActor.PlayerSession);
@@ -305,7 +306,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("admin-verbs-teleport-to"),
                     Category = VerbCategory.Admin,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.NorthEast,
                     Act = () =>
                     {
                         _console.ExecuteCommand(player, $"tpto {GetNetEntity(args.Target)}");
@@ -318,7 +319,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("admin-verbs-teleport-here"),
                     Category = VerbCategory.Admin,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/close.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.SouthWest,
                     Act = () =>
                     {
                         if (HasComp<MapGridComponent>(args.Target))
@@ -362,12 +363,12 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateLaws(lawBoundComponent, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
+                        SpriteIcon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
 
                 // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -382,7 +383,7 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateMoods(moods, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
+                        SpriteIcon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
             }
@@ -403,7 +404,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("delete-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.Delete,
                     Act = () => EntityManager.DeleteEntity(args.Target),
                     Impact = LogImpact.Medium,
                     ConfirmationPopup = true
@@ -418,7 +419,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("rejuvenate-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.EcgHeart,
                     Act = () => _rejuvenate.PerformRejuvenate(args.Target),
                     Impact = LogImpact.Medium
                 };
@@ -433,7 +434,6 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("control-mob-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    // TODO VERB ICON control mob icon
                     Act = () =>
                     {
                         _mindSystem.ControlMob(args.User, args.Target);
@@ -476,7 +476,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("make-sentient-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.Cognition,
                     Act = () => MakeSentientCommand.MakeSentient(args.Target, EntityManager),
                     Impact = LogImpact.Medium
                 };
@@ -489,11 +489,11 @@ namespace Content.Server.Administration.Systems
             {
                 Verb verb = new()
                 {
-                    Text = Loc.GetString("set-outfit-verb-get-data-text"),
-                    Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                    Act = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
-                    Impact = LogImpact.Medium
+                    Text      = Loc.GetString("set-outfit-verb-get-data-text"),
+                    Category  = VerbCategory.Debug,
+                    GlyphIcon = SymbolIcons.Apparel,
+                    Act       = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
+                    Impact    = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);
             }
@@ -505,7 +505,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("in-range-unoccluded-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.ConnectWithoutContact,
                     Act = () =>
                     {
 
@@ -527,7 +527,7 @@ namespace Content.Server.Administration.Systems
                 {
                     Text = Loc.GetString("tube-direction-verb-get-data-text"),
                     Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.QuestionMark,
                     Act = () => _disposalTubes.PopupDirections(args.Target, tube, args.User)
                 };
                 args.Verbs.Add(verb);
@@ -540,8 +540,6 @@ namespace Content.Server.Administration.Systems
                 Verb verb = new();
                 verb.Text = Loc.GetString("make-ghost-role-verb-get-data-text");
                 verb.Category = VerbCategory.Debug;
-                // TODO VERB ICON add ghost icon
-                // Where is the national park service icon for haunted forests?
                 verb.Act = () => _ghostRoleSystem.OpenMakeGhostRoleEui(player, args.Target);
                 verb.Impact = LogImpact.Medium;
                 args.Verbs.Add(verb);
@@ -553,7 +551,7 @@ namespace Content.Server.Administration.Systems
                 Verb verb = new()
                 {
                     Text = Loc.GetString("configure-verb-get-data-text"),
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.Build,
                     Category = VerbCategory.Debug,
                     Act = () => _uiSystem.OpenUi(args.Target, ConfigurationUiKey.Key, actor.PlayerSession)
                 };
@@ -566,11 +564,11 @@ namespace Content.Server.Administration.Systems
             {
                 Verb verb = new()
                 {
-                    Text = Loc.GetString("edit-solutions-verb-get-data-text"),
-                    Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/spill.svg.192dpi.png")),
-                    Act = () => OpenEditSolutionsEui(player, args.Target),
-                    Impact = LogImpact.Medium // maybe high depending on WHAT reagents they add...
+                    Text      = Loc.GetString("edit-solutions-verb-get-data-text"),
+                    Category  = VerbCategory.Debug,
+                    GlyphIcon = SymbolIcons.Labs,
+                    Act       = () => OpenEditSolutionsEui(player, args.Target),
+                    Impact    = LogImpact.Medium // maybe high depending on WHAT reagents they add...
                 };
                 args.Verbs.Add(verb);
             }

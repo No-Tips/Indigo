@@ -23,6 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
@@ -127,7 +128,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         var verb = new UtilityVerb()
         {
             Act = () => AttemptStartSurgery(ent, user, target),
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+            GlyphIcon = SymbolIcons.Surgical,
             Text = Loc.GetString("surgery-verb-text"),
             Message = Loc.GetString("surgery-verb-message"),
             DoContactInteraction = true

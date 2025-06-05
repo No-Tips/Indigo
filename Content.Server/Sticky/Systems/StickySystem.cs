@@ -4,6 +4,7 @@ using Content.Server.Sticky.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Sticky;
 using Content.Shared.Sticky.Components;
 using Content.Shared.Verbs;
@@ -58,7 +59,7 @@ public sealed class StickySystem : EntitySystem
         {
             DoContactInteraction = true,
             Text = Loc.GetString("comp-sticky-unstick-verb-text"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Eject,
             Act = () => StartUnsticking(uid, args.User, component)
         });
     }

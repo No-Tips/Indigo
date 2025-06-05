@@ -1,5 +1,6 @@
 using Content.Shared.Buckle.Components;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Content.Shared.Plunger.Components;
 using Robust.Shared.Audio.Systems;
@@ -65,14 +66,12 @@ namespace Content.Shared.Toilet.Systems
             if (component.ToggleSeat)
             {
                 toggleVerb.Text = Loc.GetString("toilet-seat-close");
-                toggleVerb.Icon =
-                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/close.svg.192dpi.png"));
+                toggleVerb.GlyphIcon = SymbolIcons.ArrowDownward;
             }
             else
             {
                 toggleVerb.Text = Loc.GetString("toilet-seat-open");
-                toggleVerb.Icon =
-                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
+                toggleVerb.GlyphIcon = SymbolIcons.ArrowUpward;
             }
             args.Verbs.Add(toggleVerb);
         }

@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Administration.Systems;
 using Content.Client.InterfaceGuidelines;
 using Content.Shared.CCVar;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Mind;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;

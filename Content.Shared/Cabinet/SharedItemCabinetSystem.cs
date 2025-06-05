@@ -1,12 +1,12 @@
 ﻿using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Lock;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Cabinet;
 
@@ -91,14 +91,12 @@ public abstract class SharedItemCabinetSystem : EntitySystem
         if (cabinet.Opened)
         {
             toggleVerb.Text = Loc.GetString("verb-common-close");
-            toggleVerb.Icon =
-                new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/close.svg.192dpi.png"));
+            toggleVerb.GlyphIcon = SymbolIcons.LeftPanelClose;
         }
         else
         {
             toggleVerb.Text = Loc.GetString("verb-common-open");
-            toggleVerb.Icon =
-                new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
+            toggleVerb.GlyphIcon = SymbolIcons.LeftPanelOpen;
         }
         args.Verbs.Add(toggleVerb);
     }

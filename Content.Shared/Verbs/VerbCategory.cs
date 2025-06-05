@@ -11,7 +11,9 @@ namespace Content.Shared.Verbs
     {
         public readonly string Text;
 
-        public readonly SpriteSpecifier? Icon;
+        public readonly SpriteSpecifier? SpriteIcon;
+
+        public readonly string? GlypIcon;
 
         /// <summary>
         ///     Columns for the grid layout that shows the verbs in this category. If <see cref="IconsOnly"/> is false,
@@ -37,14 +39,14 @@ namespace Content.Shared.Verbs
         public VerbCategory(string text, string icon, bool iconsOnly = false)
         {
             Text = Loc.GetString(text);
-            Icon = new SpriteSpecifier.Texture(new ResPath(icon));
+            SpriteIcon = new SpriteSpecifier.Texture(new ResPath(icon));
             IconsOnly = iconsOnly;
         }
 
         public VerbCategory(string text, SpriteSpecifier? sprite, bool iconsOnly = false)
         {
             Text = Loc.GetString(text);
-            Icon = sprite;
+            SpriteIcon = sprite;
             IconsOnly = iconsOnly;
         }
 

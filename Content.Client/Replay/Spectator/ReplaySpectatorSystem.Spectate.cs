@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Replay.UI;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
@@ -21,7 +22,7 @@ public sealed partial class ReplaySpectatorSystem
             Priority = 100,
             Act = () => SpectateEntity(ev.Target),
             Text = Loc.GetString("replay-verb-spectate"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/vv.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.Visibility
         });
     }
 

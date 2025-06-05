@@ -67,7 +67,7 @@ namespace Content.Server.Vampiric
                     StartSuccDoAfter(uid, victim, component, bloodstream, !ignoreClothes); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
+                SpriteIcon = new SpriteSpecifier.Texture(new("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);

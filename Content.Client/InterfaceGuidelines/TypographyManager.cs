@@ -33,8 +33,8 @@ public sealed class TypographyManager
 
     public VectorFont GetSymbolsFont(
         bool       filled,
-        TextStyle  style = TextStyle.Body,
-        FontWeight weight    = FontWeight.Regular
+        TextStyle  style  = TextStyle.Body,
+        FontWeight weight = FontWeight.Regular
     )
     {
         if (weight > FontWeight.Bold)

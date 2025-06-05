@@ -26,6 +26,7 @@ using Content.Client.Players.RateLimiting;
 using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 namespace Content.Client.IoC

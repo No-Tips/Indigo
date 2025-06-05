@@ -7,6 +7,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Traits.Assorted.Components;
 
 namespace Content.Shared.HealthExaminable;
@@ -41,7 +42,7 @@ public sealed class HealthExaminableSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("health-examinable-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.EcgHeart
         };
 
         args.Verbs.Add(verb);

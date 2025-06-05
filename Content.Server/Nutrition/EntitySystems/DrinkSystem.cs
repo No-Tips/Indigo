@@ -22,6 +22,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
@@ -356,7 +357,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
             {
                 TryDrink(user, user, entity.Comp, entity);
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/drink.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.WaterDrop,
             Text = Loc.GetString("drink-system-verb-drink"),
             Priority = 2
         };

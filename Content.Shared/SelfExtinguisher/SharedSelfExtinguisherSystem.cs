@@ -3,6 +3,7 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -77,9 +78,9 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
 
         var verb = new EquipmentVerb()
         {
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/extinguisher.svg.192dpi.png")),
-            Text = Loc.GetString("self-extinguisher-verb"),
-            EventTarget = uid,
+            GlyphIcon               = SymbolIcons.Extinguisher,
+            Text               = Loc.GetString("self-extinguisher-verb"),
+            EventTarget        = uid,
             ExecutionEventArgs = new SelfExtinguishEvent() { Performer = args.User }
         };
 

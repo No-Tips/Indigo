@@ -11,6 +11,7 @@ using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Kitchen;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -169,7 +170,7 @@ public sealed class SharpSystem : EntitySystem
             },
             Message = message,
             Disabled = disabled,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/cutlery.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.LocalDining,
             Text = Loc.GetString("butcherable-verb-name"),
         };
 

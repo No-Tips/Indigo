@@ -22,6 +22,7 @@ using Robust.Client;
 using static Content.Shared.Interaction.SharedInteractionSystem;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Direction = Robust.Shared.Maths.Direction;
 
@@ -139,7 +140,7 @@ namespace Content.Client.Examine
             // Center it on the entity if they use the verb instead.
             verb.Act = () => DoExamine(args.Target, false);
             verb.Text = Loc.GetString("examine-verb-name");
-            verb.Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"));
+            verb.GlyphIcon = SymbolIcons.Search;
             verb.ShowOnExamineTooltip = false;
             verb.ClientExclusive = true;
             args.Verbs.Add(verb);
@@ -315,7 +316,7 @@ namespace Content.Client.Examine
                 if (verb is not ExamineVerb examine)
                     continue;
 
-                if (examine.Icon == null)
+                if (examine.GlyphIcon == null)
                     continue;
 
                 if (!examine.ShowOnExamineTooltip)

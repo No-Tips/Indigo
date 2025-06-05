@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Message;
 using Content.Client.UserInterface.Systems.EscapeMenu;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client;
 using Robust.Client.Replays.Loading;
 using Robust.Client.ResourceManagement;

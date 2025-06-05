@@ -2,6 +2,7 @@ using System.Text;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Shared.Access.Components;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;

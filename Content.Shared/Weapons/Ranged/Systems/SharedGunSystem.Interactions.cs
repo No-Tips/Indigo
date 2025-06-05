@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Utility;
@@ -53,7 +54,7 @@ public abstract partial class SharedGunSystem
         {
             Act = () => SelectFire(uid, component, nextMode, args.User),
             Text = Loc.GetString("gun-selector-verb", ("mode", GetLocSelector(nextMode))),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.AltRoute,
         };
 
         args.Verbs.Add(verb);

@@ -3,6 +3,7 @@ using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
@@ -57,8 +58,7 @@ namespace Content.Server.Construction
             //verb.Category = VerbCategories.Construction;
             //TODO VERBS add more construction verbs? Until then, removing construction category
             verb.Text = Loc.GetString("deconstructible-verb-begin-deconstruct");
-            verb.Icon = new SpriteSpecifier.Texture(
-                new ("/Textures/Interface/hammer_scaled.svg.192dpi.png"));
+            verb.GlyphIcon = SymbolIcons.Construction;
 
             verb.Act = () =>
             {

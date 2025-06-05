@@ -3,6 +3,7 @@ using Content.Client.Examine;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Wires;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
