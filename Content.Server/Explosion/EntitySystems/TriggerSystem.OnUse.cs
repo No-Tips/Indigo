@@ -3,6 +3,7 @@ using Content.Server.Sticky.Events;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
@@ -165,5 +166,5 @@ public sealed partial class TriggerSystem
         args.Handled = true;
     }
 
-    public static VerbCategory TimerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
+    public static VerbCategory TimerOptions = new("verb-categories-timer", SymbolIcons.Schedule);
 }

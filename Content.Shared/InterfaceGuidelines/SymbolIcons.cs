@@ -39,10 +39,12 @@ public static class SymbolIcons
     public const string Casino                   = "\uEB40";
     public const string Chat                     = "\uE0B7";
     public const string Checkroom                = "\uF19E";
+    public const string ChevronRight             = "\uE5CC";
     public const string Clarify                  = "\uF0BF";
     public const string Close                    = "\uE5CD";
     public const string Cognition                = "\uE09F";
     public const string Colorize                 = "\uE3B8";
+    public const string Colors                   = "\uE997";
     public const string ConnectWithoutContact    = "\uF223";
     public const string Construction             = "\uEA3C";
     public const string ContentPaste             = "\uE14F";
@@ -91,6 +93,7 @@ public static class SymbolIcons
     public const string Palette                  = "\uE40A";
     public const string Pause                    = "\uE034";
     public const string Pen                      = "\uE3C9";
+    public const string Person                   = "\uE7FD";
     public const string PersonRemove             = "\uEF66";
     public const string PinDrop                  = "\uE55E";
     public const string PlaceItem                = "\uF1F0";
@@ -107,6 +110,7 @@ public static class SymbolIcons
     public const string Restaurant               = "\uE56C";
     public const string RotateLeft               = "\uE419";
     public const string RotateRight              = "\uE41A";
+    public const string Schedule                 = "\uE8B5";
     public const string Search                   = "\uE8B6";
     public const string Shuffle                  = "\uE043";
     public const string SignalWifiBad            = "\uF063";
@@ -126,6 +130,7 @@ public static class SymbolIcons
     public const string Vo2Max                   = "\uF4AA";
     public const string VoiceSelectionOff        = "\uF42C";
     public const string WandShine                = "\uF31F";
+    public const string WandStars                = "\uF31E";
     public const string WaterDrop                = "\uE798";
     public const string WifiOff                  = "\uE648";
     public const string Wrist                    = "\uF69C";

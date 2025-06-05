@@ -81,7 +81,7 @@ public sealed partial class VerbMenuElement : ContextMenuElement
     {
         Label.SetOnlyStyleClass(styleClass);
 
-        if (category.SpriteIcon is { } spriteIcon)
+        if (category.SpriteIconIcon is { } spriteIcon)
         {
             Icon.AddChild(
                 new TextureRect

@@ -1,3 +1,4 @@
+using Content.Shared.InterfaceGuidelines;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -11,7 +12,7 @@ namespace Content.Shared.Verbs
     {
         public readonly string Text;
 
-        public readonly SpriteSpecifier? SpriteIcon;
+        public readonly SpriteSpecifier? SpriteIconIcon;
 
         public readonly string? GlypIcon;
 
@@ -36,59 +37,59 @@ namespace Content.Shared.Verbs
             IconsOnly = iconsOnly;
         }
 
-        public VerbCategory(string text, string icon, bool iconsOnly = false)
+        public VerbCategory(string text, string glyphIcon, bool iconsOnly = false)
         {
-            Text = Loc.GetString(text);
-            SpriteIcon = new SpriteSpecifier.Texture(new ResPath(icon));
+            Text      = Loc.GetString(text);
+            GlypIcon  = glyphIcon;
             IconsOnly = iconsOnly;
         }
 
-        public VerbCategory(string text, SpriteSpecifier? sprite, bool iconsOnly = false)
+        public VerbCategory(string text, SpriteSpecifier? spriteIcon, bool iconsOnly = false)
         {
             Text = Loc.GetString(text);
-            SpriteIcon = sprite;
+            SpriteIconIcon = spriteIcon;
             IconsOnly = iconsOnly;
         }
 
         public static readonly VerbCategory Admin =
-            new("verb-categories-admin", "/Textures/Interface/character.svg.192dpi.png");
+            new("verb-categories-admin", SymbolIcons.Person);
 
         public static readonly VerbCategory Antag =
-            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true)
+            new("verb-categories-antag", new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png")), iconsOnly: true)
                 { Columns = 5 };
 
         public static readonly VerbCategory Examine =
-            new("verb-categories-examine", "/Textures/Interface/VerbIcons/examine.svg.192dpi.png");
+            new("verb-categories-examine", SymbolIcons.Search);
 
         public static readonly VerbCategory Debug =
-            new("verb-categories-debug", "/Textures/Interface/VerbIcons/debug.svg.192dpi.png");
+            new("verb-categories-debug", SymbolIcons.BugReport);
 
         public static readonly VerbCategory Eject =
-            new("verb-categories-eject", "/Textures/Interface/VerbIcons/eject.svg.192dpi.png");
+            new("verb-categories-eject", SymbolIcons.LeftPanelOpen);
 
         public static readonly VerbCategory Insert =
-            new("verb-categories-insert", "/Textures/Interface/VerbIcons/insert.svg.192dpi.png");
+            new("verb-categories-insert", SymbolIcons.LeftPanelClose);
 
         public static readonly VerbCategory Buckle =
-            new("verb-categories-buckle", "/Textures/Interface/VerbIcons/buckle.svg.192dpi.png");
+            new("verb-categories-buckle", SymbolIcons.AirlineSeatReclineNormal);
 
         public static readonly VerbCategory Unbuckle =
-            new("verb-categories-unbuckle", "/Textures/Interface/VerbIcons/unbuckle.svg.192dpi.png");
+            new("verb-categories-unbuckle", SymbolIcons.AirlineSeatReclineNormal);
 
         public static readonly VerbCategory Rotate =
-            new("verb-categories-rotate", "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png", iconsOnly: true)
+            new("verb-categories-rotate", SymbolIcons.Sync, iconsOnly: true)
                 { Columns = 5 };
 
         public static readonly VerbCategory Smite =
-            new("verb-categories-smite", "/Textures/Interface/VerbIcons/smite.svg.192dpi.png", iconsOnly: true)
+            new("verb-categories-smite", SymbolIcons.Bolt, iconsOnly: true)
                 { Columns = 6 };
 
         public static readonly VerbCategory Tricks =
-            new("verb-categories-tricks", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: true)
+            new("verb-categories-tricks", SymbolIcons.WandStars, iconsOnly: true)
                 { Columns = 5 };
 
         public static readonly VerbCategory SetTransferAmount =
-            new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");
+            new("verb-categories-transfer", SymbolIcons.Colors);
 
         public static readonly VerbCategory Split = new("verb-categories-split");
 
@@ -113,7 +114,7 @@ namespace Content.Shared.Verbs
         public static readonly VerbCategory PowerLevel = new("verb-categories-power-level");
 
         // Shitmed - Starlight Abductors
-        public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
+        public static readonly VerbCategory Switch = new("verb-categories-switch", SymbolIcons.ChevronRight);
 
         public static readonly VerbCategory GenderChange = new("verb-categories-gender-change");
         public static readonly VerbCategory SexChange = new("verb-categories-sex-change");
