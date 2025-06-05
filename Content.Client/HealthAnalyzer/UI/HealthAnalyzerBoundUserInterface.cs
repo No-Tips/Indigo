@@ -21,7 +21,6 @@ namespace Content.Client.HealthAnalyzer.UI
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
             _window.OnBodyPartSelected += SendBodyPartMessage; // Shitmed Change
-            _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         }
 
 
