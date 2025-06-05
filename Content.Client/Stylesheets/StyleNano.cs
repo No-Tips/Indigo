@@ -25,7 +25,6 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassBorderedWindowPanel            = "BorderedWindowPanel";
     public const string StyleClassInventorySlotBackground        = "InventorySlotBackground";
     public const string StyleClassHandSlotHighlight              = "HandSlotHighlight";
-    public const string StyleClassChatPanel                      = "ChatPanel";
     public const string StyleClassChatSubPanel                   = "ChatSubPanel";
     public const string StyleClassTransparentBorderedWindowPanel = "TransparentBorderedWindowPanel";
     public const string StyleClassHotbarPanel                    = "HotbarPanel";
@@ -156,36 +155,63 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassPinButtonPinned   = "pinButtonPinned";
     public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
-    #region Style Boxes
+
+    #region Window
 
     public static RectBox FancyWindowPanel =>
         new()
         {
             Rounding        = new(14.0f),
-            Borders         = new(Colors.WindowBorderColor, 2.0f),
-            InsetBorders    = new(Colors.WindowInsetBorderColor, 2.0f),
-            BackgroundColor = Colors.WindowBackgroundColor
+            Borders         = new(Colors.WindowBorder, new(2.0f)),
+            InsetBorders    = new(Colors.WindowInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.WindowBackground
         };
 
-    public static RectBox FancyWindowPanelSmall => new()
-    {
-        Rounding        = new(6.0f),
-        Borders         = new(Colors.WindowBorderColor, 2.0f),
-        InsetBorders    = new(Colors.WindowInsetBorderColor, 2.0f),
-        BackgroundColor = Colors.WindowBackgroundColor
-    };
+    public static RectBox FancyWindowPanelSmall =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            Borders         = new(Colors.WindowBorder, new(2.0f)),
+            InsetBorders    = new(Colors.WindowInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.WindowBackground
+        };
 
     public static RectBox FancyWindowTitlebarPanel =>
         new()
         {
             Rounding                    = new(14.0f, 14.0f, 0.0f, 0.0f),
-            Borders                     = new(Colors.WindowTitlebarBorderColor, 2.0f),
-            InsetBorders                = new(Colors.WindowTitlebarInsetBorderColor, 2.0f),
-            BackgroundColor             = Colors.WindowTitlebarBackgroundColor,
+            Borders                     = new(Colors.WindowTitlebarBorder, new(2.0f)),
+            InsetBorders                = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
+            BackgroundColor             = Colors.WindowTitlebarBackground,
             ContentMarginBottomOverride = 14.0f
         };
 
     #endregion
+
+    #region Chat
+
+    public static RectBox ChatPanel =>
+        new()
+        {
+            Borders         = new(Colors.ChatBorder, new(2.0f, 0.0f, 0.0f, 0.0f)),
+            InsetBorders    = new(Colors.ChatInsetBorder, new(2.0f, 0.0f, 0.0f, 0.0f)),
+            BackgroundColor = Colors.ChatBackground
+        };
+
+    #endregion
+
+    #region Global Menu
+
+    public static RectBox GlobalMenuPanel =>
+        new()
+        {
+            Borders         = new(Colors.GlobalMenuBorder, new(0.0f, 0.0f, 0.0f, 2.0f)),
+            InsetBorders    = new(Colors.GlobalMenuInsetBorder, new(0.0f, 0.0f, 0.0f, 2.0f)),
+            BackgroundColor = Colors.GlobalMenuBackground
+        };
+
+    #endregion
+
 
     public override Stylesheet Stylesheet { get; }
 
@@ -348,11 +374,6 @@ public sealed class StyleNano : StyleBase
         };
         lineEdit.SetPatchMargin(StyleBox.Margin.All, 3);
         lineEdit.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
-
-        var chatBg = new StyleBoxFlat
-        {
-            BackgroundColor = ChatBackgroundColor
-        };
 
         var chatSubBg = new StyleBoxFlat
         {
@@ -815,7 +836,7 @@ public sealed class StyleNano : StyleBase
                             "font",
                             typographyManager.GetSymbolsFont(
                                 true,
-                                textStyle: TextStyle.Title3,
+                                style: TextStyle.Title3,
                                 weight: FontWeight.Bold
                             )
                         ),
@@ -826,7 +847,19 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
+                    #region Chat
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.ChatPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, ChatPanel),
+
+                    #endregion
+
                     #region Global Menu
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.GlobalMenuPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, GlobalMenuPanel),
 
                     Element<ContainerButton>()
                         .Class(UIStyleClasses.GlobalMenuCategoryButton)
@@ -855,10 +888,12 @@ public sealed class StyleNano : StyleBase
                         .Class(UIStyleClasses.GlobalMenuCategoryIcon)
                         .Prop(
                             "font",
-                            typographyManager.GetFont(
-                                FontType.SansSerif,
-                                TextStyle.Title1,
-                                weight: FontWeight.SemiBold)),
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.Regular
+                            )
+                        ),
 
                     Element<ContainerButton>()
                         .Class(UIStyleClasses.GlobalMenuPopupItem)
@@ -1209,13 +1244,6 @@ public sealed class StyleNano : StyleBase
                     Element<TextEdit>()
                         .Pseudo(TextEdit.StylePseudoClassPlaceholder)
                         .Prop("font-color", Color.Gray),
-
-                    // chat subpanels (chat lineedit backing, popup backings)
-                    new(
-                        new SelectorElement(typeof(PanelContainer), [StyleClassChatPanel,], null, null),
-                        [
-                            new(PanelContainer.StylePropertyPanel, chatBg)
-                        ]),
 
                     // Chat lineedit - we don't actually draw a stylebox around the lineedit itself, we put it around the
                     // input + other buttons, so we must clear the default stylebox

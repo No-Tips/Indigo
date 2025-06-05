@@ -17,17 +17,13 @@
 
 <ui:GlobalMenu
     xmlns="https://spacestation14.io"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI">
-    <PanelContainer HorizontalExpand="True" MaxHeight="30" MinHeight="30">
-        <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
-        </PanelContainer.PanelOverride>
-
-        <BoxContainer Margin="4 4" Orientation="Horizontal">
+    <PanelContainer StyleClasses="GlobalMenuPanel" HorizontalExpand="True" MaxHeight="40" MinHeight="40">
+        <BoxContainer Margin="4 8" Orientation="Horizontal">
             <BoxContainer Name="MenuContainer"
                           SeparationOverride="4"
                           HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
                           Orientation="Horizontal">
             </BoxContainer>
 
@@ -36,6 +32,7 @@
             <BoxContainer Name="StatusContainer"
                           SeparationOverride="4"
                           HorizontalAlignment="Right"
+                          VerticalAlignment="Center"
                           Orientation="Horizontal">
             </BoxContainer>
         </BoxContainer>

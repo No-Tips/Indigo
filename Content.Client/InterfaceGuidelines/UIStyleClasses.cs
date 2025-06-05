@@ -62,8 +62,15 @@ public static class UIStyleClasses
 
     #endregion
 
+    #region Chat
+
+    public const string ChatPanel = "ChatPanel";
+
+    #endregion
+
     #region Global Menu
 
+    public const string GlobalMenuPanel          = "GlobalMenuPanel";
     public const string GlobalMenuCategoryButton = "GlobalMenuCategoryButton";
     public const string GlobalMenuCategoryLabel  = "GlobalMenuCategoryLabel";
     public const string GlobalMenuCategoryIcon   = "GlobalMenuCategoryIcon";

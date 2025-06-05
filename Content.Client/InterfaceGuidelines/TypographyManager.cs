@@ -33,7 +33,7 @@ public sealed class TypographyManager
 
     public VectorFont GetSymbolsFont(
         bool       filled,
-        TextStyle  textStyle = TextStyle.Body,
+        TextStyle  style = TextStyle.Body,
         FontWeight weight    = FontWeight.Regular
     )
     {
@@ -43,7 +43,7 @@ public sealed class TypographyManager
         var path =
             $"/Fonts/MaterialSymbols/MaterialSymbols-{(filled ? "Filled-" : "")}{weight.ToPostfix()}.otf";
 
-        var size         = textStyle.ToPx();
+        var size         = style.ToPx();
         var fontResource = _cache.GetResource<FontResource>(path);
 
         return new(fontResource, size);

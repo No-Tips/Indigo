@@ -10,7 +10,6 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
-    xmlns:ui="clr-namespace:Content.Client.GlobalMenu.UI"
     xmlns:ui1="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI"
     Name="SeparatedChatHud"
     VerticalExpand="False"
@@ -38,11 +37,7 @@
         </BoxContainer>
 
         <!-- Chat -->
-        <PanelContainer HorizontalExpand="True" MinWidth="300">
-            <PanelContainer.PanelOverride>
-                <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
-            </PanelContainer.PanelOverride>
-
+        <PanelContainer StyleClasses="ChatPanel" HorizontalExpand="True" MinWidth="300">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
             </BoxContainer>

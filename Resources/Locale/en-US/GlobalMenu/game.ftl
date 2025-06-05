@@ -1,6 +1,6 @@
 ## Game
 
-global-menu-game-category = 🐈
+global-menu-game-category = {"\uE894"}
 
 global-menu-game-ahelp-item = Admin Help
 global-menu-game-changelog-item = Changelog

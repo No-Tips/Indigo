@@ -28,9 +28,6 @@ public sealed class GlobalMenuCategoryButton : Button
         Label.SetOnlyStyleClass(isIcon ? UIStyleClasses.GlobalMenuCategoryIcon : UIStyleClasses.GlobalMenuCategoryLabel);
 
         if (isIcon)
-        {
-            Label.Margin = new(0.0f, -10.0f, 0.0f, 0.0f);
-            Label.VAlign = Label.VAlignMode.Top;
-        }
+            Label.VAlign = Label.VAlignMode.Center;
     }
 }
