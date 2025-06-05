@@ -18,7 +18,7 @@ namespace Content.Client.InterfaceGuidelines;
 
 public static class UIStyleClasses
 {
-    #region Font
+    #region Fonts
 
     #region Material Symbols
 

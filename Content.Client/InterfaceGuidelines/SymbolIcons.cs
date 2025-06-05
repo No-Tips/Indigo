@@ -19,6 +19,7 @@ namespace Content.Client.InterfaceGuidelines;
 public static class SymbolIcons
 {
     public const string Cancel         = "\uE5C9";
+    public const string Close         = "\uE5CD";
     public const string DoNotDisturbOn = "\uE644";
     public const string Help           = "\uE887";
     public const string Language       = "\uE894";
