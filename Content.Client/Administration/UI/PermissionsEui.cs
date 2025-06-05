@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Client.Administration.Managers;
 using Content.Client.Eui;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
 using JetBrains.Annotations;
@@ -27,7 +28,7 @@ namespace Content.Client.Administration.UI
         [Dependency] private readonly IClientAdminManager _adminManager = default!;
 
         private readonly Menu _menu;
-        private readonly List<DefaultWindow> _subWindows = new();
+        private readonly List<FancyWindow> _subWindows = new();
 
         private Dictionary<int, PermissionsEuiState.AdminRankData> _ranks =
             new();
@@ -291,7 +292,7 @@ namespace Content.Client.Administration.UI
             OpenRankEditWindow(rank);
         }
 
-        private sealed class Menu : DefaultWindow
+        private sealed class Menu : FancyWindow
         {
             private readonly PermissionsEui _ui;
             public readonly GridContainer AdminsList;
@@ -301,8 +302,9 @@ namespace Content.Client.Administration.UI
 
             public Menu(PermissionsEui ui)
             {
-                _ui = ui;
-                Title = Loc.GetString("permissions-eui-menu-title");
+                _ui     = ui;
+                Title   = Loc.GetString("permissions-eui-menu-title");
+                MinSize = new(600, 400);
 
                 var tab = new TabContainer();
 
@@ -337,13 +339,11 @@ namespace Content.Client.Administration.UI
                 tab.AddChild(adminVBox);
                 tab.AddChild(rankVBox);
 
-                Contents.AddChild(tab);
+                ContentsContainer.AddChild(tab);
             }
-
-            protected override Vector2 ContentsMinimumSize => new Vector2(600, 400);
         }
 
-        private sealed class EditAdminWindow : DefaultWindow
+        private sealed class EditAdminWindow : FancyWindow
         {
             public readonly PermissionsEuiState.AdminData? SourceData;
             public readonly LineEdit? NameEdit;
@@ -469,7 +469,7 @@ namespace Content.Client.Administration.UI
 
                 bottomButtons.AddChild(SaveButton);
 
-                Contents.AddChild(new BoxContainer
+                ContentsContainer.AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
                     Children =
@@ -524,7 +524,7 @@ namespace Content.Client.Administration.UI
             }
         }
 
-        private sealed class EditAdminRankWindow : DefaultWindow
+        private sealed class EditAdminRankWindow : FancyWindow
         {
             public readonly int? SourceId;
             public readonly LineEdit NameEdit;
@@ -594,7 +594,7 @@ namespace Content.Client.Administration.UI
 
                 bottomButtons.AddChild(SaveButton);
 
-                Contents.AddChild(new BoxContainer
+                ContentsContainer.AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
                     Children =

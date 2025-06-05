@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Message;
 using Content.Client.Resources;
-using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos.Components;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -14,7 +14,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 namespace Content.Client.UserInterface.Systems.Atmos.GasTank;
 
 public sealed class GasTankWindow
-    : BaseWindow
+    : FancyWindow
 {
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly TypographyManager _typographyManager = null!;

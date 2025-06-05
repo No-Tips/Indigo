@@ -1,12 +1,12 @@
 ﻿using System.Numerics;
-using Content.Client.Arcade.UI;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Arcade;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
+
 
 namespace Content.Client.Arcade
 {
-    public sealed class SpaceVillainArcadeMenu : DefaultWindow
+    public sealed class SpaceVillainArcadeMenu : FancyWindow
     {
         private readonly Label _enemyNameLabel;
         private readonly Label _playerInfoLabel;
@@ -86,7 +86,7 @@ namespace Content.Client.Arcade
             newGame.OnPressed += _ => OnPlayerAction?.Invoke(SharedSpaceVillainArcadeComponent.PlayerAction.NewGame);
             grid.AddChild(newGame);
 
-            Contents.AddChild(grid);
+            ContentsContainer.AddChild(grid);
         }
 
         private void UpdateMetadata(SharedSpaceVillainArcadeComponent.SpaceVillainArcadeMetaDataUpdateMessage message)

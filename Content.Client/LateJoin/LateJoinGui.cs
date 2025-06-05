@@ -9,7 +9,6 @@ using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Content.Shared.StatusIcon;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
@@ -22,7 +21,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.LateJoin
 {
-    public sealed class LateJoinGui : DefaultWindow
+    public sealed class LateJoinGui : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
@@ -62,7 +61,7 @@ namespace Content.Client.LateJoin
                 VerticalExpand = true,
             };
 
-            Contents.AddChild(_base);
+            ContentsContainer.AddChild(_base);
 
             _jobRequirements.Updated += RebuildUI;
             RebuildUI();

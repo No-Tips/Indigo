@@ -1,24 +1,31 @@
-<DefaultWindow xmlns="https://spacestation14.io"
-            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <BoxContainer Orientation="Vertical" SeparationOverride="5">
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-            <Button Name="InputButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-input-button'}" TextAlign="Center"
+            <Button Name="InputButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-input-button'}"
+                    TextAlign="Center"
                     HorizontalExpand="True" SizeFlagsStretchRatio="1" />
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.5" />
-            <Button Name="BandButton" Text="{Loc 'instruments-component-menu-band-button'}" TextAlign="Center" HorizontalExpand="True"
-                    SizeFlagsStretchRatio="1"/>
+            <Button Name="BandButton" Text="{Loc 'instruments-component-menu-band-button'}" TextAlign="Center"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="1" />
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.5" />
-            <Button Name="FileButton" Text="{Loc 'instruments-component-menu-play-button'}" TextAlign="Center" HorizontalExpand="True"
+            <Button Name="FileButton" Text="{Loc 'instruments-component-menu-play-button'}" TextAlign="Center"
+                    HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-            <Button Name="LoopButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-loop-button'}" TextAlign="Center" HorizontalExpand="True"
+            <Button Name="LoopButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-loop-button'}"
+                    TextAlign="Center" HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.5" />
-            <Button Name="ChannelsButton" Text="{Loc 'instruments-component-menu-channels-button'}" TextAlign="Center" HorizontalExpand="True"
-                    SizeFlagsStretchRatio="1"/>
+            <Button Name="ChannelsButton" Text="{Loc 'instruments-component-menu-channels-button'}" TextAlign="Center"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="1" />
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.5" />
-            <Button Name="StopButton" Text="{Loc 'instruments-component-menu-stop-button'}" TextAlign="Center" HorizontalExpand="True"
+            <Button Name="StopButton" Text="{Loc 'instruments-component-menu-stop-button'}" TextAlign="Center"
+                    HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
@@ -35,4 +42,4 @@
                StyleClasses="LabelBig"
                Text="{Loc instruments-component-menu-no-midi-support}" />
     </PanelContainer>
-</DefaultWindow>
+</controls:FancyWindow>

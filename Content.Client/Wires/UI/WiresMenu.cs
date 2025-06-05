@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Client.Examine;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Wires;
 using Robust.Client.Animations;
@@ -17,7 +16,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Wires.UI
 {
-    public sealed class WiresMenu : BaseWindow
+    public sealed class WiresMenu : FancyWindow
     {
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly TypographyManager _typographyManager = null!;

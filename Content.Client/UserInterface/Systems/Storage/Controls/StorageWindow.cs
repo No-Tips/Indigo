@@ -5,6 +5,7 @@ using Content.Client.Hands.Systems;
 using Content.Client.Items.Systems;
 using Content.Client.Storage;
 using Content.Client.Storage.Systems;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Item;
@@ -13,7 +14,6 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Collections;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Storage.Controls;
 
-public sealed class StorageWindow : BaseWindow
+public sealed class StorageWindow : FancyWindow
 {
     [Dependency] private readonly IEntityManager _entity = default!;
     private readonly StorageUIController _storageController;

@@ -1,5 +1,7 @@
-﻿<DefaultWindow
-    xmlns="https://spacestation14.io" Title="{Loc Fill Gas}">
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc Fill Gas}">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc Grid}" MinSize="100 0" />
@@ -18,4 +20,4 @@
         </BoxContainer>
         <Button Name="SubmitButton" Text="{Loc Fill Gas}" />
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

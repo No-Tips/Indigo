@@ -1,8 +1,7 @@
-<controls:SurgeryWindow
+<controls:FancyWindow
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Shitmed.Medical.Surgery"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     MinSize="400 400">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10">
@@ -20,4 +19,4 @@
             <BoxContainer Name="Steps" Access="Public" Orientation="Vertical" Visible="False" />
         </ScrollContainer>
     </BoxContainer>
-</controls:SurgeryWindow>
+</controls:FancyWindow>

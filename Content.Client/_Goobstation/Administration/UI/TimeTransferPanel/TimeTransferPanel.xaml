@@ -1,9 +1,9 @@
-<DefaultWindow xmlns="https://spacestation14.io"
-                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                Title="{Loc time-transfer-panel-title}"
-                MinWidth="500">
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc time-transfer-panel-title}"
+    MinWidth="500">
     <BoxContainer Orientation="Vertical" VerticalExpand = "True">
         <BoxContainer Orientation="Horizontal" Margin="2">
             <Label Name="PlayerLabel" Text="{Loc time-transfer-panel-player-label}" MinWidth = "120"/>
@@ -41,4 +41,4 @@
             <Label Text="{Loc time-transfer-panel-author}" StyleClasses="LabelSubText"/>
         </BoxContainer>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

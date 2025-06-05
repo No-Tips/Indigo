@@ -1,7 +1,9 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
-            Title="{Loc 'disposal-router-window-title'}"
-            MinSize="500 110"
-            SetSize="500 110">
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'disposal-router-window-title'}"
+    MinSize="500 110"
+    SetSize="500 110">
     <BoxContainer Orientation="Vertical">
         <Label Text="{Loc 'disposal-router-window-tags-label'}" />
         <Control MinSize="0 10" />
@@ -17,4 +19,4 @@
                     Text="{Loc 'disposal-router-window-tag-input-confirm-button'}" />
         </BoxContainer>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

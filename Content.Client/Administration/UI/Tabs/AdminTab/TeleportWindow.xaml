@@ -1,9 +1,10 @@
-﻿<DefaultWindow
+﻿<controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Title="{Loc Teleport}" MinSize="425 230">
     <BoxContainer Orientation="Vertical">
         <cc:PlayerListControl Name="PlayerList" />
         <Button Name="SubmitButton" Text="{Loc Teleport}" />
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

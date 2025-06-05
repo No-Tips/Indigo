@@ -1,7 +1,9 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
-            xmlns:power="clr-namespace:Content.Client.Power"
-            Title="{Loc 'solar-control-window-title'}"
-            Resizable="False">
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:power="clr-namespace:Content.Client.Power"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'solar-control-window-title'}"
+    Resizable="False">
     <BoxContainer Orientation="Horizontal">
         <GridContainer Columns="2">
             <!--
@@ -28,5 +30,5 @@
         </GridContainer>
         <power:SolarControlNotARadar Name="NotARadar"/>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>
 
