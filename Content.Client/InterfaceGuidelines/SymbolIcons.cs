@@ -18,9 +18,14 @@ namespace Content.Client.InterfaceGuidelines;
 
 public static class SymbolIcons
 {
+    public const string Add            = "\uE145";
+    public const string ArrowUpward    = "\uE5D8";
+    public const string BugReport      = "\uE868";
+    public const string Build          = "\uE869";
     public const string Cancel         = "\uE5C9";
-    public const string Close         = "\uE5CD";
+    public const string Close          = "\uE5CD";
     public const string DoNotDisturbOn = "\uE644";
     public const string Help           = "\uE887";
     public const string Language       = "\uE894";
+    public const string Remove         = "\uE15B";
 }

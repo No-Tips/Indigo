@@ -1,5 +1,4 @@
 using Content.Client.Administration.Managers;
-using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
 using Content.Client.DeltaV.NanoChat;
@@ -49,7 +48,6 @@ namespace Content.Client.IoC
             collection.Register<ISharedAdminManager, ClientAdminManager>();
             collection.Register<EuiManager, EuiManager>();
             collection.Register<IVoteManager, VoteManager>();
-            collection.Register<ChangelogManager, ChangelogManager>();
             collection.Register<ViewportManager, ViewportManager>();
             collection.Register<ISharedAdminLogManager, SharedAdminLogManager>();
             collection.Register<GhostKickManager>();

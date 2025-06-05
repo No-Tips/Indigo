@@ -1,5 +1,4 @@
-﻿using Content.Client.Changelog;
-using Content.Client.UserInterface.Systems.EscapeMenu;
+﻿using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
@@ -45,14 +44,6 @@ namespace Content.Client.Info
                 guidebookController.ToggleGuidebook();
             };
             buttons.AddChild(guidebookButton);
-
-            var changelogButton = new ChangelogButton()
-            {
-                Margin = new Thickness(4.0f, 4.0f)
-            };
-            changelogButton.OnPressed += args =>
-                UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
-            buttons.AddChild(changelogButton);
 
             void AddInfoButton(string loc, CVarDef<string> cVar)
             {

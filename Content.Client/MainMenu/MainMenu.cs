@@ -48,7 +48,6 @@ namespace Content.Client.MainMenu
             _mainMenuControl.DirectConnectButton.OnPressed += DirectConnectButtonPressed;
             _mainMenuControl.GoToLobbyButton.OnPressed += GoToLobbyButtonPressed;
             _mainMenuControl.AddressBox.OnTextEntered += AddressBoxEntered;
-            _mainMenuControl.ChangelogButton.OnPressed += ChangelogButtonPressed;
 
             _client.RunLevelChanged += RunLevelChanged;
         }
@@ -69,11 +68,6 @@ namespace Content.Client.MainMenu
             _netManager.ConnectFailed -= _onConnectFailed;
 
             _mainMenuControl.Dispose();
-        }
-
-        private void ChangelogButtonPressed(BaseButton.ButtonEventArgs args)
-        {
-            _userInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
         }
 
         private void OptionsButtonPressed(BaseButton.ButtonEventArgs args)

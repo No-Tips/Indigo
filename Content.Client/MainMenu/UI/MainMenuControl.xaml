@@ -1,6 +1,5 @@
 ﻿<Control xmlns="https://spacestation14.io"
-         xmlns:pllax="clr-namespace:Content.Client.Parallax"
-         xmlns:clog="clr-namespace:Content.Client.Changelog">
+         xmlns:pllax="clr-namespace:Content.Client.Parallax">
     <pllax:ParallaxControl />
     <BoxContainer Name="VBox"
                   Orientation="Vertical"
@@ -11,14 +10,14 @@
                   StyleIdentifier="mainMenuVBox"
                   SeparationOverride="3">
         <TextureRect Name="Logo"
-                     Stretch="KeepCentered"/>
+                     Stretch="KeepCentered" />
         <GridContainer Columns="2">
             <Label Text="{Loc 'main-menu-username-label'}" />
             <LineEdit Name="UsernameBox"
                       Access="Public"
                       PlaceHolder="{Loc 'main-menu-username-text'}"
                       HorizontalExpand="True" />
-            <Label Text="{Loc 'main-menu-address-label'}"/>
+            <Label Text="{Loc 'main-menu-address-label'}" />
             <LineEdit Name="AddressBox"
                       Access="Public"
                       Text="localhost"
@@ -29,24 +28,21 @@
                 Access="Public"
                 Text="{Loc 'main-menu-direct-connect-button'}"
                 TextAlign="Center"
-                StyleIdentifier="mainMenu"/>
+                StyleIdentifier="mainMenu" />
         <Button Name="GoToLobbyButton"
                 Access="Public"
                 Text="{Loc 'main-menu-go-lobby-button'}"
                 TextAlign="Center"
-                StyleIdentifier="mainMenu"/>
+                StyleIdentifier="mainMenu" />
         <Button Name="OptionsButton"
                 Access="Public"
                 Text="{Loc 'main-menu-options-button'}"
                 TextAlign="Center"
-                StyleIdentifier="mainMenu"/>
+                StyleIdentifier="mainMenu" />
         <Button Name="QuitButton"
                 Access="Public"
                 Text="{Loc 'main-menu-quit-button'}"
                 TextAlign="Center"
-                StyleIdentifier="mainMenu"/>
-        <clog:ChangelogButton
-            Name="ChangelogButton"
-            Access="Public"/>
+                StyleIdentifier="mainMenu" />
     </BoxContainer>
 </Control>
