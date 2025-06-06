@@ -64,7 +64,7 @@
     sentMessage: prayer-popup-notify-centcom-sent
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
-    VerbGlyphIcon: null
+    verbGlyphIcon: null
 
 - type: entity
   parent: PhoneInstrumentUpstream # Harmony, due to hijacked 'PhoneInstrument'
@@ -190,4 +190,4 @@
     sentMessage: prayer-popup-notify-honkmother-sent
     notificationPrefix: prayer-chat-notify-honkmother
     verb: prayer-verbs-call
-    VerbGlyphIcon: null
+    verbGlyphIcon: null
