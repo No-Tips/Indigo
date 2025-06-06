@@ -16,6 +16,8 @@ namespace Content.Client.Strip
 
         public StrippingMenu()
         {
+            MinWidth = 280;
+
             var box = new BoxContainer() { Orientation = LayoutOrientation.Vertical, Margin = new Thickness(0, 8) };
             ContentsContainer.AddChild(box);
             box.AddChild(SnareContainer);
