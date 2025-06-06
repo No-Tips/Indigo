@@ -33,7 +33,6 @@ public sealed partial class VerbMenuElement : ContextMenuElement
         #if !DEBUG
             if (verb.ConfirmationPopup)
             {
-                ExpansionIndicator.SetOnlyStyleClass(StyleClassVerbMenuConfirmationTexture);
                 ExpansionIndicator.Visible = true;
             }
         #endif
