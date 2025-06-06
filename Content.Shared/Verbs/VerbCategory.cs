@@ -55,7 +55,7 @@ namespace Content.Shared.Verbs
             new("verb-categories-admin", SymbolIcons.Person);
 
         public static readonly VerbCategory Antag =
-            new("verb-categories-antag", new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png")), iconsOnly: true)
+            new("verb-categories-antag", new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/e_sword.rsi"), "icon"), iconsOnly: true)
                 { Columns = 5 };
 
         public static readonly VerbCategory Examine =

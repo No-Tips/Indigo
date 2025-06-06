@@ -11,8 +11,7 @@
                 <Control SetSize="48 48" Access="Public" Name="CollapseButtonWrapper">
                     <Button Name="CollapseButton" Access="Public"
                             ToggleMode="True" SetSize="48 48" StyleClasses="OpenRight">
-                        <TextureRect Name="CollapseTexture" Access="Public" Stretch="KeepAspectCentered" SetSize="24 24"
-                                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label Name="CollapseButtonIcon" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Button>
                 </Control>
                 <Label Name="Label" Access="Public"
@@ -23,8 +22,7 @@
                        HorizontalExpand="True" ClipText="True" />
                 <Button Name="FavoriteButton" Access="Public"
                         ToggleMode="True" SetSize="48 48">
-                    <TextureRect Name="FavoriteTexture" Access="Public" Stretch="KeepAspectCentered" SetSize="24 24"
-                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label Name="FavoriteButtonIcon" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Button>
             </BoxContainer>
         </Control>

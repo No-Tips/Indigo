@@ -61,7 +61,7 @@ public sealed class StyleNano : StyleBase
     public const string StyleClassLabelSmall          = "LabelSmall";
     public const string StyleClassButtonBig           = "ButtonBig";
 
-    public const string StyleClassButtonHelp = "HelpButton";
+    public const string StyleClassButtonHelp = "HelpButtonIcon";
 
     public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
@@ -542,14 +542,6 @@ public sealed class StyleNano : StyleBase
         };
         paperBackground.SetPatchMargin(StyleBox.Margin.All, 16.0f);
 
-        var contextMenuExpansionTexture = resCache.GetTexture("/Textures/Interface/VerbIcons/group.svg.192dpi.png");
-        var verbMenuConfirmationTexture = resCache.GetTexture("/Textures/Interface/VerbIcons/group.svg.192dpi.png");
-
-        // south-facing arrow:
-        var directionIconArrowTex    = resCache.GetTexture("/Textures/Interface/VerbIcons/drop.svg.192dpi.png");
-        var directionIconQuestionTex = resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png");
-        var directionIconHereTex     = resCache.GetTexture("/Textures/Interface/VerbIcons/dot.svg.192dpi.png");
-
         Stylesheet = new(
             BaseRules.Concat(
                 [
@@ -655,160 +647,8 @@ public sealed class StyleNano : StyleBase
 
                     #region Labels
 
-                    #region Material Symbols
-
                     Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontThin)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.Thin
-                            )
-                        ),
-
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontExtraLight)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.ExtraLight
-                            )
-                        ),
-
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontLight)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.Light
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontRegular)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.Regular
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontMedium)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.Medium
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontSemiBold)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.SemiBold
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontBold)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: false,
-                                weight: FontWeight.Bold
-                            )
-                        ),
-
-                    #endregion
-
-                    #region Material Symbols Filled
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledThin)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.Thin
-                            )
-                        ),
-
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledExtraLight)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.ExtraLight
-                            )
-                        ),
-
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledLight)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.Light
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledRegular)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.Regular
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledMedium)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.Medium
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledSemiBold)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.SemiBold
-                            )
-                        ),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.SymbolsFontFilledBold)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                filled: true,
-                                weight: FontWeight.Bold
-                            )
-                        ),
-
-                    #endregion
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.VerbLabelIcon)
+                        .Class(UIStyleClasses.LabelIconFilledRegular1)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetSymbolsFont(
@@ -819,13 +659,90 @@ public sealed class StyleNano : StyleBase
                         ),
 
                     Element<Label>()
-                        .Class(UIStyleClasses.TooltipLabelIcon)
+                        .Class(UIStyleClasses.LabelIconFilledRegular2)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.Regular
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledRegular3)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.Regular
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledSemiBold1)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetSymbolsFont(
                                 filled: true,
                                 style: TextStyle.Title1,
-                                weight: FontWeight.Regular
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledSemiBold2)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledSemiBold3)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledBold1)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title1,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledBold2)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelIconFilledBold3)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.Bold
                             )
                         ),
 
@@ -1096,14 +1013,6 @@ public sealed class StyleNano : StyleBase
                         .Class(Verb.DefaultTextStyleClass)
                         .Prop(Label.StylePropertyFont, typographyManager.GetFont(FontType.SansSerif)),
 
-                    Element<TextureRect>()
-                        .Class(ContextMenuElement.StyleClassContextMenuExpansionTexture)
-                        .Prop(TextureRect.StylePropertyTexture, contextMenuExpansionTexture),
-
-                    Element<TextureRect>()
-                        .Class(VerbMenuElement.StyleClassVerbMenuConfirmationTexture)
-                        .Prop(TextureRect.StylePropertyTexture, verbMenuConfirmationTexture),
-
                     // Context menu confirm buttons
                     Element<ContextMenuElement>()
                         .Class(ConfirmationMenuElement.StyleClassConfirmationContextMenuButton)
@@ -1153,19 +1062,6 @@ public sealed class StyleNano : StyleBase
                         .Class(ExamineButton.StyleClassExamineButton)
                         .Pseudo(ContainerButton.StylePseudoClassDisabled)
                         .Prop(Control.StylePropertyModulateSelf, ExamineButtonColorContextDisabled),
-
-                    // Direction / arrow icon
-                    Element<DirectionIcon>()
-                        .Class(DirectionIcon.StyleClassDirectionIconArrow)
-                        .Prop(TextureRect.StylePropertyTexture, directionIconArrowTex),
-
-                    Element<DirectionIcon>()
-                        .Class(DirectionIcon.StyleClassDirectionIconUnknown)
-                        .Prop(TextureRect.StylePropertyTexture, directionIconQuestionTex),
-
-                    Element<DirectionIcon>()
-                        .Class(DirectionIcon.StyleClassDirectionIconHere)
-                        .Prop(TextureRect.StylePropertyTexture, directionIconHereTex),
 
                     // Thin buttons (No padding nor vertical margin)
                     Element<ContainerButton>()
@@ -2063,8 +1959,12 @@ public sealed class StyleNano : StyleBase
                     Element<TextureButton>()
                         .Class(StyleClassButtonHelp)
                         .Prop(
-                            TextureButton.StylePropertyTexture,
-                            resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.SemiBold
+                            )),
 
                     // Labels ---
                     Element<Label>()
@@ -2156,18 +2056,15 @@ public sealed class StyleNano : StyleBase
                     // ---
 
                     // Profile Editor
-                    Element<TextureButton>()
-                        .Class("SpeciesInfoDefault")
+                    Element<Label>()
+                        .Class("SpeciesInfoButtonIcon")
                         .Prop(
-                            TextureButton.StylePropertyTexture,
-                            resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
-
-                    Element<TextureButton>()
-                        .Class("SpeciesInfoWarning")
-                        .Prop(
-                            TextureButton.StylePropertyTexture,
-                            resCache.GetTexture("/Textures/Interface/info.svg.192dpi.png"))
-                        .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#eeee11")),
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                filled: true,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.SemiBold
+                            )),
 
                     // The default look of paper in UIs. Pages can have components which override this
                     Element<PanelContainer>()

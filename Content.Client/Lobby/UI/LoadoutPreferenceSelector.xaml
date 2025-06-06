@@ -18,18 +18,12 @@
                 ToggleMode="True"
                 VerticalAlignment="Center" />
 
-            <!-- Yes I know I can use a TextureButton, but I'm doing this for style -->
             <Button
                 Name="GuidebookButton"
                 ToolTip="{Loc 'humanoid-profile-editor-loadouts-guidebook-button-tooltip'}"
                 VerticalAlignment="Center"
                 StyleClasses="OpenLeft">
-                <TextureRect
-                    Name="GuidebookButtonIcon"
-                    TexturePath="/Textures/Interface/VerbIcons/information.svg.192dpi.png"
-                    TextureScale="0.4 0.4"
-                    VerticalAlignment="Center"
-                    Margin="5" />
+                <Label Name="GuidebookButtonIcon" VerticalAlignment="Center" Margin="5" />
             </Button>
         </controls:StyledButtonGroup>
 

@@ -43,6 +43,7 @@ public static class SymbolIcons
     public const string Clarify                  = "\uF0BF";
     public const string Close                    = "\uE5CD";
     public const string Cognition                = "\uE09F";
+    public const string CollapseAll              = "\uE944";
     public const string Colorize                 = "\uE3B8";
     public const string Colors                   = "\uE997";
     public const string ConnectWithoutContact    = "\uF223";
@@ -57,8 +58,10 @@ public static class SymbolIcons
     public const string EcgHeart                 = "\uF6E9";
     public const string Eject                    = "\uE8FB";
     public const string EnterpriseOff            = "\uEB4D";
+    public const string ExpandAll                = "\uE946";
     public const string Extinguisher             = "\uF1D8";
     public const string FaceShake                = "\uF3FE";
+    public const string Favourite                = "\uE87D";
     public const string FlashlightOn             = "\uF00B";
     public const string Flip                     = "\uE3E8";
     public const string FoldedHands              = "\uF5ED";
@@ -66,6 +69,7 @@ public static class SymbolIcons
     public const string FormatPaint              = "\uE243";
     public const string FrontHand                = "\uE769";
     public const string Help                     = "\uE887";
+    public const string Home                     = "\uE88A";
     public const string ImagesearchRoller        = "\uE9B4";
     public const string JumpToElement            = "\uF719";
     public const string Keep                     = "\uE6AA";
@@ -81,6 +85,7 @@ public static class SymbolIcons
     public const string LocationOn               = "\uE0C8";
     public const string Lock                     = "\uE897";
     public const string LockOpen                 = "\uE898";
+    public const string Menu                     = "\uE5D2";
     public const string Merge                    = "\uEB98";
     public const string ModeCool                 = "\uF166";
     public const string ModeCoolOff              = "\uF167";
@@ -88,7 +93,10 @@ public static class SymbolIcons
     public const string MotionBlur               = "\uF0D0";
     public const string MoveItem                 = "\uF1FF";
     public const string MoveToInbox              = "\uE168";
+    public const string NetworkIntelligence      = "\uEFAC";
     public const string NorthEast                = "\uF1E1";
+    public const string Notifications            = "\uE7F4";
+    public const string NotificationsOff         = "\uE7F6";
     public const string OpenWith                 = "\uE89F";
     public const string Palette                  = "\uE40A";
     public const string Pause                    = "\uE034";
@@ -112,6 +120,7 @@ public static class SymbolIcons
     public const string RotateRight              = "\uE41A";
     public const string Schedule                 = "\uE8B5";
     public const string Search                   = "\uE8B6";
+    public const string Shield                   = "\uE9E0";
     public const string Shuffle                  = "\uE043";
     public const string SignalWifiBad            = "\uF063";
     public const string SouthWest                = "\uF1E5";

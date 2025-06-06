@@ -49,7 +49,7 @@ public sealed class ExamineButton : ContainerButton
             return;
 
         Icon.Text = verb.GlyphIcon;
-        Icon.SetOnlyStyleClass(UIStyleClasses.TooltipLabelIcon);
+        Icon.SetOnlyStyleClass(UIStyleClasses.LabelIconFilledRegular1);
 
         AddChild(Icon);
     }

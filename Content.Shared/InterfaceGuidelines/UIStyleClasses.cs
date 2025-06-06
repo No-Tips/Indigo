@@ -18,34 +18,6 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class UIStyleClasses
 {
-    #region Fonts
-
-    #region Material Symbols
-
-    public const string SymbolsFontThin       = "SymbolsFontThin";
-    public const string SymbolsFontExtraLight = "SymbolsFontExtraLight";
-    public const string SymbolsFontLight      = "SymbolsFontLight";
-    public const string SymbolsFontRegular    = "SymbolsFontRegular";
-    public const string SymbolsFontMedium     = "SymbolsFontMedium";
-    public const string SymbolsFontSemiBold   = "SymbolsFontSemiBold";
-    public const string SymbolsFontBold       = "SymbolsFontBold";
-
-    #endregion
-
-    #region Material Symbols Filled
-
-    public const string SymbolsFontFilledThin       = "SymbolsFontFilledThin";
-    public const string SymbolsFontFilledExtraLight = "SymbolsFontFilledExtraLight";
-    public const string SymbolsFontFilledLight      = "SymbolsFontFilledLight";
-    public const string SymbolsFontFilledRegular    = "SymbolsFontFilledRegular";
-    public const string SymbolsFontFilledMedium     = "SymbolsFontFilledMedium";
-    public const string SymbolsFontFilledSemiBold   = "SymbolsFontFilledSemiBold";
-    public const string SymbolsFontFilledBold       = "SymbolsFontFilledBold";
-
-    #endregion
-
-    #endregion
-
     #region Buttons
 
     public const string GhostButton = "ButtonGhost";
@@ -54,8 +26,17 @@ public static class UIStyleClasses
 
     #region Labels
 
-    public const string VerbLabelIcon    = "VerbLabelIcon";
-    public const string TooltipLabelIcon = "TooltipLabelIcon";
+    public const string LabelIconFilledRegular1 = "LabelIconFilledRegular1";
+    public const string LabelIconFilledRegular2 = "LabelIconFilledRegular2";
+    public const string LabelIconFilledRegular3 = "LabelIconFilledRegular3";
+
+    public const string LabelIconFilledSemiBold1 = "LabelIconFilledSemiBold1";
+    public const string LabelIconFilledSemiBold2 = "LabelIconFilledSemiBold2";
+    public const string LabelIconFilledSemiBold3 = "LabelIconFilledSemiBold3";
+
+    public const string LabelIconFilledBold1 = "LabelIconFilledBold1";
+    public const string LabelIconFilledBold2 = "LabelIconFilledBold2";
+    public const string LabelIconFilledBold3 = "LabelIconFilledBold3";
 
     #endregion
 

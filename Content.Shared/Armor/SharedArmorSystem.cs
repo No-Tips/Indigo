@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Verbs;
@@ -46,7 +47,7 @@ public abstract class SharedArmorSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         _examine.AddDetailedExamineVerb(args, component, examineMarkup,
-            Loc.GetString("armor-examinable-verb-text"), "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
+            Loc.GetString("armor-examinable-verb-text"), SymbolIcons.Shield,
             Loc.GetString("armor-examinable-verb-message"));
     }
 

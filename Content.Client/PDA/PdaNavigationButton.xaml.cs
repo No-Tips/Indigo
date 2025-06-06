@@ -29,7 +29,7 @@ public sealed partial class PdaNavigationButton : ContainerButton
     public string InactiveFgColor { get; set; } = "#5a5a5a";
     public string ActiveFgColor { get; set; } = "#FFFFFF";
 
-    public SpriteSpecifier? IconTexture
+    public string? IconGlyph
     {
         set
         {
@@ -37,14 +37,8 @@ public sealed partial class PdaNavigationButton : ContainerButton
             Label.Visible = value == null;
 
             if (value is not null)
-                Icon.SetFromSpriteSpecifier(value);
+                Icon.Text = value;
         }
-    }
-
-    public Vector2 IconScale
-    {
-        get => Icon.DisplayRect.TextureScale;
-        set => Icon.DisplayRect.TextureScale = value;
     }
 
     public string? LabelText
