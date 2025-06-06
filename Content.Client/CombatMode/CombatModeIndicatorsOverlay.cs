@@ -75,9 +75,10 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
         if (_entMan.TryGetComponent(handEntity, out ChamberMagazineAmmoProviderComponent? chamber))
             isGunBolted = chamber.BoltClosed ?? true;
 
+        var viewport = (Control)args.ViewportControl!;
 
-        var mousePos = mouseScreenPosition.Position;
-        var uiScale = (args.ViewportControl as Control)?.UIScale ?? 1f;
+        var mousePos     = mouseScreenPosition.Position - viewport.GlobalPixelPosition;
+        var uiScale      = viewport.UIScale;
         var limitedScale = uiScale > 1.25f ? 1.25f : uiScale;
 
         var sight = isHandGunItem ? (isGunBolted ? _gunSight : _gunBoltSight) : _meleeSight;

@@ -43,7 +43,7 @@ namespace Content.Client.Chat.UI
         ///     The distance in world space to offset the speech bubble from the center of the entity.
         ///     i.e. greater -> higher above the mob's head.
         /// </summary>
-        private const float EntityVerticalOffset = 0.5f;
+        private const float EntityVerticalOffset = 1.0f;
 
         /// <summary>
         ///     The default maximum width for speech bubbles.
