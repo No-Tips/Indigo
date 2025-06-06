@@ -322,7 +322,7 @@ namespace Content.Client.Examine
                 Name = "ExamineButtonsHBox",
                 Orientation = LayoutOrientation.Horizontal,
                 HorizontalAlignment = Control.HAlignment.Right,
-                VerticalAlignment = Control.VAlignment.Bottom,
+                VerticalAlignment = Control.VAlignment.Center,
             };
 
             // Examine button time

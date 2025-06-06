@@ -39,11 +39,7 @@ public sealed class ExamineButton : ContainerButton
 
         ToolTip = verb.Message ?? verb.Text;
 
-        Icon = new()
-        {
-            SetWidth  = ElementWidth,
-            SetHeight = ElementHeight
-        };
+        Icon = new();
 
         if (verb.GlyphIcon == null)
             return;
