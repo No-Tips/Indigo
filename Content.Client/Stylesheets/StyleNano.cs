@@ -201,19 +201,6 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
-    #region Global Menu
-
-    public static RectBox GlobalMenuPanel =>
-        new()
-        {
-            Borders         = new(Colors.GlobalMenuBorder, new(0.0f, 0.0f, 0.0f, 2.0f)),
-            InsetBorders    = new(Colors.GlobalMenuInsetBorder, new(0.0f, 0.0f, 0.0f, 2.0f)),
-            BackgroundColor = Colors.GlobalMenuBackground
-        };
-
-    #endregion
-
-
     public override Stylesheet Stylesheet { get; }
 
     public StyleNano(IResourceCache resCache, TypographyManager typographyManager) : base(resCache)
@@ -796,10 +783,6 @@ public sealed class StyleNano : StyleBase
                     #endregion
 
                     #region Global Menu
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.GlobalMenuPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, GlobalMenuPanel),
 
                     Element<ContainerButton>()
                         .Class(UIStyleClasses.GlobalMenuCategoryButton)

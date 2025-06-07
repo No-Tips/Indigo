@@ -13,10 +13,18 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Content.Shared.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 
 
-public static class AnimationConstants
+namespace Content.Client.UserInterface.GlobalMenu;
+
+
+public readonly record struct GlobalMenuStyle(Color Background, Color Border, Color InsetBorder)
 {
-    public const float ControlFadeInDuration = 0.18f;
+    public static readonly GlobalMenuStyle Default = new(
+        Colors.WindowBackground,
+        Colors.WindowBorder,
+        Colors.WindowInsetBorder);
+
+    public static readonly GlobalMenuStyle Combat = new(Colors.Red, Colors.WindowBorder, Color.FromHex("#ef6d6e"));
 }

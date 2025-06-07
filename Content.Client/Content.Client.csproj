@@ -26,7 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Spawners\" />
-    <Folder Include="UserInterface\GlobalMenu\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Lobby\UI\LobbyCharacterPanel.xaml.cs">

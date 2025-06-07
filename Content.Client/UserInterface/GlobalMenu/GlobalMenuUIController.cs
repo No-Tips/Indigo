@@ -23,7 +23,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.GlobalMenu;
 
 
-public sealed class GlobalMenuUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class GlobalMenuUIController : UIController, IOnStateChanged<GameplayState>
 {
     public event Action<LocalizedString, LocalizedString>? ItemPressed;
 

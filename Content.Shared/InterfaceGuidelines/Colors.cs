@@ -20,6 +20,7 @@ public static class Colors
 {
     public static readonly Color Black = Color.FromHex("#191919");
     public static readonly Color Gray  = Color.FromHex("#353535");
+    public static readonly Color Red   = Color.FromHex("#E40E0E");
 
     #region Window
 
@@ -38,14 +39,6 @@ public static class Colors
     public static Color ChatBorder      => WindowBorder;
     public static Color ChatInsetBorder => WindowInsetBorder;
     public static Color ChatBackground  => Black;
-
-    #endregion
-
-    #region Global Menu
-
-    public static Color GlobalMenuBorder      => WindowBorder;
-    public static Color GlobalMenuInsetBorder => WindowInsetBorder;
-    public static Color GlobalMenuBackground  => Black;
 
     #endregion
 }
