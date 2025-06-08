@@ -1,6 +1,8 @@
 amends ".../Typings.pkl"
 
-import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
 
 content {
     generateHalfConstruction(0)

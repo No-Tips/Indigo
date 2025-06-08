@@ -1,6 +1,8 @@
 amends ".../Typings.pkl"
 
-import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
 
 content {
     new ConstructionGraphPrototype {
@@ -63,7 +65,7 @@ content {
     }
 }
 
-local const function generateVentPumpEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateVentPumpEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "ventpump\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -74,7 +76,7 @@ local const function generateVentPumpEdge(l: constants.PipeLayer): ConstructionG
     }
 }
 
-local const function generateVentPumpNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateVentPumpNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "ventpump\(l)"
     entity = new StaticNodeEntity {
         id = "GasVentPump\(l)"
@@ -108,7 +110,7 @@ local const function generateVentPumpNode(l: constants.PipeLayer): ConstructionG
     }
 }
 
-local const function generatePassiveVentEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generatePassiveVentEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "passivevent\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -119,7 +121,7 @@ local const function generatePassiveVentEdge(l: constants.PipeLayer): Constructi
     }
 }
 
-local const function generatePassiveVentNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generatePassiveVentNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "passivevent\(l)"
     entity = new StaticNodeEntity {
         id = "GasPassiveVent\(l)"
@@ -153,7 +155,7 @@ local const function generatePassiveVentNode(l: constants.PipeLayer): Constructi
     }
 }
 
-local const function generateVentScrubberEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateVentScrubberEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "ventscrubber\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -164,7 +166,7 @@ local const function generateVentScrubberEdge(l: constants.PipeLayer): Construct
     }
 }
 
-local const function generateOutletInjectorEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateOutletInjectorEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "outletinjector\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -175,7 +177,7 @@ local const function generateOutletInjectorEdge(l: constants.PipeLayer): Constru
     }
 }
 
-local const function generateVentScrubberNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateVentScrubberNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "ventscrubber\(l)"
     entity = new StaticNodeEntity {
         id = "GasVentScrubber\(l)"
@@ -209,7 +211,7 @@ local const function generateVentScrubberNode(l: constants.PipeLayer): Construct
     }
 }
 
-local const function generateOutletInjectorNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateOutletInjectorNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "outletinjector\(l)"
     entity = new StaticNodeEntity {
         id = "GasOutletInjector\(l)"

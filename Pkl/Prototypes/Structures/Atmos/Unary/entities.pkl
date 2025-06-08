@@ -1,7 +1,7 @@
 amends ".../Typings.pkl"
 
 import ".../Typings.pkl"
-import "constants.pkl"
+import ".../constants.pkl"
 
 local typealias PipeLayer = constants.PipeLayer
 local const commonParent = "GasUnaryBase"

@@ -1,7 +1,7 @@
 amends ".../Typings.pkl"
 
 import ".../Typings.pkl"
-import ".../Prototypes/rpd.pkl"
+import ".../Structures/Atmos/rpd.pkl"
 
 local const rpdPrototypes = rpd
     .content

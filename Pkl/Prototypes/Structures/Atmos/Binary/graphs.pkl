@@ -1,6 +1,8 @@
 amends ".../Typings.pkl"
 
-import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
 
 content {
     new ConstructionGraphPrototype {
@@ -189,7 +191,7 @@ content {
     }
 }
 
-local const function generatePressurePumpEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generatePressurePumpEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "pressurepump\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -200,7 +202,7 @@ local const function generatePressurePumpEdge(l: constants.PipeLayer): Construct
     }
 }
 
-local const function generatePressurePumpNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generatePressurePumpNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "pressurepump\(l)"
     entity = new StaticNodeEntity {
         id = "GasPressurePump\(l)"
@@ -230,7 +232,7 @@ local const function generatePressurePumpNode(l: constants.PipeLayer): Construct
     }
 }
 
-local const function generateVolumePumpEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateVolumePumpEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "volumepump\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -241,7 +243,7 @@ local const function generateVolumePumpEdge(l: constants.PipeLayer): Constructio
     }
 }
 
-local const function generateVolumePumpNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateVolumePumpNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "volumepump\(l)"
     entity = new StaticNodeEntity {
         id = "GasVolumePump\(l)"
@@ -271,7 +273,7 @@ local const function generateVolumePumpNode(l: constants.PipeLayer): Constructio
     }
 }
 
-local const function generatePassiveGateEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generatePassiveGateEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "passivegate\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -282,7 +284,7 @@ local const function generatePassiveGateEdge(l: constants.PipeLayer): Constructi
     }
 }
 
-local const function generatePassiveGateNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generatePassiveGateNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "passivegate\(l)"
     entity = new StaticNodeEntity {
         id = "GasPassiveGate\(l)"
@@ -312,7 +314,7 @@ local const function generatePassiveGateNode(l: constants.PipeLayer): Constructi
     }
 }
 
-local const function generateValveEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateValveEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "valve\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -323,7 +325,7 @@ local const function generateValveEdge(l: constants.PipeLayer): ConstructionGrap
     }
 }
 
-local const function generateSignalControlledValveEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateSignalControlledValveEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "signalvalve\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -334,7 +336,7 @@ local const function generateSignalControlledValveEdge(l: constants.PipeLayer): 
     }
 }
 
-local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generatePortEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "port\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -345,7 +347,7 @@ local const function generatePortEdge(l: constants.PipeLayer): ConstructionGraph
     }
 }
 
-local const function generateDualPortEdge(l: constants.PipeLayer): ConstructionGraphEdge = new {
+local const function generateDualPortEdge(l: PipeLayer): ConstructionGraphEdge = new {
     to = "dualportventpump\(l)"
     steps {
         new MaterialConstructionGraphStep {
@@ -356,7 +358,7 @@ local const function generateDualPortEdge(l: constants.PipeLayer): ConstructionG
     }
 }
 
-local const function generateValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateValveNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "valve\(l)"
     entity = new StaticNodeEntity {
         id = "GasValve\(l)"
@@ -386,7 +388,7 @@ local const function generateValveNode(l: constants.PipeLayer): ConstructionGrap
     }
 }
 
-local const function generateSignalControlledValveNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateSignalControlledValveNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "signalvalve\(l)"
     entity = new StaticNodeEntity {
         id = "SignalControlledValve\(l)"
@@ -416,7 +418,7 @@ local const function generateSignalControlledValveNode(l: constants.PipeLayer): 
     }
 }
 
-local const function generatePortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generatePortNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "port\(l)"
     entity = new StaticNodeEntity {
         id = "GasPort\(l)"
@@ -446,7 +448,7 @@ local const function generatePortNode(l: constants.PipeLayer): ConstructionGraph
     }
 }
 
-local const function generateDualPortNode(l: constants.PipeLayer): ConstructionGraphNode = new {
+local const function generateDualPortNode(l: PipeLayer): ConstructionGraphNode = new {
     node = "dualportventpump\(l)"
     entity = new StaticNodeEntity {
         id = "GasDualPortVentPump\(l)"

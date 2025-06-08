@@ -1,6 +1,6 @@
 amends ".../Typings.pkl"
 
-import ".../Prototypes/Entities/Structures/Piping/Atmos/constants.pkl"
+import "constants.pkl"
 
 local typealias PipeLayer = constants.PipeLayer
 

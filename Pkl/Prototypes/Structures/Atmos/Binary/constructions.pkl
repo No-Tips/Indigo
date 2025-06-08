@@ -1,6 +1,8 @@
 amends ".../Typings.pkl"
 
-import ".../Entities/Structures/Piping/Atmos/constants.pkl"
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
 
 content {
     generatePressurePumpConstruction(0)
@@ -78,7 +80,7 @@ content {
     }
 }
 
-local const function generatePressurePumpConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generatePressurePumpConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasPressurePump\(l)"
     name = "gas pump, \(l)"
     description = "A pump that moves gas by pressure"
@@ -107,7 +109,7 @@ local const function generatePressurePumpConstruction(l: constants.PipeLayer): C
     }
 }
 
-local const function generateVolumePumpConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateVolumePumpConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasVolumePump\(l)"
     name = "volumetric gas pump, \(l)"
     description = "A pump that moves gas by volume"
@@ -135,7 +137,7 @@ local const function generateVolumePumpConstruction(l: constants.PipeLayer): Con
     }
 }
 
-local const function generatePassiveGateConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generatePassiveGateConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasPassiveGate\(l)"
     name = "passive gate, \(l)"
     description = "A one-way air valve that does not require power."
@@ -164,7 +166,7 @@ local const function generatePassiveGateConstruction(l: constants.PipeLayer): Co
     }
 }
 
-local const function generateValveConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateValveConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasValve\(l)"
     name = "manual valve, \(l)"
     description = "A pipe with a valve that can be used to disable the flow of gas through it."
@@ -193,7 +195,7 @@ local const function generateValveConstruction(l: constants.PipeLayer): Construc
     }
 }
 
-local const function generateSignalControlledValveConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateSignalControlledValveConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "SignalControlledValve\(l)"
     name = "signal valve, \(l)"
     description = "Valve controlled by signal inputs."
@@ -222,7 +224,7 @@ local const function generateSignalControlledValveConstruction(l: constants.Pipe
     }
 }
 
-local const function generateGasPortConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateGasPortConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasPort\(l)"
     name = "connector port"
     description = "For connecting portable devices related to atmospherics control."
@@ -251,7 +253,7 @@ local const function generateGasPortConstruction(l: constants.PipeLayer): Constr
     }
 }
 
-local const function generateDualGasPortConstruction(l: constants.PipeLayer): ConstructionPrototype = new {
+local const function generateDualGasPortConstruction(l: PipeLayer): ConstructionPrototype = new {
     id = "GasDualPortVentPump\(l)"
     name = "dual-port air vent"
     description = "Has a valve and a pump attached to it. There are two ports, one is an input for releasing air, the other is an output when siphoning."
