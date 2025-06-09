@@ -772,12 +772,14 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyWindowTitle)
-                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyWindowTitlebarIcon)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetSymbolsFont(
                                 true,
                                 style: TextStyle.Title3,
@@ -806,7 +808,7 @@ public sealed class StyleNano : StyleBase
                     Element<Label>()
                         .Class(UIStyleClasses.FancyPopupItemIconLabel)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote, FontWeight.Bold)),
 
                     #endregion
@@ -842,12 +844,14 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.GlobalMenuCategoryLabel)
-                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
 
                     Element<Label>()
                         .Class(UIStyleClasses.GlobalMenuCategoryIcon)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetSymbolsFont(
                                 filled: true,
                                 style: TextStyle.Title2,
@@ -1090,7 +1094,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1267,7 +1271,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(RichTextLabel), ["bubbleContent",], null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Footnote,
@@ -1284,7 +1288,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(RichTextLabel), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Callout,
@@ -1308,7 +1312,7 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1321,7 +1325,7 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif))
+                            new(Label.StylePropertyFont, typographyManager.GetFont(FontType.SansSerif))
                         ]),
                     new(
                         new SelectorElement(
@@ -1330,7 +1334,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     // action tooltip
@@ -1342,7 +1348,7 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1355,7 +1361,7 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif))
+                            new(Label.StylePropertyFont, typographyManager.GetFont(FontType.SansSerif))
                         ]),
                     new(
                         new SelectorElement(
@@ -1364,7 +1370,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
                     new(
                         new SelectorElement(
@@ -1373,7 +1381,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
                     new(
                         new SelectorElement(
@@ -1382,7 +1392,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     // hotbar slot
@@ -1394,7 +1406,7 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1576,7 +1588,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(FontType.Mono, TextStyle.Title3, weight: FontWeight.Bold))
                         ]),
 
@@ -1709,7 +1721,7 @@ public sealed class StyleNano : StyleBase
                         SelectorElement.Class(StyleClassItemStatus),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Footnote,
@@ -1719,7 +1731,7 @@ public sealed class StyleNano : StyleBase
                     Element()
                         .Class(StyleClassItemStatusNotHeld)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetFont(
                                 FontType.SansSerif,
                                 TextStyle.Footnote,

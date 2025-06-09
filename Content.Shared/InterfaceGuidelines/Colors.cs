@@ -36,6 +36,9 @@ public static class Colors
     public static          Color WindowTitlebarBorder     => WindowBorder;
     public static readonly Color WindowTitlebarInsetBorder = new(73, 73, 73);
 
+    public static readonly Color WindowTitlebarCloseButton = Color.FromHex("#ff6565");
+    public static readonly Color WindowTitlebarHelpButton  = Color.FromHex("#eebe00");
+
     #endregion
 
     #region Popups

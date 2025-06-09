@@ -40,6 +40,7 @@ public static class SymbolIcons
     public const string Chat                     = "\uE0B7";
     public const string Checkroom                = "\uF19E";
     public const string ChevronRight             = "\uE5CC";
+    public const string Circle                   = "\uEF4A";
     public const string Clarify                  = "\uF0BF";
     public const string Close                    = "\uE5CD";
     public const string Cognition                = "\uE09F";
