@@ -53,7 +53,14 @@ public static class Colors
 
     #endregion
 
-    #region Popups
+    #region Check Box
+
+    public static readonly Color CheckBoxBackground = Color.FromHex("#3A3A3A");
+    public static          Color CheckBoxCheckedBackground => Accent;
+
+    #endregion
+
+    #region Popup
 
     public static Color PopupBackground  => WindowBackground;
     public static Color PopupBorder      => WindowBorder;

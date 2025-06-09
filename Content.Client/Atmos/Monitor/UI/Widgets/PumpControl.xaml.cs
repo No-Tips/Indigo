@@ -1,4 +1,5 @@
 using System;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos.Monitor;
 using Content.Shared.Atmos.Monitor.Components;
 using Content.Shared.Atmos.Piping.Unary.Components;
@@ -19,7 +20,7 @@ public sealed partial class PumpControl : BoxContainer
     public event Action<string, IAtmosDeviceData>? PumpDataChanged;
 	public event Action<IAtmosDeviceData>? PumpDataCopied;
 
-    private CheckBox _enabled => CEnableDevice;
+    private FancyCheckBox _enabled => CEnableDevice;
     private CollapsibleHeading _addressLabel => CAddress;
     private OptionButton _pumpDirection => CPumpDirection;
     private OptionButton _pressureCheck => CPressureCheck;
@@ -86,7 +87,7 @@ public sealed partial class PumpControl : BoxContainer
             _data.PressureChecks = (VentPressureBound) args.Id;
             PumpDataChanged?.Invoke(_address, _data);
         };
-		
+
 		_copySettings.OnPressed += _ =>
 		{
 			PumpDataCopied?.Invoke(_data);

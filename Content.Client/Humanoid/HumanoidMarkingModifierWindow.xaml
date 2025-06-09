@@ -6,8 +6,8 @@
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <humanoid:MarkingPicker Name="MarkingPickerWidget" />
             <BoxContainer>
-                <CheckBox Name="MarkingForced" Text="Force" Pressed="True" />
-                <CheckBox Name="MarkingIgnoreSpecies" Text="Ignore Species" Pressed="True" />
+                <controls:FancyCheckBox Name="MarkingForced" Text="Force" Pressed="True" />
+                <controls:FancyCheckBox Name="MarkingIgnoreSpecies" Text="Ignore Species" Pressed="True" />
             </BoxContainer>
             <Collapsible HorizontalExpand="True">
                 <CollapsibleHeading Title="Base layers" />

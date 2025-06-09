@@ -38,6 +38,7 @@ public static class SymbolIcons
     public const string Cancel                   = "\uE5C9";
     public const string Casino                   = "\uEB40";
     public const string Chat                     = "\uE0B7";
+    public const string Check                    = "\uE5CA";
     public const string Checkroom                = "\uF19E";
     public const string ChevronRight             = "\uE5CC";
     public const string Circle                   = "\uEF4A";

@@ -56,6 +56,13 @@ public static class UIStyleClasses
 
     #endregion
 
+    #region Check Boxes
+
+    public const string FancyCheckBoxPanel        = "FancyCheckBoxPanel";
+    public const string FancyCheckBoxCheckedPanel = "FancyCheckBoxCheckedPanel";
+
+    #endregion
+
     #region Popups
 
     public const string FancyPopupPanel           = "FancyPopupPanel";

@@ -33,7 +33,7 @@ public sealed partial class BanPanel : FancyWindow
     private TimeSpan? ButtonResetOn { get; set; }
     // This is less efficient than just holding a reference to the root control and enumerating children, but you
     // have to know how the controls are nested, which makes the code more complicated.
-    private readonly List<CheckBox> _roleCheckboxes = new();
+    private readonly List<FancyCheckBox> _roleCheckboxes = new();
     private readonly ISawmill _banpanelSawmill;
 
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -163,7 +163,7 @@ public sealed partial class BanPanel : FancyWindow
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             Margin = new Thickness(4)
         };
-        var departmentCheckbox = new CheckBox
+        var departmentCheckbox = new FancyCheckBox()
         {
             Name = $"{roleName}GroupCheckbox",
             Text = roleName,
@@ -181,7 +181,7 @@ public sealed partial class BanPanel : FancyWindow
         {
             foreach (var child in innerContainer.Children)
             {
-                if (child is CheckBox c)
+                if (child is FancyCheckBox c)
                 {
                     c.Pressed = args.Pressed;
                 }
@@ -205,7 +205,7 @@ public sealed partial class BanPanel : FancyWindow
                     {
                         foreach (var child in childContainer.Children)
                         {
-                            if (child is CheckBox { Pressed: true })
+                            if (child is FancyCheckBox { Pressed: true })
                                 return;
                         }
                     }
@@ -236,16 +236,16 @@ public sealed partial class BanPanel : FancyWindow
         RolesContainer.AddChild(new HSeparator());
     }
 
-    private void AddRoleCheckbox(string role, Control container, CheckBox header)
+    private void AddRoleCheckbox(string role, Control container, FancyCheckBox header)
     {
-        var roleCheckbox = new CheckBox
+        var roleCheckbox = new FancyCheckBox()
         {
             Name = $"{role}RoleCheckbox",
             Text = role
         };
         roleCheckbox.OnToggled += args =>
         {
-            if (args is { Pressed: true, Button.Parent: { } } && args.Button.Parent.Children.Where(e => e is CheckBox).All(e => ((CheckBox) e).Pressed))
+            if (args is { Pressed: true, Button.Parent: { } } && args.Button.Parent.Children.Where(e => e is FancyCheckBox).All(e => ((FancyCheckBox) e).Pressed))
                 header.Pressed = args.Pressed;
             else
                 header.Pressed = false;

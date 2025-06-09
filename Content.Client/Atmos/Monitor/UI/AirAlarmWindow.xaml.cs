@@ -45,7 +45,7 @@ public sealed partial class AirAlarmWindow : FancyWindow
 
     private OptionButton _modes => CModeButton;
 
-    private CheckBox _autoMode => AutoModeCheckBox;
+    private FancyCheckBox _autoMode => AutoModeCheckBox;
 
     public AirAlarmWindow()
     {

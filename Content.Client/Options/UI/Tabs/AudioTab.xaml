@@ -72,11 +72,11 @@
                     <Control MinSize="4 0"/>
                 </BoxContainer>
                 <Control MinSize="0 8" />
-                <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
-                <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
-                <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
-                <CheckBox Name="AnnouncerDisableMultipleSoundsCheckBox" Text="{Loc 'ui-options-announcer-disable-multiple-sounds'}" ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" />
-                <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
+                <controls:FancyCheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
+                <controls:FancyCheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
+                <controls:FancyCheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
+                <controls:FancyCheckBox Name="AnnouncerDisableMultipleSoundsCheckBox" Text="{Loc 'ui-options-announcer-disable-multiple-sounds'}" ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" />
+                <controls:FancyCheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
             </BoxContainer>
         </BoxContainer>
         <controls:StripeBack HasBottomEdge="False" HasMargins="False">

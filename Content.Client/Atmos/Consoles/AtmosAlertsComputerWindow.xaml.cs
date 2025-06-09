@@ -107,7 +107,7 @@ public sealed partial class AtmosAlertsComputerWindow : FancyWindow
 
     #region Toggle handling
 
-    private void OnShowAlarmsToggled(CheckBox toggle, AtmosAlarmType toggledAlarmState)
+    private void OnShowAlarmsToggled(FancyCheckBox toggle, AtmosAlarmType toggledAlarmState)
     {
         if (_owner == null)
             return;

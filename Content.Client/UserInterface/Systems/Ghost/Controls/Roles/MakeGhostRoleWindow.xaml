@@ -21,7 +21,7 @@
         </BoxContainer>
         <BoxContainer Orientation="Horizontal">
             <Label Name="MakeSentientLabel" Text="Make Sentient" />
-            <CheckBox Name="MakeSentientCheckbox" />
+            <controls:FancyCheckBox Name="MakeSentientCheckbox" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal">
             <Label Name="RaffleLabel" Text="Raffle Role?" />

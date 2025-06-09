@@ -188,7 +188,7 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
-    #region Line Edits
+    #region Line Edit
 
     public static RectBox LineEditPanel =>
         new()
@@ -204,7 +204,27 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
-    #region Popups
+    #region Check Box
+
+    public static RectBox FancyCheckBoxPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.CheckBoxBackground,
+            Borders = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyCheckBoxCheckedPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.CheckBoxCheckedBackground,
+            Borders = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
+    #region Popup
 
     public static RectBox FancyPopupPanel =>
         new()
@@ -831,6 +851,18 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
+                    #region Check Boxes
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyCheckBoxPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyCheckBoxPanel),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyCheckBoxCheckedPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyCheckBoxCheckedPanel),
+
+                    #endregion
+
                     #region Popups
 
                     Element<PanelContainer>()
@@ -900,6 +932,41 @@ public sealed class StyleNano : StyleBase
                     Element<Label>()
                         .Class(UIStyleClasses.FancyPopupItemHotkeyLabel)
                         .Prop(Label.StylePropertyFontColor, new Color(127, 127, 127)),
+
+                    #endregion
+
+                    #region Legacy
+
+                    #region Check Box
+
+                    // CheckBox
+                    new(
+                        new SelectorElement(typeof(TextureRect), [CheckBox.StyleClassCheckBox,], null, null),
+                        [
+                            new(TextureRect.StylePropertyTexture, checkBoxTextureUnchecked)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(TextureRect),
+                            [CheckBox.StyleClassCheckBox, CheckBox.StyleClassCheckBoxChecked,],
+                            null,
+                            null),
+                        [
+                            new(TextureRect.StylePropertyTexture, checkBoxTextureChecked)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(BoxContainer),
+                            [CheckBox.StyleClassCheckBox,],
+                            null,
+                            null),
+                        [
+                            new(BoxContainer.StylePropertySeparation, 10)
+                        ]),
+
+                    #endregion
 
                     #endregion
 
@@ -1182,65 +1249,6 @@ public sealed class StyleNano : StyleBase
                         [
                             new(ProgressBar.StylePropertyBackground, progressBarBackground),
                             new(ProgressBar.StylePropertyForeground, progressBarForeground)
-                        ]),
-
-                    // CheckBox
-                    new(
-                        new SelectorElement(typeof(TextureRect), [CheckBox.StyleClassCheckBox,], null, null),
-                        [
-                            new(TextureRect.StylePropertyTexture, checkBoxTextureUnchecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [CheckBox.StyleClassCheckBox, CheckBox.StyleClassCheckBoxChecked,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, checkBoxTextureChecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(BoxContainer),
-                            [CheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(BoxContainer.StylePropertySeparation, 10)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [MonotoneCheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureUnchecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [
-                                MonotoneCheckBox.StyleClassCheckBox, MonotoneCheckBox.StyleClassCheckBoxChecked
-                            ],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureChecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(BoxContainer),
-                            [MonotoneCheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(BoxContainer.StylePropertySeparation, 10)
                         ]),
 
                     // Tooltip

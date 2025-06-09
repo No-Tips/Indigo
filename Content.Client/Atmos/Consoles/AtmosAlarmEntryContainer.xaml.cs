@@ -76,9 +76,6 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         OxygenationLabel.FontOverride = normalFont;
 
         NoDataLabel.FontOverride = headerFont;
-
-        SilenceCheckBox.Label.FontOverride = smallFont;
-        SilenceCheckBox.Label.FontColorOverride = Color.DarkGray;
     }
 
     public void UpdateEntry(AtmosAlertsComputerEntry entry, bool isFocus, AtmosAlertsFocusDeviceData? focusData = null)

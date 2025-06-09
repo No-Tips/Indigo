@@ -530,7 +530,7 @@ namespace Content.Client.Administration.UI
             public readonly LineEdit NameEdit;
             public readonly Button SaveButton;
             public readonly Button? RemoveButton;
-            public readonly Dictionary<AdminFlags, CheckBox> FlagCheckBoxes = new();
+            public readonly Dictionary<AdminFlags, FancyCheckBox> FlagCheckBoxes = new();
 
             public EditAdminRankWindow(PermissionsEui ui, KeyValuePair<int, PermissionsEuiState.AdminRankData>? data)
             {
@@ -566,7 +566,7 @@ namespace Content.Client.Administration.UI
                     var disable = !ui._adminManager.HasFlag(flag);
                     var flagName = flag.ToString().ToUpper();
 
-                    var checkBox = new CheckBox
+                    var checkBox = new FancyCheckBox
                     {
                         Disabled = disable,
                         Text = flagName
