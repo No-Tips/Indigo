@@ -18,9 +18,22 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class UIStyleClasses
 {
+    #region Window
+
+    public const string FancyWindowTitle         = "FancyWindowTitle";
+    public const string FancyWindowPanel         = "FancyWindowPanel";
+    public const string FancyWindowPanelSmall    = "FancyWindowPanelSmall";
+    public const string FancyWindowTitlebarPanel = "FancyWindowTitlebarPanel";
+    public const string FancyWindowTitlebarIcon  = "FancyWindowTitlebarIcon";
+
+    #endregion
+
     #region Button
 
-    public const string GhostButton = "ButtonGhost";
+    public const string GhostButton              = "ButtonGhost";
+    public const string FancyButtonLabel         = "FancyButtonLabel";
+    public const string FancyButtonLabelDisabled = "FancyButtonLabelDisabled";
+    public const string FancyButtonAccent        = "FancyButtonAccent";
 
     #endregion
 
@@ -37,16 +50,6 @@ public static class UIStyleClasses
     public const string LabelIconFilledBold1 = "LabelIconFilledBold1";
     public const string LabelIconFilledBold2 = "LabelIconFilledBold2";
     public const string LabelIconFilledBold3 = "LabelIconFilledBold3";
-
-    #endregion
-
-    #region Window
-
-    public const string FancyWindowTitle         = "FancyWindowTitle";
-    public const string FancyWindowPanel         = "FancyWindowPanel";
-    public const string FancyWindowPanelSmall    = "FancyWindowPanelSmall";
-    public const string FancyWindowTitlebarPanel = "FancyWindowTitlebarPanel";
-    public const string FancyWindowTitlebarIcon  = "FancyWindowTitlebarIcon";
 
     #endregion
 

@@ -188,6 +188,66 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
+    #region Button
+
+    #region Default
+
+    public static RectBox FancyButtonPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonPressedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
+    #region Accent
+
+    public static RectBox FancyButtonAccentPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonAccentDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentDisabledBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonAccentPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentPressedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
+    #endregion
+
     #region Line Edit
 
     public static RectBox LineEditPanel =>
@@ -211,7 +271,7 @@ public sealed class StyleNano : StyleBase
         {
             Rounding        = new(6.0f),
             BackgroundColor = Colors.CheckBoxBackground,
-            Borders = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
         };
 
     public static RectBox FancyCheckBoxCheckedPanel =>
@@ -219,7 +279,7 @@ public sealed class StyleNano : StyleBase
         {
             Rounding        = new(6.0f),
             BackgroundColor = Colors.CheckBoxCheckedBackground,
-            Borders = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
         };
 
     #endregion
@@ -457,10 +517,6 @@ public sealed class StyleNano : StyleBase
         // CheckBox
         var checkBoxTextureChecked   = resCache.GetTexture("/Textures/Interface/Nano/checkbox_checked.svg.96dpi.png");
         var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_unchecked.svg.96dpi.png");
-        var monotoneCheckBoxTextureChecked =
-            resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_checkbox_checked.svg.96dpi.png");
-        var monotoneCheckBoxTextureUnchecked = resCache.GetTexture(
-            "/Textures/Interface/Nano/Monotone/monotone_checkbox_unchecked.svg.96dpi.png");
 
         // Tooltip box
         var tooltipTexture = resCache.GetTexture("/Textures/Interface/Nano/tooltip.png");
@@ -788,15 +844,52 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Buttons
+                    #region Button
 
                     Element<ContainerButton>()
                         .Class(UIStyleClasses.GhostButton)
                         .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
 
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabelDisabled),
+
+                    #region Default
+
+                    Element<FancyButton>()
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPressedPanel),
+
                     #endregion
 
-                    #region Windows
+                    #region Accent
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
+
+                    #endregion
+
+                    #endregion
+
+                    #region Window
 
                     Element<PanelContainer>()
                         .Class(UIStyleClasses.FancyWindowPanel)
@@ -830,7 +923,7 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Line Edits
+                    #region Line Edit
 
                     Element<LineEdit>()
                         .Prop(LineEdit.StylePropertyStyleBox, LineEditPanel),
@@ -851,7 +944,7 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Check Boxes
+                    #region Check Box
 
                     Element<PanelContainer>()
                         .Class(UIStyleClasses.FancyCheckBoxPanel)
@@ -863,7 +956,7 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Popups
+                    #region Popup
 
                     Element<PanelContainer>()
                         .Class(UIStyleClasses.FancyPopupPanel)

@@ -18,13 +18,19 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class Colors
 {
-    public static readonly Color Black  = Color.FromHex("#191919");
-    public static readonly Color Blue   = Color.FromHex("#3B5CFF");
+    public static readonly Color Black = Color.FromHex("#191919");
+
+    public static readonly Color BlueLight = Color.FromHex("#627CFF");
+    public static readonly Color Blue      = Color.FromHex("#3B5CFF");
+    public static readonly Color BlueDark  = Color.FromHex("#243BAA");
+
     public static readonly Color Gray   = Color.FromHex("#353535");
     public static readonly Color Indigo = Color.FromHex("#9900FF");
     public static readonly Color Red    = Color.FromHex("#E40E0E");
 
-    public static Color Accent => Blue;
+    public static Color AccentLight => BlueLight;
+    public static Color Accent      => Blue;
+    public static Color AccentDark  => BlueDark;
 
     #region Window
 
@@ -39,6 +45,28 @@ public static class Colors
 
     public static readonly Color WindowTitlebarCloseButton = Color.FromHex("#ff6565");
     public static readonly Color WindowTitlebarHelpButton  = Color.FromHex("#eebe00");
+
+    #endregion
+
+    #region Button
+
+    public static readonly Color ButtonLabelDisabled = Color.FromHex("#969696");
+
+    #region Default
+
+    public static readonly Color ButtonBackground         = Color.FromHex("#7D7D7D");
+    public static readonly Color ButtonPressedBackground  = Color.FromHex("#969696");
+    public static readonly Color ButtonDisabledBackground = Color.FromHex("#464646");
+
+    #endregion
+
+    #region Accent
+
+    public static Color ButtonAccentBackground         => Accent;
+    public static Color ButtonAccentPressedBackground  => AccentLight;
+    public static Color ButtonAccentDisabledBackground => AccentDark;
+
+    #endregion
 
     #endregion
 
