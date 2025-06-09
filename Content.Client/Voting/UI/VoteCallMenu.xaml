@@ -5,9 +5,9 @@
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Vertical" Margin="8 2 8 0" VerticalExpand="True" VerticalAlignment="Top">
             <BoxContainer Orientation="Horizontal">
-                <OptionButton Name="VoteTypeButton" HorizontalExpand="True" />
+                <controls:FancyOptionButton Name="VoteTypeButton" HorizontalExpand="True" />
                 <Control HorizontalExpand="True">
-                    <OptionButton Name="VoteSecondButton" Visible="False" />
+                    <controls:FancyOptionButton Name="VoteSecondButton" Visible="False" />
                 </Control>
             </BoxContainer>
             <Label Name="VoteTypeTimeoutLabel" Visible="False" />

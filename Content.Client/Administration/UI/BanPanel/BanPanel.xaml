@@ -26,15 +26,15 @@
                 <controls:FancyCheckBox Name="EraseCheckbox" Margin="2" Text="{Loc ban-panel-erase}" Pressed="False" />
                 <BoxContainer Orientation="Horizontal" Margin="2">
                     <LineEdit Name="TimeLine" MaxWidth="150" MinWidth="70" PlaceHolder="0" />
-                    <OptionButton Name="MultiplierOption" />
+                    <controls:FancyOptionButton Name="MultiplierOption" />
                     <Control MinWidth="50" />
                     <Label Name="ExpiresLabel" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" Margin="4">
-                    <OptionButton Name="TypeOption" />
+                    <controls:FancyOptionButton Name="TypeOption" />
                     <Control MinWidth="30" />
                     <Label Text="{Loc ban-panel-severity}" />
-                    <OptionButton Name="SeverityOption" />
+                    <controls:FancyOptionButton Name="SeverityOption" />
                 </BoxContainer>
                 <cc:HSeparator Margin="1"/>
                 <TextEdit Name="ReasonTextEdit" MinHeight="100" VerticalExpand="True" HorizontalExpand="True" />

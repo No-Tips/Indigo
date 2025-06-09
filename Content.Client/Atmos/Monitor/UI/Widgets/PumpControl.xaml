@@ -13,11 +13,11 @@
                 <BoxContainer Orientation="Horizontal" Margin="0 0 0 2" HorizontalExpand="True">
                     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                         <Label Text="{Loc 'air-alarm-ui-vent-pump-label'}" Margin="0 0 0 1" />
-                        <OptionButton Name="CPumpDirection" />
+                        <controls:FancyOptionButton Name="CPumpDirection" />
                     </BoxContainer>
                     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                         <Label Text="{Loc 'air-alarm-ui-vent-pressure-label'}" Margin="0 0 0 1" />
-                        <OptionButton Name="CPressureCheck" />
+                        <controls:FancyOptionButton Name="CPressureCheck" />
                     </BoxContainer>
                 </BoxContainer>
                 <!-- Lower row: pressure bounds, copy settings -->

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Screens;
 using Content.Shared.CCVar;
 using Content.Shared.HUD;
@@ -102,7 +103,7 @@ namespace Content.Client.Options.UI.Tabs
             UpdateApplyButton();
         }
 
-        private void OnHudThemeChanged(OptionButton.ItemSelectedEventArgs args)
+        private void OnHudThemeChanged(FancyOptionButton.ItemSelectedEventArgs args)
         {
             HudThemeOption.SelectId(args.Id);
             UpdateApplyButton();

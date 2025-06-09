@@ -96,7 +96,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminbusTab
             return newValue;
         }
 
-        private void OnOptionSelect(OptionButton.ItemSelectedEventArgs obj)
+        private void OnOptionSelect(FancyOptionButton.ItemSelectedEventArgs obj)
         {
             MapOptions.SelectId(obj.Id);
         }

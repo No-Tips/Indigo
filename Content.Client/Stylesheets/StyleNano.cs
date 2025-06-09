@@ -248,6 +248,14 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
+    #region Option Button
+
+    public static RectBox FancyOptionButtonPanel         => FancyButtonPanel;
+    public static RectBox FancyOptionButtonPressedPanel  => FancyButtonPressedPanel;
+    public static RectBox FancyOptionButtonDisabledPanel => FancyButtonDisabledPanel;
+
+    #endregion
+
     #region Line Edit
 
     public static RectBox LineEditPanel =>
@@ -794,6 +802,7 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyButtonLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabel)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetFont(
@@ -803,11 +812,8 @@ public sealed class StyleNano : StyleBase
                         ),
 
                     Element<Label>()
-                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
-                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabelDisabled),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
+                        .Class(UIStyleClasses.FancyButtonDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonSelectedItemDisabledLabel)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetFont(
@@ -848,6 +854,43 @@ public sealed class StyleNano : StyleBase
                         .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
 
                     #endregion
+
+                    #endregion
+
+                    #region Option Button
+
+                    Element<FancyOptionButton>()
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonPanel),
+
+                    Element<FancyOptionButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonPressedPanel),
+
+                    Element<FancyOptionButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonDisabledPanel),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyOptionButtonSelectedItemLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyOptionButtonSelectedItemDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemDisabledLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
 
                     #endregion
 
@@ -1141,6 +1184,63 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(BoxContainer.StylePropertySeparation, 10)
+                        ]),
+
+                    #endregion
+
+                    #region Option Button
+
+                    new(
+                        new SelectorElement(typeof(OptionButton), null, null, null),
+                        [
+                            new(ContainerButton.StylePropertyStyleBox, BaseButton)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassNormal,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorDefault)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassHover,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorHovered)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassPressed,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorPressed)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassDisabled,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(TextureRect),
+                            [OptionButton.StyleClassOptionTriangle,],
+                            null,
+                            null),
+                        [
+                            new(TextureRect.StylePropertyTexture, textureInvertedTriangle)
+                            //new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#FFFFFF")),
                         ]),
 
                     #endregion
@@ -2035,60 +2135,6 @@ public sealed class StyleNano : StyleBase
                             [ContainerButton.StylePseudoClassDisabled,]),
                         [
                             new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
-                        ]),
-
-                    // OptionButton
-                    new(
-                        new SelectorElement(typeof(OptionButton), null, null, null),
-                        [
-                            new(ContainerButton.StylePropertyStyleBox, BaseButton)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassNormal,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorDefault)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassHover,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorHovered)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassPressed,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorPressed)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassDisabled,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [OptionButton.StyleClassOptionTriangle,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, textureInvertedTriangle)
-                            //new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#FFFFFF")),
                         ]),
 
                     new(

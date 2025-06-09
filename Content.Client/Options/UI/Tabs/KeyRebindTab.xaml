@@ -1,42 +1,45 @@
 ﻿<Control xmlns="https://spacestation14.io"
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
-    <BoxContainer Orientation="Vertical" SeparationOverride="8">
-        <BoxContainer Orientation="Horizontal"
-                      Margin="4 4">
-            <Label Text="{Loc ui-options-binds-keys-preset}"
-                   Margin="4 0">
-            </Label>
-            <OptionButton Name="KeyPresetsOption"
-                          Margin="4 0" />
-            <controls:HSpacer HorizontalExpand="True" />
-            <controls:FancyButton Text="{Loc 'ui-options-binds-apply-keys-preset'}"
-                                  StyleClasses="FancyButtonAccent"
-                                  Name="ApplyKeysPreset"
-                                  Margin="4 0" />
+    <BoxContainer Orientation="Vertical" Margin="8 8" SeparationOverride="8">
+        <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8"
+                          HorizontalExpand="True">
+                <Label Text="{Loc ui-options-binds-keys-preset}" />
+
+                <controls:FancyOptionButton Name="KeyPresetsOption" />
+
+                <controls:HSpacer HorizontalExpand="True" />
+
+                <controls:FancyButton Text="{Loc 'ui-options-binds-apply-keys-preset'}"
+                                      StyleClasses="FancyButtonAccent"
+                                      Name="ApplyKeysPreset" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <Label Text="{Loc 'ui-options-binds-search'}" />
+
+                <LineEdit Name="SearchInput"
+                          HorizontalExpand="True"
+                          SizeFlagsStretchRatio="2" />
+            </BoxContainer>
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal"
-                      Margin="4 4">
-            <Label Text="{Loc 'ui-options-binds-search'}"
-                   Margin="4 0" />
-            <LineEdit Name="SearchInput"
-                      Margin="4 0"
-                      HorizontalExpand="True"
-                      SizeFlagsStretchRatio="2" />
-        </BoxContainer>
+
         <ScrollContainer VerticalExpand="True">
-            <BoxContainer Name="KeybindsContainer" Orientation="Vertical" Margin="8 8 8 8">
+            <BoxContainer Name="KeybindsContainer" Orientation="Vertical" SeparationOverride="12">
 
                 <!-- Keybind buttons are added here in the C# code -->
 
             </BoxContainer>
         </ScrollContainer>
 
-        <BoxContainer Orientation="Horizontal" Margin="8 8">
-            <Control MinSize="8 0" />
-            <Label Text="{Loc 'ui-options-binds-explanation'}" StyleClasses="LabelSubText" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc 'ui-options-binds-explanation'}" StyleClasses="LabelSubText"
+                   HorizontalAlignment="Left" />
+
+            <controls:HSpacer HorizontalExpand="True" />
+
             <controls:FancyButton Name="ResetAllButton"
                                   Text="{Loc 'ui-options-binds-reset-all'}"
-                                  HorizontalExpand="True"
                                   HorizontalAlignment="Right" />
         </BoxContainer>
     </BoxContainer>

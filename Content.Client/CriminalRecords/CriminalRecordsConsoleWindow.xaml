@@ -6,7 +6,7 @@
         <!-- Record search bar
              TODO: make this into a control shared with general records -->
         <BoxContainer Margin="5 5 5 10" HorizontalExpand="true" VerticalAlignment="Center">
-            <OptionButton Name="FilterType" MinWidth="200" Margin="0 0 10 0"/> <!-- Populated in constructor -->
+            <controls:FancyOptionButton Name="FilterType" MinWidth="200" Margin="0 0 10 0"/> <!-- Populated in constructor -->
             <LineEdit Name="FilterText" PlaceHolder="{Loc 'criminal-records-filter-placeholder'}" HorizontalExpand="True"/>
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
@@ -27,7 +27,7 @@
                 <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5" />
                 <BoxContainer Orientation="Horizontal" Margin="5 5 5 5">
                     <Label Name="StatusLabel" Text="{Loc 'criminal-records-console-status'}" FontColorOverride="DarkGray"/>
-                    <OptionButton Name="StatusOptionButton"/> <!-- Populated in constructor -->
+                    <controls:FancyOptionButton Name="StatusOptionButton"/> <!-- Populated in constructor -->
                 </BoxContainer>
                 <RichTextLabel Name="WantedReason" Visible="False"/>
                 <Button Name="HistoryButton" Text="{Loc 'criminal-records-console-crime-history'}"/>

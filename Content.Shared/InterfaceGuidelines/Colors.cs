@@ -50,7 +50,8 @@ public static class Colors
 
     #region Button
 
-    public static readonly Color ButtonLabelDisabled = Color.FromHex("#969696");
+    public static          Color ButtonLabel => Color.White;
+    public static readonly Color ButtonSelectedItemDisabledLabel = Color.FromHex("#969696");
 
     #region Default
 
@@ -67,6 +68,13 @@ public static class Colors
     public static Color ButtonAccentDisabledBackground => AccentDark;
 
     #endregion
+
+    #endregion
+
+    #region Button Option
+
+    public static Color OptionButtonSelectedItemLabel         => Color.White;
+    public static Color OptionButtonSelectedItemDisabledLabel => ButtonSelectedItemDisabledLabel;
 
     #endregion
 

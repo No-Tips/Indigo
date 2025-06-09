@@ -10,7 +10,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BaseButton;
-using static Robust.Client.UserInterface.Controls.OptionButton;
 
 namespace Content.Client.Administration.UI.SpawnExplosion;
 
@@ -54,13 +53,13 @@ public sealed partial class SpawnExplosionWindow : FancyWindow
         MaxIntensity.OnValueChanged += (_) => UpdatePreview();
     }
 
-    private void ExplosionSelected(ItemSelectedEventArgs args)
+    private void ExplosionSelected(FancyOptionButton.ItemSelectedEventArgs args)
     {
         ExplosionOption.SelectId(args.Id);
         UpdatePreview();
     }
 
-    private void MapSelected(ItemSelectedEventArgs args)
+    private void MapSelected(FancyOptionButton.ItemSelectedEventArgs args)
     {
         MapOptions.SelectId(args.Id);
         UpdatePreview();

@@ -20,13 +20,13 @@ public sealed partial class PumpControl : BoxContainer
     public event Action<string, IAtmosDeviceData>? PumpDataChanged;
 	public event Action<IAtmosDeviceData>? PumpDataCopied;
 
-    private FancyCheckBox _enabled => CEnableDevice;
-    private CollapsibleHeading _addressLabel => CAddress;
-    private OptionButton _pumpDirection => CPumpDirection;
-    private OptionButton _pressureCheck => CPressureCheck;
-    private FloatSpinBox _externalBound => CExternalBound;
-    private FloatSpinBox _internalBound => CInternalBound;
-	private Button _copySettings => CCopySettings;
+    private FancyCheckBox      _enabled       => CEnableDevice;
+    private CollapsibleHeading _addressLabel  => CAddress;
+    private FancyOptionButton  _pumpDirection => CPumpDirection;
+    private FancyOptionButton  _pressureCheck => CPressureCheck;
+    private FloatSpinBox       _externalBound => CExternalBound;
+    private FloatSpinBox       _internalBound => CInternalBound;
+	private Button             _copySettings  => CCopySettings;
 
     public PumpControl(GasVentPumpData data, string address)
     {

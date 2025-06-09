@@ -6,7 +6,7 @@
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True">
             <!-- lazy -->
-            <OptionButton Name="SubnetSelector" />
+            <controls:FancyOptionButton Name="SubnetSelector" />
             <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
             <ScrollContainer VerticalExpand="True">
                 <ItemList Name="SubnetList" />

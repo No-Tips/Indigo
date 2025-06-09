@@ -25,7 +25,7 @@ public sealed partial class ScrubberControl : BoxContainer
 
     private FancyCheckBox _enabled => CEnableDevice;
     private CollapsibleHeading _addressLabel => CAddress;
-    private OptionButton _pumpDirection => CPumpDirection;
+    private FancyOptionButton _pumpDirection => CPumpDirection;
     private FloatSpinBox _volumeRate => CVolumeRate;
     private FancyCheckBox _wideNet => CWideNet;
 	private Button _copySettings => CCopySettings;

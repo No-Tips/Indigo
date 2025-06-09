@@ -10,8 +10,8 @@
                              Visible="False" HorizontalExpand="True" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <OptionButton Name="TypeOption" HorizontalAlignment="Center" />
-            <OptionButton Name="SeverityOption" HorizontalAlignment="Center" />
+            <controls:FancyOptionButton Name="TypeOption" HorizontalAlignment="Center" />
+            <controls:FancyOptionButton Name="SeverityOption" HorizontalAlignment="Center" />
             <controls:FancyCheckBox Name="SecretCheckBox" Text="{Loc admin-note-editor-secret}"
                                     ToolTip="{Loc admin-note-editor-secret-tooltip}" />
             <controls:FancyCheckBox Name="PermanentCheckBox" Pressed="True" Text="{Loc admin-note-editor-expiry-checkbox}"

@@ -15,6 +15,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>
 -->
 
-<ContainerButton xmlns="https://spacestation14.io">
-    <Label Name="ButtonLabel" Access="Public" StyleClasses="LabelIconFilledSemiBold2" />
-</ContainerButton>
+<controls:FancyPopup xmlns="https://spacestation14.io"
+                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
+    <PanelContainer StyleClasses="FancyPopupPanel" />
+
+    <BoxContainer
+        Name="PopupContainer"
+        Access="Public" Margin="0 8"
+        Orientation="Vertical" VerticalExpand="True" />
+</controls:FancyPopup>

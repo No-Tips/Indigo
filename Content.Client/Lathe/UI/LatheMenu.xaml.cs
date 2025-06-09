@@ -312,7 +312,7 @@ public sealed partial class LatheMenu : FancyWindow
         return new Control();
     }
 
-    private void OnItemSelected(OptionButton.ItemSelectedEventArgs obj)
+    private void OnItemSelected(FancyOptionButton.ItemSelectedEventArgs obj)
     {
         FilterOption.SelectId(obj.Id);
         if (obj.Id == -1)

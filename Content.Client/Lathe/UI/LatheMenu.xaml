@@ -27,7 +27,7 @@
                         PlaceHolder="{Loc 'lathe-menu-search-designs'}"
                         HorizontalExpand="True">
                     </LineEdit>
-                    <OptionButton
+                    <controls:FancyOptionButton
                         Name="FilterOption"
                         MinWidth="100"
                         StyleClasses="ButtonSquare"/>

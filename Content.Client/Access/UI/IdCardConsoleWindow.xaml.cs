@@ -88,7 +88,7 @@ namespace Content.Client.Access.UI
             }
         }
 
-        private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
+        private void SelectJobPreset(FancyOptionButton.ItemSelectedEventArgs args)
         {
             if (!_prototypeManager.TryIndex(_jobPrototypeIds[args.Id], out JobPrototype? job))
             {

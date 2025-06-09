@@ -34,7 +34,6 @@ using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
-using static Robust.Client.UserInterface.Controls.OptionButton;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 using Vector2 = System.Numerics.Vector2;
 
@@ -817,7 +816,7 @@ public sealed class MappingState : GameplayStateBase
         _placement.Replacement = args.Pressed;
     }
 
-    private void OnEntityPlacementSelected(ItemSelectedEventArgs args)
+    private void OnEntityPlacementSelected(FancyOptionButton.ItemSelectedEventArgs args)
     {
         Screen.EntityPlacementMode.SelectId(args.Id);
 

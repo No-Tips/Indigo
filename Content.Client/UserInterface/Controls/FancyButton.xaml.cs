@@ -36,6 +36,6 @@ public sealed partial class FancyButton : ContainerButton
     private void UpdateAppearance() =>
         ButtonLabel.SetOnlyStyleClass(
             DrawMode == DrawModeEnum.Disabled
-                ? UIStyleClasses.FancyButtonLabelDisabled
+                ? UIStyleClasses.FancyButtonDisabledLabel
                 : UIStyleClasses.FancyButtonLabel);
 }

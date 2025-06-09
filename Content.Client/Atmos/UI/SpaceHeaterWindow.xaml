@@ -11,7 +11,7 @@
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" SeparationOverride="5">
                 <Label Text="{Loc comp-space-heater-ui-mode}"/>
-                <OptionButton Access="Public" Name="ModeSelector"/>
+                <controls:FancyOptionButton Access="Public" Name="ModeSelector"/>
             </BoxContainer>
         </BoxContainer>
 

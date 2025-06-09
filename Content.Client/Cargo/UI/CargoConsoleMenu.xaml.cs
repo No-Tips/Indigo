@@ -41,7 +41,7 @@ namespace Content.Client.Cargo.UI
             Categories.OnItemSelected += OnCategoryItemSelected;
         }
 
-        private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
+        private void OnCategoryItemSelected(FancyOptionButton.ItemSelectedEventArgs args)
         {
             SetCategoryText(args.Id);
             PopulateProducts();
