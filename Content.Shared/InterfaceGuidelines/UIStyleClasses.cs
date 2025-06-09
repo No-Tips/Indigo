@@ -50,6 +50,12 @@ public static class UIStyleClasses
 
     #endregion
 
+    #region Line Edits
+
+    public const string FancyLineEditPanel = "FancyLineEditPanel";
+
+    #endregion
+
     #region Popups
 
     public const string FancyPopupPanel           = "FancyPopupPanel";

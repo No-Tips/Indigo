@@ -188,6 +188,22 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
+    #region Line Edits
+
+    public static RectBox LineEditPanel =>
+        new()
+        {
+            Rounding                    = new(0.0f),
+            Borders                     = new(Colors.LineEditBorder, new(2.0f)),
+            InsetBorders                = new(Colors.LineEditInsetBorder, new(0.0f, 0.0f, 0.0f, 1.0f)),
+            BackgroundColor             = Colors.LineEditBackground,
+            ContentMarginTopOverride    = 4.0f,
+            ContentMarginBottomOverride = 4.0f,
+            ContentMarginLeftOverride   = 8.0f
+        };
+
+    #endregion
+
     #region Popups
 
     public static RectBox FancyPopupPanel =>
@@ -774,7 +790,8 @@ public sealed class StyleNano : StyleBase
                         .Class(UIStyleClasses.FancyWindowTitle)
                         .Prop(
                             Label.StylePropertyFont,
-                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold))
+                        .Prop(Label.StylePropertyFontColor, Colors.WindowTitle),
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyWindowTitlebarIcon)
@@ -790,6 +807,27 @@ public sealed class StyleNano : StyleBase
                     Element<PanelContainer>()
                         .Class(UIStyleClasses.FancyWindowTitlebarPanel)
                         .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
+
+                    #endregion
+
+                    #region Line Edits
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertyStyleBox, LineEditPanel),
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertyCursorColor, Colors.LineEditCursor),
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertySelectionColor, Colors.LineEditSelection),
+
+                    Element<LineEdit>()
+                        .Pseudo(LineEdit.StylePseudoClassPlaceholder)
+                        .Prop(Label.StylePropertyFontColor, Colors.LineEditPlaceholder),
+
+                    Element<LineEdit>()
+                        .Class(LineEdit.StyleClassLineEditNotEditable)
+                        .Prop(Label.StylePropertyFontColor, Colors.LineEditPlaceholder),
 
                     #endregion
 
@@ -968,7 +1006,7 @@ public sealed class StyleNano : StyleBase
                                 [ContainerButton.StylePseudoClassDisabled,]),
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
-                            new("font-color", Color.FromHex("#E5E5E581"))
+                            new(Label.StylePropertyFontColor, Color.FromHex("#E5E5E581"))
                         ]),
 
                     // Context Menu Labels
@@ -1108,36 +1146,9 @@ public sealed class StyleNano : StyleBase
                             new(BoxContainer.StylePropertySeparation, 2)
                         ]),
 
-                    // Fancy LineEdit
-                    new(
-                        new SelectorElement(typeof(LineEdit), null, null, null),
-                        [
-                            new(LineEdit.StylePropertyStyleBox, lineEdit)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(LineEdit),
-                            [LineEdit.StyleClassLineEditNotEditable,],
-                            null,
-                            null),
-                        [
-                            new("font-color", new Color(192, 192, 192))
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(LineEdit),
-                            null,
-                            null,
-                            [LineEdit.StylePseudoClassPlaceholder,]),
-                        [
-                            new("font-color", Color.Gray)
-                        ]),
-
                     Element<TextEdit>()
                         .Pseudo(TextEdit.StylePseudoClassPlaceholder)
-                        .Prop("font-color", Color.Gray),
+                        .Prop(Label.StylePropertyFontColor, Color.Gray),
 
                     // Chat lineedit - we don't actually draw a stylebox around the lineedit itself, we put it around the
                     // input + other buttons, so we must clear the default stylebox
@@ -1736,7 +1747,7 @@ public sealed class StyleNano : StyleBase
                                 FontType.SansSerif,
                                 TextStyle.Footnote,
                                 weight: FontWeight.SemiBold))
-                        .Prop("font-color", ItemStatusNotHeldColor),
+                        .Prop(Label.StylePropertyFontColor, ItemStatusNotHeldColor),
 
                     Element<RichTextLabel>()
                         .Class(StyleClassItemStatus)
@@ -2117,19 +2128,19 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class("Good")
-                        .Prop("font-color", GoodGreenFore),
+                        .Prop(Label.StylePropertyFontColor, GoodGreenFore),
 
                     Element<Label>()
                         .Class("Caution")
-                        .Prop("font-color", ConcerningOrangeFore),
+                        .Prop(Label.StylePropertyFontColor, ConcerningOrangeFore),
 
                     Element<Label>()
                         .Class("Danger")
-                        .Prop("font-color", DangerousRedFore),
+                        .Prop(Label.StylePropertyFontColor, DangerousRedFore),
 
                     Element<Label>()
                         .Class("Disabled")
-                        .Prop("font-color", DisabledFore),
+                        .Prop(Label.StylePropertyFontColor, DisabledFore),
 
                     // Radial menu buttons
                     Element<TextureButton>()

@@ -32,12 +32,24 @@ public static class Colors
     public static readonly Color WindowBorder      = new(0, 0, 0);
     public static readonly Color WindowInsetBorder = new(48, 48, 48);
 
+    public static readonly Color WindowTitle = Color.FromHex("#AAAAAA");
     public static          Color WindowTitlebarBackground => Gray;
     public static          Color WindowTitlebarBorder     => WindowBorder;
     public static readonly Color WindowTitlebarInsetBorder = new(73, 73, 73);
 
     public static readonly Color WindowTitlebarCloseButton = Color.FromHex("#ff6565");
     public static readonly Color WindowTitlebarHelpButton  = Color.FromHex("#eebe00");
+
+    #endregion
+
+    #region Line Edit
+
+    public static readonly Color LineEditBackground  = Color.FromHex("#252525");
+    public static readonly Color LineEditBorder      = Color.FromHex("#303030");
+    public static readonly Color LineEditInsetBorder = Color.FromHex("#444444");
+    public static readonly Color LineEditPlaceholder = Color.FromHex("#646464");
+    public static          Color LineEditCursor    => Accent;
+    public static          Color LineEditSelection => Accent.WithAlpha(0.25f);
 
     #endregion
 
