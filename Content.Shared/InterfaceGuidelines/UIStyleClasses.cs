@@ -18,13 +18,13 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class UIStyleClasses
 {
-    #region Buttons
+    #region Button
 
     public const string GhostButton = "ButtonGhost";
 
     #endregion
 
-    #region Labels
+    #region Label
 
     public const string LabelIconFilledRegular1 = "LabelIconFilledRegular1";
     public const string LabelIconFilledRegular2 = "LabelIconFilledRegular2";
@@ -40,7 +40,7 @@ public static class UIStyleClasses
 
     #endregion
 
-    #region Windows
+    #region Window
 
     public const string FancyWindowTitle         = "FancyWindowTitle";
     public const string FancyWindowPanel         = "FancyWindowPanel";
@@ -50,20 +50,20 @@ public static class UIStyleClasses
 
     #endregion
 
-    #region Line Edits
+    #region Line Edit
 
     public const string FancyLineEditPanel = "FancyLineEditPanel";
 
     #endregion
 
-    #region Check Boxes
+    #region Check Box
 
     public const string FancyCheckBoxPanel        = "FancyCheckBoxPanel";
     public const string FancyCheckBoxCheckedPanel = "FancyCheckBoxCheckedPanel";
 
     #endregion
 
-    #region Popups
+    #region Popup
 
     public const string FancyPopupPanel           = "FancyPopupPanel";
     public const string FancyPopupItemIconLabel   = "FancyPopupItemIconLabel";
