@@ -50,6 +50,15 @@ public static class UIStyleClasses
 
     #endregion
 
+    #region Popups
+
+    public const string FancyPopupPanel           = "FancyPopupPanel";
+    public const string FancyPopupItemIconLabel   = "FancyPopupItemIconLabel";
+    public const string FancyPopupItemButton      = "FancyPopupItemButton";
+    public const string FancyPopupItemHotkeyLabel = "FancyPopupItemHotkeyLabel";
+
+    #endregion
+
     #region Chat
 
     public const string ChatPanel = "ChatPanel";
@@ -62,9 +71,6 @@ public static class UIStyleClasses
     public const string GlobalMenuCategoryButton = "GlobalMenuCategoryButton";
     public const string GlobalMenuCategoryLabel  = "GlobalMenuCategoryLabel";
     public const string GlobalMenuCategoryIcon   = "GlobalMenuCategoryIcon";
-
-    public const string GlobalMenuPopupItem            = "GlobalMenuPopupItem";
-    public const string GlobalMenuPopupItemHotkeyLabel = "GlobalMenuPopupItemHotkeyLabel";
 
     #endregion
 }

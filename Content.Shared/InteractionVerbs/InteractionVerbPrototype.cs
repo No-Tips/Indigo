@@ -36,7 +36,7 @@ public sealed partial class InteractionVerbPrototype : IPrototype, IInheritingPr
     ///     Icon glyph that the user sees on the verb button.
     /// </summary>
     [DataField]
-    public string? Icon;
+    public string? GlyphIcon;
 
     /// <summary>
     ///     Specifies what effects are shown when this verb is performed successfully, or unsuccessfully.

@@ -27,6 +27,8 @@ public class FancyPopup : Popup
 {
     private const string OpenOpacityAnimationKey = "OpenOpacityAnimationKey";
 
+    public bool AnimateFadeIn = true;
+
     private static readonly Animation OpenOpacityAnimation = new()
     {
         Length = TimeSpan.FromSeconds(AnimationConstants.ControlFadeInDuration),
@@ -51,6 +53,7 @@ public class FancyPopup : Popup
         if (HasRunningAnimation(OpenOpacityAnimationKey))
             StopAnimation(OpenOpacityAnimationKey);
 
-        PlayAnimation(OpenOpacityAnimation, OpenOpacityAnimationKey);
+        if (AnimateFadeIn)
+            PlayAnimation(OpenOpacityAnimation, OpenOpacityAnimationKey);
     }
 }

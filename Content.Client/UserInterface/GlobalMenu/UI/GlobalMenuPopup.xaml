@@ -18,7 +18,7 @@
 <ui:GlobalMenuPopup
     xmlns="https://spacestation14.io"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI">
-    <PanelContainer Name="MenuContainer">
+    <PanelContainer StyleClasses="FancyPopupPanel">
         <BoxContainer
             Margin="0 8" Name="MenuPanel"
             Orientation="Vertical" VerticalExpand="True" />

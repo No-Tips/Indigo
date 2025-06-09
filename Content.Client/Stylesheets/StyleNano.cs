@@ -20,7 +20,6 @@ using static Robust.Client.UserInterface.StylesheetHelpers;
 namespace Content.Client.Stylesheets;
 
 
-// STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
 public sealed class StyleNano : StyleBase
 {
     public const string StyleClassBorderedWindowPanel            = "BorderedWindowPanel";
@@ -189,6 +188,31 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
+    #region Popups
+
+    public static RectBox FancyPopupPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            Borders         = new(Colors.PopupBorder, new(2.0f)),
+            InsetBorders    = new(Colors.PopupInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.PopupBackground
+        };
+
+    public static StyleBoxFlat FancyPopupItemPanel =>
+        new(Color.Transparent)
+        {
+            Padding = new(12.0f, 4.0f)
+        };
+
+    public static StyleBoxFlat FancyPopupItemPanelHover =>
+        new(Colors.Accent.WithAlpha(0.4f))
+        {
+            Padding = new(12.0f, 4.0f)
+        };
+
+    #endregion
+
     #region Chat
 
     public static RectBox ChatPanel =>
@@ -236,12 +260,6 @@ public sealed class StyleNano : StyleBase
             Texture = borderedWindowBackgroundTex
         };
         borderedWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
-
-        var contextMenuBackground = new StyleBoxTexture
-        {
-            Texture = borderedWindowBackgroundTex
-        };
-        contextMenuBackground.SetPatchMargin(StyleBox.Margin.All, ContextMenuElement.ElementMargin);
 
         var invSlotBgTex = resCache.GetTexture("/Textures/Interface/Inventory/inv_slot_background.png");
         var invSlotBg = new StyleBoxTexture
@@ -293,8 +311,7 @@ public sealed class StyleNano : StyleBase
 
         var buttonRectActionMenuItemTex =
             resCache.GetTexture("/Textures/Interface/Nano/black_panel_light_thin_border.png");
-        var buttonRectActionMenuRevokedItemTex =
-            resCache.GetTexture("/Textures/Interface/Nano/black_panel_red_thin_border.png");
+        resCache.GetTexture("/Textures/Interface/Nano/black_panel_red_thin_border.png");
         var buttonRectActionMenuItem = new StyleBoxTexture(BaseButton)
         {
             Texture = buttonRectActionMenuItemTex
@@ -774,6 +791,26 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
+                    #region Popups
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyPopupPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyPopupPanel),
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancyPopupItemButton)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyPopupItemPanel),
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancyPopupItemButton)
+                        .Pseudo(ContainerButton.StylePseudoClassHover)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyPopupItemPanelHover),
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyPopupItemIconLabel)
+                        .Prop(
+                            "font",
+                            typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote, FontWeight.Bold)),
+
+                    #endregion
+
                     #region Chat
 
                     Element<PanelContainer>()
@@ -818,27 +855,8 @@ public sealed class StyleNano : StyleBase
                             )
                         ),
 
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItem)
-                        .Prop(
-                            ContainerButton.StylePropertyStyleBox,
-                            new StyleBoxEmpty
-                            {
-                                Padding = new(12.0f, 4.0f)
-                            }),
-
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItem)
-                        .Pseudo(ContainerButton.StylePseudoClassHover)
-                        .Prop(
-                            ContainerButton.StylePropertyStyleBox,
-                            new StyleBoxFlat(new Color(255, 255, 255, 8))
-                            {
-                                Padding = new(12.0f, 4.0f)
-                            }),
-
                     Element<Label>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItemHotkeyLabel)
+                        .Class(UIStyleClasses.FancyPopupItemHotkeyLabel)
                         .Prop(Label.StylePropertyFontColor, new Color(127, 127, 127)),
 
                     #endregion
@@ -948,36 +966,6 @@ public sealed class StyleNano : StyleBase
                         [
                             new("font-color", Color.FromHex("#E5E5E581"))
                         ]),
-
-                    // Context Menu window
-                    Element<PanelContainer>()
-                        .Class(ContextMenuPopup.StyleClassContextMenuPopup)
-                        .Prop(PanelContainer.StylePropertyPanel, contextMenuBackground),
-
-                    // Context menu buttons
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Prop(ContainerButton.StylePropertyStyleBox, buttonContext),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassNormal)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContext),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassHover)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextHover),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassPressed)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextPressed),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextDisabled),
 
                     // Context Menu Labels
                     Element<RichTextLabel>()
@@ -1397,18 +1385,6 @@ public sealed class StyleNano : StyleBase
                             new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
-                    // small number for the entity counter in the entity menu
-                    new(
-                        new SelectorElement(
-                            typeof(Label),
-                            [ContextMenuElement.StyleClassEntityMenuIconLabel,],
-                            null,
-                            null),
-                        [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote)),
-                            new(Label.StylePropertyAlignMode, Label.AlignMode.Right)
-                        ]),
-
                     // hotbar slot
                     new(
                         new SelectorElement(
@@ -1423,17 +1399,6 @@ public sealed class StyleNano : StyleBase
                                     FontType.SansSerif,
                                     TextStyle.Title3,
                                     weight: FontWeight.Bold))
-                        ]),
-
-                    // Entity tooltip
-                    new(
-                        new SelectorElement(
-                            typeof(PanelContainer),
-                            [ExamineSystem.StyleClassEntityTooltip,],
-                            null,
-                            null),
-                        [
-                            new(PanelContainer.StylePropertyPanel, tooltipBox)
                         ]),
 
                     // ItemList

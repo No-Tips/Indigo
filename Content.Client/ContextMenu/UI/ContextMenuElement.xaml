@@ -3,33 +3,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="clr-namespace:Content.Client.ContextMenu.UI"
     xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
+    StyleClasses="FancyPopupItemButton"
     MinHeight="{x:Static ui:ContextMenuElement.ElementHeight}">
-    <BoxContainer Orientation="Horizontal">
-        <SpriteView
-            Name="Icon"
-            SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
-            SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}"
-            OverrideDirection="South">
-            <Label
-                Name="IconLabel"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                StyleClasses="contextMenuIconLabel"
-                Visible="false"/>
+    <BoxContainer HorizontalExpand="True" Orientation="Horizontal"
+                  SeparationOverride="8">
+        <SpriteView Name="Icon" OverrideDirection="South"
+                    SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
+                    SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}">
+            <Label Name="IconLabel" StyleClasses="FancyPopupItemIconLabel"
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                   Align="Right" Visible="false" />
         </SpriteView>
-        <RichTextLabel
-            Name="Label"
-            MaxWidth="300"
-            HorizontalExpand="True"
-            VerticalAlignment="Center"
-            Margin ="4 0 4 0"/>
-        <Label
-            Name="ExpansionIndicator"
-            Text="{x:Static ig:SymbolIcons.ChevronRight}"
-            HorizontalAlignment="Right"
-            StyleClasses="LabelIconFilledRegular1"
-            SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
-            SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}"
-            Visible ="false"/>
+        <Label Name="ItemLabel" MaxWidth="300"
+               HorizontalExpand="True" VerticalAlignment="Center" />
+        <Label Name="ExpansionIndicator" StyleClasses="LabelIconFilledRegular1"
+               Text="{x:Static ig:SymbolIcons.ChevronRight}"
+               HorizontalAlignment="Right"
+               SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
+               SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}"
+               Visible="false" />
     </BoxContainer>
 </ContainerButton>

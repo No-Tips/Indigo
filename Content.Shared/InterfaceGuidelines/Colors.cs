@@ -18,9 +18,13 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class Colors
 {
-    public static readonly Color Black = Color.FromHex("#191919");
-    public static readonly Color Gray  = Color.FromHex("#353535");
-    public static readonly Color Red   = Color.FromHex("#E40E0E");
+    public static readonly Color Black  = Color.FromHex("#191919");
+    public static readonly Color Blue   = Color.FromHex("#3B5CFF");
+    public static readonly Color Gray   = Color.FromHex("#353535");
+    public static readonly Color Indigo = Color.FromHex("#9900FF");
+    public static readonly Color Red    = Color.FromHex("#E40E0E");
+
+    public static Color Accent => Blue;
 
     #region Window
 
@@ -31,6 +35,14 @@ public static class Colors
     public static          Color WindowTitlebarBackground => Gray;
     public static          Color WindowTitlebarBorder     => WindowBorder;
     public static readonly Color WindowTitlebarInsetBorder = new(73, 73, 73);
+
+    #endregion
+
+    #region Popups
+
+    public static Color PopupBackground  => WindowBackground;
+    public static Color PopupBorder      => WindowBorder;
+    public static Color PopupInsetBorder => WindowInsetBorder;
 
     #endregion
 

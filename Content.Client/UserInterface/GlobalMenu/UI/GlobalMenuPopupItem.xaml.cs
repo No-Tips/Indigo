@@ -29,17 +29,11 @@ public sealed partial class GlobalMenuPopupItem : ContainerButton
     public GlobalMenuPopupItem()
     {
         RobustXamlLoader.Load(this);
-
-        HotKeyLabel.SetOnlyStyleClass(UIStyleClasses.GlobalMenuPopupItemHotkeyLabel);
-        SetOnlyStyleClass(UIStyleClasses.GlobalMenuPopupItem);
     }
 
     public GlobalMenuPopupItem(LocalizedString title, string? hotKey)
     {
         RobustXamlLoader.Load(this);
-
-        HotKeyLabel.SetOnlyStyleClass(UIStyleClasses.GlobalMenuPopupItemHotkeyLabel);
-        SetOnlyStyleClass(UIStyleClasses.GlobalMenuPopupItem);
 
         TitleLabel.Text = title.ToString();
 
