@@ -741,7 +741,168 @@ public sealed class StyleNano : StyleBase
                         .Class(ButtonSquare)
                         .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonSquare),
 
-                    #region Labels
+                    #region Font
+
+                    new(
+                        new SelectorElement(null, null, null, null),
+                        [
+                            new(Label.StylePropertyFontColor, Colors.Label)
+                        ]
+                    ),
+
+                    #endregion
+
+                    #region Window
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanel),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanelSmall)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitle)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold))
+                        .Prop(Label.StylePropertyFontColor, Colors.WindowTitle),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarIcon)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                true,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
+
+                    #endregion
+
+                    #region Button
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.GhostButton)
+                        .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabelDisabled),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    #region Default
+
+                    Element<FancyButton>()
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPressedPanel),
+
+                    #endregion
+
+                    #region Accent
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
+
+                    #endregion
+
+                    #endregion
+
+                    #region Label
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle1)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle1)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title1,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle2)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle2)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle3)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle3)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelHeadline)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelHeadline)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Headline,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    #region Symbol
 
                     Element<Label>()
                         .Class(UIStyleClasses.LabelIconFilledRegular1)
@@ -844,83 +1005,6 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Button
-
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GhostButton)
-                        .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.FancyButtonLabelDisabled)
-                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabelDisabled),
-
-                    #region Default
-
-                    Element<FancyButton>()
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPanel),
-
-                    Element<FancyButton>()
-                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDisabledPanel),
-
-                    Element<FancyButton>()
-                        .Pseudo(ContainerButton.StylePseudoClassPressed)
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPressedPanel),
-
-                    #endregion
-
-                    #region Accent
-
-                    Element<FancyButton>()
-                        .Class(UIStyleClasses.FancyButtonAccent)
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPanel),
-
-                    Element<FancyButton>()
-                        .Class(UIStyleClasses.FancyButtonAccent)
-                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentDisabledPanel),
-
-                    Element<FancyButton>()
-                        .Class(UIStyleClasses.FancyButtonAccent)
-                        .Pseudo(ContainerButton.StylePseudoClassPressed)
-                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
-
-                    #endregion
-
-                    #endregion
-
-                    #region Window
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanel),
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowPanelSmall)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.FancyWindowTitle)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold))
-                        .Prop(Label.StylePropertyFontColor, Colors.WindowTitle),
-
-                    Element<Label>()
-                        .Class(UIStyleClasses.FancyWindowTitlebarIcon)
-                        .Prop(
-                            Label.StylePropertyFont,
-                            typographyManager.GetSymbolsFont(
-                                true,
-                                style: TextStyle.Title3,
-                                weight: FontWeight.Bold
-                            )
-                        ),
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
-
                     #endregion
 
                     #region Line Edit
@@ -1018,7 +1102,7 @@ public sealed class StyleNano : StyleBase
                             typographyManager.GetSymbolsFont(
                                 filled: true,
                                 style: TextStyle.Title2,
-                                weight: FontWeight.Regular
+                                weight: FontWeight.SemiBold
                             )
                         ),
 

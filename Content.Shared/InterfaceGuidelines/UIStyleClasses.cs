@@ -39,6 +39,11 @@ public static class UIStyleClasses
 
     #region Label
 
+    public const string LabelTitle1   = "LabelTitle1";
+    public const string LabelTitle2   = "LabelTitle2";
+    public const string LabelTitle3   = "LabelTitle3";
+    public const string LabelHeadline = "LabelHeadline";
+
     public const string LabelIconFilledRegular1 = "LabelIconFilledRegular1";
     public const string LabelIconFilledRegular2 = "LabelIconFilledRegular2";
     public const string LabelIconFilledRegular3 = "LabelIconFilledRegular3";

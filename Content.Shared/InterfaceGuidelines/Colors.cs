@@ -54,9 +54,9 @@ public static class Colors
 
     #region Default
 
-    public static readonly Color ButtonBackground         = Color.FromHex("#7D7D7D");
-    public static readonly Color ButtonPressedBackground  = Color.FromHex("#969696");
-    public static readonly Color ButtonDisabledBackground = Color.FromHex("#464646");
+    public static readonly Color ButtonBackground         = Color.FromHex("#646464");
+    public static readonly Color ButtonPressedBackground  = Color.FromHex("#828282");
+    public static readonly Color ButtonDisabledBackground = Color.FromHex("#323232");
 
     #endregion
 
@@ -67,6 +67,16 @@ public static class Colors
     public static Color ButtonAccentDisabledBackground => AccentDark;
 
     #endregion
+
+    #endregion
+
+    #region Label
+
+    public static readonly Color Label         = Color.FromHex("#E1E1E1");
+    public static readonly Color LabelTitle1   = Color.White;
+    public static readonly Color LabelTitle2   = Color.White;
+    public static readonly Color LabelTitle3   = Color.White;
+    public static readonly Color LabelHeadline = Color.White;
 
     #endregion
 

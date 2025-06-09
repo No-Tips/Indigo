@@ -21,8 +21,6 @@ public abstract class StyleBase
     public const string StyleClassMonospace = "monospace";
     public const string StyleClassSerif = "serif";
 
-    public const string ClassAngleRect = "AngleRect";
-
     public const string ButtonOpenRight = "OpenRight";
     public const string ButtonOpenLeft = "OpenLeft";
     public const string ButtonOpenBoth = "OpenBoth";
