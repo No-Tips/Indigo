@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Animations;
 
 
@@ -48,7 +48,7 @@ public partial class FancyWindow
         if (HasRunningAnimation(OpenOpacityAnimationKey))
             StopAnimation(OpenOpacityAnimationKey);
 
-        Modulate = new(255, 255, 255, 0);
+        Modulate = new(255, 255, 255, 127);
         PlayAnimation(OpenOpacityAnimation, OpenOpacityAnimationKey);
     }
 }

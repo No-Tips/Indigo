@@ -12,6 +12,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
@@ -68,7 +69,7 @@ namespace Content.Server.Strip
             Verb verb = new()
             {
                 Text = Loc.GetString("strip-verb-get-data-text"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Checkroom,
                 Act = () => StartOpeningStripper(args.User, (uid, component), true),
             };
 
@@ -86,7 +87,7 @@ namespace Content.Server.Strip
             ExamineVerb verb = new()
             {
                 Text = Loc.GetString("strip-verb-get-data-text"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Checkroom,
                 Act = () => StartOpeningStripper(args.User, (uid, component), true),
                 Category = VerbCategory.Examine,
             };

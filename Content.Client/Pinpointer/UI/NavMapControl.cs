@@ -19,6 +19,7 @@ using JetBrains.Annotations;
 using Content.Shared.Atmos;
 using System.Linq;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Pinpointer.UI;
@@ -454,6 +455,8 @@ public partial class NavMapControl : MapGridControl
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         // Update the timer
         _updateTimer += args.DeltaSeconds;
 

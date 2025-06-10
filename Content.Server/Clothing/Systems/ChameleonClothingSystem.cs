@@ -39,7 +39,6 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
         args.Verbs.Add(new InteractionVerb()
         {
             Text = Loc.GetString("chameleon-component-verb-text"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
             Act = () => TryOpenUi(uid, args.User, component)
         });
     }

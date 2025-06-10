@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
@@ -37,17 +36,6 @@ namespace Content.Client.Construction.UI
         private ConstructionSystem? _constructionSystem;
         private ConstructionPrototype? _selected;
 
-        private bool CraftingAvailable
-        {
-            get => _uiManager.GetActiveUIWidget<GameTopMenuBar>().CraftingButton.Visible;
-            set
-            {
-                _uiManager.GetActiveUIWidget<GameTopMenuBar>().CraftingButton.Visible = value;
-                if (!value)
-                    _constructionView.Close();
-            }
-        }
-
         /// <summary>
         /// Does the window have focus? If the window is closed, this will always return false.
         /// </summary>
@@ -58,7 +46,7 @@ namespace Content.Client.Construction.UI
             get => _constructionView.IsOpen;
             set
             {
-                if (value && CraftingAvailable)
+                if (value)
                 {
                     if (_constructionView.IsOpen)
                         _constructionView.MoveToFront();
@@ -92,7 +80,6 @@ namespace Content.Client.Construction.UI
 
             _placementManager.PlacementChanged += OnPlacementChanged;
 
-            _constructionView.OnClose += () => _uiManager.GetActiveUIWidget<GameTopMenuBar>().CraftingButton.Pressed = false;
             _constructionView.ClearAllGhosts += (_, _) => _constructionSystem?.ClearAllGhosts();
             _constructionView.PopulateRecipes += OnViewPopulateRecipes;
             _constructionView.RecipeSelected += OnViewRecipeSelected;
@@ -110,10 +97,7 @@ namespace Content.Client.Construction.UI
 
         }
 
-        public void OnHudCraftingButtonToggled(ButtonToggledEventArgs args)
-        {
-            WindowOpen = args.Pressed;
-        }
+        public void ToggleWindow() => WindowOpen = !WindowOpen;
 
         /// <inheritdoc />
         public void Dispose()
@@ -361,10 +345,6 @@ namespace Content.Client.Construction.UI
             system.FlipConstructionPrototype += SystemFlipConstructionPrototype;
             system.CraftingAvailabilityChanged += SystemCraftingAvailabilityChanged;
             system.ConstructionGuideAvailable += SystemGuideAvailable;
-            if (_uiManager.GetActiveUIWidgetOrNull<GameTopMenuBar>() != null)
-            {
-                CraftingAvailable = system.CraftingEnabled;
-            }
         }
 
         private void UnbindFromSystem()
@@ -385,20 +365,15 @@ namespace Content.Client.Construction.UI
         {
             if (_uiManager.ActiveScreen == null)
                 return;
-            CraftingAvailable = e.Available;
         }
 
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
         {
-            if (!CraftingAvailable)
-                return;
-
             if (WindowOpen)
             {
                 if (IsAtFront)
                 {
                     WindowOpen = false;
-                    _uiManager.GetActiveUIWidget<GameTopMenuBar>().CraftingButton.SetClickPressed(false); // This does not call CraftingButtonToggled
                 }
                 else
                     _constructionView.MoveToFront();
@@ -406,7 +381,6 @@ namespace Content.Client.Construction.UI
             else
             {
                 WindowOpen = true;
-                _uiManager.GetActiveUIWidget<GameTopMenuBar>().CraftingButton.SetClickPressed(true); // This does not call CraftingButtonToggled
             }
         }
 
@@ -428,9 +402,6 @@ namespace Content.Client.Construction.UI
 
         private void SystemGuideAvailable(object? sender, string e)
         {
-            if (!CraftingAvailable)
-                return;
-
             if (!WindowOpen)
                 return;
 

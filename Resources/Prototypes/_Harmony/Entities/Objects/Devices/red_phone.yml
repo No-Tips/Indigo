@@ -19,7 +19,7 @@
       sentMessage: prayer-popup-notify-centcom-sent
       notificationPrefix: prayer-chat-notify-centcom
       verb: prayer-verbs-call
-      verbImage: null
+      verbGlyphIcon: null
     - type: Speech
       speechVerb: Robotic
     - type: EncryptionKeyHolder

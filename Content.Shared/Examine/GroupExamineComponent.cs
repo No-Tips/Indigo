@@ -1,3 +1,4 @@
+using Content.Shared.InterfaceGuidelines;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -52,10 +53,10 @@ namespace Content.Shared.Examine
         public List<string> Components = new();
 
         /// <summary>
-        ///     The icon path for the Examine Group.
+        ///     The icon glyph for the Examine Group.
         /// </summary>
         [DataField]
-        public SpriteSpecifier Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/examine-star.png"));
+        public string Icon = SymbolIcons.Search;
 
         /// <summary>
         ///     The text shown in the context verb menu.

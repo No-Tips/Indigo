@@ -3,6 +3,7 @@ using Content.Server.Administration.Commands;
 using Content.Server.Chat.Managers;
 using Content.Server.EUI;
 using Content.Shared.Database;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -43,7 +44,7 @@ public sealed class AdminNotesSystem : EntitySystem
         {
             Text = Loc.GetString("admin-notes-verb-text"),
             Category = VerbCategory.Admin,
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/examine.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Assignment,
             Act = () => _console.RemoteExecuteCommand(user, $"{OpenAdminNotesCommand.CommandName} \"{target.UserId}\""),
             Impact = LogImpact.Low
         };

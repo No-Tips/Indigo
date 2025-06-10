@@ -22,7 +22,6 @@ public sealed partial class StationAiSystem
         args.Actions.Add(new StationAiRadial()
         {
             Tooltip = Loc.GetString("toggle-light"),
-            Sprite = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
             Event = new StationAiLightEvent()
             {
                 Enabled = !toggle.Activated

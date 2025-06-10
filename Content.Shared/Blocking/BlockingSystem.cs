@@ -7,6 +7,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
@@ -336,7 +337,7 @@ public sealed partial class BlockingSystem : EntitySystem
 
         _examine.AddDetailedExamineVerb(args, component, msg,
             Loc.GetString("blocking-examinable-verb-text"),
-            "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
+            SymbolIcons.Shield,
             Loc.GetString("blocking-examinable-verb-message")
         );
     }

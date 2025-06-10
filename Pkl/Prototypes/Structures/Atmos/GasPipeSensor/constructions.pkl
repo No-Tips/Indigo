@@ -1,0 +1,30 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    generateGasPipeSensorConstruction(0)
+    generateGasPipeSensorConstruction(1)
+    generateGasPipeSensorConstruction(2)
+    generateGasPipeSensorConstruction(3)
+    generateGasPipeSensorConstruction(4)
+}
+
+local const function generateGasPipeSensorConstruction(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasPipeSensor\(l)"
+    name = "gas pipe sensor"
+    description = "Reports on the status of the gas within the attached pipe network."
+    graph = "GasPipeSensor"
+    startNode = "start"
+    targetNode = "sensor\(l)"
+    category = "construction-category-structures"
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gas_pipe_sensor.rsi"
+        state = "icon"
+    }
+    placementMode = "SnapgridCenter"
+    objectType = "Structure"
+    canRotate = true
+}

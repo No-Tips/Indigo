@@ -61,7 +61,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-traitor"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Wallmounts/posters.rsi"), "poster5_contraband"),
+            SpriteIcon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Wallmounts/posters.rsi"), "poster5_contraband"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
@@ -73,9 +73,9 @@ public sealed partial class AdminVerbSystem
 
         Verb zombie = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-zombie"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/zombie-turn.png")),
+            Text       = Loc.GetString("admin-verb-text-make-zombie"),
+            Category   = VerbCategory.Antag,
+            SpriteIcon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/zombie-turn.png")),
             Act = () =>
             {
                 _zombie.ZombifyEntity(args.Target);
@@ -88,9 +88,9 @@ public sealed partial class AdminVerbSystem
 
         Verb nukeOp = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-nuclear-operative"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/Wallmounts/signs.rsi"), "radiation"),
+            Text       = Loc.GetString("admin-verb-text-make-nuclear-operative"),
+            Category   = VerbCategory.Antag,
+            SpriteIcon = new SpriteSpecifier.Rsi(new("/Textures/Structures/Wallmounts/signs.rsi"), "radiation"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<NukeopsRuleComponent>(targetPlayer, DefaultNukeOpRule);
@@ -102,9 +102,9 @@ public sealed partial class AdminVerbSystem
 
         Verb pirate = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-pirate"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hats/pirate.rsi"), "icon"),
+            Text       = Loc.GetString("admin-verb-text-make-pirate"),
+            Category   = VerbCategory.Antag,
+            SpriteIcon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hats/pirate.rsi"), "icon"),
             Act = () =>
             {
                 // pirates just get an outfit because they don't really have logic associated with them
@@ -117,9 +117,9 @@ public sealed partial class AdminVerbSystem
 
         Verb headRev = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-head-rev"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
+            Text       = Loc.GetString("admin-verb-text-make-head-rev"),
+            Category   = VerbCategory.Antag,
+            SpriteIcon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<RevolutionaryRuleComponent>(targetPlayer, DefaultRevsRule);
@@ -133,7 +133,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-thief"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/Color/black.rsi"), "icon"),
+            SpriteIcon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/Color/black.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ThiefRuleComponent>(targetPlayer, DefaultThiefRule);
@@ -148,7 +148,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
+            SpriteIcon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
             Act = () =>
             {
                 if (!HasComp<SiliconComponent>(args.Target))
@@ -162,9 +162,9 @@ public sealed partial class AdminVerbSystem
 
         Verb cultist = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-blood-cultist"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/cult_dagger.rsi"), "icon"),
+            Text       = Loc.GetString("admin-verb-text-make-blood-cultist"),
+            Category   = VerbCategory.Antag,
+            SpriteIcon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/cult_dagger.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);

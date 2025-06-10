@@ -1,5 +1,7 @@
-<DefaultWindow xmlns="https://spacestation14.io"
-            Title="{Loc signal-timer-menu-title}">
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc signal-timer-menu-title}">
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
         <BoxContainer Name="TextEdit" Orientation="Horizontal">
             <Label Name="CurrentLabel" Text="{Loc signal-timer-menu-label}" />
@@ -14,4 +16,4 @@
         </BoxContainer>
         <Button Name="StartTimer" Text="{Loc signal-timer-menu-start}" />
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

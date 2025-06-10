@@ -1,7 +1,9 @@
-<DefaultWindow xmlns="https://spacestation14.io"
-               Title="{Loc nano-chat-new-title}"
-               MinSize="300 200">
-    <PanelContainer StyleClasses="AngleRect">
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc nano-chat-new-title}"
+    MinSize="300 200">
+    <PanelContainer StyleClasses="FancyWindowPanel">
         <BoxContainer Orientation="Vertical" Margin="4">
             <!-- Number input -->
             <BoxContainer Orientation="Vertical" Margin="0 4">
@@ -49,4 +51,4 @@
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>
-</DefaultWindow>
+</controls:FancyWindow>

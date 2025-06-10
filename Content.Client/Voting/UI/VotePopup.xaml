@@ -1,6 +1,7 @@
 ﻿<Control xmlns="https://spacestation14.io" MinWidth="300">
-    <PanelContainer StyleClasses="AngleRect" />
-    <BoxContainer Margin="4" Orientation="Vertical">
+    <PanelContainer Name="Panel" StyleClasses="FancyWindowPanel" />
+
+    <BoxContainer Margin="12 12" Orientation="Vertical">
         <Label Name="VoteCaller" />
         <Label Name="VoteTitle" />
 

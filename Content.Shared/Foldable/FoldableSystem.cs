@@ -1,5 +1,6 @@
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -135,7 +136,7 @@ public sealed class FoldableSystem : EntitySystem
         {
             Act = () => TryToggleFold(uid, component),
             Text = component.IsFolded ? Loc.GetString(component.UnfoldVerbText) : Loc.GetString(component.FoldVerbText),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.DevicesFold,
 
             // If the object is unfolded and they click it, they want to fold it, if it's folded, they want to pick it up
             Priority = component.IsFolded ? 0 : 2,

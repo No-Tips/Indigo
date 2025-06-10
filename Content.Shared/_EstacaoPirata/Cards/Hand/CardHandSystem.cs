@@ -4,6 +4,7 @@ using Content.Shared._EstacaoPirata.Cards.Deck;
 using Content.Shared._EstacaoPirata.Cards.Stack;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
@@ -114,28 +115,28 @@ public sealed class CardHandSystem : EntitySystem
         {
             Act = () => OpenHandMenu(args.User, uid),
             Text = Loc.GetString("cards-verb-pickcard"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/die.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.MoveItem,
             Priority = 4
         });
         args.Verbs.Add(new AlternativeVerb()
         {
             Act = () => _cardStack.ShuffleCards(uid),
             Text = Loc.GetString("cards-verb-shuffle"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/die.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Shuffle,
             Priority = 3
         });
         args.Verbs.Add(new AlternativeVerb()
         {
             Act = () => FlipCards(uid, comp),
             Text = Loc.GetString("cards-verb-flip"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/flip.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Flip,
             Priority = 2
         });
         args.Verbs.Add(new AlternativeVerb()
         {
             Act = () => ConvertToDeck(args.User, uid),
             Text = Loc.GetString("cards-verb-convert-to-deck"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rotate_cw.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.RotateRight,
             Priority = 1
         });
     }

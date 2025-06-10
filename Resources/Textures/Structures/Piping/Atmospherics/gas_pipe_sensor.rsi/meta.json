@@ -10,19 +10,77 @@
         {
             "name": "icon"
         },
-	{
-            "name": "base"
-        },
-	{
+        {
             "name": "blank"
         },
         {
-            "name": "lights",
+            "name": "base_0",
+            "directions": 4
+        },
+        {
+            "name": "base_1",
+            "directions": 4
+        },
+        {
+            "name": "base_2",
+            "directions": 4
+        },
+        {
+            "name": "base_3",
+            "directions": 4
+        },
+        {
+            "name": "base_4",
+            "directions": 4
+        },
+        {
+            "name": "lights_0",
+            "directions": 4,
             "delays": [
-                [
-                    1.0,
-                    0.25
-                ]
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25]
+            ]
+        },
+        {
+            "name": "lights_1",
+            "directions": 4,
+            "delays": [
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25]
+            ]
+        },
+        {
+            "name": "lights_2",
+            "directions": 4,
+            "delays": [
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25]
+            ]
+        },
+        {
+            "name": "lights_3",
+            "directions": 4,
+            "delays": [
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25]
+            ]
+        },
+        {
+            "name": "lights_4",
+            "directions": 4,
+            "delays": [
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25],
+                [1.0, 0.25]
             ]
         }
     ]

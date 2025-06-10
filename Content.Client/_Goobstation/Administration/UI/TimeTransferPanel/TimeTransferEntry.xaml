@@ -4,7 +4,7 @@
               Margin="5 5"
               HorizontalExpand="True"
               Visible="True">
-    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+    <PanelContainer StyleClasses="FancyWindowPanel" HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal">
             <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
                 <CheckBox Name="GroupCheckbox" HorizontalAlignment="Center"/>

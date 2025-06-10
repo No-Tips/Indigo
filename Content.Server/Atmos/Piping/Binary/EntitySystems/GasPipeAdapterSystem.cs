@@ -2,8 +2,10 @@ using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.GasPipeAdapter;
 using Robust.Server.GameObjects;
+using Robust.Shared.Utility;
 
 
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems;
@@ -50,7 +52,9 @@ public sealed class GasPipeAdapterSystem : EntitySystem
         GasPipeAdapterLayerSelectedMessage args
     )
     {
-        var layer = Math.Clamp(args.Layer, 0, PipeNode.MaxLayers - 1);
+        DebugTools.Assert(args.Layer < Atmospherics.MaxPipeLayers);
+
+        var layer = Math.Clamp(args.Layer, 0, Atmospherics.MaxPipeLayers - 1);
 
         switch (args.LayerType)
         {

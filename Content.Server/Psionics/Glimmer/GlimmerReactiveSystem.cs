@@ -14,6 +14,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
 using Content.Shared.Weapons.Melee.Components;
@@ -168,7 +169,7 @@ public sealed class GlimmerReactiveSystem : EntitySystem
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
                 _electrocutionSystem.TryDoElectrocution(args.User, null, (int) _glimmerSystem.GlimmerOutput / 200, TimeSpan.FromSeconds(_glimmerSystem.GlimmerOutput / 100), false);
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.PowerSettingsNew,
             Text = Loc.GetString("power-switch-component-toggle-verb"),
             Priority = -3
         };

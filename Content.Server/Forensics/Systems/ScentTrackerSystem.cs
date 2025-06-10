@@ -5,6 +5,8 @@ using Content.Shared.Forensics;
 using Content.Shared.Examine;
 using Robust.Shared.Utility;
 using Content.Shared.IdentityManagement;
+using Content.Shared.InterfaceGuidelines;
+
 
 namespace Content.Server.Forensics
 {
@@ -27,8 +29,8 @@ namespace Content.Server.Forensics
 
         private void TrackScentVerb(EntityUid uid, ScentTrackerComponent component, GetVerbsEvent<InnateVerb> args)
         {
-            if (!args.CanInteract 
-                || !args.CanAccess 
+            if (!args.CanInteract
+                || !args.CanAccess
                 || args.User == args.Target)
                 return;
 
@@ -36,7 +38,7 @@ namespace Content.Server.Forensics
             {
                 Act = () => AttemptTrackScent(uid, args.Target, component),
                 Text = Loc.GetString("track-scent"),
-                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/psionic_invisibility.png")),
+                GlyphIcon = SymbolIcons.PsychologyAlt,
                 Priority = 1
             };
             args.Verbs.Add(verbTrackScent);
@@ -51,7 +53,7 @@ namespace Content.Server.Forensics
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
-                
+
             };
 
             _popupSystem.PopupEntity(Loc.GetString("start-tracking-scent", ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))), user);
@@ -60,8 +62,8 @@ namespace Content.Server.Forensics
 
         private void TrackScentDoAfter(Entity<ScentTrackerComponent> entity, ref ScentTrackerDoAfterEvent args)
         {
-            if (args.Handled 
-                || args.Cancelled 
+            if (args.Handled
+                || args.Cancelled
                 || args.Args.Target == null)
                 return;
 
@@ -72,7 +74,7 @@ namespace Content.Server.Forensics
 
         private void StopTrackScentVerb(EntityUid uid, ScentTrackerComponent component, GetVerbsEvent<InnateVerb> args)
         {
-            if (args.User != args.Target 
+            if (args.User != args.Target
                 || component.Scent == string.Empty)
                 return;
 
@@ -80,7 +82,7 @@ namespace Content.Server.Forensics
             {
                 Act = () => StopTrackScent(uid, component),
                 Text = Loc.GetString("stop-track-scent"),
-                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/psionic_invisibility.png")),
+                GlyphIcon = SymbolIcons.PsychologyAlt,
                 Priority = 2
             };
             args.Verbs.Add(verbStopTrackScent);

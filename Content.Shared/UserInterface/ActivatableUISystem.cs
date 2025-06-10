@@ -6,6 +6,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -76,8 +77,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
-            // TODO VERB ICON find a better icon
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Preview,
         });
     }
 
@@ -90,8 +90,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
-            // TODO VERB ICON find a better icon
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Preview,
         });
     }
 
@@ -104,8 +103,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
-            // TODO VERB ICON find a better icon
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Preview,
         });
     }
 

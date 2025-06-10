@@ -2,6 +2,7 @@ using System.Numerics;
 using System.Text;
 using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;

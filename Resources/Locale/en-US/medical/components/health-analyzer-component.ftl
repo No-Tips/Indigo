@@ -1,3 +1,4 @@
+health-analyzer-window-title = Health Analyzer
 health-analyzer-window-no-patient-data-text = No patient data.
 health-analyzer-window-entity-unknown-text = Unknown
 health-analyzer-window-entity-unknown-species-text = Non-Humanoid

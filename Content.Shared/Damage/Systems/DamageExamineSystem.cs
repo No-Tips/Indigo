@@ -3,6 +3,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -32,7 +33,7 @@ public sealed class DamageExamineSystem : EntitySystem
         {
             _examine.AddDetailedExamineVerb(args, component, ev.Message,
                 Loc.GetString("damage-examinable-verb-text"),
-                "/Textures/Interface/VerbIcons/smite.svg.192dpi.png",
+                SymbolIcons.Bolt,
                 Loc.GetString("damage-examinable-verb-message")
             );
         }

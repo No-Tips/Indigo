@@ -14,7 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Numerics;
-using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Client.Animations;
 using Robust.Client.UserInterface.Controls;
 

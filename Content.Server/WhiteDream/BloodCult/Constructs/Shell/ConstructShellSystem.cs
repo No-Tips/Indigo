@@ -65,7 +65,7 @@ public sealed class ConstructShellSystem : EntitySystem
         {
             DoContactInteraction = true,
             Text = Loc.GetString("soul-shard-selector-form"),
-            Icon = new SpriteSpecifier.Texture(
+            SpriteIcon = new SpriteSpecifier.Texture(
                 new ResPath("/Textures/WhiteDream/BloodCult/Entities/Items/construct_shell.rsi")),
             Act = action
         });

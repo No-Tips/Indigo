@@ -1,5 +1,5 @@
 ## UI
-cargo-console-menu-title = Cargo request console
+cargo-console-menu-title = Cargo Request Console
 cargo-console-menu-account-name-label = Account name:{" "}
 cargo-console-menu-account-name-none-text = None
 cargo-console-menu-shuttle-name-label = Shuttle name:{" "}
@@ -41,7 +41,7 @@ cargo-console-paper-print-text =
     Approved by: {$approver}
 
 # Cargo shuttle console
-cargo-shuttle-console-menu-title = Cargo shuttle console
+cargo-shuttle-console-menu-title = Cargo Shuttle Console
 cargo-shuttle-console-station-unknown = Unknown
 cargo-shuttle-console-shuttle-not-found = Not found
 cargo-shuttle-console-organics = Detected organic lifeforms on the shuttle

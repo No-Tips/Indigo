@@ -6,6 +6,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -51,7 +52,7 @@ public sealed class CardSystem : EntitySystem
         {
             Act = () => FlipCard(uid, component),
             Text = Loc.GetString("cards-verb-flip"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/flip.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Flip,
             Priority = 1
         });
 
@@ -64,7 +65,7 @@ public sealed class CardSystem : EntitySystem
             {
                 Act = () => JoinCards(args.User, args.Target, component, (EntityUid)args.Using, usingStack),
                 Text = Loc.GetString("card-verb-join"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Merge,
                 Priority = 2
             });
         }
@@ -75,7 +76,7 @@ public sealed class CardSystem : EntitySystem
             {
                 Act = () => _cardHand.TrySetupHandOfCards(args.User, args.Target, component, args.Using.Value, usingCard, pickup),
                 Text = Loc.GetString("card-verb-join"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Merge,
                 Priority = 2
             });
         }
@@ -166,7 +167,7 @@ public sealed class CardSystem : EntitySystem
             {
                 Act = () => _hands.TryPickupAnyHand(args.User, args.Target),
                 Text = Loc.GetString("cards-verb-draw"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Eject,
                 Priority = 16
             });
         }
@@ -176,7 +177,7 @@ public sealed class CardSystem : EntitySystem
             {
                 Act = () => _cardStack.InsertCardOnStack(args.User, args.Using.Value, cardStack, args.Target),
                 Text = Loc.GetString("cards-verb-draw"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Eject,
                 Priority = 16
             });
         }
@@ -186,7 +187,7 @@ public sealed class CardSystem : EntitySystem
             {
                 Act = () => _cardHand.TrySetupHandOfCards(args.User, args.Using.Value, card, args.Target, component, true),
                 Text = Loc.GetString("cards-verb-draw"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Eject,
                 Priority = 16
             });
         }

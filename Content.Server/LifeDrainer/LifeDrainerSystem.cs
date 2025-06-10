@@ -52,7 +52,7 @@ public sealed class LifeDrainerSystem : EntitySystem
                 TryDrain(ent, target);
             },
             Text = Loc.GetString("verb-life-drain"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
+            SpriteIcon = new SpriteSpecifier.Texture(new ("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
             Priority = 2
         });
     }

@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.DoAfter;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Power.Generator;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
@@ -157,7 +158,7 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
                     StopGenerator(uid, component, args.User);
                 },
                 Disabled = false,
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.PowerSettingsNew,
                 Text = Loc.GetString("portable-generator-verb-stop"),
             };
 
@@ -175,7 +176,7 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
                     StartGenerator(uid, component, args.User);
                 },
 
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.PowerSettingsNew,
                 Text = Loc.GetString("portable-generator-verb-start"),
             };
 

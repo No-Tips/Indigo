@@ -1,7 +1,9 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
-               Title="{Loc 'decal-placer-window-title'}"
-               MinSize="250 500"
-               SetSize="250 500">
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'decal-placer-window-title'}"
+    MinSize="250 500"
+    SetSize="250 500">
     <BoxContainer Orientation="Vertical">
         <LineEdit Name="Search" />
         <ScrollContainer VerticalExpand="True">
@@ -36,4 +38,4 @@
             <SpinBox Name="ZIndexSpinBox" HorizontalExpand ="True" />
         </BoxContainer>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

@@ -1,15 +1,15 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.GameTicking;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.RoundEnd
 {
-    public sealed class RoundEndSummaryWindow : DefaultWindow
+    public sealed class RoundEndSummaryWindow : FancyWindow
     {
         private readonly IEntityManager _entityManager;
         public int RoundId;
@@ -34,7 +34,7 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
 
-            Contents.AddChild(roundEndTabs);
+            ContentsContainer.AddChild(roundEndTabs);
 
             OpenCenteredRight();
             MoveToFront();

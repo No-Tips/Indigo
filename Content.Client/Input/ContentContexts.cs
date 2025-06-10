@@ -9,9 +9,14 @@ namespace Content.Client.Input
     /// </summary>
     public static class ContentContexts
     {
+        public const string Common = "common";
+        public const string Human  = "human";
+        public const string Ghost  = "ghost";
+        public const string AGhost = "aghost";
+
         public static void SetupContexts(IInputContextContainer contexts)
         {
-            var common = contexts.GetContext("common");
+            var common = contexts.GetContext(Common);
 
             common.AddFunction(ContentKeyFunctions.OpenContextMenu);
             common.AddFunction(ContentKeyFunctions.FocusChat);
@@ -22,7 +27,6 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.FocusLOOC);
             common.AddFunction(ContentKeyFunctions.FocusOOC);
             common.AddFunction(ContentKeyFunctions.FocusAdminChat);
-            common.AddFunction(ContentKeyFunctions.FocusConsoleChat);
             common.AddFunction(ContentKeyFunctions.FocusDeadChat);
             common.AddFunction(ContentKeyFunctions.CycleChatChannelForward);
             common.AddFunction(ContentKeyFunctions.CycleChatChannelBackward);
@@ -41,6 +45,7 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            common.AddFunction(ContentKeyFunctions.OpenOptionsWindow);
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
@@ -51,7 +56,7 @@ namespace Content.Client.Input
             // Not in engine so that the RCD can rotate objects
             common.AddFunction(EngineKeyFunctions.EditorRotateObject);
 
-            var human = contexts.GetContext("human");
+            var human = contexts.GetContext(Human);
             human.AddFunction(EngineKeyFunctions.MoveUp);
             human.AddFunction(EngineKeyFunctions.MoveDown);
             human.AddFunction(EngineKeyFunctions.MoveLeft);
@@ -109,12 +114,21 @@ namespace Content.Client.Input
             foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
                 common.AddFunction(boundKey);
 
-            var aghost = contexts.New("aghost", "common");
-            aghost.AddFunction(EngineKeyFunctions.MoveUp);
-            aghost.AddFunction(EngineKeyFunctions.MoveDown);
-            aghost.AddFunction(EngineKeyFunctions.MoveLeft);
-            aghost.AddFunction(EngineKeyFunctions.MoveRight);
-            aghost.AddFunction(EngineKeyFunctions.Walk);
+            var ghost = contexts.New(Ghost, Common);
+
+            ghost.AddFunction(EngineKeyFunctions.MoveUp);
+            ghost.AddFunction(EngineKeyFunctions.MoveDown);
+            ghost.AddFunction(EngineKeyFunctions.MoveLeft);
+            ghost.AddFunction(EngineKeyFunctions.MoveRight);
+            ghost.AddFunction(EngineKeyFunctions.Walk);
+            ghost.AddFunction(ContentKeyFunctions.GhostWarp);
+            ghost.AddFunction(ContentKeyFunctions.GhostReturnToBody);
+            ghost.AddFunction(ContentKeyFunctions.GhostRoles);
+            ghost.AddFunction(ContentKeyFunctions.GhostReturnToRound);
+            ghost.AddFunction(ContentKeyFunctions.GhostBar);
+
+            var aghost = contexts.New(AGhost, Ghost);
+
             aghost.AddFunction(ContentKeyFunctions.SwapHands);
             aghost.AddFunction(ContentKeyFunctions.Drop);
             aghost.AddFunction(ContentKeyFunctions.UseItemInHand);
@@ -125,13 +139,6 @@ namespace Content.Client.Input
             aghost.AddFunction(ContentKeyFunctions.TryPullObject);
             aghost.AddFunction(ContentKeyFunctions.MovePulledObject);
             aghost.AddFunction(ContentKeyFunctions.ReleasePulledObject);
-
-            var ghost = contexts.New("ghost", "human");
-            ghost.AddFunction(EngineKeyFunctions.MoveUp);
-            ghost.AddFunction(EngineKeyFunctions.MoveDown);
-            ghost.AddFunction(EngineKeyFunctions.MoveLeft);
-            ghost.AddFunction(EngineKeyFunctions.MoveRight);
-            ghost.AddFunction(EngineKeyFunctions.Walk);
 
             common.AddFunction(ContentKeyFunctions.OpenEntitySpawnWindow);
             common.AddFunction(ContentKeyFunctions.OpenSandboxWindow);

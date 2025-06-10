@@ -1,13 +1,12 @@
 using System.Numerics;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Localization;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Cloning.UI
 {
-    public sealed class AcceptCloningWindow : DefaultWindow
+    public sealed class AcceptCloningWindow : FancyWindow
     {
         public readonly Button DenyButton;
         public readonly Button AcceptButton;
@@ -17,7 +16,7 @@ namespace Content.Client.Cloning.UI
 
             Title = Loc.GetString("accept-cloning-window-title");
 
-            Contents.AddChild(new BoxContainer
+            ContentsContainer.AddChild(new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 Children =

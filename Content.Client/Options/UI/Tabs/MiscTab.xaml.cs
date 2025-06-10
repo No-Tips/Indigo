@@ -38,27 +38,6 @@ namespace Content.Client.Options.UI.Tabs
                 _hudThemeIdToIndex.Add(gear.ID, HudThemeOption.GetItemId(HudThemeOption.ItemCount - 1));
             }
 
-            var hudLayout = _cfg.GetCVar(CCVars.UILayout);
-            var id = 0;
-            foreach (var layout in Enum.GetValues(typeof(ScreenType)))
-            {
-                var name = layout.ToString()!;
-                HudLayoutOption.AddItem(name, id);
-                if (name == hudLayout)
-                {
-                    HudLayoutOption.SelectId(id);
-                }
-                HudLayoutOption.SetItemMetadata(id, name);
-
-                id++;
-            }
-
-            HudLayoutOption.OnItemSelected += args =>
-            {
-                HudLayoutOption.SelectId(args.Id);
-                UpdateApplyButton();
-            };
-
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
             ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
@@ -88,7 +67,6 @@ namespace Content.Client.Options.UI.Tabs
             EnableColorNameCheckBox.OnToggled += OnCheckBoxToggled;
             ColorblindFriendlyCheckBox.OnToggled += OnCheckBoxToggled;
             ReducedMotionCheckBox.OnToggled += OnCheckBoxToggled;
-            ChatWindowOpacitySlider.OnValueChanged += OnChatWindowOpacitySliderChanged;
             ScreenShakeIntensitySlider.OnValueChanged += OnScreenShakeIntensitySliderChanged;
             // ToggleWalk.OnToggled += OnCheckBoxToggled;
             StaticStorageUI.OnToggled += OnCheckBoxToggled;
@@ -108,7 +86,6 @@ namespace Content.Client.Options.UI.Tabs
             EnableColorNameCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableColorName);
             ColorblindFriendlyCheckBox.Pressed = _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             ReducedMotionCheckBox.Pressed = _cfg.GetCVar(CCVars.ReducedMotion);
-            ChatWindowOpacitySlider.Value = _cfg.GetCVar(CCVars.ChatWindowOpacity);
             ScreenShakeIntensitySlider.Value = _cfg.GetCVar(CCVars.ScreenShakeIntensity) * 100f;
             // ToggleWalk.Pressed = _cfg.GetCVar(CCVars.ToggleWalk);
             StaticStorageUI.Pressed = _cfg.GetCVar(CCVars.StaticStorageUI);
@@ -128,13 +105,6 @@ namespace Content.Client.Options.UI.Tabs
         private void OnHudThemeChanged(OptionButton.ItemSelectedEventArgs args)
         {
             HudThemeOption.SelectId(args.Id);
-            UpdateApplyButton();
-        }
-
-        private void OnChatWindowOpacitySliderChanged(Range range)
-        {
-            ChatWindowOpacityLabel.Text = Loc.GetString("ui-options-chat-window-opacity-percent",
-                ("opacity", range.Value));
             UpdateApplyButton();
         }
 
@@ -166,18 +136,12 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ChatEnableColorName, EnableColorNameCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AccessibilityColorblindFriendly, ColorblindFriendlyCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ReducedMotion, ReducedMotionCheckBox.Pressed);
-            _cfg.SetCVar(CCVars.ChatWindowOpacity, ChatWindowOpacitySlider.Value);
             _cfg.SetCVar(CCVars.ScreenShakeIntensity, ScreenShakeIntensitySlider.Value / 100f);
             // _cfg.SetCVar(CCVars.ToggleWalk, ToggleWalk.Pressed);
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
             _cfg.SetCVar(CCVars.ModernProgressBar, ModernProgressBar.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
-
-            if (HudLayoutOption.SelectedMetadata is string opt)
-            {
-                _cfg.SetCVar(CCVars.UILayout, opt);
-            }
 
             _cfg.SaveToFile();
             UpdateApplyButton();
@@ -186,7 +150,6 @@ namespace Content.Client.Options.UI.Tabs
         private void UpdateApplyButton()
         {
             var isHudThemeSame = HudThemeOption.SelectedId == _hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0);
-            var isLayoutSame = HudLayoutOption.SelectedMetadata is string opt && opt == _cfg.GetCVar(CCVars.UILayout);
             var isDiscordSame = DiscordRich.Pressed == _cfg.GetCVar(CVars.DiscordEnabled);
             var isShowHeldItemSame = ShowHeldItemCheckBox.Pressed == _cfg.GetCVar(CCVars.HudHeldItemShow);
             var isCombatModeIndicatorsSame = ShowCombatModeIndicatorsCheckBox.Pressed == _cfg.GetCVar(CCVars.CombatModeIndicatorsPointShow);
@@ -199,7 +162,6 @@ namespace Content.Client.Options.UI.Tabs
             var isEnableColorNameSame = EnableColorNameCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableColorName);
             var isColorblindFriendly = ColorblindFriendlyCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             var isReducedMotionSame = ReducedMotionCheckBox.Pressed == _cfg.GetCVar(CCVars.ReducedMotion);
-            var isChatWindowOpacitySame = Math.Abs(ChatWindowOpacitySlider.Value - _cfg.GetCVar(CCVars.ChatWindowOpacity)) < 0.01f;
             var isScreenShakeIntensitySame = Math.Abs(ScreenShakeIntensitySlider.Value / 100f - _cfg.GetCVar(CCVars.ScreenShakeIntensity)) < 0.01f;
             // var isToggleWalkSame = ToggleWalk.Pressed == _cfg.GetCVar(CCVars.ToggleWalk);
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
@@ -208,7 +170,6 @@ namespace Content.Client.Options.UI.Tabs
             var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
 
             ApplyButton.Disabled = isHudThemeSame &&
-                                   isLayoutSame &&
                                    isDiscordSame &&
                                    isShowHeldItemSame &&
                                    isCombatModeIndicatorsSame &&
@@ -221,7 +182,6 @@ namespace Content.Client.Options.UI.Tabs
                                    isEnableColorNameSame &&
                                    isColorblindFriendly &&
                                    isReducedMotionSame &&
-                                   isChatWindowOpacitySame &&
                                    isScreenShakeIntensitySame &&
                                    // isToggleWalkSame &&
                                    isStaticStorageUISame &&

@@ -1,5 +1,6 @@
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Mind.Components;
 using Content.Shared.Verbs;
 using Robust.Client.Console;
@@ -32,7 +33,7 @@ namespace Content.Client.Administration.Systems
                 var verb = new VvVerb()
                 {
                     Text = Loc.GetString("view-variables"),
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
+                    GlyphIcon = SymbolIcons.DataObject,
                     Act = () => _clientConsoleHost.ExecuteCommand($"vv {GetNetEntity(args.Target)}"),
                     ClientExclusive = true // opening VV window is client-side. Don't ask server to run this verb.
                 };

@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -104,7 +105,7 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
             }
         }
 
-        _examine.AddDetailedExamineVerb(args, component, msg, Loc.GetString("clothing-speed-examinable-verb-text"), "/Textures/Interface/VerbIcons/outfit.svg.192dpi.png", Loc.GetString("clothing-speed-examinable-verb-message"));
+        _examine.AddDetailedExamineVerb(args, component, msg, Loc.GetString("clothing-speed-examinable-verb-text"), SymbolIcons.Apparel, Loc.GetString("clothing-speed-examinable-verb-message"));
     }
 
     private void OnToggled(Entity<ClothingSpeedModifierComponent> ent, ref ItemToggledEvent args)

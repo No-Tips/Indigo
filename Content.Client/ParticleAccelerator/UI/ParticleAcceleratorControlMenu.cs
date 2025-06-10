@@ -3,13 +3,13 @@ using Content.Client.InterfaceGuidelines;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Singularity.Components;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -17,7 +17,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.ParticleAccelerator.UI
 {
-    public sealed class ParticleAcceleratorControlMenu : BaseWindow
+    public sealed class ParticleAcceleratorControlMenu : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IResourceCache _cache = default!;

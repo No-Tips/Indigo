@@ -2,6 +2,7 @@ using Content.Server.Light.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
 using Content.Shared.Tag;
@@ -197,7 +198,7 @@ namespace Content.Server.Light.EntitySystems
             ActivationVerb verb = new()
             {
                 Text = Loc.GetString("expendable-light-start-verb"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.FlashlightOn,
                 Act = () => TryActivate(ent)
             };
             args.Verbs.Add(verb);

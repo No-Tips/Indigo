@@ -10,6 +10,7 @@ using Content.Shared.Verbs;
 using Content.Shared.SubFloor;
 using Content.Shared.Inventory;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Whitelist;
 
@@ -63,7 +64,7 @@ public sealed class PaintSystem : SharedPaintSystem
             },
 
             Text = paintText,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/paint.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.ImagesearchRoller
         };
 
         args.Verbs.Add(verb);

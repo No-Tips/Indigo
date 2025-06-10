@@ -3,6 +3,8 @@
     xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Orientation="Vertical"
     HorizontalExpand="True"
     VerticalExpand="True"
@@ -40,10 +42,7 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-edit}">
-                    <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/Interface/VerbIcons/edit.svg.png"
-                                 Stretch="KeepAspectCentered"
-                                 MinSize="18 18" />
+                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Pen}" />
                 </Button>
                 <Button Name="DeleteChatButton"
                         MaxSize="32 32"
@@ -51,10 +50,7 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-delete}">
-                    <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png"
-                                 Stretch="KeepAspectCentered"
-                                 MinSize="18 18" />
+                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Delete}" />
                 </Button>
                 <Button Name="MuteButton"
                         MaxSize="32 32"
@@ -62,17 +58,8 @@
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-toggle-mute}">
                     <Control HorizontalExpand="True" VerticalExpand="True">
-                        <TextureRect Name="BellIcon"
-                                     StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/DeltaV/Interface/VerbIcons/bell.svg.png"
-                                     Stretch="KeepAspectCentered"
-                                     MinSize="18 18" />
-                        <TextureRect Name="BellMutedIcon"
-                                     StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/DeltaV/Interface/VerbIcons/bell_muted.png"
-                                     Stretch="KeepAspectCentered"
-                                     Visible="False"
-                                     MinSize="18 18" />
+                        <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Notifications}" />
+                        <Label Name="BellMutedIcon" StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.NotificationsOff}" />
                     </Control>
                 </Button>
                 <Button Name="NewChatButton"
@@ -87,10 +74,7 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-look-up}">
-                    <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/Interface/VerbIcons/examine.svg.192dpi.png"
-                                 Stretch="KeepAspectCentered"
-                                 MinSize="18 18" />
+                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Search}" />
                 </Button>
                 <Button Name="ListNumberButton"
                         MaxSize="32 32"
@@ -98,10 +82,7 @@
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-list-number}"
                         ToggleMode="True">
-                    <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/DeltaV/Interface/VerbIcons/hamburger_icon.svg.png"
-                                 Stretch="KeepAspectCentered"
-                                 MinSize="18 18" />
+                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Menu}" />
                 </Button>
             </BoxContainer>
         </controls:StripeBack>
@@ -113,7 +94,7 @@
                       HorizontalExpand="True"
                       Margin="0 5 0 0">
             <!-- Left panel: Chat list -->
-            <PanelContainer StyleClasses="AngleRect"
+            <PanelContainer StyleClasses="FancyWindowPanel"
                             VerticalExpand="True"
                             MaxWidth="150">
                 <ScrollContainer VerticalExpand="True"
@@ -138,7 +119,7 @@
             <customControls:VSeparator Margin="3 0" />
 
             <!-- Right panel: Current chat -->
-            <PanelContainer StyleClasses="AngleRect"
+            <PanelContainer StyleClasses="FancyWindowPanel"
                             VerticalExpand="True"
                             HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical"
@@ -188,9 +169,7 @@
                                 Disabled="True"
                                 StyleClasses="OpenLeft"
                                 Margin="4 0 0 0">
-                            <TextureRect StyleClasses="ButtonSquare"
-                                         TexturePath="/Textures/Interface/Nano/triangle_right.png"
-                                         Stretch="KeepAspectCentered" />
+                            <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.ChevronRight}" />
                         </Button>
                     </BoxContainer>
                 </BoxContainer>

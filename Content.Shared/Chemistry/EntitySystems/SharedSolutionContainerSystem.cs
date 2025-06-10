@@ -16,6 +16,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.InterfaceGuidelines;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Dependency = Robust.Shared.IoC.DependencyAttribute;
@@ -877,7 +878,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             Text = Loc.GetString("scannable-solution-verb-text"),
             Message = Loc.GetString("scannable-solution-verb-message"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/drink.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.WaterDrop
         };
 
         args.Verbs.Add(verb);

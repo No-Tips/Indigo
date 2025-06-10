@@ -139,6 +139,8 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         AutoScrollToFocus();
     }
 

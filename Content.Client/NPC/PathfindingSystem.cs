@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Client.InterfaceGuidelines;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.NPC;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

@@ -1,5 +1,4 @@
 using Content.Client.Administration.Managers;
-using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.DiscordAuth;
 using Content.Client.JoinQueue;
@@ -55,7 +54,6 @@ namespace Content.Client.Entry
         [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
         [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
         [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
-        [Dependency] private readonly ChangelogManager _changelogManager = default!;
         [Dependency] private readonly ViewportManager _viewportManager = default!;
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
@@ -132,7 +130,6 @@ namespace Content.Client.Entry
             _adminManager.Initialize();
             _screenshotHook.Initialize();
             _fullscreenHook.Initialize();
-            _changelogManager.Initialize();
             _viewportManager.Initialize();
             _ghostKick.Initialize();
             _extendedDisconnectInformation.Initialize();

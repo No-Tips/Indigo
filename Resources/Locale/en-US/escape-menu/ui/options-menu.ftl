@@ -116,21 +116,36 @@ ui-options-unbound = Unbound
 ui-options-bind-reset = Reset
 ui-options-key-prompt = Press a key...
 
-ui-options-header-movement = Movement
-ui-options-header-camera = Camera
-ui-options-header-interaction-basic = Basic Interaction
-ui-options-header-interaction-adv = Advanced Interaction
-ui-options-header-ui = User Interface
-ui-options-header-targeting = Targeting
-ui-options-header-misc = Miscellaneous
-ui-options-header-hotbar = Hotbar
-ui-options-header-shuttle = Shuttle
-ui-options-header-map-editor = Map Editor
-ui-options-header-dev = Development
-ui-options-header-general = General
-ui-options-header-system = System
-
 ui-options-hotkey-keymap = Use US QWERTY Keys
+
+## Global
+
+ui-options-header-global = Global
+
+ui-options-function-examine-entity = Examine
+ui-options-function-open-a-help = Open admin help
+ui-options-function-open-abilities-menu = Open action menu
+ui-options-function-open-admin-menu = Open admin menu
+ui-options-function-open-character-menu = Open character menu
+ui-options-function-open-crafting-menu = Open crafting menu
+ui-options-function-open-decal-spawn-window = Open decal spawn menu
+ui-options-function-open-entity-spawn-window = Open entity spawn menu
+ui-options-function-open-guidebook = Open guidebook
+ui-options-function-open-language-window = Open language window
+ui-options-function-open-options-window = Open options window
+ui-options-function-open-sandbox-window = Open sandbox menu
+ui-options-function-open-tile-spawn-window = Open tile spawn menu
+ui-options-function-take-screenshot = Take screenshot
+ui-options-function-take-screenshot-no-ui = Take screenshot (without UI)
+ui-options-function-toggle-fullscreen = Toggle fullscreen
+ui-options-function-toggle-round-end-summary-window = Toggle round end summary window
+ui-options-function-open-context-menu = Open context menu
+ui-options-function-show-escape-menu = Toggle game menu
+
+## Movement
+
+ui-options-header-movement = Movement
+
 ui-options-hotkey-toggle-walk = Toggle Speed
 ui-options-hotkey-default-walk = Walk by default
 
@@ -140,6 +155,10 @@ ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
 ui-options-function-walk = Change Speed
 
+## Camera
+
+ui-options-header-camera = Camera
+
 ui-options-function-camera-rotate-left = Rotate left
 ui-options-function-camera-rotate-right = Rotate right
 ui-options-function-camera-reset = Reset
@@ -147,92 +166,62 @@ ui-options-function-zoom-in = Zoom in
 ui-options-function-zoom-out = Zoom out
 ui-options-function-reset-zoom = Reset zoom
 
+## Character
+
+ui-options-header-character = Character
+
+ui-options-function-auto-get-up = Automatically get up after falling
+ui-options-function-hold-look-up = Hold down the key to aim
 ui-options-function-use = Use
 ui-options-function-use-secondary = Use secondary
-ui-options-function-open-context-menu = Open Context Menu
-ui-options-function-alt-use = Alt use
-ui-options-function-wide-attack = Wide attack
-ui-options-function-activate-item-in-hand = Activate item in hand
-ui-options-function-alt-activate-item-in-hand = Alternative activate item in hand
 ui-options-function-activate-item-in-world = Activate item in world
 ui-options-function-alt-activate-item-in-world = Alternative activate item in world
+ui-options-function-activate-item-in-hand = Activate item in hand
+ui-options-function-alt-activate-item-in-hand = Alternative activate item in hand
+ui-options-function-throw-item-in-hand = Throw item
 ui-options-function-drop = Drop item
-ui-options-function-examine-entity = Examine
 ui-options-function-swap-hands = Swap hands
-ui-options-function-move-stored-item = Move stored item
-ui-options-function-rotate-stored-item = Rotate stored item
-ui-options-function-offer-item = Offer something
-ui-options-function-save-item-location = Save item location
 ui-options-function-toggle-standing = Toggle standing
 ui-options-function-toggle-crawling-under = Toggle crawling under furniture
-ui-options-static-storage-ui = Lock storage window to hotbar
-ui-options-modern-progress-bar = Modern progress bar
-
-ui-options-function-smart-equip-backpack = Smart-equip to backpack
-ui-options-function-smart-equip-belt = Smart-equip to belt
-ui-options-function-open-backpack = Open backpack
-ui-options-function-open-belt = Open belt
-ui-options-function-throw-item-in-hand = Throw item
 ui-options-function-try-pull-object = Pull object
 ui-options-function-move-pulled-object = Move pulled object
 ui-options-function-release-pulled-object = Release pulled object
 ui-options-function-point = Point at location
+ui-options-function-offer-item = Offer something
+ui-options-function-look-up = Look up/Take aim
 
-ui-options-function-target-head = Target head
-ui-options-function-target-torso = Target torso
-ui-options-function-target-left-arm = Target left arm
-ui-options-function-target-right-arm = Target right arm
-ui-options-function-target-left-leg = Target left leg
-ui-options-function-target-right-leg = Target right leg
+## Inventory
+
+ui-options-header-inventory = Inventory
+
+ui-options-function-open-inventory-menu = Open inventory
+ui-options-function-open-backpack = Open backpack
+ui-options-function-open-belt = Open belt
+ui-options-function-smart-equip-backpack = Smart-equip to backpack
+ui-options-function-smart-equip-belt = Smart-equip to belt
+ui-options-function-move-stored-item = Move stored item
+ui-options-function-rotate-stored-item = Rotate stored item
+ui-options-function-save-item-location = Save item location
+
+## Chat
+
+ui-options-header-chat = Chat
 
 ui-options-function-focus-chat-input-window = Focus chat
-ui-options-function-focus-local-chat-window = Focus chat (IC)
-ui-options-function-focus-emote = Focus chat (Emote)
-ui-options-function-focus-whisper-chat-window = Focus chat (Whisper)
 ui-options-function-focus-radio-window = Focus chat (Radio)
-ui-options-function-focus-looc-window = Focus chat (LOOC)
+ui-options-function-focus-local-chat-window = Focus chat (IC)
+ui-options-function-focus-whisper-chat-window = Focus chat (Whisper)
+ui-options-function-focus-emote = Focus chat (Emote)
 ui-options-function-focus-ooc-window = Focus chat (OOC)
-ui-options-function-focus-admin-chat-window = Focus chat (Admin)
+ui-options-function-focus-looc-window = Focus chat (LOOC)
 ui-options-function-focus-dead-chat-window = Focus chat (Dead)
-ui-options-function-focus-console-chat-window = Focus chat (Console)
+ui-options-function-focus-admin-chat-window = Focus chat (Admin)
 ui-options-function-cycle-chat-channel-forward = Cycle channel (Forward)
 ui-options-function-cycle-chat-channel-backward = Cycle channel (Backward)
-ui-options-function-open-character-menu = Open character menu
-ui-options-function-open-crafting-menu = Open crafting menu
-ui-options-function-open-inventory-menu = Open inventory
-ui-options-function-open-a-help = Open admin help
-ui-options-function-open-abilities-menu = Open action menu
-ui-options-function-toggle-round-end-summary-window = Toggle round end summary window
-ui-options-function-open-entity-spawn-window = Open entity spawn menu
-ui-options-function-open-sandbox-window = Open sandbox menu
-ui-options-function-open-tile-spawn-window = Open tile spawn menu
-ui-options-function-open-decal-spawn-window = Open decal spawn menu
-ui-options-function-open-admin-menu = Open admin menu
-ui-options-function-open-guidebook = Open guidebook
-ui-options-function-window-close-all = Close all windows
-ui-options-function-window-close-recent = Close recent window
-ui-options-function-show-escape-menu = Toggle game menu
-ui-options-function-escape-context = Close recent window or toggle game menu
 
-ui-options-function-take-screenshot = Take screenshot
-ui-options-function-take-screenshot-no-ui = Take screenshot (without UI)
-ui-options-function-toggle-fullscreen = Toggle fullscreen
+## Actions Bar
 
-ui-options-function-editor-place-object = Place object
-ui-options-function-editor-cancel-place = Cancel placement
-ui-options-function-editor-grid-place = Place in grid
-ui-options-function-editor-line-place = Place line
-ui-options-function-editor-rotate-object = Rotate
-ui-options-function-editor-flip-object = Flip
-ui-options-function-editor-copy-object = Copy
-ui-options-function-mapping-enable-pick = Pick object/tile
-ui-options-function-mapping-enable-decal-pick = Pick decal
-ui-options-function-mapping-enable-delete = Delete object
-
-ui-options-function-show-debug-console = Open Console
-ui-options-function-show-debug-monitors = Show Debug Monitors
-ui-options-function-inspect-entity = Inspect Entity
-ui-options-function-hide-ui = Hide UI
+ui-options-header-actions-bar = Actions Bar
 
 ui-options-function-hotbar1 = Hotbar slot 1
 ui-options-function-hotbar2 = Hotbar slot 2
@@ -244,6 +233,7 @@ ui-options-function-hotbar7 = Hotbar slot 7
 ui-options-function-hotbar8 = Hotbar slot 8
 ui-options-function-hotbar9 = Hotbar slot 9
 ui-options-function-hotbar0 = Hotbar slot 0
+
 ui-options-function-loadout1 = Hotbar Loadout 1
 ui-options-function-loadout2 = Hotbar Loadout 2
 ui-options-function-loadout3 = Hotbar Loadout 3
@@ -255,6 +245,35 @@ ui-options-function-loadout8 = Hotbar Loadout 8
 ui-options-function-loadout9 = Hotbar Loadout 9
 ui-options-function-loadout0 = Hotbar Loadout 0
 
+## Targeting
+
+ui-options-header-targeting = Targeting
+
+ui-options-function-target-head = Target head
+ui-options-function-target-torso = Target torso
+ui-options-function-target-left-arm = Target left arm
+ui-options-function-target-right-arm = Target right arm
+ui-options-function-target-left-hand = Target left hand
+ui-options-function-target-right-hand = Target right hand
+ui-options-function-target-left-leg = Target left leg
+ui-options-function-target-right-leg = Target right leg
+ui-options-function-target-right-foot = Target right foot
+ui-options-function-target-left-foot = Target left foot
+
+## Ghost
+
+ui-options-header-ghost = Ghost
+
+ui-options-function-ghost-bar = Ghost bar
+ui-options-function-ghost-return-to-body = Return to body
+ui-options-function-ghost-return-to-round = Return to round
+ui-options-function-ghost-roles = Open roles window
+ui-options-function-ghost-warp = Open warp window
+
+## Shuttle
+
+ui-options-header-shuttle = Shuttle
+
 ui-options-function-shuttle-strafe-up = Strafe up
 ui-options-function-shuttle-strafe-right = Strafe right
 ui-options-function-shuttle-strafe-left = Strafe left
@@ -263,11 +282,42 @@ ui-options-function-shuttle-rotate-left = Rotate left
 ui-options-function-shuttle-rotate-right = Rotate right
 ui-options-function-shuttle-brake = Brake
 
+## Map Editor
+
+ui-options-header-map-editor = Map Editor
+
+ui-options-function-inspect-entity = Inspect Entity
+ui-options-function-editor-copy-object = Copy
+ui-options-function-editor-flip-object = Flip
+ui-options-function-mapping-enable-decal-pick = Pick decal
+ui-options-function-mapping-enable-delete = Delete object
+ui-options-function-mapping-enable-pick = Pick object/tile
+ui-options-function-editor-cancel-place = Cancel placement
+ui-options-function-editor-grid-place = Place in grid
+ui-options-function-editor-line-place = Place line
+ui-options-function-editor-place-object = Place object
+ui-options-function-editor-rotate-object = Rotate
+
+## Developer
+
+ui-options-header-developer = Developer
+
+ui-options-function-show-debug-console = Open Console
+ui-options-function-show-debug-monitors = Show Debug Monitors
+ui-options-function-hide-ui = Hide UI
+
+## System
+
+ui-options-header-system = System
+
 ui-options-function-text-copy = Copy Text
 ui-options-function-text-paste = Paste Text
 ui-options-function-text-cut = Cut Text
 ui-options-function-text-select-all = Select All Text
 ui-options-function-text-delete = Delete
+
+ui-options-static-storage-ui = Lock storage window to hotbar
+ui-options-modern-progress-bar = Modern progress bar
 
 ## Network menu
 
@@ -306,6 +356,3 @@ cmd-options-desc = Opens options menu, optionally with a specific tab selected.
 cmd-options-help = Usage: options [tab]
 
 ## Combat Options
-ui-options-function-look-up = Look up/Take aim
-ui-options-function-auto-get-up = Automatically get up after falling
-ui-options-function-hold-look-up = Hold down the key to aim

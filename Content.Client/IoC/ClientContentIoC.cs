@@ -1,5 +1,4 @@
 using Content.Client.Administration.Managers;
-using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
 using Content.Client.DeltaV.NanoChat;
@@ -24,8 +23,10 @@ using Content.Client.Voting;
 using Content.Shared.Administration.Logs;
 using Content.Client.Lobby;
 using Content.Client.Players.RateLimiting;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 namespace Content.Client.IoC
@@ -48,7 +49,6 @@ namespace Content.Client.IoC
             collection.Register<ISharedAdminManager, ClientAdminManager>();
             collection.Register<EuiManager, EuiManager>();
             collection.Register<IVoteManager, VoteManager>();
-            collection.Register<ChangelogManager, ChangelogManager>();
             collection.Register<ViewportManager, ViewportManager>();
             collection.Register<ISharedAdminLogManager, SharedAdminLogManager>();
             collection.Register<GhostKickManager>();
@@ -66,6 +66,7 @@ namespace Content.Client.IoC
             collection.Register<DebugMonitorManager>();
             collection.Register<TypographyManager>();
             collection.Register<KeyPresetsManager>();
+            collection.Register<GlobalMenuManager>();
         }
     }
 }

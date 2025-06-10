@@ -249,6 +249,8 @@ public sealed partial class FancyTree : Control
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         if (!_rowStyleUpdateQueued)
             return;
 

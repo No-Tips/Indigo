@@ -1,29 +1,71 @@
-﻿using Content.Client.Gameplay;
-using Content.Client.Ghost;
+﻿using Content.Client.Ghost;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Ghost;
+using Content.Shared.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 
+
 namespace Content.Client.UserInterface.Systems.Ghost;
+
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
 public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IEntityNetworkManager _net               = default!;
+    [Dependency] private readonly GlobalMenuManager     _globalMenuManager = null!;
+
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
-
 
     public override void Initialize()
     {
         base.Initialize();
 
         var gameplayStateLoad = UIManager.GetUIController<GameplayStateLoadController>();
-        gameplayStateLoad.OnScreenLoad += OnScreenLoad;
+        gameplayStateLoad.OnScreenLoad   += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Ghost)
+            .RegisterItem(
+                new(
+                    new("global-menu-ghost-warp-item"),
+                    Function: ContentKeyFunctions.GhostWarp,
+                    Callback: RequestWarps
+                )
+            )
+            .RegisterItem(
+                new(
+                    new("global-menu-ghost-return-to-body-item"),
+                    Function: ContentKeyFunctions.GhostReturnToBody,
+                    Callback: ReturnToBody
+                )
+            )
+            .RegisterItem(
+                new(
+                    new("global-menu-ghost-roles-item"),
+                    Function: ContentKeyFunctions.GhostRoles,
+                    Callback: GhostRolesPressed
+                )
+            )
+            .RegisterItem(
+                new(
+                    new("global-menu-ghost-return-to-round-item"),
+                    Function: ContentKeyFunctions.GhostReturnToRound,
+                    Callback: ReturnToRound
+                )
+            )
+            .RegisterItem(
+                new(
+                    new("global-menu-ghost-bar-item"),
+                    Function: ContentKeyFunctions.GhostBar,
+                    Callback: GhostBarPressed
+                )
+            );
     }
 
     private void OnScreenLoad()
@@ -38,21 +80,21 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
     public void OnSystemLoaded(GhostSystem system)
     {
-        system.PlayerRemoved += OnPlayerRemoved;
-        system.PlayerUpdated += OnPlayerUpdated;
-        system.PlayerAttached += OnPlayerAttached;
-        system.PlayerDetached += OnPlayerDetached;
-        system.GhostWarpsResponse += OnWarpsResponse;
+        system.PlayerRemoved         += OnPlayerRemoved;
+        system.PlayerUpdated         += OnPlayerUpdated;
+        system.PlayerAttached        += OnPlayerAttached;
+        system.PlayerDetached        += OnPlayerDetached;
+        system.GhostWarpsResponse    += OnWarpsResponse;
         system.GhostRoleCountUpdated += OnRoleCountUpdated;
     }
 
     public void OnSystemUnloaded(GhostSystem system)
     {
-        system.PlayerRemoved -= OnPlayerRemoved;
-        system.PlayerUpdated -= OnPlayerUpdated;
-        system.PlayerAttached -= OnPlayerAttached;
-        system.PlayerDetached -= OnPlayerDetached;
-        system.GhostWarpsResponse -= OnWarpsResponse;
+        system.PlayerRemoved         -= OnPlayerRemoved;
+        system.PlayerUpdated         -= OnPlayerUpdated;
+        system.PlayerAttached        -= OnPlayerAttached;
+        system.PlayerDetached        -= OnPlayerDetached;
+        system.GhostWarpsResponse    -= OnWarpsResponse;
         system.GhostRoleCountUpdated -= OnRoleCountUpdated;
     }
 
@@ -89,6 +131,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void OnPlayerDetached()
     {
         Gui?.Hide();
+        UpdateGui();
     }
 
     private void OnWarpsResponse(GhostWarpsResponseEvent msg)
@@ -122,14 +165,14 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         if (Gui == null)
             return;
 
-        Gui.RequestWarpsPressed += RequestWarps;
-        Gui.ReturnToBodyPressed += ReturnToBody;
-        Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.GhostBarPressed += GhostBarPressed; // Goobstation - Ghost Bar
+        Gui.RequestWarpsPressed               += RequestWarps;
+        Gui.ReturnToBodyPressed               += ReturnToBody;
+        Gui.GhostRolesPressed                 += GhostRolesPressed;
+        Gui.GhostBarPressed                   += GhostBarPressed;      // Goobstation - Ghost Bar
         Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goobstation - Ghost Bar
-        Gui.TargetWindow.WarpClicked += OnWarpClicked;
-        Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
-        Gui.ReturnToRoundPressed += ReturnToRound;
+        Gui.TargetWindow.WarpClicked          += OnWarpClicked;
+        Gui.TargetWindow.OnGhostnadoClicked   += OnGhostnadoClicked;
+        Gui.ReturnToRoundPressed              += ReturnToRound;
 
         UpdateGui();
     }
@@ -139,13 +182,13 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         if (Gui == null)
             return;
 
-        Gui.RequestWarpsPressed -= RequestWarps;
-        Gui.ReturnToBodyPressed -= ReturnToBody;
-        Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.GhostBarPressed -= GhostBarPressed; // Goobstation - Ghost Bar
+        Gui.RequestWarpsPressed               -= RequestWarps;
+        Gui.ReturnToBodyPressed               -= ReturnToBody;
+        Gui.GhostRolesPressed                 -= GhostRolesPressed;
+        Gui.GhostBarPressed                   -= GhostBarPressed;      // Goobstation - Ghost Bar
         Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goobstation - Ghost Bar
-        Gui.TargetWindow.WarpClicked -= OnWarpClicked;
-        Gui.ReturnToRoundPressed -= ReturnToRound;
+        Gui.TargetWindow.WarpClicked          -= OnWarpClicked;
+        Gui.ReturnToRoundPressed              -= ReturnToRound;
 
         Gui.Hide();
     }

@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
@@ -37,7 +38,7 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
         {
             Act = () => TryStartup(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.PowerSettingsNew,
             Priority = component.VerbPriority
         });
     }

@@ -1,12 +1,12 @@
 using System.Numerics;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Ghost.UI;
 
-public sealed class ReturnToBodyMenu : DefaultWindow
+public sealed class ReturnToBodyMenu : FancyWindow
 {
     public readonly Button DenyButton;
     public readonly Button AcceptButton;
@@ -15,7 +15,7 @@ public sealed class ReturnToBodyMenu : DefaultWindow
     {
         Title = Loc.GetString("ghost-return-to-body-title");
 
-        Contents.AddChild(new BoxContainer
+        ContentsContainer.AddChild(new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
             Children =

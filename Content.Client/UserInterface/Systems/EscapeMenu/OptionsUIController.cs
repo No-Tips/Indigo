@@ -1,18 +1,33 @@
+using Content.Client.Gameplay;
 using Content.Client.Options.UI;
+using Content.Client.UserInterface.GlobalMenu;
+using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Console;
+
 
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
 public sealed class OptionsUIController : UIController
 {
-    [Dependency] private readonly IConsoleHost _con = default!;
+    [Dependency] private readonly IConsoleHost      _con               = default!;
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
 
     public override void Initialize()
     {
         _con.RegisterCommand("options", Loc.GetString("cmd-options-desc"), Loc.GetString("cmd-options-help"), OptionsCommand);
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Game)
+            .RegisterItem(
+                new(
+                    new("global-menu-game-options-item"),
+                    Callback: ToggleWindow,
+                    Function: ContentKeyFunctions.OpenOptionsWindow
+                )
+            );
     }
 
     private void OptionsCommand(IConsoleShell shell, string argStr, string[] args)

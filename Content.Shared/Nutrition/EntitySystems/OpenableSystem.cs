@@ -2,6 +2,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -77,7 +78,7 @@ public sealed partial class OpenableSystem : EntitySystem
             verb = new()
             {
                 Text = Loc.GetString(comp.CloseVerbText),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/close.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.LeftPanelClose,
                 Act = () => TryClose(args.Target, comp, args.User)
             };
         }
@@ -86,7 +87,7 @@ public sealed partial class OpenableSystem : EntitySystem
             verb = new()
             {
                 Text = Loc.GetString(comp.OpenVerbText),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.LeftPanelOpen,
                 Act = () => TryOpen(args.Target, comp, args.User)
             };
         }

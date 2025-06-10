@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text;
 using Content.Client.Materials;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.DeltaV.Salvage.Components; // DeltaV
 using Content.Shared.DeltaV.Salvage.Systems; // DeltaV
 using Content.Shared.Lathe;
@@ -11,7 +12,6 @@ using Robust.Client.GameObjects;
 using Robust.Client.Player; // DeltaV
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing; // DeltaV
@@ -19,7 +19,7 @@ using Robust.Shared.Timing; // DeltaV
 namespace Content.Client.Lathe.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class LatheMenu : DefaultWindow
+public sealed partial class LatheMenu : FancyWindow
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!; // DeltaV

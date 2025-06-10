@@ -1,5 +1,6 @@
 <BoxContainer xmlns="https://spacestation14.io"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
               Orientation="Horizontal">
     <Label Name="TitleLabel"
            Margin="0 0 5 0"
@@ -9,7 +10,9 @@
 
     <!--21 was the height of OptionsContainer at the time that this button was added. So I am limiting the texture to 21x21-->
     <Control SetSize="21 21">
-        <TextureButton Name="Help" StyleClasses="HelpButton"/>
+        <ContainerButton Name="Help">
+            <Label StyleClasses="HelpButtonIcon" Text="{x:Static ig:SymbolIcons.QuestionMark}" />
+        </ContainerButton>
     </Control>
     <BoxContainer Name="OptionsContainer" SetWidth="400"/>
 </BoxContainer>

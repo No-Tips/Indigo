@@ -1,0 +1,655 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+local const CommonParent = "GasTrinaryPipeBase"
+
+content {
+    new EntityPrototype {
+        parent { "GasPipeBase" }
+        id = CommonParent
+        `abstract` = true
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new AtmosDeviceComponent {}
+            new TagComponent {
+                tags = Set("Unstackable")
+            }
+            new SubFloorHideComponent {
+                blockInteractions = false
+                blockAmbience = false
+                visibleLayers = Set("enum.SubfloorLayers.FirstLayer")
+            }
+            new NodeContainerComponent {
+                nodes {
+                    ["inlet"] = new PipeNode {
+                        nodeGroupID = "Pipe"
+                        pipeDirection = "North"
+                        layer = 2
+                    }
+                    ["filter"] = new PipeNode {
+                        nodeGroupID = "Pipe"
+                        pipeDirection = "West"
+                        layer = 2
+                    }
+                    ["outlet"] = new PipeNode {
+                        nodeGroupID = "Pipe"
+                        pipeDirection = "South"
+                        layer = 2
+                    }
+                }
+            }
+        }
+    }
+
+    new EntityPrototype {
+        parent { CommonParent }
+        id = "GasFilter"
+        `abstract` = true
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new StationAiWhitelistComponent {}
+            new SpriteComponent {
+                sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+                layers {
+                    new PrototypeLayerData {
+                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                        state = "pipeTrinaryConnectors_2"
+                        map = Set("enum.PipeVisualLayers.Pipe")
+                    }
+                    new PrototypeLayerData {
+                        state = "gasFilter"
+                        map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                    }
+                }
+            }
+            new AppearanceComponent {}
+            new GenericVisualizerComponent {
+                visuals {
+                    ["enum.FilterVisuals.Enabled"] {
+                        ["enabled"] {
+                            ["True"] {
+                                state = "gasFilterOn"
+                            }
+                            ["False"] {
+                                state = "gasFilter"
+                            }
+                        }
+                    }
+                }
+            }
+            new PipeColorVisualsComponent {}
+            new UserInterfaceComponent {
+                interfaces {
+                    ["enum.GasFilterUiKey.Key"] {
+                        type = "GasFilterBoundUserInterface"
+                    }
+                }
+            }
+            new GasFilterComponent {
+                enabled = false
+                transferRate = 1000.0
+                maxTransferRate = 1000.0
+            }
+            new AmbientSoundComponent {
+                enabled = false
+                volume = -9.0
+                range = 5.0
+                sound = new SoundPathSpecifier {
+                    path = "/Audio/Ambience/Objects/gas_hiss.ogg"
+                }
+            }
+            new AtmosMonitoringConsoleDeviceComponent {
+                navMapBlip = "GasFlowRegulator"
+            }
+        }
+    }
+
+    generateGasFilter(0)
+    generateGasFilter(1)
+    generateGasFilter(2)
+    generateGasFilter(3)
+    generateGasFilter(4)
+
+    // Gas Filter subtypes
+
+    generateGasFilterHigh(0)
+    generateGasFilterHigh(1)
+    generateGasFilterHigh(2)
+    generateGasFilterHigh(3)
+    generateGasFilterHigh(4)
+
+    generateGasFilterFlipped(0)
+    generateGasFilterFlipped(1)
+    generateGasFilterFlipped(2)
+    generateGasFilterFlipped(3)
+    generateGasFilterFlipped(4)
+
+    generateGasFilterFlippedHigh(0)
+    generateGasFilterFlippedHigh(1)
+    generateGasFilterFlippedHigh(2)
+    generateGasFilterFlippedHigh(3)
+    generateGasFilterFlippedHigh(4)
+
+    new EntityPrototype {
+        parent { CommonParent }
+        id = "GasMixer"
+        `abstract` = true
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new StationAiWhitelistComponent {}
+            new SpriteComponent {
+                sprite = "/Textures/Structures/Piping/Atmospherics/gasmixer.rsi"
+                layers {
+                    new PrototypeLayerData {
+                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                        state = "pipeTrinaryConnectors_2"
+                        map = Set("enum.PipeVisualLayers.Pipe")
+                    }
+                    new PrototypeLayerData {
+                        state = "gasMixer"
+                        map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                    }
+                }
+            }
+            new AppearanceComponent {}
+            new GenericVisualizerComponent {
+                visuals {
+                    ["enum.FilterVisuals.Enabled"] {
+                        ["enabled"] {
+                            ["True"] {
+                                state = "gasMixerOn"
+                            }
+                            ["False"] {
+                                state = "gasMixer"
+                            }
+                        }
+                    }
+                }
+            }
+            new PipeColorVisualsComponent {}
+            new UserInterfaceComponent {
+                interfaces {
+                    ["enum.GasMixerUiKey.Key"] {
+                        type = "GasMixerBoundUserInterface"
+                    }
+                }
+            }
+            new GasMixerComponent {
+                enabled = false
+                inletOne = "inlet"
+                inletTwo = "filter"
+            }
+            new AmbientSoundComponent {
+                enabled = false
+                volume = -9.0
+                range = 5.0
+                sound = new SoundPathSpecifier {
+                    path = "/Audio/Ambience/Objects/gas_hiss.ogg"
+                }
+            }
+            new AtmosMonitoringConsoleDeviceComponent {
+                navMapBlip = "GasFlowRegulator"
+            }
+        }
+    }
+
+    generateMixer(0)
+    generateMixer(1)
+    generateMixer(2)
+    generateMixer(3)
+    generateMixer(4)
+
+    // Gas Mixer subtypes
+
+    generateGasMixerHigh(0)
+    generateGasMixerHigh(1)
+    generateGasMixerHigh(2)
+    generateGasMixerHigh(3)
+    generateGasMixerHigh(4)
+
+    generateMixerFlipped(0)
+    generateMixerFlipped(1)
+    generateMixerFlipped(2)
+    generateMixerFlipped(3)
+    generateMixerFlipped(4)
+
+    generateMixerFlippedHigh(0)
+    generateMixerFlippedHigh(1)
+    generateMixerFlippedHigh(2)
+    generateMixerFlippedHigh(3)
+    generateMixerFlippedHigh(4)
+
+    new EntityPrototype {
+        parent { "GasPipeBase" }
+        id = "PressureControlledValve"
+        `abstract` = true
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new AtmosDeviceComponent {}
+            new TagComponent {
+                tags = Set("Unstackable")
+            }
+            new SubFloorHideComponent {
+                blockInteractions = false
+                blockAmbience = false
+                visibleLayers = Set("enum.SubfloorLayers.FirstLayer")
+            }
+            new SpriteComponent {
+                sprite = "/Textures/Structures/Piping/Atmospherics/pneumaticvalve.rsi"
+                layers {
+                    new PrototypeLayerData {
+                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                        state = "pipeTrinaryConnectors_2"
+                        map = Set("enum.PipeVisualLayers.Pipe")
+                    }
+                    new PrototypeLayerData {
+                        state = "off"
+                        map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                    }
+                }
+            }
+            new AppearanceComponent {}
+            new GenericVisualizerComponent {
+                visuals {
+                    ["enum.FilterVisuals.Enabled"] {
+                        ["enabled"] {
+                            ["True"] {
+                                state = "on"
+                            }
+                            ["False"] {
+                                state = "off"
+                            }
+                        }
+                    }
+                }
+            }
+            new PipeColorVisualsComponent {}
+            new PressureControlledValveComponent {}
+            new AmbientSoundComponent {
+                enabled = false
+                volume = -9.0
+                range = 5.0
+                sound = new SoundPathSpecifier {
+                    path = "/Audio/Ambience/Objects/gas_hiss.ogg"
+                }
+            }
+            new AtmosMonitoringConsoleDeviceComponent {
+                navMapBlip = "GasFlowRegulator"
+            }
+            new StationAiWhitelistComponent {}
+        }
+    }
+
+    generatePressureControleldValve(0)
+    generatePressureControleldValve(1)
+    generatePressureControleldValve(2)
+    generatePressureControleldValve(3)
+    generatePressureControleldValve(4)
+
+    // Pressure Controlled Valve subtypes
+
+    generatePressureControlledValveHigh(0)
+    generatePressureControlledValveHigh(1)
+    generatePressureControlledValveHigh(2)
+    generatePressureControlledValveHigh(3)
+    generatePressureControlledValveHigh(4)
+}
+
+local const function generateGasFilter(l: PipeLayer): EntityPrototype = new {
+    parent { "GasFilter" }
+    id = "GasFilter\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeTrinaryConnectors_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new PrototypeLayerData {
+                    state = "gasFilter"
+                    map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                }
+            }
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = l
+                }
+                ["filter"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "West"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "filter\(l)"
+        }
+        new FlippableComponent {
+            mirrorEntity = "GasFilterFlipped\(l)"
+        }
+    }
+}
+
+local const function generateGasFilterHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasFilter\(l)" }
+    id = "GasFilterHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasFilterComponent {
+            enabled = false
+            transferRate = 3000.0
+            maxTransferRate = 3000.0
+        }
+    }
+}
+
+local const function generateGasFilterFlipped(l: PipeLayer): EntityPrototype = new {
+    parent { "GasFilter\(l)" }
+    id = "GasFilterFlipped\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeTrinaryConnectors_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new PrototypeLayerData {
+                    state = "gasFilterF"
+                    map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                }
+            }
+        }
+        new FlippableComponent {
+            mirrorEntity = "GasFilter\(l)"
+        }
+        new AppearanceComponent {}
+        new GenericVisualizerComponent {
+            visuals {
+                ["enum.FilterVisuals.Enabled"] {
+                    ["enabled"] {
+                        ["True"] {
+                            state = "gasFilterFOn"
+                        }
+                        ["False"] {
+                            state = "gasFilterF"
+                        }
+                    }
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "filterflipped\(l)"
+        }
+        new PipeColorVisualsComponent {}
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+                ["filter"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "West"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = 2
+                }
+            }
+        }
+    }
+}
+
+local const function generateGasFilterFlippedHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasFilterFlipped\(l)" }
+    id = "GasFilterFlippedHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasFilterComponent {
+            enabled = false
+            transferRate = 3000.0
+            maxTransferRate = 3000.0
+        }
+    }
+}
+
+local const function generateMixer(l: PipeLayer): EntityPrototype = new {
+    parent { "GasMixer" }
+    id = "GasMixer\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/gasmixer.rsi"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeTrinaryConnectors_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new PrototypeLayerData {
+                    state = "gasMixer"
+                    map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                }
+            }
+        }
+        new FlippableComponent {
+            mirrorEntity = "GasMixerFlipped\(l)"
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = l
+                }
+                ["filter"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "West"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "mixer\(l)"
+        }
+    }
+}
+
+local const function generateGasMixerHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasMixer\(l)" }
+    id = "GasMixerHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasMixerComponent {
+            maxTargetPressure = 13500.0
+        }
+    }
+}
+
+local const function generateMixerFlipped(l: PipeLayer): EntityPrototype = new {
+    parent { "GasMixer\(l)" }
+    id = "GasMixerFlipped\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/gasmixer.rsi"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeTrinaryConnectors_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new PrototypeLayerData {
+                    state = "gasMixerF"
+                    map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                }
+            }
+        }
+        new AppearanceComponent {}
+        new GenericVisualizerComponent {
+            visuals {
+                ["enum.FilterVisuals.Enabled"] {
+                    ["enabled"] {
+                        ["True"] {
+                            state = "gasMixerFOn"
+                        }
+                        ["False"] {
+                            state = "gasMixerF"
+                        }
+                    }
+                }
+            }
+        }
+        new PipeColorVisualsComponent {}
+        new FlippableComponent {
+            mirrorEntity = "GasMixer\(l)"
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = l
+                }
+                ["filter"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "West"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "mixerflipped\(l)"
+        }
+    }
+}
+
+local const function generateMixerFlippedHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "GasMixerFlipped\(l)" }
+    id = "GasMixerFlippedHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new GasMixerComponent {
+            maxTargetPressure = 13500.0
+        }
+    }
+}
+
+local const function generatePressureControleldValve(l: PipeLayer): EntityPrototype = new {
+    parent { "PressureControlledValve" }
+    id = "PressureControlledValve\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/pneumaticvalve.rsi"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    state = "pipeTrinaryConnectors_\(l)"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                }
+                new PrototypeLayerData {
+                    state = "off"
+                    map = Set("enum.SubfloorLayers.FirstLayer", "enabled")
+                }
+            }
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["inlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "North"
+                    layer = l
+                }
+                ["control"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "West"
+                    layer = l
+                }
+                ["outlet"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "South"
+                    layer = l
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasTrinary"
+            node = "pneumaticvalve\(l)"
+        }
+    }
+}
+
+local const function generatePressureControlledValveHigh(l: PipeLayer): EntityPrototype = new {
+    parent { "PressureControlledValve\(l)" }
+    id = "PressureControlledValveHighFlow\(l)"
+    placement {
+        mode = "SnapgridCenter"
+    }
+    components {
+        new PressureControlledValveComponent {
+            maxTransferRate = 3000.0
+        }
+    }
+}

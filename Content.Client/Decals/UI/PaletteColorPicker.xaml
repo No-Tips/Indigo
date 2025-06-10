@@ -1,7 +1,9 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
-               Title="{Loc 'palette-color-picker-window-title'}"
-               MinSize="250 500"
-               SetSize="250 500">
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'palette-color-picker-window-title'}"
+    MinSize="250 500"
+    SetSize="250 500">
     <BoxContainer Orientation="Vertical">
         <ItemList Name="PaletteList" VerticalExpand="True" Access="Public"/>
         <BoxContainer Orientation="Horizontal">
@@ -9,4 +11,4 @@
             <OptionButton Name="Palettes"/>
         </BoxContainer>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

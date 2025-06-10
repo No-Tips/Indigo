@@ -1,0 +1,283 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    new ConstructionGraphPrototype {
+        id = "GasTrinary"
+        start = "start"
+        graph {
+            new ConstructionGraphNode {
+                node = "start"
+                edges {
+                    generateFilterEdge(0)
+                    generateFilterEdge(1)
+                    generateFilterEdge(2)
+                    generateFilterEdge(3)
+                    generateFilterEdge(4)
+
+                    generateFilterFlippedEdge(0)
+                    generateFilterFlippedEdge(1)
+                    generateFilterFlippedEdge(2)
+                    generateFilterFlippedEdge(3)
+                    generateFilterFlippedEdge(4)
+
+                    generateMixerEdge(0)
+                    generateMixerEdge(1)
+                    generateMixerEdge(2)
+                    generateMixerEdge(3)
+                    generateMixerEdge(4)
+
+                    generateMixerFlippedEdge(0)
+                    generateMixerFlippedEdge(1)
+                    generateMixerFlippedEdge(2)
+                    generateMixerFlippedEdge(3)
+                    generateMixerFlippedEdge(4)
+
+                    generatePressureControlledValveEdge(0)
+                    generatePressureControlledValveEdge(1)
+                    generatePressureControlledValveEdge(2)
+                    generatePressureControlledValveEdge(3)
+                    generatePressureControlledValveEdge(4)
+                }
+            }
+
+            generateFilterNode(0)
+            generateFilterNode(1)
+            generateFilterNode(2)
+            generateFilterNode(3)
+            generateFilterNode(4)
+
+            generateFilterFlippedNode(0)
+            generateFilterFlippedNode(1)
+            generateFilterFlippedNode(2)
+            generateFilterFlippedNode(3)
+            generateFilterFlippedNode(4)
+
+            generateMixerNode(0)
+            generateMixerNode(1)
+            generateMixerNode(2)
+            generateMixerNode(3)
+            generateMixerNode(4)
+
+            generateMixerFlippedNode(0)
+            generateMixerFlippedNode(1)
+            generateMixerFlippedNode(2)
+            generateMixerFlippedNode(3)
+            generateMixerFlippedNode(4)
+
+            generatePressureControlledValveNode(0)
+            generatePressureControlledValveNode(1)
+            generatePressureControlledValveNode(2)
+            generatePressureControlledValveNode(3)
+            generatePressureControlledValveNode(4)
+        }
+    }
+}
+
+local const function generateFilterEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "filter\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateFilterNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "filter\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasFilter\(l)"
+    }
+    edges {
+        new ConstructionGraphEdge {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateFilterFlippedEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "filterflipped\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateFilterFlippedNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "filterflipped\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasFilterFlipped\(l)"
+    }
+    edges {
+        new ConstructionGraphEdge {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                 new SpawnPrototype {
+                     prototype = "SheetSteel1"
+                     amount = 2
+                 }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateMixerEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "mixer\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateMixerNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "mixer\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasMixer\(l)"
+    }
+    edges {
+        new ConstructionGraphEdge {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateMixerFlippedEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "mixerflipped\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateMixerFlippedNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "mixerflipped\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasMixerFlipped\(l)"
+    }
+    edges {
+        new ConstructionGraphEdge {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generatePressureControlledValveEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "pneumaticvalve\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 2
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generatePressureControlledValveNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "pneumaticvalve\(l)"
+    entity = new StaticNodeEntity {
+        id = "PressureControlledValve\(l)"
+    }
+    edges {
+        new ConstructionGraphEdge {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 2
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}

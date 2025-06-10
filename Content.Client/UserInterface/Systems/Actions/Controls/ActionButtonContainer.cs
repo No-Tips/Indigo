@@ -48,11 +48,10 @@ public class ActionButtonContainer : GridContainer
 
     public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
-        var uniqueCount = Math.Max(ContentKeyFunctions.GetHotbarBoundKeys().Length, actionTypes.Length + 1);
-        if (ChildCount != uniqueCount)
-            BuildActionButtons(uniqueCount);
+        var buttonsCount = Math.Min(ContentKeyFunctions.GetHotbarBoundKeys().Length, actionTypes.Length + 1);
+        BuildActionButtons(buttonsCount);
 
-        for (var i = 0; i < uniqueCount; i++)
+        for (var i = 0; i < buttonsCount; i++)
         {
             if (!actionTypes.TryGetValue(i, out var action))
                 action = null;

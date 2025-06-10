@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Disposal;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
@@ -68,7 +69,7 @@ public sealed class DumpableSystem : EntitySystem
                 StartDoAfter(uid, args.Target, args.User, dumpable);//Had multiplier of 0.6f
             },
             Text = Loc.GetString("dump-verb-name"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/drop.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.PlaceItem
         };
         args.Verbs.Add(verb);
     }

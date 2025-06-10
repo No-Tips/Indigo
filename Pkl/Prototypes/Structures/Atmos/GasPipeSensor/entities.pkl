@@ -1,0 +1,195 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    new EntityPrototype {
+        parent {
+            "AirSensorBase"
+            "GasPipeBase"
+        }
+        id = "GasPipeSensor"
+        `abstract` = true
+        placement {
+            mode = "SnapgridCenter"
+        }
+        components {
+            new SpriteComponent {
+                sprite = "/Textures/Structures/Piping/Atmospherics/gas_pipe_sensor.rsi"
+                drawdepth = "BelowFloor"
+                layers {
+                    new PrototypeLayerData {
+                        sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                        map = Set("enum.PipeVisualLayers.Pipe")
+                        state = "pipeStraight_2"
+                    }
+                    new PrototypeLayerData {
+                        map = Set("base")
+                        state = "base_2"
+                    }
+                    new PrototypeLayerData {
+                        map = Set("enum.PowerDeviceVisualLayers.Powered")
+                        state = "lights_2"
+                        shader = "unshaded"
+                    }
+                }
+            }
+            new AppearanceComponent {}
+            new AtmosMonitorComponent {
+                monitorsPipeNet = true
+            }
+            new GasPipeSensorComponent {}
+            new AtmosMonitoringConsoleDeviceComponent {
+                navMapBlip = "GasPipeSensor"
+            }
+            new ApcPowerReceiverComponent {}
+            new TagComponent {
+                tags = Set("AirSensor", "Unstackable")
+            }
+        }
+    }
+
+    generatePipeSensor(0)
+    generatePipeSensor(1)
+    generatePipeSensor(2)
+    generatePipeSensor(3)
+    generatePipeSensor(4)
+
+    // GasPipeSensor subtypes
+
+    generatePipeSensorDistribution(0)
+    generatePipeSensorDistribution(1)
+    generatePipeSensorDistribution(2)
+    generatePipeSensorDistribution(3)
+    generatePipeSensorDistribution(4)
+
+    generatePipeSensorWaste(0)
+    generatePipeSensorWaste(1)
+    generatePipeSensorWaste(2)
+    generatePipeSensorWaste(3)
+    generatePipeSensorWaste(4)
+
+    generatePipeSensorMixedAir(0)
+    generatePipeSensorMixedAir(1)
+    generatePipeSensorMixedAir(2)
+    generatePipeSensorMixedAir(3)
+    generatePipeSensorMixedAir(4)
+
+    generatePipeSensorTegHot(0)
+    generatePipeSensorTegHot(1)
+    generatePipeSensorTegHot(2)
+    generatePipeSensorTegHot(3)
+    generatePipeSensorTegHot(4)
+
+    generatePipeSensorTegCold(0)
+    generatePipeSensorTegCold(1)
+    generatePipeSensorTegCold(2)
+    generatePipeSensorTegCold(3)
+    generatePipeSensorTegCold(4)
+}
+
+local const function generatePipeSensor(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor" }
+    id = "GasPipeSensor\(l)"
+    components {
+        new SpriteComponent {
+            sprite = "/Textures/Structures/Piping/Atmospherics/gas_pipe_sensor.rsi"
+            drawdepth = "BelowFloor"
+            layers {
+                new PrototypeLayerData {
+                    sprite = "/Textures/Structures/Piping/Atmospherics/pipe.rsi"
+                    map = Set("enum.PipeVisualLayers.Pipe")
+                    state = "pipeStraight_\(l)"
+                }
+                new PrototypeLayerData {
+                    map = Set("base")
+                    state = "base_\(l)"
+                }
+                new PrototypeLayerData {
+                    map = Set("enum.PowerDeviceVisualLayers.Powered")
+                    state = "lights_\(l)"
+                    shader = "unshaded"
+                }
+            }
+        }
+        new GenericVisualizerComponent {
+            visuals {
+                ["enum.PowerDeviceVisuals.Powered"] {
+                    ["enum.PowerDeviceVisualLayers.Powered"] {
+                        ["False"] {
+                            state = "blank"
+                        }
+                        ["True"] {
+                            state = "lights_\(l)"
+                        }
+                    }
+                }
+            }
+        }
+        new ConstructionComponent {
+            graph = "GasPipeSensor"
+            node = "sensor\(l)"
+        }
+        new NodeContainerComponent {
+            nodes {
+                ["monitored"] = new PipeNode {
+                    nodeGroupID = "Pipe"
+                    pipeDirection = "Longitudinal"
+                    layer = l
+                }
+            }
+        }
+    }
+}
+
+local const function generatePipeSensorDistribution(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor\(l)" }
+    id = "GasPipeSensorDistribution\(l)"
+    components {
+        new LabelComponent {
+            currentLabel = "gas-pipe-sensor-distribution-loop"
+        }
+    }
+}
+
+local const function generatePipeSensorWaste(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor\(l)" }
+    id = "GasPipeSensorWaste\(l)"
+    components {
+        new LabelComponent {
+            currentLabel = "gas-pipe-sensor-waste-loop"
+        }
+    }
+}
+
+local const function generatePipeSensorMixedAir(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor\(l)" }
+    id = "GasPipeSensorMixedAir\(l)"
+    components {
+        new LabelComponent {
+            currentLabel = "gas-pipe-sensor-mixed-air"
+        }
+    }
+}
+
+local const function generatePipeSensorTegHot(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor\(l)" }
+    id = "GasPipeSensorTEGHot\(l)"
+    components {
+        new LabelComponent {
+            currentLabel = "gas-pipe-sensor-teg-hot-loop"
+        }
+    }
+}
+
+local const function generatePipeSensorTegCold(l: PipeLayer): EntityPrototype = new {
+    parent { "GasPipeSensor\(l)" }
+    id = "GasPipeSensorTEGCold\(l)"
+    components {
+        new LabelComponent {
+            currentLabel = "gas-pipe-sensor-teg-cold-loop"
+        }
+    }
+}

@@ -3,7 +3,7 @@
     xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
     HorizontalExpand="True"
     VerticalExpand="True"
-    StyleClasses="AngleRect">
+    StyleClasses="FancyWindowPanel">
     <ScrollContainer Margin="-10"
                      VerticalExpand="True"
                      HorizontalExpand="True">

@@ -270,11 +270,13 @@ internal static class MetaTypes
             typeof(Color),
             ("Color",
                 """
+                local const function ToHexPadded(number: Number, padding: UInt): String = number.toRadixString(16).padStart(padding, "0")
+
                 local const function IsHexColor(hex: String): Boolean = hex.startsWith("#") && (hex.length == 7 || hex.length == 9)
 
                 const function ColorRGB(r: UInt8, g: UInt8, b: UInt8): Color = ColorRGBA(r, g, b, 255)
 
-                const function ColorRGBA(r: UInt8, g: UInt8, b: UInt8, a: UInt8): Color = "#\(r.toRadixString(16))\(g.toRadixString(16))\(b.toRadixString(16))\(a.toRadixString(16))"
+                const function ColorRGBA(r: UInt8, g: UInt8, b: UInt8, a: UInt8): Color = "#\(ToHexPadded(r, 2))\(ToHexPadded(g, 2))\(ToHexPadded(b, 2))\(ToHexPadded(a, 2))"
 
                 typealias Color = String(IsHexColor(this))
                 """
@@ -387,6 +389,7 @@ internal static class MetaTypes
         { typeof(TimeSpan), () => new("String", false, null) },
         { typeof(bool), () => new("Boolean", false, null) },
         { typeof(short), () => new("Int16", false, null) },
+        { typeof(ushort), () => new("UInt16", false, null) },
         { typeof(int), () => new("Int32", false, null) },
         { typeof(uint), () => new("UInt32", false, null) },
         { typeof(float), () => new("Float", false, null) },
@@ -977,8 +980,14 @@ internal static class Program
                     if (child.IsGenericType)
                         continue;
 
-                    if (GlobalTypes.ContainsKey(child))
+                    if (GlobalTypes.TryGetValue(child, out var value))
+                    {
+                        var childClass = (ClassDefinition) value;
+
+                        GlobalTypes[child] = childClass with { Base = newClassType, };
+
                         continue;
+                    }
 
                     if (TryToMetaType(child) is not null)
                         continue;
@@ -1012,6 +1021,8 @@ internal static class Program
 
                 if (t.IsAssignableTo(typeof(IPrototype)))
                     newClass = newClass with { Base = new Type("Prototype", false, null), };
+                else if (t.IsAssignableTo(typeof(Component)))
+                    newClass = newClass with { Base = new Type("Component", false, null), };
 
                 if (t.IsAssignableTo(typeof(IInheritingPrototype)))
                     newClass = newClass with { Modifier = ClassModifier.Open, };

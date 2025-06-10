@@ -1,6 +1,7 @@
 - type: gameMap
   id: CentComm
   mapName: 'Central Command'
+  isGrid: true
   mapPath: /Maps/CentralCommand/main.yml
   minPlayers: 0
   stations:

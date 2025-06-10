@@ -14,6 +14,7 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Lock;
@@ -305,14 +306,12 @@ public abstract class SharedStorageSystem : EntitySystem
         if (uiOpen)
         {
             verb.Text = Loc.GetString("comp-storage-verb-close-storage");
-            verb.Icon = new SpriteSpecifier.Texture(
-                new("/Textures/Interface/VerbIcons/close.svg.192dpi.png"));
+            verb.GlyphIcon = SymbolIcons.LeftPanelClose;
         }
         else
         {
             verb.Text = Loc.GetString("comp-storage-verb-open-storage");
-            verb.Icon = new SpriteSpecifier.Texture(
-                new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
+            verb.GlyphIcon = SymbolIcons.LeftPanelOpen;
         }
         args.Verbs.Add(verb);
     }

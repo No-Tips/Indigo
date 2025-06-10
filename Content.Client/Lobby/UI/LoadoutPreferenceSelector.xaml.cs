@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Client.Guidebook;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.Paint;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
@@ -10,6 +11,7 @@ using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Guidebook;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Labels.Components;
 using Content.Shared.Paint;
 using Content.Shared.Preferences;
@@ -32,6 +34,8 @@ namespace Content.Client.Lobby.UI;
 [GenerateTypedNameReferences]
 public sealed partial class LoadoutPreferenceSelector : Control
 {
+    [Dependency] private readonly TypographyManager _typographyManager = null!;
+
     public const string DefaultLoadoutInfoGuidebook = "LoadoutInfo";
 
     public EntityUid DummyEntityUid;
@@ -91,10 +95,18 @@ public sealed partial class LoadoutPreferenceSelector : Control
         IEntityManager entityManager, IPrototypeManager prototypeManager, IConfigurationManager configManager,
         CharacterRequirementsSystem characterRequirementsSystem, JobRequirementsManager jobRequirementsManager)
     {
+        IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
         _entityManager = entityManager;
         Loadout = loadout;
+
+        GuidebookButtonIcon.Text         = SymbolIcons.QuestionMark;
+        GuidebookButtonIcon.FontOverride = _typographyManager.GetSymbolsFont(
+            filled: true,
+            style: TextStyle.Title2,
+            weight: FontWeight.SemiBold
+        );
 
         // Show/hide the special menu and items depending on what's allowed
         HeirloomButton.Visible = loadout.CanBeHeirloom;
@@ -310,6 +322,8 @@ public sealed partial class LoadoutPreferenceSelector : Control
     private bool _initialized;
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         if (_initialized || SpecialMenu.Heading == null)
             return;
 

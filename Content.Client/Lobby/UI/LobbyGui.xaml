@@ -5,7 +5,6 @@
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:vote="clr-namespace:Content.Client.Voting.UI"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets">
@@ -20,29 +19,27 @@
                 <Control Name="DefaultState" VerticalExpand="True">
                     <BoxContainer Name="TopLeft" Orientation="Vertical">
                         <!-- Left Top Panel -->
-                        <PanelContainer StyleClasses="AngleRect" HorizontalAlignment="Left" Name="LeftSideTop"
+                        <PanelContainer StyleClasses="FancyWindowPanel" HorizontalAlignment="Left" Name="LeftSideTop"
                                         VerticalAlignment="Top">
-                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
+                            <BoxContainer Margin="8 8" Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
                                 <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center"
                                                  Margin="4 4" />
-                                <controls:StripeBack>
-                                    <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="3 3 3 3">
-                                        <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public"
-                                                            Text="{Loc 'ui-lobby-observe-button'}"
-                                                            WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
-                                        <Label Name="StartTime"
-                                               Access="Public"
-                                               Align="Left"
-                                               FontColorOverride="{x:Static maths:Color.DarkGray}"
-                                               HorizontalExpand="True" />
-                                        <Button Name="ManifestButton" Access="Public"
-                                                Text="Manifest"
-                                                MinWidth="137" />
-                                        <Button Name="ReadyButton" Access="Public" ToggleMode="True"
-                                                Text="{Loc 'ui-lobby-ready-up-button'}"
-                                                MinWidth="137" />
-                                    </BoxContainer>
-                                </controls:StripeBack>
+                                <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="3 3 3 3">
+                                    <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public"
+                                                        Text="{Loc 'ui-lobby-observe-button'}"
+                                                        WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
+                                    <Label Name="StartTime"
+                                           Access="Public"
+                                           Align="Left"
+                                           FontColorOverride="{x:Static maths:Color.DarkGray}"
+                                           HorizontalExpand="True" />
+                                    <Button Name="ManifestButton" Access="Public"
+                                            Text="Manifest"
+                                            MinWidth="137" />
+                                    <Button Name="ReadyButton" Access="Public" ToggleMode="True"
+                                            Text="{Loc 'ui-lobby-ready-up-button'}"
+                                            MinWidth="137" />
+                                </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
                         <!-- Voting Popups -->
@@ -52,13 +49,15 @@
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4">
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                  SeparationOverride="4">
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
-                        <PanelContainer StyleClasses="AngleRect">
-                            <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+                        <PanelContainer StyleClasses="FancyWindowPanelSmall">
+                            <RichTextLabel Margin="8 4" Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
-                        <PanelContainer StyleClasses="AngleRect">
-                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                        <PanelContainer StyleClasses="FancyWindowPanelSmall">
+                            <RichTextLabel Margin="8 4" Name="LobbyBackground" Access="Public"
+                                           HorizontalAlignment="Center" />
                         </PanelContainer>
                     </BoxContainer>
                 </Control>
@@ -67,9 +66,10 @@
                 <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" />
             </BoxContainer>
             <!-- Right Panel -->
-            <PanelContainer Name="RightSide" StyleClasses="AngleRect" HorizontalAlignment="Right" VerticalExpand="True"
+            <PanelContainer Name="RightSide" StyleClasses="FancyWindowPanel" HorizontalAlignment="Right"
+                            VerticalExpand="True"
                             VerticalAlignment="Stretch">
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <BoxContainer Margin="8 8" Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
                                   SeparationOverride="4">

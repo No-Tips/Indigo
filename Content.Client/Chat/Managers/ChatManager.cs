@@ -54,11 +54,6 @@ namespace Content.Client.Chat.Managers
             var str = text.ToString();
             switch (channel)
             {
-                case ChatSelectChannel.Console:
-                    // run locally
-                    _consoleHost.ExecuteCommand(text);
-                    break;
-
                 case ChatSelectChannel.LOOC:
                     _consoleHost.ExecuteCommand($"looc \"{CommandParsing.Escape(str)}\"");
                     break;

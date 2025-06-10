@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Ghost;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
@@ -70,7 +71,7 @@ public abstract class SharedPortalSystem : EntitySystem
             Message = disabled
                 ? Loc.GetString("portal-component-no-linked-entities")
                 : Loc.GetString("portal-component-can-ghost-traverse"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"))
+            GlyphIcon = SymbolIcons.LocationOn
         });
     }
 

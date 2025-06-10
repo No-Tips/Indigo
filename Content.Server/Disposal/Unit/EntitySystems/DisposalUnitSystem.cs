@@ -20,6 +20,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
@@ -111,7 +112,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
             {
                 Act = () => ManualEngage(uid, component),
                 Text = Loc.GetString("disposal-flush-verb-get-data-text"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.Recycling,
                 Priority = 1,
             };
             args.Verbs.Add(flushVerb);

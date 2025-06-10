@@ -4,14 +4,11 @@ using System.Numerics;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
 using Content.Client.Administration.UI.Bwoink;
-using Content.Client.Gameplay;
 using Content.Client.Lobby;
 using Content.Client.Lobby.UI;
 using Content.Client.Stylesheets;
-using Content.Client.UserInterface.Controls;
-using Content.Client.UserInterface.Systems.MenuBar.Widgets;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Administration;
-using Content.Shared.CCVar;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Audio;
@@ -21,8 +18,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Configuration;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -30,16 +25,16 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Bwoink;
 
 [UsedImplicitly]
-public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
+public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSystem>, IOnStateChanged<LobbyState>
 {
-    [Dependency] private readonly IClientAdminManager _adminManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-    [UISystemDependency] private readonly AudioSystem _audio = default!;
+    [Dependency]         private readonly IClientAdminManager   _adminManager      = default!;
+    [Dependency]         private readonly IPlayerManager        _playerManager     = default!;
+    [Dependency]         private readonly IClyde                _clyde             = default!;
+    [Dependency]         private readonly IUserInterfaceManager _uiManager         = default!;
+    [Dependency]         private readonly GlobalMenuManager     _globalMenuManager = null!;
+    [UISystemDependency] private readonly AudioSystem           _audio             = default!;
 
     private BwoinkSystem? _bwoinkSystem;
-    private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
     private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
     public IAHelpUIHandler? UIHelper;
 
@@ -59,25 +54,16 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         SubscribeNetworkEvent<BwoinkPlayerTypingUpdated>(PeopleTypingUpdated);
 
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
-    }
 
-
-    public void UnloadButton()
-    {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
-
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed += AHelpButtonPressed;
-
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed += AHelpButtonPressed;
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Game)
+            .RegisterItem(
+                new(
+                    new("global-menu-game-ahelp-item"),
+                    Callback: ToggleWindow,
+                    Function: ContentKeyFunctions.OpenAHelp
+                )
+            );
     }
 
     private void OnAdminStatusUpdated()
@@ -97,17 +83,10 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     {
         _bwoinkSystem = system;
         _bwoinkSystem.OnBwoinkTextMessageRecieved += ReceivedBwoink;
-
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenAHelp,
-                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
-            .Register<AHelpUIController>();
     }
 
     public void OnSystemUnloaded(BwoinkSystem system)
     {
-        CommandBinds.Unregister<AHelpUIController>();
-
         DebugTools.Assert(_bwoinkSystem != null);
         _bwoinkSystem!.OnBwoinkTextMessageRecieved -= ReceivedBwoink;
         _bwoinkSystem = null;
@@ -115,9 +94,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
     private void SetAHelpPressed(bool pressed)
     {
-        if (GameAHelpButton != null)
-            GameAHelpButton.Pressed = pressed;
-
         if (LobbyAHelpButton != null)
             LobbyAHelpButton.Pressed = pressed;
 
@@ -242,41 +218,14 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
     private void UnreadAHelpReceived()
     {
-        GameAHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
         LobbyAHelpButton?.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);
         _hasUnreadAHelp = true;
     }
 
     private void UnreadAHelpRead()
     {
-        GameAHelpButton?.StyleClasses.Remove(MenuButton.StyleClassRedTopButton);
         LobbyAHelpButton?.StyleClasses.Remove(StyleNano.StyleClassButtonColorRed);
         _hasUnreadAHelp = false;
-    }
-
-    public void OnStateEntered(GameplayState state)
-    {
-        if (GameAHelpButton != null)
-        {
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
-            GameAHelpButton.OnPressed += AHelpButtonPressed;
-            GameAHelpButton.Pressed = UIHelper?.IsOpen ?? false;
-
-            if (_hasUnreadAHelp)
-            {
-                UnreadAHelpReceived();
-            }
-            else
-            {
-                UnreadAHelpRead();
-            }
-        }
-    }
-
-    public void OnStateExited(GameplayState state)
-    {
-        if (GameAHelpButton != null)
-            GameAHelpButton.OnPressed -= AHelpButtonPressed;
     }
 
     public void OnStateEntered(LobbyState state)

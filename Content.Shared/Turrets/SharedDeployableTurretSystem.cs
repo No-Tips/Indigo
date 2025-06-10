@@ -3,6 +3,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
@@ -50,7 +51,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         {
             Priority = 1,
             Text = ent.Comp.Enabled ? Loc.GetString("deployable-turret-component-deactivate") : Loc.GetString("deployable-turret-component-activate"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.PowerSettingsNew,
             Disabled = !HasAmmo(ent),
             Impact = LogImpact.Low,
             Act = () => { TryToggleState(ent, user); }

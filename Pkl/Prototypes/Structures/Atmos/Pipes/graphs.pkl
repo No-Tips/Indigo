@@ -1,0 +1,314 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    new ConstructionGraphPrototype {
+        id = "GasPipe"
+        start = "start"
+        graph {
+            new {
+                node = "start"
+                edges {
+                    generateHalfEdge(0)
+                    generateHalfEdge(1)
+                    generateHalfEdge(2)
+                    generateHalfEdge(3)
+                    generateHalfEdge(4)
+
+                    generateStraightEdge(0)
+                    generateStraightEdge(1)
+                    generateStraightEdge(2)
+                    generateStraightEdge(3)
+                    generateStraightEdge(4)
+
+                    generateBendEdge(0)
+                    generateBendEdge(1)
+                    generateBendEdge(2)
+                    generateBendEdge(3)
+                    generateBendEdge(4)
+
+                    generateTJunctionEdge(0)
+                    generateTJunctionEdge(1)
+                    generateTJunctionEdge(2)
+                    generateTJunctionEdge(3)
+                    generateTJunctionEdge(4)
+
+                    generateFourwayEdge(0)
+                    generateFourwayEdge(1)
+                    generateFourwayEdge(2)
+                    generateFourwayEdge(3)
+                    generateFourwayEdge(4)
+                }
+            }
+
+            generateHalfNode(0)
+            generateHalfNode(1)
+            generateHalfNode(2)
+            generateHalfNode(3)
+            generateHalfNode(4)
+
+            generateStraightNode(0)
+            generateStraightNode(1)
+            generateStraightNode(2)
+            generateStraightNode(3)
+            generateStraightNode(4)
+
+            generateBendNode(0)
+            generateBendNode(1)
+            generateBendNode(2)
+            generateBendNode(3)
+            generateBendNode(4)
+
+            generateTJunctionNode(0)
+            generateTJunctionNode(1)
+            generateTJunctionNode(2)
+            generateTJunctionNode(3)
+            generateTJunctionNode(4)
+
+            generateFourwayNode(0)
+            generateFourwayNode(1)
+            generateFourwayNode(2)
+            generateFourwayNode(3)
+            generateFourwayNode(4)
+
+            new {
+                node = "broken"
+                entity = new StaticNodeEntity {
+                    id = "GasPipeBroken"
+                }
+                edges {
+                    new {
+                        to = "start"
+                        conditions {
+                            new EntityAnchored {
+                                anchored = false
+                            }
+                        }
+                        completed {
+                            new SpawnPrototype {
+                                prototype = "SheetSteel1"
+                                amount = 1
+                            }
+                            new DeleteEntity {}
+                        }
+                        steps {
+                            new ToolConstructionGraphStep {
+                                tool = "Welding"
+                                doAfter = 1.0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+local const function generateHalfEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "half\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 1
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateHalfNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "half\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeHalf\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateStraightEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "straight\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 1
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateStraightNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "straight\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeStraight\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateBendEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "bend\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 1
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateBendNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "bend\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeBend\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateTJunctionEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "tjunction\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 1
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateTJunctionNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "tjunction\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeTJunction\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}
+
+local const function generateFourwayEdge(l: PipeLayer): ConstructionGraphEdge = new {
+    to = "fourway\(l)"
+    steps {
+        new MaterialConstructionGraphStep {
+            material = "Steel"
+            amount = 1
+            doAfter = 1.0
+        }
+    }
+}
+
+local const function generateFourwayNode(l: PipeLayer): ConstructionGraphNode = new {
+    node = "fourway\(l)"
+    entity = new StaticNodeEntity {
+        id = "GasPipeFourway\(l)"
+    }
+    edges {
+        new {
+            to = "start"
+            conditions {
+                new EntityAnchored {
+                    anchored = false
+                }
+            }
+            completed {
+                new SpawnPrototype {
+                    prototype = "SheetSteel1"
+                    amount = 1
+                }
+                new DeleteEntity {}
+            }
+            steps {
+                new ToolConstructionGraphStep {
+                    tool = "Welding"
+                    doAfter = 1.0
+                }
+            }
+        }
+    }
+}

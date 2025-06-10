@@ -1,4 +1,5 @@
 using Content.Client.Pointing.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Pointing;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
@@ -44,7 +45,7 @@ public sealed partial class PointingSystem : SharedPointingSystem
         Verb verb = new()
         {
             Text = Loc.GetString("pointing-verb-get-data-text"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/point.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.PinDrop,
             ClientExclusive = true,
             Act = () => RaiseNetworkEvent(new PointingAttemptEvent(GetNetEntity(args.Target)))
         };

@@ -1,3 +1,4 @@
+using Content.Shared.InterfaceGuidelines;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -42,5 +43,5 @@ public sealed partial class PrayableComponent : Component
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public SpriteSpecifier? VerbImage = new SpriteSpecifier.Texture(new ("/Textures/Interface/pray.svg.png"));
+    public string? VerbGlyphIcon = SymbolIcons.FoldedHands;
 }

@@ -60,7 +60,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private ActionsWindow? _window;
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
-    private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
     private ActionPage CurrentPage => _pages[_currentPageIndex];
 
     public bool IsDragging => _menuDragHelper.IsDragging;
@@ -148,8 +147,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         builder
-            .Bind(ContentKeyFunctions.OpenActionsMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
             .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(TargetingOnUse, outsidePrediction: true),
                     typeof(ConstructionSystem), typeof(DragDropSystem))
                 .BindBefore(EngineKeyFunctions.UIRightClick, new PointerInputCmdHandler(TargetingCancel, outsidePrediction: true))
@@ -322,34 +319,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         return true;
     }
 
-    public void UnloadButton()
-    {
-        if (ActionButton == null)
-            return;
-
-        ActionButton.OnPressed -= ActionButtonPressed;
-    }
-
-    public void LoadButton()
-    {
-        if (ActionButton == null)
-            return;
-
-        ActionButton.OnPressed += ActionButtonPressed;
-    }
-
     private void OnWindowOpened()
     {
-        if (ActionButton != null)
-            ActionButton.SetClickPressed(true);
-
         SearchAndDisplay();
-    }
-
-    private void OnWindowClosed()
-    {
-        if (ActionButton != null)
-            ActionButton.SetClickPressed(false);
     }
 
     public void OnStateExited(GameplayState state)
@@ -398,6 +370,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void OnLeftArrowPressed(ButtonEventArgs args) => ChangePage(_currentPageIndex - 1);
 
     private void OnRightArrowPressed(ButtonEventArgs args) => ChangePage(_currentPageIndex + 1);
+
+    private void OnActionsWindowButtonPressed(ButtonEventArgs args) => ToggleWindow();
 
     private void AppendAction(EntityUid action)
     {
@@ -722,13 +696,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionPressed(GUIBoundKeyEventArgs args, ActionButton button)
     {
-        if (args.Function == EngineKeyFunctions.UIRightClick)
-        {
-            SetAction(button, null);
-            args.Handle();
-            return;
-        }
-
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
@@ -819,11 +786,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         ActionsBar.PageButtons.LeftArrow.OnPressed -= OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed -= OnRightArrowPressed;
+        ActionsBar.ActionsWindowButton.OnPressed -= OnActionsWindowButtonPressed;
 
         if (_window != null)
         {
             _window.OnOpen -= OnWindowOpened;
-            _window.OnClose -= OnWindowClosed;
             _window.ClearButton.OnPressed -= OnClearPressed;
             _window.SearchBar.OnTextChanged -= OnSearchChanged;
             _window.FilterButton.OnItemSelected -= OnFilterSelected;
@@ -840,7 +807,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
 
         _window.OnOpen += OnWindowOpened;
-        _window.OnClose += OnWindowClosed;
         _window.ClearButton.OnPressed += OnClearPressed;
         _window.SearchBar.OnTextChanged += OnSearchChanged;
         _window.FilterButton.OnItemSelected += OnFilterSelected;
@@ -850,6 +816,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         ActionsBar.PageButtons.LeftArrow.OnPressed += OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed += OnRightArrowPressed;
+        ActionsBar.ActionsWindowButton.OnPressed += OnActionsWindowButtonPressed;
 
         RegisterActionContainer(ActionsBar.ActionsContainer);
 

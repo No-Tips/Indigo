@@ -262,6 +262,8 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
+
         AutoScrollToFocus();
 
         // Warning sign pulse

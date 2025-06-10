@@ -71,9 +71,14 @@ namespace Content.Shared.Verbs
         public string Text = string.Empty;
 
         /// <summary>
+        ///     Glyph of the icon that the user sees on the verb button.
+        /// </summary>
+        public string? GlyphIcon;
+
+        /// <summary>
         ///     Sprite of the icon that the user sees on the verb button.
         /// </summary>
-        public SpriteSpecifier? Icon;
+        public SpriteSpecifier? SpriteIcon;
 
         /// <summary>
         ///     Name of the category this button is under. Used to group verbs in the context menu.
@@ -201,7 +206,7 @@ namespace Content.Shared.Verbs
             }
 
             // Finally, compare icon texture paths. Note that this matters for verbs that don't have any text (e.g., the rotate-verbs)
-            return string.Compare(Icon?.ToString(), otherVerb.Icon?.ToString(), StringComparison.CurrentCulture);
+            return string.Compare(GlyphIcon?.ToString(), otherVerb.GlyphIcon?.ToString(), StringComparison.CurrentCulture);
         }
 
         // I hate this. Please somebody allow generics to be networked.

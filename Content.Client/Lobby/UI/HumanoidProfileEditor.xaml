@@ -4,6 +4,7 @@
     xmlns:prefUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
     HorizontalExpand="True">
     <!-- Left side -->
     <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -32,8 +33,10 @@
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
                                 <Control HorizontalExpand="True"/>
-                                <TextureButton Name="SpeciesInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
-                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
+                                <ContainerButton Name="SpeciesInfoButton" VerticalAlignment="Center"
+                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}">
+                                    <Label StyleClasses="SpeciesInfoButtonIcon" Text="{x:Static ig:SymbolIcons.QuestionMark}" />
+                                </ContainerButton>
                                 <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <!-- Species -->

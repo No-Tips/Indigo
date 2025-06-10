@@ -20,6 +20,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Chat;
+using Content.Shared.InterfaceGuidelines;
 
 
 namespace Content.Server.Holopad;
@@ -445,7 +446,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
         {
             Act = () => ActivateProjector(entity, user),
             Text = Loc.GetString("holopad-activate-projector-verb"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.ViewInAr,
         };
 
         args.Verbs.Add(verb);

@@ -1,6 +1,7 @@
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Examine;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -42,7 +43,7 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
         RaiseLocalEvent(ent, ref ev);
 
         _examine.AddDetailedExamineVerb(args, ent.Comp, ev.Message,
-            Loc.GetString("surgery-tool-examinable-verb-text"), "/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/scalpel.png",
+            Loc.GetString("surgery-tool-examinable-verb-text"), SymbolIcons.Surgical,
             Loc.GetString("surgery-tool-examinable-verb-message"));
     }
 

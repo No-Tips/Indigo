@@ -1,9 +1,9 @@
 using Content.Client.Construction.UI;
 using Content.Client.Gameplay;
-using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.GlobalMenu;
+using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Crafting;
@@ -11,8 +11,24 @@ namespace Content.Client.UserInterface.Systems.Crafting;
 [UsedImplicitly]
 public sealed class CraftingUIController : UIController, IOnStateChanged<GameplayState>
 {
+    [Dependency] private readonly GlobalMenuManager _globalMenuManager = null!;
+
     private ConstructionMenuPresenter? _presenter;
-    private MenuButton? CraftingButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CraftingButton;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _globalMenuManager
+            .GetCategory(GlobalMenuCategory.Character)
+            .RegisterItem(
+                new(
+                    new("global-menu-character-crafting-window-item"),
+                    Callback: () => _presenter?.ToggleWindow(),
+                    Function: ContentKeyFunctions.OpenCraftingMenu
+                )
+            );
+    }
 
     public void OnStateEntered(GameplayState state)
     {
@@ -31,11 +47,6 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
 
     internal void UnloadButton(ConstructionMenuPresenter? presenter = null)
     {
-        if (CraftingButton == null)
-        {
-            return;
-        }
-
         if (presenter == null)
         {
             presenter ??= _presenter;
@@ -44,23 +55,5 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
                 return;
             }
         }
-
-        CraftingButton.Pressed = false;
-        CraftingButton.OnToggled -= presenter.OnHudCraftingButtonToggled;
-    }
-
-    public void LoadButton()
-    {
-        if (CraftingButton == null)
-        {
-            return;
-        }
-
-        CraftingButton.OnToggled += ButtonToggled;
-    }
-
-    private void ButtonToggled(BaseButton.ButtonToggledEventArgs obj)
-    {
-        _presenter?.OnHudCraftingButtonToggled(obj);
     }
 }

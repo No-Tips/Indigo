@@ -1,6 +1,8 @@
-<DefaultWindow xmlns="https://spacestation14.io"
-               xmlns:viewport="clr-namespace:Content.Client.Viewport"
-               Title="{Loc 'surveillance-camera-monitor-ui-window'}">
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:viewport="clr-namespace:Content.Client.Viewport"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'surveillance-camera-monitor-ui-window'}">
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True">
             <!-- lazy -->
@@ -22,4 +24,4 @@
             <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="500 500" Name="CameraViewBackground" />
         </Control>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow>

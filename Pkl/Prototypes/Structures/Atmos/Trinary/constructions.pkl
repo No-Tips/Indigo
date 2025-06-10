@@ -1,0 +1,138 @@
+amends ".../Typings.pkl"
+
+import ".../constants.pkl"
+
+local typealias PipeLayer = constants.PipeLayer
+
+content {
+    generateFilter(0)
+    generateFilter(1)
+    generateFilter(2)
+    generateFilter(3)
+    generateFilter(4)
+
+    generateFilterFlipped(0)
+    generateFilterFlipped(1)
+    generateFilterFlipped(2)
+    generateFilterFlipped(3)
+    generateFilterFlipped(4)
+
+    generateMixer(0)
+    generateMixer(1)
+    generateMixer(2)
+    generateMixer(3)
+    generateMixer(4)
+
+    generateMixerFlipped(0)
+    generateMixerFlipped(1)
+    generateMixerFlipped(2)
+    generateMixerFlipped(3)
+    generateMixerFlipped(4)
+
+    generatePressureControlledValve(0)
+    generatePressureControlledValve(1)
+    generatePressureControlledValve(2)
+    generatePressureControlledValve(3)
+    generatePressureControlledValve(4)
+}
+
+local const function generateFilter(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasFilter\(l)"
+    name = "gas filter"
+    description = "Very useful for filtering gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "filter\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+        state = "gasFilter"
+    }
+    mirror = "GasFilterFlipped\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateFilterFlipped(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasFilterFlipped\(l)"
+    hide = true
+    name = "gas filter"
+    description = "Very useful for filtering gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "filterflipped\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gasfilter.rsi"
+        state = "gasFilterF"
+    }
+    mirror = "GasFilter\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateMixer(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasMixer\(l)"
+    name = "gas mixer"
+    description = "Very useful for mixing gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "mixer\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gasmixer.rsi"
+        state = "gasMixer"
+    }
+    mirror = "GasMixerFlipped\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generateMixerFlipped(l: PipeLayer): ConstructionPrototype = new {
+    id = "GasMixerFlipped\(l)"
+    hide = true
+    name = "gas mixer"
+    description = "Very useful for mixing gases."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "mixerflipped\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/gasmixer.rsi"
+        state = "gasMixerF"
+    }
+    mirror = "GasMixer\(l)"
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}
+
+local const function generatePressureControlledValve(l: PipeLayer): ConstructionPrototype = new {
+    id = "PressureControlledValve\(l)"
+    name = "pneumatic valve"
+    description = "Valve controlled by pressure."
+    graph = "GasTrinary"
+    startNode = "start"
+    targetNode = "pneumaticvalve\(l)"
+    category = "construction-category-utilities"
+    placementMode = "SnapgridCenter"
+    canBuildInImpassable = false
+    icon = new Rsi {
+        sprite = "/Textures/Structures/Piping/Atmospherics/pneumaticvalve.rsi"
+        state = "off"
+    }
+    conditions {
+        new NoUnstackableInTile {}
+    }
+}

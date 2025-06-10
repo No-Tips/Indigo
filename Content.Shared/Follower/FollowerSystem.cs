@@ -4,6 +4,7 @@ using Content.Shared.Database;
 using Content.Shared.Follower.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
@@ -95,7 +96,7 @@ public sealed class FollowerSystem : EntitySystem
                 Act = () => StartFollowingEntity(ev.User, ev.Target),
                 Impact = LogImpact.Low,
                 Text = Loc.GetString("verb-follow-text"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"))
+                GlyphIcon = SymbolIcons.FollowTheSign
             };
             ev.Verbs.Add(verb);
         }
@@ -111,7 +112,7 @@ public sealed class FollowerSystem : EntitySystem
                 Act = () => StartFollowingEntity(ev.Target, ev.User),
                 Impact = LogImpact.Low,
                 Text = Loc.GetString("verb-follow-me-text"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/close.svg.192dpi.png")),
+                GlyphIcon = SymbolIcons.FollowTheSign
             };
 
             ev.Verbs.Add(verb);

@@ -1,4 +1,5 @@
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -38,14 +39,12 @@ namespace Content.Shared.Showers
             if (component.ToggleShower)
             {
                 toggleVerb.Text = Loc.GetString("shower-turn-on");
-                toggleVerb.Icon =
-                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
+                toggleVerb.GlyphIcon = SymbolIcons.RotateLeft;
             }
             else
             {
                 toggleVerb.Text = Loc.GetString("shower-turn-off");
-                toggleVerb.Icon =
-                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/close.svg.192dpi.png"));
+                toggleVerb.GlyphIcon = SymbolIcons.RotateRight;
             }
             args.Verbs.Add(toggleVerb);
         }

@@ -15,7 +15,6 @@ namespace Content.Client.ContextMenu.UI
     public partial class ContextMenuElement : ContainerButton
     {
         public const string StyleClassContextMenuButton = "contextMenuButton";
-        public const string StyleClassContextMenuExpansionTexture = "contextMenuExpansionTexture";
         public const string StyleClassEntityMenuIconLabel = "contextMenuIconLabel";
 
         public const float ElementMargin = 2;

@@ -1517,7 +1517,7 @@ namespace Content.Client.Lobby.UI
                 || !_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 return;
 
-            const string style = "SpeciesInfoDefault";
+            const string style = "SpeciesInfoButtonIcon";
             SpeciesInfoButton.StyleClasses.Add(style);
         }
 

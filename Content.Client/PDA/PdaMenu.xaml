@@ -14,7 +14,7 @@
 
         <pda:PdaNavigationButton HorizontalExpand="True"/>
 
-        <pda:PdaNavigationButton Name="ProgramCloseButton" Access="Public" IconScale="0.5 0.5" BorderThickness="0 0 2 2"
+        <pda:PdaNavigationButton Name="ProgramCloseButton" Access="Public" BorderThickness="0 0 2 2"
                                  Visible="False" IsActive="False" SetWidth="32"/>
 
         <pda:PdaNavigationButton Name="FlashLightToggleButton" Access="Public" ToggleMode="True" ActiveFgColor="#EAEFBB" SetWidth="32"/>

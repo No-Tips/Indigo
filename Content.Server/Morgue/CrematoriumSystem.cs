@@ -87,7 +87,6 @@ public sealed class CrematoriumSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Text = Loc.GetString("cremate-verb-get-data-text"),
-            // TODO VERB ICON add flame/burn symbol?
             Act = () => TryCremate(uid, component, storage),
             Impact = LogImpact.Medium // could be a body? or evidence? I dunno.
         };

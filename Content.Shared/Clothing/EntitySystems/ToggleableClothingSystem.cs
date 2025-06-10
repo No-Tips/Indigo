@@ -14,6 +14,8 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.InterfaceGuidelines;
+
 
 namespace Content.Shared.Clothing.EntitySystems;
 
@@ -83,7 +85,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         var verb = new EquipmentVerb()
         {
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Checkroom,
             Text = Loc.GetString(text),
         };
 

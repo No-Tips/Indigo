@@ -6,6 +6,7 @@ using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Internals;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
@@ -81,7 +82,7 @@ public sealed class InternalsSystem : EntitySystem
                 ToggleInternals(ent, user, force: false, ent);
             },
             Message = Loc.GetString("action-description-internals-toggle"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/dot.svg.192dpi.png")),
+            GlyphIcon = SymbolIcons.Vo2Max,
             Text = Loc.GetString("action-name-internals-toggle"),
         };
 

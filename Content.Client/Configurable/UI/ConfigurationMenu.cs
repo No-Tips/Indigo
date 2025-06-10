@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
+﻿using System.Numerics;
 using System.Text.RegularExpressions;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Localization;
-using Robust.Shared.Maths;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Configurable.UI
 {
-    public sealed class ConfigurationMenu : DefaultWindow
+    public sealed class ConfigurationMenu : FancyWindow
     {
         private readonly BoxContainer _column;
         private readonly BoxContainer _row;
@@ -72,7 +69,7 @@ namespace Content.Client.Configurable.UI
             outerColumn.AddChild(_column);
             baseContainer.AddChild(outerColumn);
             baseContainer.AddChild(confirmButton);
-            Contents.AddChild(baseContainer);
+            ContentsContainer.AddChild(baseContainer);
         }
 
         public void Populate(ConfigurationBoundUserInterfaceState state)

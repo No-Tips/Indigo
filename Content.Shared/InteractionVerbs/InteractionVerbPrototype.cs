@@ -33,10 +33,10 @@ public sealed partial class InteractionVerbPrototype : IPrototype, IInheritingPr
     public string? Description => Loc.TryGetString($"interaction-{ID}-description" , out var loc) ? loc : null;
 
     /// <summary>
-    ///     Sprite of the icon that the user sees on the verb button.
+    ///     Icon glyph that the user sees on the verb button.
     /// </summary>
     [DataField]
-    public SpriteSpecifier? Icon;
+    public string? Icon;
 
     /// <summary>
     ///     Specifies what effects are shown when this verb is performed successfully, or unsuccessfully.

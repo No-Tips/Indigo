@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
@@ -47,10 +48,10 @@ public sealed class CPRSystem : EntitySystem
         var target = args.Target;
         InnateVerb verb = new()
         {
-            Act = () => { StartCPR(performer, target); },
-            Text = Loc.GetString("cpr-verb"),
-            Icon = new SpriteSpecifier.Rsi(new("Interface/Alerts/human_alive.rsi"), "health4"),
-            Priority = 2
+            Act       = () => { StartCPR(performer, target); },
+            Text      = Loc.GetString("cpr-verb"),
+            GlyphIcon = SymbolIcons.Pulmonology,
+            Priority  = 2
         };
 
         args.Verbs.Add(verb);

@@ -17,8 +17,6 @@ namespace Content.Server.NodeContainer.Nodes;
 [DataDefinition, Virtual,]
 public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode
 {
-    public const int MaxLayers = 5;
-
     /// <summary>
     ///     The directions in which this pipe can connect to other pipes around it.
     /// </summary>

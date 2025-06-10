@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
@@ -271,9 +272,9 @@ public sealed class LockSystem : EntitySystem
                 ? () => TryUnlock(uid, args.User, component)
                 : () => TryLock(uid, args.User, component),
             Text = Loc.GetString(component.Locked ? "toggle-lock-verb-unlock" : "toggle-lock-verb-lock"),
-            Icon = !component.Locked
-                ? new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/lock.svg.192dpi.png"))
-                : new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unlock.svg.192dpi.png")),
+            GlyphIcon = !component.Locked
+                ? SymbolIcons.Lock
+                : SymbolIcons.LockOpen
         };
         args.Verbs.Add(verb);
     }

@@ -7,6 +7,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Medical;
 using Content.Shared.Medical.Stethoscope;
 using Content.Shared.Mobs.Components;
@@ -77,9 +78,9 @@ namespace Content.Server.Medical.Stethoscope
                 {
                     StartListening(component.Stethoscope, uid, args.Target, stetho); // start doafter
                 },
-                Text = Loc.GetString("stethoscope-verb"),
-                Icon = new SpriteSpecifier.Rsi(new ("Clothing/Neck/Misc/stethoscope.rsi"), "icon"),
-                Priority = 2
+                Text      = Loc.GetString("stethoscope-verb"),
+                GlyphIcon = SymbolIcons.Stethoscope,
+                Priority  = 2
             };
             args.Verbs.Add(verb);
         }

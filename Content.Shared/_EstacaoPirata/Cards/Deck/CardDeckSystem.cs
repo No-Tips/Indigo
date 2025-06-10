@@ -3,6 +3,7 @@ using Content.Shared._EstacaoPirata.Cards.Stack;
 using Content.Shared.Audio;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -45,30 +46,30 @@ public sealed class CardDeckSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb()
         {
-            Act = () => TryShuffle(uid, component, comp),
-            Text = Loc.GetString("cards-verb-shuffle"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/die.svg.192dpi.png")),
+            Act     = () => TryShuffle(uid, component, comp),
+            Text    = Loc.GetString("cards-verb-shuffle"),
+            GlyphIcon    = SymbolIcons.Shuffle,
             Priority = 4
         });
         args.Verbs.Add(new AlternativeVerb()
         {
-            Act = () => TrySplit(args.Target, component, comp, args.User),
-            Text = Loc.GetString("cards-verb-split"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/dot.svg.192dpi.png")),
+            Act      = () => TrySplit(args.Target, component, comp, args.User),
+            Text     = Loc.GetString("cards-verb-split"),
+            GlyphIcon     = SymbolIcons.ArrowSplit,
             Priority = 3
         });
         args.Verbs.Add(new AlternativeVerb()
         {
-            Act = () => TryOrganize(uid, component, comp, true),
-            Text = Loc.GetString("cards-verb-organize-down"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/flip.svg.192dpi.png")),
+            Act      = () => TryOrganize(uid, component, comp, true),
+            Text     = Loc.GetString("cards-verb-organize-down"),
+            GlyphIcon     = SymbolIcons.ArrowDownward,
             Priority = 2
         });
         args.Verbs.Add(new AlternativeVerb()
         {
-            Act = () => TryOrganize(uid, component, comp, false),
-            Text = Loc.GetString("cards-verb-organize-up"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/flip.svg.192dpi.png")),
+            Act      = () => TryOrganize(uid, component, comp, false),
+            Text     = Loc.GetString("cards-verb-organize-up"),
+            GlyphIcon     = SymbolIcons.ArrowUpward,
             Priority = 1
         });
     }

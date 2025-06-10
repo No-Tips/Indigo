@@ -280,16 +280,19 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
             return false;
 
         var direction = xform.LocalRotation.GetCardinalDir();
+        var layer     = 2;
 
-        if (!TryGettingFirstPipeNode(uid, out var _, out var netId))
+        if (!TryGettingFirstPipeNode(uid, out var pipeNode, out var netId))
             netId = -1;
+        else
+            layer = pipeNode.Layer;
 
         var color = Color.White;
 
         if (TryComp<AtmosPipeColorComponent>(uid, out var atmosPipeColor))
             color = atmosPipeColor.Color;
 
-        device = new AtmosDeviceNavMapData(GetNetEntity(uid), GetNetCoordinates(xform.Coordinates), netId.Value, component.NavMapBlip.Value, direction, color);
+        device = new AtmosDeviceNavMapData(GetNetEntity(uid), GetNetCoordinates(xform.Coordinates), netId.Value, component.NavMapBlip.Value, direction, color, layer);
 
         return true;
     }
@@ -360,7 +363,7 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
             chunk.AtmosPipeData[index] = atmosPipeData & ~mask;
         }
 
-        // Rebuild the tile's pipe data 
+        // Rebuild the tile's pipe data
         foreach (var ent in _sharedMapSystem.GetAnchoredEntities(gridUid, grid, coords))
         {
             if (!TryComp<AtmosPipeColorComponent>(ent, out var entAtmosPipeColor))
@@ -406,9 +409,9 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
             var netId = GetPipeNodeNetId(pipeNode);
             var pipeDirection = pipeNode.CurrentPipeDirection;
 
-            chunk.AtmosPipeData.TryGetValue((netId, pipeColor.Color.ToHex()), out var atmosPipeData);
+            chunk.AtmosPipeData.TryGetValue((netId, pipeNode.Layer, pipeColor.Color.ToHex()), out var atmosPipeData);
             atmosPipeData |= (ulong)pipeDirection << tileIdx * SharedNavMapSystem.Directions;
-            chunk.AtmosPipeData[(netId, pipeColor.Color.ToHex())] = atmosPipeData;
+            chunk.AtmosPipeData[(netId, pipeNode.Layer, pipeColor.Color.ToHex())] = atmosPipeData;
         }
     }
 
