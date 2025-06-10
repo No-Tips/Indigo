@@ -39,6 +39,7 @@
             <controls:HSpacer HorizontalExpand="True" />
 
             <controls:FancyButton Name="ResetAllButton"
+                                  StyleClasses="FancyButtonDanger"
                                   Text="{Loc 'ui-options-binds-reset-all'}"
                                   HorizontalAlignment="Right" />
         </BoxContainer>

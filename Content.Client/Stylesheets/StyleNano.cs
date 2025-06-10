@@ -246,6 +246,34 @@ public sealed class StyleNano : StyleBase
 
     #endregion
 
+    #region Danger
+
+    public static RectBox FancyButtonDangerPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonDangerDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerDisabledBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonDangerPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerPressedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
     #endregion
 
     #region Option Button
@@ -852,6 +880,24 @@ public sealed class StyleNano : StyleBase
                         .Class(UIStyleClasses.FancyButtonAccent)
                         .Pseudo(ContainerButton.StylePseudoClassPressed)
                         .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
+
+                    #endregion
+
+                    #region Danger
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerPressedPanel),
 
                     #endregion
 

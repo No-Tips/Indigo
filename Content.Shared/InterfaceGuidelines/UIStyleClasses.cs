@@ -34,6 +34,7 @@ public static class UIStyleClasses
     public const string FancyButtonLabel         = "FancyButtonLabel";
     public const string FancyButtonDisabledLabel = "FancyButtonDisabledLabel";
     public const string FancyButtonAccent        = "FancyButtonAccent";
+    public const string FancyButtonDanger        = "FancyButtonDanger";
 
     #endregion
 
