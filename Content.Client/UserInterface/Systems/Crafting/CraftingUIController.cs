@@ -25,7 +25,8 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
                 new(
                     new("global-menu-character-crafting-window-item"),
                     Callback: () => _presenter?.ToggleWindow(),
-                    Function: ContentKeyFunctions.OpenCraftingMenu
+                    Function: ContentKeyFunctions.OpenCraftingMenu,
+                    InGameState: typeof(GameplayState)
                 )
             );
     }

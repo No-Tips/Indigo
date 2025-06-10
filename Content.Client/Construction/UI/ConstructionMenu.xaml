@@ -5,7 +5,7 @@
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.4">
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                 <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True"/>
-                <OptionButton Name="Category" Access="Public" MinSize="130 0"/>
+                <controls:FancyOptionButton Name="Category" Access="Public" MinSize="130 0"/>
             </BoxContainer>
             <ItemList Name="Recipes" Access="Public" SelectMode="Single" VerticalExpand="True"/>
         </BoxContainer>

@@ -17,12 +17,15 @@
 
 <ui:GlobalMenuPopupItem
     xmlns="https://spacestation14.io"
-    xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI">
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI"
+    StyleClasses="FancyPopupItemButton">
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
         <Label Name="TitleLabel" HorizontalAlignment="Left" />
 
-        <Control Margin="12" HorizontalExpand="True" HorizontalAlignment="Stretch" />
+        <Control Margin="12" HorizontalExpand="True"
+                 HorizontalAlignment="Stretch" />
 
-        <Label Name="HotKeyLabel" HorizontalAlignment="Right" />
+        <Label Name="HotKeyLabel" StyleClasses="FancyPopupItemHotkeyLabel"
+               HorizontalAlignment="Right" />
     </BoxContainer>
 </ui:GlobalMenuPopupItem>

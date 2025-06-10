@@ -346,11 +346,11 @@ namespace Content.Client.Administration.UI
         private sealed class EditAdminWindow : FancyWindow
         {
             public readonly PermissionsEuiState.AdminData? SourceData;
-            public readonly LineEdit? NameEdit;
-            public readonly LineEdit TitleEdit;
-            public readonly OptionButton RankButton;
-            public readonly Button SaveButton;
-            public readonly Button? RemoveButton;
+            public readonly LineEdit?                      NameEdit;
+            public readonly LineEdit                       TitleEdit;
+            public readonly FancyOptionButton              RankButton;
+            public readonly Button                         SaveButton;
+            public readonly Button?                        RemoveButton;
 
             public readonly Dictionary<AdminFlags, (Button inherit, Button sub, Button plus)> FlagButtons
                 = new();
@@ -378,7 +378,7 @@ namespace Content.Client.Administration.UI
                 }
 
                 TitleEdit = new LineEdit { PlaceHolder = Loc.GetString("permissions-eui-edit-admin-window-title-edit-placeholder") };
-                RankButton = new OptionButton();
+                RankButton = new FancyOptionButton();
                 SaveButton = new Button { Text = Loc.GetString("permissions-eui-edit-admin-window-save-button"), HorizontalAlignment = HAlignment.Right };
 
                 RankButton.AddItem(Loc.GetString("permissions-eui-edit-admin-window-no-rank-button"), NoRank);
@@ -500,7 +500,7 @@ namespace Content.Client.Administration.UI
                 });
             }
 
-            private void RankSelected(OptionButton.ItemSelectedEventArgs obj)
+            private void RankSelected(FancyOptionButton.ItemSelectedEventArgs obj)
             {
                 RankButton.SelectId(obj.Id);
             }
@@ -530,7 +530,7 @@ namespace Content.Client.Administration.UI
             public readonly LineEdit NameEdit;
             public readonly Button SaveButton;
             public readonly Button? RemoveButton;
-            public readonly Dictionary<AdminFlags, CheckBox> FlagCheckBoxes = new();
+            public readonly Dictionary<AdminFlags, FancyCheckBox> FlagCheckBoxes = new();
 
             public EditAdminRankWindow(PermissionsEui ui, KeyValuePair<int, PermissionsEuiState.AdminRankData>? data)
             {
@@ -566,7 +566,7 @@ namespace Content.Client.Administration.UI
                     var disable = !ui._adminManager.HasFlag(flag);
                     var flagName = flag.ToString().ToUpper();
 
-                    var checkBox = new CheckBox
+                    var checkBox = new FancyCheckBox
                     {
                         Disabled = disable,
                         Text = flagName

@@ -23,6 +23,7 @@ namespace Content.Client.UserInterface.GlobalMenu;
 public readonly record struct GlobalMenuItemDef(
     LocalizedString   Name,
     Action            Callback,
-    BoundKeyFunction? Function = null,
-    int               Priority = 0
+    BoundKeyFunction? Function    = null,
+    int               Priority    = 0,
+    Type?             InGameState = null
 );

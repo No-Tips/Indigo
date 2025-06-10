@@ -5,6 +5,7 @@ using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
@@ -32,21 +33,23 @@ namespace Content.Client.Lobby;
 
 public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
 {
-    [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly MarkingManager _markings = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
-    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
-    [UISystemDependency] private readonly GuidebookSystem _guide = default!;
-    [UISystemDependency] private readonly SharedLoadoutSystem _loadouts = default!;
-    [UISystemDependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly IClientPreferencesManager _preferencesManager   = default!;
+    [Dependency] private readonly IConfigurationManager     _configurationManager = default!;
+    [Dependency] private readonly IFileDialogManager        _dialogManager        = default!;
+    [Dependency] private readonly IPlayerManager            _playerManager        = default!;
+    [Dependency] private readonly IPrototypeManager         _prototypeManager     = default!;
+    [Dependency] private readonly IResourceCache            _resourceCache        = default!;
+    [Dependency] private readonly IStateManager             _stateManager         = default!;
+    [Dependency] private readonly MarkingManager            _markings             = default!;
+    [Dependency] private readonly IRobustRandom             _random               = default!;
+    [Dependency] private readonly JobRequirementsManager    _jobRequirements      = default!;
+    [Dependency] private readonly GlobalMenuManager         _globalMenuManager    = null!;
+
+    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid        = default!;
+    [UISystemDependency] private readonly ClientInventorySystem    _inventory       = default!;
+    [UISystemDependency] private readonly GuidebookSystem          _guide           = default!;
+    [UISystemDependency] private readonly SharedLoadoutSystem      _loadouts        = default!;
+    [UISystemDependency] private readonly StationSpawningSystem    _stationSpawning = default!;
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;

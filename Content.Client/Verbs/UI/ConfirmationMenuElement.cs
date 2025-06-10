@@ -13,13 +13,7 @@ public sealed partial class ConfirmationMenuElement : ContextMenuElement
 
     public override string Text
     {
-        set
-        {
-            var message = new FormattedMessage();
-            message.PushColor(Color.White);
-            message.AddMarkupPermissive(value.Trim());
-            Label.SetMessage(message);
-        }
+        set => ItemLabel.Text = value.Trim();
     }
 
     public ConfirmationMenuElement(Verb verb, string? text) : base(text)

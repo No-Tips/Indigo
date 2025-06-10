@@ -74,7 +74,7 @@ namespace Content.Client.ContextMenu.UI
                 IconLabel.Text = Count.ToString();
         }
 
-        private string GetEntityDescriptionAdmin(EntityUid entity)
+        private string GetEntityNameAdmin(EntityUid entity)
         {
             var representation = _entityManager.ToPrettyString(entity);
 
@@ -83,14 +83,14 @@ namespace Content.Client.ContextMenu.UI
             var playerName = representation.Session?.Name ?? SearchPlayerName(entity);
             var deleted = representation.Deleted;
 
-            return $"{name} ({_entityManager.GetNetEntity(entity).ToString()}{(prototype != null ? $", {prototype}" : "")}{(playerName != null ? $", {playerName}" : "")}){(deleted ? "D" : "")}";
+            return $"{name}\n({_entityManager.GetNetEntity(entity).ToString()}{(prototype != null ? $", {prototype}" : "")}{(playerName != null ? $", {playerName}" : "")}){(deleted ? "D" : "")}";
         }
 
-        private string GetEntityDescription(EntityUid entity)
+        private string GetEntityName(EntityUid entity)
         {
             if (_adminManager.HasFlag(AdminFlags.Admin | AdminFlags.Debug))
             {
-                return GetEntityDescriptionAdmin(entity);
+                return GetEntityNameAdmin(entity);
             }
 
             return Identity.Name(entity, _entityManager, _playerManager.LocalEntity!);
@@ -114,7 +114,7 @@ namespace Content.Client.ContextMenu.UI
             else
             {
                 Icon.SetEntity(entity);
-                Text = GetEntityDescription(entity.Value);
+                Text = GetEntityName(entity.Value);
             }
         }
 

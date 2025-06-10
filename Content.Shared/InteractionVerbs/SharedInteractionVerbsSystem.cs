@@ -324,7 +324,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
         verb.Message = proto.Description;
         verb.DoContactInteraction = proto.DoContactInteraction;
         verb.Priority = proto.Priority;
-        verb.GlyphIcon = proto.Icon;
+        verb.GlyphIcon = proto.GlyphIcon;
         verb.Category = VerbCategory.Interaction;
     }
 

@@ -8,7 +8,7 @@
         <ItemList Name="PaletteList" VerticalExpand="True" Access="Public"/>
         <BoxContainer Orientation="Horizontal">
             <Label Text="Palette"/>
-            <OptionButton Name="Palettes"/>
+            <controls:FancyOptionButton Name="Palettes"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

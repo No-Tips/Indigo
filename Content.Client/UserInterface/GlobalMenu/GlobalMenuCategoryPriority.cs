@@ -18,7 +18,7 @@ namespace Content.Client.UserInterface.GlobalMenu;
 
 public static class GlobalMenuCategoryPriority
 {
-    public const int Game = 1000;
+    public const int Global = 1000;
 
     public const int Character = 900;
 

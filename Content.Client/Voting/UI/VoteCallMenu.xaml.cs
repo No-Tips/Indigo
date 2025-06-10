@@ -117,12 +117,12 @@ namespace Content.Client.Voting.UI
             }
         }
 
-        private static void VoteSecondSelected(OptionButton.ItemSelectedEventArgs obj)
+        private static void VoteSecondSelected(FancyOptionButton.ItemSelectedEventArgs obj)
         {
             obj.Button.SelectId(obj.Id);
         }
 
-        private void VoteTypeSelected(OptionButton.ItemSelectedEventArgs obj)
+        private void VoteTypeSelected(FancyOptionButton.ItemSelectedEventArgs obj)
         {
             VoteTypeButton.SelectId(obj.Id);
 

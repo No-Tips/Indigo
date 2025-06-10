@@ -39,7 +39,7 @@
                     ToolTip="{Loc 'comms-console-menu-broadcast-button-tooltip'}"
                     StyleClasses="OpenBoth"/>
 
-                <OptionButton Name="AlertLevelButton"
+                <controls:FancyOptionButton Name="AlertLevelButton"
                     Access="Public"
                     ToolTip="{Loc 'comms-console-menu-alert-level-button-tooltip'}"
                     StyleClasses="OpenRight"/>
@@ -53,7 +53,7 @@
                 <RichTextLabel Name="CountdownLabel"/>
 
                 <Button Name="EmergencyShuttleButton"
-                    Access="Public" 
+                    Access="Public"
                     Text="Placeholder Text"
                     ToolTip="{Loc 'comms-console-menu-emergency-shuttle-button-tooltip'}"/>
             </BoxContainer>

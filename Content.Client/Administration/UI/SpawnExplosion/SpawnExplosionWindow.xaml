@@ -7,12 +7,12 @@
 
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'admin-explosion-eui-label-type'}" MinSize="120 0" />
-            <OptionButton Name="ExplosionOption" MinSize="70 0" HorizontalExpand="True" />
+            <controls:FancyOptionButton Name="ExplosionOption" MinSize="70 0" HorizontalExpand="True" />
         </BoxContainer>
 
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'admin-explosion-eui-label-mapid'}" MinSize="120 0" />
-            <OptionButton Name="MapOptions" MinSize="70 0" HorizontalExpand="True" />
+            <controls:FancyOptionButton Name="MapOptions" MinSize="70 0" HorizontalExpand="True" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'admin-explosion-eui-label-xmap'}" MinSize="120 0" />
@@ -26,7 +26,7 @@
 
         <Control MinSize="0 20"/>
 
-        <CheckBox Name="Preview" Text="{Loc 'admin-explosion-eui-label-preview'}"/>
+        <controls:FancyCheckBox Name="Preview" Text="{Loc 'admin-explosion-eui-label-preview'}"/>
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'admin-explosion-eui-label-total'}" MinSize="120 0"/>
             <FloatSpinBox Name="Intensity" MinSize="130 0" HorizontalExpand="True" Value="200"/>

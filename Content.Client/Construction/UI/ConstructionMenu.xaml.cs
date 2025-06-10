@@ -18,7 +18,7 @@ namespace Content.Client.Construction.UI
         // It isn't optimal to expose UI controls like this, but the UI control design is
         // questionable so it can't be helped.
         string[] Categories { get; set; }
-        OptionButton Category { get; }
+        FancyOptionButton Category { get; }
 
         bool EraseButtonPressed { get; set; }
         bool BuildButtonPressed { get; set; }

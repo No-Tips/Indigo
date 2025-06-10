@@ -18,7 +18,7 @@
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Label Text="{Loc 'fax-machine-ui-to'}" />
             <Control MinWidth="4" />
-            <OptionButton Name="PeerSelector" HorizontalExpand="True" />
+            <controls:FancyOptionButton Name="PeerSelector" HorizontalExpand="True" />
         </BoxContainer>
         <Control HorizontalExpand="True" MinHeight="20" />
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">

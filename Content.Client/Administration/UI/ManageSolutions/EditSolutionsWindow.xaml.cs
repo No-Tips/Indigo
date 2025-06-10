@@ -274,7 +274,7 @@ namespace Content.Client.Administration.UI.ManageSolutions
         /// <summary>
         ///     When a new solution is selected, set _selectedSolution and update the reagent list.
         /// </summary>
-        private void SolutionSelected(OptionButton.ItemSelectedEventArgs args)
+        private void SolutionSelected(FancyOptionButton.ItemSelectedEventArgs args)
         {
             SolutionOption.SelectId(args.Id);
             _selectedSolution = (string?) SolutionOption.SelectedMetadata;

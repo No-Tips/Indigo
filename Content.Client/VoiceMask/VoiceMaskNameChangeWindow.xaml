@@ -10,7 +10,7 @@
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" Margin="5">
             <Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
-            <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
+            <controls:FancyOptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

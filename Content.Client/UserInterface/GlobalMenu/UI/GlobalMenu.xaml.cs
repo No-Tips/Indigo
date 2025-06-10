@@ -33,8 +33,8 @@ public sealed partial class GlobalMenu : UIWidget
     private const string ChangeStyleAnimationKey = "ChangeStyleAnimationKey";
 
     private readonly GlobalMenuPopup  _popup = new();
+    private readonly RectBox          _panel;
     private          LocalizedString? _currentCategory;
-    private          RectBox          _panel;
 
     [Animatable]
     public Color BackgroundColor
@@ -74,7 +74,15 @@ public sealed partial class GlobalMenu : UIWidget
 
         SetStyle(defaultStyle);
 
-        _popup.OnPopupHide += () => _currentCategory = null;
+        _popup.OnPopupOpen += () =>
+        {
+            UserInterfaceManager.ModalRoot.AddChild(_popup);
+        };
+        _popup.OnPopupHide += () =>
+        {
+            _currentCategory = null;
+            UserInterfaceManager.ModalRoot.RemoveChild(_popup);
+        };
         _popup.ItemClicked += item =>
         {
             DebugTools.AssertNotNull(_currentCategory);
@@ -82,8 +90,6 @@ public sealed partial class GlobalMenu : UIWidget
             ItemPressed?.Invoke(_currentCategory!.Value, item);
             _popup.Close();
         };
-
-        UserInterfaceManager.ModalRoot.AddChild(_popup);
     }
 
     public void SetStyle(GlobalMenuStyle style)
@@ -160,7 +166,7 @@ public sealed partial class GlobalMenu : UIWidget
         topLeft.X += 8;
 
         _popup.SetItems(category.Items);
-        _popup.Open(UIBox2.FromDimensions(topLeft, new(100, 100)));
+        _popup.Open(UIBox2.FromDimensions(topLeft, new()));
     }
 
     public record struct Category(LocalizedString Name, List<GlobalMenuPopup.Item> Items, bool IsIcon);

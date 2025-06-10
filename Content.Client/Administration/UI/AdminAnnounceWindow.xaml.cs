@@ -32,7 +32,7 @@ namespace Content.Client.Administration.UI
             AnnounceButton.Disabled = Rope.Collapse(Announcement.TextRope).TrimStart() == "";
         }
 
-        private void AnnounceMethodOnOnItemSelected(OptionButton.ItemSelectedEventArgs args)
+        private void AnnounceMethodOnOnItemSelected(FancyOptionButton.ItemSelectedEventArgs args)
         {
             AnnounceMethod.SelectId(args.Id);
             Announcer.Editable = ((AdminAnnounceType?)args.Button.SelectedMetadata ?? AdminAnnounceType.Station) == AdminAnnounceType.Station;

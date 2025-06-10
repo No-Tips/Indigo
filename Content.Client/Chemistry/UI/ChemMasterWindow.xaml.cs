@@ -206,7 +206,7 @@ namespace Content.Client.Chemistry.UI
             SortUpdated();
         }
 
-        private void HandleChildPressed(OptionButton.ItemSelectedEventArgs args)
+        private void HandleChildPressed(FancyOptionButton.ItemSelectedEventArgs args)
         {
             HandleSortMethodChange(args.Id);
             OnSortMethodChanged?.Invoke(args.Id);

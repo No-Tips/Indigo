@@ -1,15 +1,3 @@
-## Game
-
-global-menu-game-category = {"\uE894"}
-
-global-menu-game-ahelp-item = Admin Help
-global-menu-game-changelog-item = Changelog
-global-menu-game-disconnect-item = Disconnect
-global-menu-game-guide-book-item = Guide Book
-global-menu-game-info-item = Rules
-global-menu-game-options-item = Settings
-global-menu-game-quit-item = Quit
-
 ## Character
 
 global-menu-character-category = Character

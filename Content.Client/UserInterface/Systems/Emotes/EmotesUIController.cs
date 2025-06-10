@@ -37,7 +37,8 @@ public sealed class EmotesUIController : UIController
                 new(
                     new("global-menu-character-emote-window-item"),
                     Callback: () => ToggleEmotesMenu(true),
-                    Function: ContentKeyFunctions.OpenEmotesMenu
+                    Function: ContentKeyFunctions.OpenEmotesMenu,
+                    InGameState: typeof(GameplayState)
                 )
             );
     }

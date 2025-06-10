@@ -1,9 +1,9 @@
-﻿using Content.Shared.Chat;
-using Robust.Client.UserInterface.Controls;
+﻿using Content.Client.UserInterface.Controls;
+using Content.Shared.Chat;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
-public sealed class ChannelFilterCheckbox : CheckBox
+public sealed class ChannelFilterCheckbox : FancyCheckBox
 {
     public readonly ChatChannel Channel;
 

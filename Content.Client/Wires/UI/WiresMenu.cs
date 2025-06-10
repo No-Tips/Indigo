@@ -592,11 +592,12 @@ namespace Content.Client.Wires.UI
             {
                 var label = new RichTextLabel();
                 label.SetMessage(Loc.GetString("wires-menu-help-popup"));
-                AddChild(new PanelContainer
-                {
-                    StyleClasses = {ExamineSystem.StyleClassEntityTooltip},
-                    Children = {label}
-                });
+                AddChild(
+                    new PanelContainer
+                    {
+                        StyleClasses = { UIStyleClasses.FancyPopupPanel, },
+                        Children     = { label, }
+                    });
             }
         }
     }

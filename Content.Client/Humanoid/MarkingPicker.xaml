@@ -6,7 +6,7 @@
         <!-- Markings -->
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <BoxContainer HorizontalExpand="True">
-                <OptionButton Name="CMarkingCategoryButton" StyleClasses="OpenBoth" />
+                <controls:FancyOptionButton Name="CMarkingCategoryButton" StyleClasses="OpenBoth" />
                 <Label Name="CMarkingPoints" Text="uwu" Margin="8 0" />
                 <LineEdit Name="CMarkingSearch" PlaceHolder="{Loc 'markings-search'}" HorizontalExpand="True" />
                 <Button Name="ResetButton" Text="{Loc 'ui-options-bind-reset'}" StyleClasses="OpenLeft" />

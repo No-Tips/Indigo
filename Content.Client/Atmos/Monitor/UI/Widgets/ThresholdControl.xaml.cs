@@ -1,4 +1,5 @@
 using System;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
 using Content.Shared.Atmos.Monitor.Components;
@@ -23,7 +24,7 @@ public sealed partial class ThresholdControl : BoxContainer
     public event Action<AtmosMonitorThresholdType, AtmosAlarmThreshold, Gas?>? ThresholdDataChanged;
 
     private CollapsibleHeading _name => CName;
-    private CheckBox _enabled => CEnabled;
+    private FancyCheckBox _enabled => CEnabled;
     private BoxContainer _dangerBounds => CDangerBounds;
     private BoxContainer _warningBounds => CWarningBounds;
     private ThresholdBoundControl _upperBoundControl;

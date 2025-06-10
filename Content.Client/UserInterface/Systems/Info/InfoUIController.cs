@@ -40,10 +40,10 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         });
 
         _globalMenuManager
-            .GetCategory(GlobalMenuCategory.Game)
+            .GetCategory(GlobalMenuCategory.Global)
             .RegisterItem(
                 new(
-                    new("global-menu-game-info-item"),
+                    new("global-menu-global-info-item"),
                     Callback: OpenWindow
                 )
             );

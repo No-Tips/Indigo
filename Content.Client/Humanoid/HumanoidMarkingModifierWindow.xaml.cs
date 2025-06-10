@@ -89,7 +89,7 @@ public sealed partial class HumanoidMarkingModifierWindow : FancyWindow
 
     private sealed class HumanoidBaseLayerModifier : BoxContainer
     {
-        private CheckBox _enable;
+        private FancyCheckBox _enable;
         private LineEdit _lineEdit;
         private ColorSelectorSliders _colorSliders;
         private BoxContainer _infoBox;
@@ -116,7 +116,7 @@ public sealed partial class HumanoidMarkingModifierWindow : FancyWindow
                 HorizontalExpand = true,
                 Text = layer.ToString()
             });
-            _enable = new CheckBox
+            _enable = new FancyCheckBox()
             {
                 Text = "Enable",
                 HorizontalAlignment = HAlignment.Right

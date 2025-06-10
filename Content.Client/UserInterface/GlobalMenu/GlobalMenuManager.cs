@@ -14,12 +14,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Linq;
-using Content.Client.Gameplay;
 using Content.Client.UserInterface.GlobalMenu.UI;
 using Content.Shared.Localizations;
+using Robust.Client;
 using Robust.Client.Input;
+using Robust.Client.State;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Timing;
 
@@ -27,17 +27,18 @@ using Robust.Shared.Timing;
 namespace Content.Client.UserInterface.GlobalMenu;
 
 
-public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplayState>
+public sealed class GlobalMenuManager
 {
+    [Dependency] private readonly IStateManager         _stateManager = null!;
+    [Dependency] private readonly IBaseClient           _client       = null!;
     [Dependency] private readonly IUserInterfaceManager _uiManager    = null!;
     [Dependency] private readonly IInputManager         _inputManager = null!;
 
     private GlobalMenuUIController                     _uiController         = null!;
     private Dictionary<LocalizedString, CategoryEntry> _registeredCategories = [];
     private bool                                       _isDirty;
-    private bool                                       _isInGameplayState;
 
-    public override void Initialize()
+    public void Initialize()
     {
         _uiController             =  _uiManager.GetUIController<GlobalMenuUIController>();
         _uiController.ItemPressed += OnItemPressed;
@@ -47,14 +48,12 @@ public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplaySt
         _inputManager.Contexts.ContextChanged += (_, _) => QueueUpdate();
     }
 
-    public override void FrameUpdate(FrameEventArgs args)
+    public void FrameUpdate(FrameEventArgs args)
     {
-        base.FrameUpdate(args);
-
         if (!_isDirty)
             return;
 
-        if (!_isInGameplayState)
+        if (!_client.RunLevel.IsInGameLike())
             return;
 
         _isDirty = false;
@@ -83,6 +82,8 @@ public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplaySt
 
     private void Update()
     {
+        var stateType = _stateManager.CurrentState.GetType();
+
         _registeredCategories = _registeredCategories
             .Where(c => c.Value.GetItems().Count > 0)
             .ToDictionary();
@@ -101,6 +102,9 @@ public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplaySt
                         .AsEnumerable()
                         .Where(i =>
                         {
+                            if (i.Value.InGameState is { } gameState)
+                                return gameState == stateType;
+
                             if (i.Value.Function is { } function)
                                 return currentContext.FunctionExistsHierarchy(function);
 
@@ -177,8 +181,4 @@ public sealed class GlobalMenuManager : UIController, IOnStateChanged<GameplaySt
 
         public IReadOnlyDictionary<LocalizedString, GlobalMenuItemDef> GetItems() => _items;
     }
-
-    public void OnStateEntered(GameplayState state) => _isInGameplayState = true;
-
-    public void OnStateExited(GameplayState state) => _isInGameplayState = false;
 }

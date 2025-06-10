@@ -106,7 +106,7 @@ public partial class NavMapControl : MapGridControl
         Disabled = true,
     };
 
-    private readonly CheckBox _beacons = new()
+    private readonly FancyCheckBox _beacons = new()
     {
         Text = Loc.GetString("navmap-toggle-beacons"),
         VerticalAlignment = VAlignment.Center,

@@ -8,17 +8,17 @@
             <Label Text="NPC" HorizontalAlignment="Center"/>
         </controls:StripeBack>
         <BoxContainer Name="NPCBox" Orientation="Vertical">
-            <CheckBox Name="NPCThonk" Text="Thonk"/>
+            <controls:FancyCheckBox Name="NPCThonk" Text="Thonk"/>
         </BoxContainer>
         <controls:StripeBack>
             <Label Text="Pathfinder" HorizontalAlignment="Center"/>
         </controls:StripeBack>
         <BoxContainer Name="PathfinderBox" Orientation="Vertical">
-            <CheckBox Name="PathCrumbs" Text="Breadcrumbs"/>
-            <CheckBox Name="PathPolys" Text="Polygons"/>
-            <CheckBox Name="PathNeighbors" Text="Neighbors"/>
-            <CheckBox Name="PathRouteCosts" Text="Route costs"/>
-            <CheckBox Name="PathRoutes" Text="Routes"/>
+            <controls:FancyCheckBox Name="PathCrumbs" Text="Breadcrumbs"/>
+            <controls:FancyCheckBox Name="PathPolys" Text="Polygons"/>
+            <controls:FancyCheckBox Name="PathNeighbors" Text="Neighbors"/>
+            <controls:FancyCheckBox Name="PathRouteCosts" Text="Route costs"/>
+            <controls:FancyCheckBox Name="PathRoutes" Text="Routes"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

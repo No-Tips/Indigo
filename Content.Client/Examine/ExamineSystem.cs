@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client.UserInterface.Controls;
 using Content.Client.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -34,8 +35,6 @@ namespace Content.Client.Examine
         [Dependency] private readonly SpriteSystem _sprite = default!;
 
         private List<Verb> _verbList = new();
-
-        public const string StyleClassEntityTooltip = "entity-tooltip";
 
         private EntityUid _examinedEntity;
         private Popup? _examineTooltipOpen;
@@ -202,18 +201,18 @@ namespace Content.Client.Examine
             }
 
             // Actually open the tooltip.
-            _examineTooltipOpen = new Popup { MaxWidth = 400 };
+            _examineTooltipOpen = new FancyPopup { MaxWidth = 400, AnimateFadeIn = !openAtOldTooltip || oldTooltipPos is null, };
             _userInterfaceManager.ModalRoot.AddChild(_examineTooltipOpen);
-            var panel = new PanelContainer() { Name = "ExaminePopupPanel" };
-            panel.AddStyleClass(StyleClassEntityTooltip);
-            panel.ModulateSelfOverride = Color.LightGray.WithAlpha(0.90f);
+            var panel = new PanelContainer
+                { Name = "ExaminePopupPanel", StyleClasses = { UIStyleClasses.FancyPopupPanel, }, };
             _examineTooltipOpen.AddChild(panel);
 
             var vBox = new BoxContainer
             {
                 Name = "ExaminePopupVbox",
                 Orientation = LayoutOrientation.Vertical,
-                MaxWidth = _examineTooltipOpen.MaxWidth
+                MaxWidth = _examineTooltipOpen.MaxWidth,
+                Margin = new(8.0f, 8.0f)
             };
             panel.AddChild(vBox);
 

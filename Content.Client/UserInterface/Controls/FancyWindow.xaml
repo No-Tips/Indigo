@@ -2,30 +2,30 @@
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
-                      MouseFilter="Stop"
-                      MinWidth="200" MinHeight="150">
+                      MouseFilter="Stop" MinWidth="200" MinHeight="150">
     <PanelContainer StyleClasses="FancyWindowPanel" />
 
     <BoxContainer Orientation="Vertical">
         <PanelContainer StyleClasses="FancyWindowTitlebarPanel">
-            <BoxContainer Margin="12 6" Orientation="Horizontal" VerticalAlignment="Center"
-                          HorizontalAlignment="Stretch">
-                <ContainerButton Name="HelpButton" VerticalAlignment="Center"
-                                 Disabled="True" Visible="False" Access="Public">
-                    <Label StyleClasses="FancyWindowTitlebarIcon" FontColorOverride="#eebe00"
-                           Text="{x:Static ig:SymbolIcons.Help}" />
-                </ContainerButton>
+            <BoxContainer Margin="12 6" Orientation="Horizontal"
+                          VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                <controls:GlyphIconButton Name="HelpButton" VerticalAlignment="Center"
+                                          Disabled="True" Visible="False" Access="Public"
+                                          Glyph="{x:Static ig:SymbolIcons.Circle}"
+                                          HoverGlyph="{x:Static ig:SymbolIcons.Help}" />
+
                 <Label Name="WindowTitle" HorizontalExpand="True"
                        HorizontalAlignment="Center" VAlign="Center"
                        StyleClasses="FancyWindowTitle" />
-                <ContainerButton Name="CloseButton" VerticalAlignment="Center">
-                    <Label StyleClasses="FancyWindowTitlebarIcon" FontColorOverride="#ff6565"
-                           Text="{x:Static ig:SymbolIcons.Cancel}" />
-                </ContainerButton>
+
+                <controls:GlyphIconButton Name="CloseButton" VerticalAlignment="Center"
+                                          Glyph="{x:Static ig:SymbolIcons.Circle}"
+                                          HoverGlyph="{x:Static ig:SymbolIcons.Cancel}" />
             </BoxContainer>
         </PanelContainer>
 
-        <Control Margin="12 0 12 12" Access="Public" Name="ContentsContainer" RectClipContent="True"
+        <Control Name="ContentsContainer" Margin="12 12 12 12"
+                 Access="Public" RectClipContent="True"
                  VerticalExpand="true" />
     </BoxContainer>
 </controls:FancyWindow>

@@ -18,17 +18,17 @@ public sealed class EscapeUIController : UIController
         base.Initialize();
 
         _globalMenuManager
-            .GetCategory(GlobalMenuCategory.Game)
+            .GetCategory(GlobalMenuCategory.Global)
             .RegisterItem(
                 new(
-                    new("global-menu-game-disconnect-item"),
+                    new("global-menu-global-disconnect-item"),
                     Callback: () => _console.ExecuteCommand("disconnect"),
                     Priority: -500
                 )
             )
             .RegisterItem(
                 new(
-                    new("global-menu-game-quit-item"),
+                    new("global-menu-global-quit-item"),
                     Callback: () => _console.ExecuteCommand("quit"),
                     Priority: -1000
                 )

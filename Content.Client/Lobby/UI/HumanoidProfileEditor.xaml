@@ -37,7 +37,7 @@
                                     ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}">
                                     <Label StyleClasses="SpeciesInfoButtonIcon" Text="{x:Static ig:SymbolIcons.QuestionMark}" />
                                 </ContainerButton>
-                                <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
+                                <ui:FancyOptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <!-- Species -->
                             <BoxContainer Name="CCustomSpecieName" HorizontalExpand="True">
@@ -55,13 +55,13 @@
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
                                 <Control HorizontalExpand="True"/>
-                                <OptionButton Name="SexButton" HorizontalAlignment="Right" />
+                                <ui:FancyOptionButton Name="SexButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <!-- Pronouns -->
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-pronouns-label'}" />
                                 <Control HorizontalExpand="True"/>
-                                <OptionButton Name="PronounsButton" HorizontalAlignment="Right" />
+                                <ui:FancyOptionButton Name="PronounsButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <!-- Customizable, cosmetic pronouns -->
                             <BoxContainer Name="CosmeticPronousContainer" HorizontalExpand="True">
@@ -105,7 +105,7 @@
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" />
                                 <Control HorizontalExpand="True"/>
-                                <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
+                                <ui:FancyOptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                             </BoxContainer>
 						    <!-- Height -->
                             <BoxContainer HorizontalExpand="True">
@@ -152,7 +152,7 @@
                         <Control HorizontalExpand="True"/>
                         <TextureButton Name="NationalityInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
                                        ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
-                        <OptionButton Name="NationalityButton" HorizontalAlignment="Right" />
+                        <ui:FancyOptionButton Name="NationalityButton" HorizontalAlignment="Right" />
                     </BoxContainer>
                     <BoxContainer HorizontalExpand="False">
                         <RichTextLabel Name="NationalityDescriptionLabel" Text="" HorizontalExpand="False" MaxWidth="600"/>
@@ -163,7 +163,7 @@
                         <Control HorizontalExpand="True"/>
                         <TextureButton Name="EmployerInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
                                        ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
-                        <OptionButton Name="EmployerButton" HorizontalAlignment="Right" />
+                        <ui:FancyOptionButton Name="EmployerButton" HorizontalAlignment="Right" />
                     </BoxContainer>
                     <BoxContainer HorizontalExpand="False">
                         <RichTextLabel Name="EmployerDescriptionLabel" Text="" HorizontalExpand="False" MaxWidth="600"/>
@@ -174,7 +174,7 @@
                         <Control HorizontalExpand="True"/>
                         <TextureButton Name="LifepathInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
                                        ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
-                        <OptionButton Name="LifepathButton" HorizontalAlignment="Right" />
+                        <ui:FancyOptionButton Name="LifepathButton" HorizontalAlignment="Right" />
                     </BoxContainer>
                     <BoxContainer HorizontalExpand="False">
                         <RichTextLabel Name="LifepathDescriptionLabel" Text="" HorizontalExpand="False" MaxWidth="600"/>
@@ -185,7 +185,7 @@
                 <!-- Jobs -->
                 <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                     <BoxContainer HorizontalExpand="True" Orientation="Vertical">
-                        <OptionButton Name="PreferenceUnavailableButton" StyleClasses="OpenBoth" />
+                        <ui:FancyOptionButton Name="PreferenceUnavailableButton" StyleClasses="OpenBoth" />
                         <BoxContainer Name="JobList" Orientation="Vertical" />
                     </BoxContainer>
                 </ScrollContainer>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
 using Content.Shared.Atmos.Monitor.Components;
@@ -22,11 +23,11 @@ public sealed partial class ScrubberControl : BoxContainer
     public event Action<string, IAtmosDeviceData>? ScrubberDataChanged;
 	public event Action<IAtmosDeviceData>? ScrubberDataCopied;
 
-    private CheckBox _enabled => CEnableDevice;
+    private FancyCheckBox _enabled => CEnableDevice;
     private CollapsibleHeading _addressLabel => CAddress;
-    private OptionButton _pumpDirection => CPumpDirection;
+    private FancyOptionButton _pumpDirection => CPumpDirection;
     private FloatSpinBox _volumeRate => CVolumeRate;
-    private CheckBox _wideNet => CWideNet;
+    private FancyCheckBox _wideNet => CWideNet;
 	private Button _copySettings => CCopySettings;
 
     private GridContainer _gases => CGasContainer;
@@ -77,7 +78,7 @@ public sealed partial class ScrubberControl : BoxContainer
             _data.PumpDirection = (ScrubberPumpDirection) args.Id;
             ScrubberDataChanged?.Invoke(_address, _data);
         };
-		
+
 		_copySettings.OnPressed += _ =>
 		{
 			ScrubberDataCopied?.Invoke(_data);

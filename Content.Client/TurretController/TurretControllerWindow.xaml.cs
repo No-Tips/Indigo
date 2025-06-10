@@ -33,7 +33,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
     private readonly ButtonGroup _accessGroupsButtons = new();
 
     // Temp values
-    private List<CheckBox> _checkBoxes = new();
+    private List<FancyCheckBox> _checkBoxes = new();
     private HashSet<AccessLevelPrototype> _accessLevelsForTab = new();
     private List<AccessLevelEntry> _accessLevelEntries = new();
 
@@ -327,7 +327,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
         // Toggling this checkbox on will mark all other boxes below it on/off
         if (AccessLevelGrid.ChildCount == 0)
         {
-            var checkBox = new MonotoneCheckBox
+            var checkBox = new FancyCheckBox
             {
                 Text = Loc.GetString("turret-controls-window-all-checkbox"),
                 Margin = new Thickness(0, 0, 0, 3),
@@ -336,9 +336,6 @@ public sealed partial class TurretControllerWindow : FancyWindow
             };
 
             AccessLevelGrid.AddChild(checkBox);
-
-            // Add checkbox styling
-            checkBox.Label.AddStyleClass("ConsoleText");
 
             // Add checkbox events
             checkBox.OnPressed += args =>
@@ -358,7 +355,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
         var allCheckBoxVisible = _accessLevelsForTab.Count > 1;
 
         // Did something go wrong...?
-        if (AccessLevelGrid.GetChild(0) is not CheckBox { } allCheckBox)
+        if (AccessLevelGrid.GetChild(0) is not FancyCheckBox { } allCheckBox)
             return;
 
         allCheckBox.Visible = allCheckBoxVisible;
@@ -376,7 +373,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
             accessLevelEntry.CheckBox.OnPressed += args =>
             {
                 // If the checkbox and its siblings are checked, check the 'all' checkbox too
-                allCheckBox.Pressed = AreAllCheckBoxesPressed(_accessLevelEntries.Select(x => (CheckBox)x.CheckBox));
+                allCheckBox.Pressed = AreAllCheckBoxesPressed(_accessLevelEntries.Select(x => (FancyCheckBox)x.CheckBox));
 
                 OnAccessLevelsChangedEvent?.Invoke
                     (new HashSet<ProtoId<AccessLevelPrototype>>() { accessLevelEntry.AccessLevel }, accessLevelEntry.CheckBox.Pressed);
@@ -413,7 +410,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
     }
 
 
-    private bool AreAllCheckBoxesPressed(IEnumerable<CheckBox> checkBoxes)
+    private bool AreAllCheckBoxesPressed(IEnumerable<FancyCheckBox> checkBoxes)
     {
         foreach (var checkBox in checkBoxes)
         {
@@ -424,7 +421,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
         return true;
     }
 
-    private void SetCheckBoxPressedState(IEnumerable<CheckBox> checkBoxes, bool pressed)
+    private void SetCheckBoxPressedState(IEnumerable<FancyCheckBox> checkBoxes, bool pressed)
     {
         foreach (var checkBox in checkBoxes)
             checkBox.Pressed = pressed;
@@ -457,7 +454,7 @@ public sealed partial class TurretControllerWindow : FancyWindow
     private sealed class AccessLevelEntry : BoxContainer
     {
         public ProtoId<AccessLevelPrototype> AccessLevel = default!;
-        public MonotoneCheckBox CheckBox;
+        public FancyCheckBox CheckBox;
         public LineRenderer CheckBoxLink;
 
         public AccessLevelEntry()
@@ -480,15 +477,13 @@ public sealed partial class TurretControllerWindow : FancyWindow
 
             AddChild(CheckBoxLink);
 
-            CheckBox = new MonotoneCheckBox
+            CheckBox = new FancyCheckBox()
             {
                 ToggleMode = true,
                 Margin = new Thickness(0f, 0f, 0f, 3f),
             };
 
             AddChild(CheckBox);
-
-            CheckBox.Label.AddStyleClass("ConsoleText");
         }
 
         public void UpdateCheckBoxLink(List<(Vector2, Vector2)> lines)

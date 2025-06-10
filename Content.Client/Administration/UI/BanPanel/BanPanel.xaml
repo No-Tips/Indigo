@@ -8,33 +8,33 @@
             <!-- Basic info -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                 <BoxContainer Orientation="Horizontal" Margin="2">
-                    <CheckBox Name="PlayerCheckbox" MinWidth="100" Text="{Loc ban-panel-player}" Pressed="True" />
+                    <controls:FancyCheckBox Name="PlayerCheckbox" MinWidth="100" Text="{Loc ban-panel-player}" Pressed="True" />
                     <Control MinWidth="50" />
                     <LineEdit Name="PlayerNameLine" MinWidth="100" HorizontalExpand="True" PlaceHolder="{Loc ban-panel-player}" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" Margin="2">
-                    <CheckBox Name="IpCheckbox" MinWidth="100" Text="{Loc ban-panel-ip}" Pressed="True" />
+                    <controls:FancyCheckBox Name="IpCheckbox" MinWidth="100" Text="{Loc ban-panel-ip}" Pressed="True" />
                     <Control MinWidth="50" />
                     <LineEdit Name="IpLine" MinWidth="100" HorizontalExpand="True" PlaceHolder="{Loc ban-panel-ip}" ToolTip="{Loc ban-panel-ip-hwid-tooltip}" Editable="False" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" Margin="2">
-                    <CheckBox Name="HwidCheckbox" MinWidth="100" Text="{Loc ban-panel-hwid}" Pressed="True" />
+                    <controls:FancyCheckBox Name="HwidCheckbox" MinWidth="100" Text="{Loc ban-panel-hwid}" Pressed="True" />
                     <Control MinWidth="50" />
                     <LineEdit Name="HwidLine" MinWidth="100" HorizontalExpand="True" PlaceHolder="{Loc ban-panel-hwid}" ToolTip="{Loc ban-panel-ip-hwid-tooltip}" />
                 </BoxContainer>
-                <CheckBox Name="LastConnCheckbox" Margin="2" Text="{Loc ban-panel-last-conn}" Pressed="True" />
-                <CheckBox Name="EraseCheckbox" Margin="2" Text="{Loc ban-panel-erase}" Pressed="False" />
+                <controls:FancyCheckBox Name="LastConnCheckbox" Margin="2" Text="{Loc ban-panel-last-conn}" Pressed="True" />
+                <controls:FancyCheckBox Name="EraseCheckbox" Margin="2" Text="{Loc ban-panel-erase}" Pressed="False" />
                 <BoxContainer Orientation="Horizontal" Margin="2">
                     <LineEdit Name="TimeLine" MaxWidth="150" MinWidth="70" PlaceHolder="0" />
-                    <OptionButton Name="MultiplierOption" />
+                    <controls:FancyOptionButton Name="MultiplierOption" />
                     <Control MinWidth="50" />
                     <Label Name="ExpiresLabel" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" Margin="4">
-                    <OptionButton Name="TypeOption" />
+                    <controls:FancyOptionButton Name="TypeOption" />
                     <Control MinWidth="30" />
                     <Label Text="{Loc ban-panel-severity}" />
-                    <OptionButton Name="SeverityOption" />
+                    <controls:FancyOptionButton Name="SeverityOption" />
                 </BoxContainer>
                 <cc:HSeparator Margin="1"/>
                 <TextEdit Name="ReasonTextEdit" MinHeight="100" VerticalExpand="True" HorizontalExpand="True" />

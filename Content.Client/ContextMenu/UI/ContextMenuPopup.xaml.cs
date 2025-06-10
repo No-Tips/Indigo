@@ -14,8 +14,6 @@ namespace Content.Client.ContextMenu.UI
     [GenerateTypedNameReferences]
     public sealed partial class ContextMenuPopup : FancyPopup
     {
-        public const string StyleClassContextMenuPopup = "contextMenuPopup";
-
         /// <summary>
         ///     How many items to list before limiting the size and adding a scroll bar.
         /// </summary>
@@ -36,7 +34,6 @@ namespace Content.Client.ContextMenu.UI
         public ContextMenuPopup (ContextMenuUIController uiController, ContextMenuElement? parentElement) : base()
         {
             RobustXamlLoader.Load(this);
-            MenuPanel.SetOnlyStyleClass(StyleClassContextMenuPopup);
 
             _uiController = uiController;
             ParentElement = parentElement;
@@ -49,7 +46,7 @@ namespace Content.Client.ContextMenu.UI
             MenuPanel.ForceRunStyleUpdate();
             MenuPanel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var box);
             var styleSize = (box?.MinimumSize ?? Vector2.Zero) / UIScale;
-            MenuPanel.MaxHeight = MaxItemsBeforeScroll * (ContextMenuElement.ElementHeight + 2 * ContextMenuElement.ElementMargin) + styleSize.Y;
+            MenuPanel.MaxHeight = MaxItemsBeforeScroll * (ContextMenuElement.ElementHeight) + styleSize.Y;
 
             UserInterfaceManager.ModalRoot.AddChild(this);
             MenuBody.OnChildRemoved += ctrl => _uiController.OnRemoveElement(this, ctrl);

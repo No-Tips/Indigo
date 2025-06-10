@@ -20,10 +20,10 @@ public sealed class OptionsUIController : UIController
         _con.RegisterCommand("options", Loc.GetString("cmd-options-desc"), Loc.GetString("cmd-options-help"), OptionsCommand);
 
         _globalMenuManager
-            .GetCategory(GlobalMenuCategory.Game)
+            .GetCategory(GlobalMenuCategory.Global)
             .RegisterItem(
                 new(
-                    new("global-menu-game-options-item"),
+                    new("global-menu-global-options-item"),
                     Callback: ToggleWindow,
                     Function: ContentKeyFunctions.OpenOptionsWindow
                 )

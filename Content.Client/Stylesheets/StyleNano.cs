@@ -20,7 +20,6 @@ using static Robust.Client.UserInterface.StylesheetHelpers;
 namespace Content.Client.Stylesheets;
 
 
-// STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
 public sealed class StyleNano : StyleBase
 {
     public const string StyleClassBorderedWindowPanel            = "BorderedWindowPanel";
@@ -180,11 +179,236 @@ public sealed class StyleNano : StyleBase
     public static RectBox FancyWindowTitlebarPanel =>
         new()
         {
-            Rounding                    = new(14.0f, 14.0f, 0.0f, 0.0f),
-            Borders                     = new(Colors.WindowTitlebarBorder, new(2.0f)),
-            InsetBorders                = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
-            BackgroundColor             = Colors.WindowTitlebarBackground,
-            ContentMarginBottomOverride = 14.0f
+            Rounding        = new(14.0f, 14.0f, 0.0f, 0.0f),
+            Borders         = new(Colors.WindowTitlebarBorder, new(2.0f)),
+            InsetBorders    = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.WindowTitlebarBackground
+        };
+
+    #endregion
+
+    #region Button
+
+    #region Default
+
+    public static RectBox FancyButtonPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonBackground
+        };
+
+    public static RectBox FancyButtonDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground
+        };
+
+    public static RectBox FancyButtonPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonPressedBackground
+        };
+
+    #endregion
+
+    #region Default Open
+
+    public static RectBox FancyButtonOpenRightPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonBackground
+        };
+
+    public static RectBox FancyButtonOpenRightDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground
+        };
+
+    public static RectBox FancyButtonOpenRightPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonPressedBackground
+        };
+
+    public static RectBox FancyButtonOpenLeftPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
+            BackgroundColor = Colors.ButtonBackground
+        };
+
+    public static RectBox FancyButtonOpenLeftDisabledPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground
+        };
+
+    public static RectBox FancyButtonOpenLeftPressedPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
+            BackgroundColor = Colors.ButtonPressedBackground
+        };
+
+    #endregion
+
+    #region Accent
+
+    public static RectBox FancyButtonAccentPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentBackground
+        };
+
+    public static RectBox FancyButtonAccentDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentDisabledBackground
+        };
+
+    public static RectBox FancyButtonAccentPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonAccentPressedBackground
+        };
+
+    #endregion
+
+    #region Danger
+
+    public static RectBox FancyButtonDangerPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerBackground
+        };
+
+    public static RectBox FancyButtonDangerDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerDisabledBackground
+        };
+
+    public static RectBox FancyButtonDangerPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonDangerPressedBackground
+        };
+
+    #endregion
+
+    #endregion
+
+    #region Option Button
+
+    public static RectBox FancyOptionButtonPanel         => FancyButtonPanel;
+    public static RectBox FancyOptionButtonPressedPanel  => FancyButtonPressedPanel;
+    public static RectBox FancyOptionButtonDisabledPanel => FancyButtonDisabledPanel;
+
+    #endregion
+
+    #region Slider
+
+    public static RectBox SliderPanel =>
+        new()
+        {
+            Rounding        = new(2.0f),
+            BackgroundColor = Colors.SliderBackground
+        };
+
+    public static RectBox SliderGrabberPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberBackground
+        };
+
+    public static RectBox SliderGrabberPressedPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberPressedBackground
+        };
+
+    public static RectBox SliderGrabberDisabledPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberDisabledBackground
+        };
+
+    #endregion
+
+    #region Line Edit
+
+    public static RectBox LineEditPanel =>
+        new()
+        {
+            Rounding                    = new(0.0f),
+            Borders                     = new(Colors.LineEditBorder, new(2.0f)),
+            InsetBorders                = new(Colors.LineEditInsetBorder, new(0.0f, 0.0f, 0.0f, 1.0f)),
+            BackgroundColor             = Colors.LineEditBackground,
+            ContentMarginTopOverride    = 4.0f,
+            ContentMarginBottomOverride = 4.0f,
+            ContentMarginLeftOverride   = 8.0f
+        };
+
+    #endregion
+
+    #region Check Box
+
+    public static RectBox FancyCheckBoxPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.CheckBoxBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyCheckBoxCheckedPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.CheckBoxCheckedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
+    #region Popup
+
+    public static RectBox FancyPopupPanel =>
+        new()
+        {
+            Rounding        = new(8.0f),
+            Borders         = new(Colors.PopupBorder, new(2.0f)),
+            InsetBorders    = new(Colors.PopupInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.PopupBackground
+        };
+
+    public static StyleBoxFlat FancyPopupItemPanel =>
+        new(Color.Transparent)
+        {
+            Padding = new(12.0f, 4.0f)
+        };
+
+    public static StyleBoxFlat FancyPopupItemPanelHover =>
+        new(Colors.Accent.WithAlpha(0.4f))
+        {
+            Padding = new(12.0f, 4.0f)
         };
 
     #endregion
@@ -237,12 +461,6 @@ public sealed class StyleNano : StyleBase
         };
         borderedWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
-        var contextMenuBackground = new StyleBoxTexture
-        {
-            Texture = borderedWindowBackgroundTex
-        };
-        contextMenuBackground.SetPatchMargin(StyleBox.Margin.All, ContextMenuElement.ElementMargin);
-
         var invSlotBgTex = resCache.GetTexture("/Textures/Interface/Inventory/inv_slot_background.png");
         var invSlotBg = new StyleBoxTexture
         {
@@ -293,8 +511,7 @@ public sealed class StyleNano : StyleBase
 
         var buttonRectActionMenuItemTex =
             resCache.GetTexture("/Textures/Interface/Nano/black_panel_light_thin_border.png");
-        var buttonRectActionMenuRevokedItemTex =
-            resCache.GetTexture("/Textures/Interface/Nano/black_panel_red_thin_border.png");
+        resCache.GetTexture("/Textures/Interface/Nano/black_panel_red_thin_border.png");
         var buttonRectActionMenuItem = new StyleBoxTexture(BaseButton)
         {
             Texture = buttonRectActionMenuItemTex
@@ -377,12 +594,11 @@ public sealed class StyleNano : StyleBase
         actionSearchBox.SetPatchMargin(StyleBox.Margin.All, 3);
         actionSearchBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
 
-        var tabContainerPanelTex = resCache.GetTexture("/Textures/Interface/Nano/tabcontainer_panel.png");
-        var tabContainerPanel = new StyleBoxTexture
+        var tabContainerPanel = new RectBox
         {
-            Texture = tabContainerPanelTex
+            BackgroundColor = Colors.TabContainerBackground,
+            Borders         = new(Colors.TabContainerBorder, new(2.0f))
         };
-        tabContainerPanel.SetPatchMargin(StyleBox.Margin.All, 2);
 
         var tabContainerBoxActive = new StyleBoxFlat { BackgroundColor = new(64, 64, 64), };
         tabContainerBoxActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
@@ -404,10 +620,6 @@ public sealed class StyleNano : StyleBase
         // CheckBox
         var checkBoxTextureChecked   = resCache.GetTexture("/Textures/Interface/Nano/checkbox_checked.svg.96dpi.png");
         var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_unchecked.svg.96dpi.png");
-        var monotoneCheckBoxTextureChecked =
-            resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_checkbox_checked.svg.96dpi.png");
-        var monotoneCheckBoxTextureUnchecked = resCache.GetTexture(
-            "/Textures/Interface/Nano/Monotone/monotone_checkbox_unchecked.svg.96dpi.png");
 
         // Tooltip box
         var tooltipTexture = resCache.GetTexture("/Textures/Interface/Nano/tooltip.png");
@@ -632,7 +844,275 @@ public sealed class StyleNano : StyleBase
                         .Class(ButtonSquare)
                         .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonSquare),
 
-                    #region Labels
+                    #region Font
+
+                    new(
+                        new SelectorElement(null, null, null, null),
+                        [
+                            new(Label.StylePropertyFontColor, Colors.Label)
+                        ]
+                    ),
+
+                    #endregion
+
+                    #region Window
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanel),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowPanelSmall)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitle)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold))
+                        .Prop(Label.StylePropertyFontColor, Colors.WindowTitle),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarIcon)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetSymbolsFont(
+                                true,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
+
+                    #endregion
+
+                    #region Button
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.GhostButton)
+                        .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyButtonDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonSelectedItemDisabledLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    #region Default
+
+                    Element<FancyButton>()
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPressedPanel),
+
+                    #endregion
+
+                    #region Default Open
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightPressedPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftPressedPanel),
+
+                    #endregion
+
+                    #region Accent
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonAccent)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonAccentPressedPanel),
+
+                    #endregion
+
+                    #region Danger
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonDanger)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonDangerPressedPanel),
+
+                    #endregion
+
+                    #endregion
+
+                    #region Option Button
+
+                    Element<FancyOptionButton>()
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonPanel),
+
+                    Element<FancyOptionButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonPressedPanel),
+
+                    Element<FancyOptionButton>()
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyOptionButtonDisabledPanel),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyOptionButtonSelectedItemLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.FancyOptionButtonSelectedItemDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemDisabledLabel)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    #endregion
+
+                    #region Slider
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancySliderPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, SliderPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberPressedPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberDisabledPanel),
+
+                    #endregion
+
+                    #region Label
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle1)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle1)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title1,
+                                weight: FontWeight.Bold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle2)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle2)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title2,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelTitle3)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelTitle3)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Title3,
+                                weight: FontWeight.SemiBold
+                            )
+                        ),
+
+
+                    Element<Label>()
+                        .Class(UIStyleClasses.LabelHeadline)
+                        .Prop(Label.StylePropertyFontColor, Colors.LabelHeadline)
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(
+                                FontType.SansSerif,
+                                style: TextStyle.Headline,
+                                weight: FontWeight.Medium
+                            )
+                        ),
+
+                    #region Symbol
 
                     Element<Label>()
                         .Class(UIStyleClasses.LabelIconFilledRegular1)
@@ -735,42 +1215,58 @@ public sealed class StyleNano : StyleBase
 
                     #endregion
 
-                    #region Buttons
+                    #endregion
 
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GhostButton)
-                        .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxEmpty()),
+                    #region Line Edit
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertyStyleBox, LineEditPanel),
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertyCursorColor, Colors.LineEditCursor),
+
+                    Element<LineEdit>()
+                        .Prop(LineEdit.StylePropertySelectionColor, Colors.LineEditSelection),
+
+                    Element<LineEdit>()
+                        .Pseudo(LineEdit.StylePseudoClassPlaceholder)
+                        .Prop(Label.StylePropertyFontColor, Colors.LineEditPlaceholder),
+
+                    Element<LineEdit>()
+                        .Class(LineEdit.StyleClassLineEditNotEditable)
+                        .Prop(Label.StylePropertyFontColor, Colors.LineEditPlaceholder),
 
                     #endregion
 
-                    #region Windows
+                    #region Check Box
 
                     Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanel),
+                        .Class(UIStyleClasses.FancyCheckBoxPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyCheckBoxPanel),
 
                     Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowPanelSmall)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
+                        .Class(UIStyleClasses.FancyCheckBoxCheckedPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyCheckBoxCheckedPanel),
 
-                    Element<Label>()
-                        .Class(UIStyleClasses.FancyWindowTitle)
-                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.Bold)),
+                    #endregion
 
+                    #region Popup
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancyPopupPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, FancyPopupPanel),
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancyPopupItemButton)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyPopupItemPanel),
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancyPopupItemButton)
+                        .Pseudo(ContainerButton.StylePseudoClassHover)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyPopupItemPanelHover),
                     Element<Label>()
-                        .Class(UIStyleClasses.FancyWindowTitlebarIcon)
+                        .Class(UIStyleClasses.FancyPopupItemIconLabel)
                         .Prop(
-                            "font",
-                            typographyManager.GetSymbolsFont(
-                                true,
-                                style: TextStyle.Title3,
-                                weight: FontWeight.Bold
-                            )
-                        ),
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote, FontWeight.Bold)),
 
                     #endregion
 
@@ -805,41 +1301,116 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.GlobalMenuCategoryLabel)
-                        .Prop("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
+                        .Prop(
+                            Label.StylePropertyFont,
+                            typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold)),
 
                     Element<Label>()
                         .Class(UIStyleClasses.GlobalMenuCategoryIcon)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetSymbolsFont(
                                 filled: true,
                                 style: TextStyle.Title2,
-                                weight: FontWeight.Regular
+                                weight: FontWeight.SemiBold
                             )
                         ),
 
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItem)
-                        .Prop(
-                            ContainerButton.StylePropertyStyleBox,
-                            new StyleBoxEmpty
-                            {
-                                Padding = new(12.0f, 4.0f)
-                            }),
-
-                    Element<ContainerButton>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItem)
-                        .Pseudo(ContainerButton.StylePseudoClassHover)
-                        .Prop(
-                            ContainerButton.StylePropertyStyleBox,
-                            new StyleBoxFlat(new Color(255, 255, 255, 8))
-                            {
-                                Padding = new(12.0f, 4.0f)
-                            }),
-
                     Element<Label>()
-                        .Class(UIStyleClasses.GlobalMenuPopupItemHotkeyLabel)
+                        .Class(UIStyleClasses.FancyPopupItemHotkeyLabel)
                         .Prop(Label.StylePropertyFontColor, new Color(127, 127, 127)),
+
+                    #endregion
+
+                    #region Legacy
+
+                    #region Check Box
+
+                    // CheckBox
+                    new(
+                        new SelectorElement(typeof(TextureRect), [CheckBox.StyleClassCheckBox,], null, null),
+                        [
+                            new(TextureRect.StylePropertyTexture, checkBoxTextureUnchecked)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(TextureRect),
+                            [CheckBox.StyleClassCheckBox, CheckBox.StyleClassCheckBoxChecked,],
+                            null,
+                            null),
+                        [
+                            new(TextureRect.StylePropertyTexture, checkBoxTextureChecked)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(BoxContainer),
+                            [CheckBox.StyleClassCheckBox,],
+                            null,
+                            null),
+                        [
+                            new(BoxContainer.StylePropertySeparation, 10)
+                        ]),
+
+                    #endregion
+
+                    #region Option Button
+
+                    new(
+                        new SelectorElement(typeof(OptionButton), null, null, null),
+                        [
+                            new(ContainerButton.StylePropertyStyleBox, BaseButton)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassNormal,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorDefault)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassHover,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorHovered)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassPressed,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorPressed)
+                        ]),
+                    new(
+                        new SelectorElement(
+                            typeof(OptionButton),
+                            null,
+                            null,
+                            [ContainerButton.StylePseudoClassDisabled,]),
+                        [
+                            new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
+                        ]),
+
+                    new(
+                        new SelectorElement(
+                            typeof(TextureRect),
+                            [OptionButton.StyleClassOptionTriangle,],
+                            null,
+                            null),
+                        [
+                            new(TextureRect.StylePropertyTexture, textureInvertedTriangle)
+                            //new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#FFFFFF")),
+                        ]),
+
+                    #endregion
 
                     #endregion
 
@@ -946,38 +1517,8 @@ public sealed class StyleNano : StyleBase
                                 [ContainerButton.StylePseudoClassDisabled,]),
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
-                            new("font-color", Color.FromHex("#E5E5E581"))
+                            new(Label.StylePropertyFontColor, Color.FromHex("#E5E5E581"))
                         ]),
-
-                    // Context Menu window
-                    Element<PanelContainer>()
-                        .Class(ContextMenuPopup.StyleClassContextMenuPopup)
-                        .Prop(PanelContainer.StylePropertyPanel, contextMenuBackground),
-
-                    // Context menu buttons
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Prop(ContainerButton.StylePropertyStyleBox, buttonContext),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassNormal)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContext),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassHover)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextHover),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassPressed)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextPressed),
-
-                    Element<ContextMenuElement>()
-                        .Class(ContextMenuElement.StyleClassContextMenuButton)
-                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                        .Prop(Control.StylePropertyModulateSelf, ButtonColorContextDisabled),
 
                     // Context Menu Labels
                     Element<RichTextLabel>()
@@ -1102,7 +1643,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1116,36 +1657,9 @@ public sealed class StyleNano : StyleBase
                             new(BoxContainer.StylePropertySeparation, 2)
                         ]),
 
-                    // Fancy LineEdit
-                    new(
-                        new SelectorElement(typeof(LineEdit), null, null, null),
-                        [
-                            new(LineEdit.StylePropertyStyleBox, lineEdit)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(LineEdit),
-                            [LineEdit.StyleClassLineEditNotEditable,],
-                            null,
-                            null),
-                        [
-                            new("font-color", new Color(192, 192, 192))
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(LineEdit),
-                            null,
-                            null,
-                            [LineEdit.StylePseudoClassPlaceholder,]),
-                        [
-                            new("font-color", Color.Gray)
-                        ]),
-
                     Element<TextEdit>()
                         .Pseudo(TextEdit.StylePseudoClassPlaceholder)
-                        .Prop("font-color", Color.Gray),
+                        .Prop(Label.StylePropertyFontColor, Color.Gray),
 
                     // Chat lineedit - we don't actually draw a stylebox around the lineedit itself, we put it around the
                     // input + other buttons, so we must clear the default stylebox
@@ -1179,65 +1693,6 @@ public sealed class StyleNano : StyleBase
                         [
                             new(ProgressBar.StylePropertyBackground, progressBarBackground),
                             new(ProgressBar.StylePropertyForeground, progressBarForeground)
-                        ]),
-
-                    // CheckBox
-                    new(
-                        new SelectorElement(typeof(TextureRect), [CheckBox.StyleClassCheckBox,], null, null),
-                        [
-                            new(TextureRect.StylePropertyTexture, checkBoxTextureUnchecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [CheckBox.StyleClassCheckBox, CheckBox.StyleClassCheckBoxChecked,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, checkBoxTextureChecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(BoxContainer),
-                            [CheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(BoxContainer.StylePropertySeparation, 10)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [MonotoneCheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureUnchecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [
-                                MonotoneCheckBox.StyleClassCheckBox, MonotoneCheckBox.StyleClassCheckBoxChecked
-                            ],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureChecked)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(BoxContainer),
-                            [MonotoneCheckBox.StyleClassCheckBox,],
-                            null,
-                            null),
-                        [
-                            new(BoxContainer.StylePropertySeparation, 10)
                         ]),
 
                     // Tooltip
@@ -1279,7 +1734,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(RichTextLabel), ["bubbleContent",], null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Footnote,
@@ -1296,7 +1751,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(RichTextLabel), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Callout,
@@ -1320,7 +1775,7 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1333,7 +1788,7 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif))
+                            new(Label.StylePropertyFont, typographyManager.GetFont(FontType.SansSerif))
                         ]),
                     new(
                         new SelectorElement(
@@ -1342,7 +1797,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     // action tooltip
@@ -1354,7 +1811,7 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
@@ -1367,7 +1824,7 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif))
+                            new(Label.StylePropertyFont, typographyManager.GetFont(FontType.SansSerif))
                         ]),
                     new(
                         new SelectorElement(
@@ -1376,7 +1833,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
                     new(
                         new SelectorElement(
@@ -1385,7 +1844,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
                     new(
                         new SelectorElement(
@@ -1394,19 +1855,9 @@ public sealed class StyleNano : StyleBase
                             null,
                             null),
                         [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
-                        ]),
-
-                    // small number for the entity counter in the entity menu
-                    new(
-                        new SelectorElement(
-                            typeof(Label),
-                            [ContextMenuElement.StyleClassEntityMenuIconLabel,],
-                            null,
-                            null),
-                        [
-                            new("font", typographyManager.GetFont(FontType.SansSerif, TextStyle.Footnote)),
-                            new(Label.StylePropertyAlignMode, Label.AlignMode.Right)
+                            new(
+                                Label.StylePropertyFont,
+                                typographyManager.GetFont(FontType.SansSerif, weight: FontWeight.SemiBold))
                         ]),
 
                     // hotbar slot
@@ -1418,22 +1869,11 @@ public sealed class StyleNano : StyleBase
                             null),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Title3,
                                     weight: FontWeight.Bold))
-                        ]),
-
-                    // Entity tooltip
-                    new(
-                        new SelectorElement(
-                            typeof(PanelContainer),
-                            [ExamineSystem.StyleClassEntityTooltip,],
-                            null,
-                            null),
-                        [
-                            new(PanelContainer.StylePropertyPanel, tooltipBox)
                         ]),
 
                     // ItemList
@@ -1611,7 +2051,7 @@ public sealed class StyleNano : StyleBase
                             new SelectorElement(typeof(Label), null, null, null)),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(FontType.Mono, TextStyle.Title3, weight: FontWeight.Bold))
                         ]),
 
@@ -1744,7 +2184,7 @@ public sealed class StyleNano : StyleBase
                         SelectorElement.Class(StyleClassItemStatus),
                         [
                             new(
-                                "font",
+                                Label.StylePropertyFont,
                                 typographyManager.GetFont(
                                     FontType.SansSerif,
                                     TextStyle.Footnote,
@@ -1754,12 +2194,12 @@ public sealed class StyleNano : StyleBase
                     Element()
                         .Class(StyleClassItemStatusNotHeld)
                         .Prop(
-                            "font",
+                            Label.StylePropertyFont,
                             typographyManager.GetFont(
                                 FontType.SansSerif,
                                 TextStyle.Footnote,
                                 weight: FontWeight.SemiBold))
-                        .Prop("font-color", ItemStatusNotHeldColor),
+                        .Prop(Label.StylePropertyFontColor, ItemStatusNotHeldColor),
 
                     Element<RichTextLabel>()
                         .Class(StyleClassItemStatus)
@@ -1862,60 +2302,6 @@ public sealed class StyleNano : StyleBase
                             [ContainerButton.StylePseudoClassDisabled,]),
                         [
                             new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
-                        ]),
-
-                    // OptionButton
-                    new(
-                        new SelectorElement(typeof(OptionButton), null, null, null),
-                        [
-                            new(ContainerButton.StylePropertyStyleBox, BaseButton)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassNormal,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorDefault)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassHover,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorHovered)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassPressed,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorPressed)
-                        ]),
-                    new(
-                        new SelectorElement(
-                            typeof(OptionButton),
-                            null,
-                            null,
-                            [ContainerButton.StylePseudoClassDisabled,]),
-                        [
-                            new(Control.StylePropertyModulateSelf, ButtonColorDisabled)
-                        ]),
-
-                    new(
-                        new SelectorElement(
-                            typeof(TextureRect),
-                            [OptionButton.StyleClassOptionTriangle,],
-                            null,
-                            null),
-                        [
-                            new(TextureRect.StylePropertyTexture, textureInvertedTriangle)
-                            //new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#FFFFFF")),
                         ]),
 
                     new(
@@ -2140,19 +2526,19 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class("Good")
-                        .Prop("font-color", GoodGreenFore),
+                        .Prop(Label.StylePropertyFontColor, GoodGreenFore),
 
                     Element<Label>()
                         .Class("Caution")
-                        .Prop("font-color", ConcerningOrangeFore),
+                        .Prop(Label.StylePropertyFontColor, ConcerningOrangeFore),
 
                     Element<Label>()
                         .Class("Danger")
-                        .Prop("font-color", DangerousRedFore),
+                        .Prop(Label.StylePropertyFontColor, DangerousRedFore),
 
                     Element<Label>()
                         .Class("Disabled")
-                        .Prop("font-color", DisabledFore),
+                        .Prop(Label.StylePropertyFontColor, DisabledFore),
 
                     // Radial menu buttons
                     Element<TextureButton>()

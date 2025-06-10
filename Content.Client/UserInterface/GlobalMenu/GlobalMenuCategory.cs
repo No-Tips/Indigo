@@ -18,9 +18,9 @@ namespace Content.Client.UserInterface.GlobalMenu;
 
 public static class GlobalMenuCategory
 {
-    public static readonly GlobalMenuCategoryDef Game = new(
-        new("global-menu-game-category"),
-        GlobalMenuCategoryPriority.Game,
+    public static readonly GlobalMenuCategoryDef Global = new(
+        new("global-menu-global-category"),
+        GlobalMenuCategoryPriority.Global,
         IsIcon: true
     );
 

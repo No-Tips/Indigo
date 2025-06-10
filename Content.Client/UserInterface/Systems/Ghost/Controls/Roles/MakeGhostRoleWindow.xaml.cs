@@ -102,7 +102,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             }
         }
 
-        private void OnRaffleButtonItemSelected(OptionButton.ItemSelectedEventArgs args)
+        private void OnRaffleButtonItemSelected(FancyOptionButton.ItemSelectedEventArgs args)
         {
             _raffleSettingId = args.Id;
             args.Button.SelectId(args.Id);
