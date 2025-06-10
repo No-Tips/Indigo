@@ -4,9 +4,6 @@ using System.Numerics;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
 using Content.Client.Administration.UI.Bwoink;
-using Content.Client.Lobby;
-using Content.Client.Lobby.UI;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.GlobalMenu;
 using Content.Shared.Administration;
 using Content.Shared.Input;
@@ -25,17 +22,17 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Bwoink;
 
 [UsedImplicitly]
-public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSystem>, IOnStateChanged<LobbyState>
+public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSystem>
 {
-    [Dependency]         private readonly IClientAdminManager   _adminManager      = default!;
-    [Dependency]         private readonly IPlayerManager        _playerManager     = default!;
-    [Dependency]         private readonly IClyde                _clyde             = default!;
-    [Dependency]         private readonly IUserInterfaceManager _uiManager         = default!;
-    [Dependency]         private readonly GlobalMenuManager     _globalMenuManager = null!;
-    [UISystemDependency] private readonly AudioSystem           _audio             = default!;
+    [Dependency] private readonly IClientAdminManager   _adminManager      = default!;
+    [Dependency] private readonly IPlayerManager        _playerManager     = default!;
+    [Dependency] private readonly IClyde                _clyde             = default!;
+    [Dependency] private readonly IUserInterfaceManager _uiManager         = default!;
+    [Dependency] private readonly GlobalMenuManager     _globalMenuManager = null!;
+
+    [UISystemDependency] private readonly AudioSystem _audio = default!;
 
     private BwoinkSystem? _bwoinkSystem;
-    private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
     public IAHelpUIHandler? UIHelper;
 
     private bool _discordRelayActive;
@@ -44,7 +41,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public const string AHelpErrorSound = "/Audio/Admin/ahelp_error.ogg";
     public const string AHelpReceiveSound = "/Audio/Admin/ahelp_receive.ogg";
     public const string AHelpSendSound = "/Audio/Admin/ahelp_send.ogg";
-
 
     public override void Initialize()
     {
@@ -56,10 +52,10 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
 
         _globalMenuManager
-            .GetCategory(GlobalMenuCategory.Game)
+            .GetCategory(GlobalMenuCategory.Global)
             .RegisterItem(
                 new(
-                    new("global-menu-game-ahelp-item"),
+                    new("global-menu-global-ahelp-item"),
                     Callback: ToggleWindow,
                     Function: ContentKeyFunctions.OpenAHelp
                 )
@@ -92,15 +88,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         _bwoinkSystem = null;
     }
 
-    private void SetAHelpPressed(bool pressed)
-    {
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.Pressed = pressed;
-
-        UIManager.ClickSound();
-        UnreadAHelpRead();
-    }
-
     private void ReceivedBwoink(object? sender, SharedBwoinkSystem.BwoinkTextMessage message)
     {
         Logger.GetSawmill("c.s.go.es.bwoink").Info($"@{message.UserId}: {message.Text}");
@@ -115,9 +102,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
             _audio.PlayGlobal(AHelpReceiveSound, Filter.Local(), false);
             _clyde.RequestWindowAttention();
         }
-
-        if (!UIHelper!.IsOpen)
-            UnreadAHelpReceived();
 
         UIHelper!.Receive(message);
     }
@@ -147,9 +131,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
         UIHelper.SendMessageAction = (userId, textMessage, playSound) => _bwoinkSystem?.Send(userId, textMessage, playSound);
         UIHelper.InputTextChanged += (channel, text) => _bwoinkSystem?.SendInputTextUpdated(channel, text.Length > 0);
-        UIHelper.OnClose += () => { SetAHelpPressed(false); };
-        UIHelper.OnOpen +=  () => { SetAHelpPressed(true); };
-        SetAHelpPressed(UIHelper.IsOpen);
     }
 
     public void Open()
@@ -214,43 +195,6 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
         helper.Control.PopOut.Disabled = true;
         helper.Control.PopOut.Visible = false;
-    }
-
-    private void UnreadAHelpReceived()
-    {
-        LobbyAHelpButton?.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);
-        _hasUnreadAHelp = true;
-    }
-
-    private void UnreadAHelpRead()
-    {
-        LobbyAHelpButton?.StyleClasses.Remove(StyleNano.StyleClassButtonColorRed);
-        _hasUnreadAHelp = false;
-    }
-
-    public void OnStateEntered(LobbyState state)
-    {
-        if (LobbyAHelpButton != null)
-        {
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
-            LobbyAHelpButton.OnPressed += AHelpButtonPressed;
-            LobbyAHelpButton.Pressed = UIHelper?.IsOpen ?? false;
-
-            if (_hasUnreadAHelp)
-            {
-                UnreadAHelpReceived();
-            }
-            else
-            {
-                UnreadAHelpRead();
-            }
-        }
-    }
-
-    public void OnStateExited(LobbyState state)
-    {
-        if (LobbyAHelpButton != null)
-            LobbyAHelpButton.OnPressed -= AHelpButtonPressed;
     }
 }
 

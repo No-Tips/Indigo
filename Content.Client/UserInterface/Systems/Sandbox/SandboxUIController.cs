@@ -60,7 +60,8 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             new("global-menu-sandbox-panel-item"),
             Callback: ToggleWindow,
             Function: ContentKeyFunctions.OpenSandboxWindow,
-            Priority: 1000
+            Priority: 1000,
+            InGameState: typeof(GameplayState)
         );
 
         _entitySpawningWindowItem = new(
@@ -70,7 +71,8 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
                 if (_admin.CanAdminPlace())
                     EntitySpawningController.ToggleWindow();
             },
-            Function: ContentKeyFunctions.OpenEntitySpawnWindow
+            Function: ContentKeyFunctions.OpenEntitySpawnWindow,
+            InGameState: typeof(GameplayState)
         );
 
         _tileSpawnWindowItem = new(
@@ -80,7 +82,8 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
                 if (_admin.CanAdminPlace())
                     TileSpawningController.ToggleWindow();
             },
-            Function: ContentKeyFunctions.OpenTileSpawnWindow
+            Function: ContentKeyFunctions.OpenTileSpawnWindow,
+            InGameState: typeof(GameplayState)
         );
 
         _decalSpawnWindowItem = new(
@@ -90,7 +93,8 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
                 if (_admin.CanAdminPlace())
                     DecalPlacerController.ToggleWindow();
             },
-            Function: ContentKeyFunctions.OpenDecalSpawnWindow
+            Function: ContentKeyFunctions.OpenDecalSpawnWindow,
+            InGameState: typeof(GameplayState)
         );
 
         _admin.AdminStatusUpdated += OnAdminStatusUpdated;

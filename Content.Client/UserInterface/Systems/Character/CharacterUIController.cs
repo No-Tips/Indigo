@@ -53,7 +53,8 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
                 new(
                     new("global-menu-character-window-item"),
                     Callback: ToggleWindow,
-                    Function: ContentKeyFunctions.OpenCharacterMenu
+                    Function: ContentKeyFunctions.OpenCharacterMenu,
+                    InGameState: typeof(GameplayState)
                 )
             );
     }

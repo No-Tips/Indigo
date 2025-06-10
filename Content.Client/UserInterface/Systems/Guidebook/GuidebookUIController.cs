@@ -28,10 +28,10 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         base.Initialize();
 
         _globalMenuManager
-            .GetCategory(GlobalMenuCategory.Game)
+            .GetCategory(GlobalMenuCategory.Global)
             .RegisterItem(
                 new(
-                    new("global-menu-game-guide-book-item"),
+                    new("global-menu-global-guide-book-item"),
                     Callback: ToggleGuidebook,
                     Function: ContentKeyFunctions.OpenGuidebook
                 )

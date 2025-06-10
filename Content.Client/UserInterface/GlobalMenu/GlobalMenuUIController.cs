@@ -14,7 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Content.Client.Gameplay;
+using Content.Client.Lobby;
 using Content.Shared.Localizations;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -23,15 +25,17 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.GlobalMenu;
 
 
-public sealed partial class GlobalMenuUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class GlobalMenuUIController : UIController, IOnStateChanged<GameplayState>,
+    IOnStateChanged<LobbyState>
 {
+    [Dependency] private readonly IUserInterfaceManager _uiManager = null!;
+
     public event Action<LocalizedString, LocalizedString>? ItemPressed;
 
     private UI.GlobalMenu? GlobalMenu => UIManager.GetActiveUIWidgetOrNull<UI.GlobalMenu>();
 
     private IReadOnlyList<UI.GlobalMenu.Category> _categories = [];
     private bool                                  _isDirty;
-    private bool                                  _isFirstTimeRebuild;
 
     public void Populate(IReadOnlyList<UI.GlobalMenu.Category> categories)
     {
@@ -50,29 +54,30 @@ public sealed partial class GlobalMenuUIController : UIController, IOnStateChang
         ReBuild();
     }
 
-    private void ReBuild()
-    {
-        GlobalMenu?.Populate(_categories);
-
-        // For some reason it won't appear correct
-        if (_isFirstTimeRebuild)
-        {
-            _isFirstTimeRebuild = false;
-            GlobalMenu?.ForceRunStyleUpdate();
-        }
-    }
+    private void ReBuild() => GlobalMenu?.Populate(_categories);
 
     private void OnItemPressed(LocalizedString category, LocalizedString item) => ItemPressed?.Invoke(category, item);
 
-    public void OnStateEntered(GameplayState state)
+    public void OnStateEntered(GameplayState state) => OnGlobalMenuShow();
+
+    public void OnStateExited(GameplayState state) => OnGlobalMenuHide();
+
+    public void OnStateEntered(LobbyState state) => OnGlobalMenuShow();
+
+    public void OnStateExited(LobbyState state) => OnGlobalMenuHide();
+
+    private void OnGlobalMenuShow()
     {
         DebugTools.AssertNotNull(GlobalMenu);
 
         GlobalMenu!.ItemPressed += OnItemPressed;
-        _isFirstTimeRebuild     =  true;
+        _uiManager.DeferAction(() =>
+        {
+            GlobalMenu?.ForceRunStyleUpdate();
+        });
     }
 
-    public void OnStateExited(GameplayState state)
+    private void OnGlobalMenuHide()
     {
         if (GlobalMenu is { } globalMenu)
             globalMenu.ItemPressed -= OnItemPressed;

@@ -21,6 +21,7 @@ using Content.Client.Replay;
 using Content.Client.Screenshot;
 using Content.Client.Singularity;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.GlobalMenu;
 using Content.Client.Viewport;
 using Content.Client.Voting;
 using Content.Shared.Ame.Components;
@@ -43,38 +44,39 @@ namespace Content.Client.Entry
 {
     public sealed class EntryPoint : GameClient
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IGameController _gameController = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly IParallaxManager _parallaxManager = default!;
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
-        [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
-        [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
-        [Dependency] private readonly ViewportManager _viewportManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IOverlayManager _overlayManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
-        [Dependency] private readonly GhostKickManager _ghostKick = default!;
+        [Dependency] private readonly IBaseClient                          _baseClient                    = default!;
+        [Dependency] private readonly IGameController                      _gameController                = default!;
+        [Dependency] private readonly IStateManager                        _stateManager                  = default!;
+        [Dependency] private readonly IComponentFactory                    _componentFactory              = default!;
+        [Dependency] private readonly IPrototypeManager                    _prototypeManager              = default!;
+        [Dependency] private readonly IClientAdminManager                  _adminManager                  = default!;
+        [Dependency] private readonly IParallaxManager                     _parallaxManager               = default!;
+        [Dependency] private readonly IConfigurationManager                _configManager                 = default!;
+        [Dependency] private readonly IStylesheetManager                   _stylesheetManager             = default!;
+        [Dependency] private readonly IScreenshotHook                      _screenshotHook                = default!;
+        [Dependency] private readonly FullscreenHook                       _fullscreenHook                = default!;
+        [Dependency] private readonly ViewportManager                      _viewportManager               = default!;
+        [Dependency] private readonly IUserInterfaceManager                _userInterfaceManager          = default!;
+        [Dependency] private readonly IInputManager                        _inputManager                  = default!;
+        [Dependency] private readonly IOverlayManager                      _overlayManager                = default!;
+        [Dependency] private readonly IChatManager                         _chatManager                   = default!;
+        [Dependency] private readonly IClientPreferencesManager            _clientPreferencesManager      = default!;
+        [Dependency] private readonly EuiManager                           _euiManager                    = default!;
+        [Dependency] private readonly IVoteManager                         _voteManager                   = default!;
+        [Dependency] private readonly DocumentParsingManager               _documentParsingManager        = default!;
+        [Dependency] private readonly GhostKickManager                     _ghostKick                     = default!;
         [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
-        [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
-        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
-        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
-        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly JoinQueueManager _joinQueue = default!;
-        [Dependency] private readonly DiscordAuthManager _discordAuth = default!;
-        [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
-        [Dependency] private readonly KeyPresetsManager _keyPresetsManager = null!;
+        [Dependency] private readonly JobRequirementsManager               _jobRequirements               = default!;
+        [Dependency] private readonly ContentLocalizationManager           _contentLoc                    = default!;
+        [Dependency] private readonly ContentReplayPlaybackManager         _playbackMan                   = default!;
+        [Dependency] private readonly IResourceManager                     _resourceManager               = default!;
+        [Dependency] private readonly IReplayLoadManager                   _replayLoad                    = default!;
+        [Dependency] private readonly ILogManager                          _logManager                    = default!;
+        [Dependency] private readonly JoinQueueManager                     _joinQueue                     = default!;
+        [Dependency] private readonly DiscordAuthManager                   _discordAuth                   = default!;
+        [Dependency] private readonly DebugMonitorManager                  _debugMonitorManager           = default!;
+        [Dependency] private readonly KeyPresetsManager                    _keyPresetsManager             = null!;
+        [Dependency] private readonly GlobalMenuManager                    _globalMenuManager             = null!;
 
         public override void Init()
         {
@@ -182,6 +184,8 @@ namespace Content.Client.Entry
             _userInterfaceManager.MainViewport.Visible = false;
 
             SwitchToDefaultState();
+
+            _globalMenuManager.Initialize();
         }
 
         private void SwitchToDefaultState(bool disconnected = false)
@@ -219,6 +223,8 @@ namespace Content.Client.Entry
 
         public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
         {
+            _globalMenuManager.FrameUpdate(frameEventArgs);
+
             if (level == ModUpdateLevel.FramePreEngine)
             {
                 _debugMonitorManager.FrameUpdate();

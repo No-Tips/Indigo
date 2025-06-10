@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Content.Client.UserInterface.GlobalMenu;
+using Content.Client.Voting.UI;
 using Content.Shared.Voting;
 using Robust.Client;
 using Robust.Client.Audio;
@@ -27,24 +29,25 @@ namespace Content.Client.Voting
         void SetPopupContainer(Control container);
         bool CanCallVote { get; }
 
-        bool CanCallStandardVote(StandardVoteType type, out TimeSpan whenCan);
+        bool               CanCallStandardVote(StandardVoteType type, out TimeSpan whenCan);
         event Action<bool> CanCallVoteChanged;
-        event Action CanCallStandardVotesChanged;
+        event Action       CanCallStandardVotesChanged;
     }
 
     public sealed class VoteManager : IVoteManager
     {
-        [Dependency] private readonly IAudioManager _audio = default!;
-        [Dependency] private readonly IBaseClient _client = default!;
-        [Dependency] private readonly IClientConsoleHost _console = default!;
-        [Dependency] private readonly IClientNetManager _netManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IResourceCache _res = default!;
+        [Dependency] private readonly IAudioManager      _audio             = default!;
+        [Dependency] private readonly IBaseClient        _client            = default!;
+        [Dependency] private readonly IClientConsoleHost _console           = default!;
+        [Dependency] private readonly IClientNetManager  _netManager        = default!;
+        [Dependency] private readonly IGameTiming        _gameTiming        = default!;
+        [Dependency] private readonly IResourceCache     _res               = default!;
+        [Dependency] private readonly GlobalMenuManager  _globalMenuManager = null!;
 
         private readonly Dictionary<StandardVoteType, TimeSpan> _standardVoteTimeouts = new();
-        private readonly Dictionary<int, ActiveVote> _votes = new();
-        private readonly Dictionary<int, UI.VotePopup> _votePopups = new();
-        private Control? _popupContainer;
+        private readonly Dictionary<int, ActiveVote>            _votes                = new();
+        private readonly Dictionary<int, UI.VotePopup>          _votePopups           = new();
+        private          Control?                               _popupContainer;
 
         private IAudioSource? _voteSource;
 
@@ -66,6 +69,19 @@ namespace Content.Client.Voting
             _netManager.RegisterNetMessage<MsgVoteCanCall>(ReceiveVoteCanCall);
 
             _client.RunLevelChanged += ClientOnRunLevelChanged;
+
+            _globalMenuManager
+                .GetCategory(GlobalMenuCategory.Global)
+                .RegisterItem(
+                    new(
+                        new("global-menu-global-call-vote-item"),
+                        Callback: () =>
+                        {
+                            var menu = new VoteCallMenu();
+                            menu.OpenCentered();
+                        }
+                    )
+                );
         }
 
         private void ClientOnRunLevelChanged(object? sender, RunLevelChangedEventArgs e)
@@ -128,7 +144,7 @@ namespace Content.Client.Voting
 
         private void ReceiveVoteData(MsgVoteData message)
         {
-            var @new = false;
+            var @new   = false;
             var voteId = message.VoteId;
             if (!_votes.TryGetValue(voteId, out var existingVote))
             {
@@ -165,7 +181,6 @@ namespace Content.Client.Voting
                 _votes.Remove(voteId);
                 if (_votePopups.TryGetValue(voteId, out var toRemove))
                 {
-
                     toRemove.Orphan();
                     _votePopups.Remove(voteId);
                 }
@@ -179,9 +194,9 @@ namespace Content.Client.Voting
             // On the server, most of these params can't change.
             // It can't hurt to just re-set this stuff since I'm lazy and the server is sending it anyways, so...
             existingVote.Initiator = message.VoteInitiator;
-            existingVote.Title = message.VoteTitle;
+            existingVote.Title     = message.VoteTitle;
             existingVote.StartTime = _gameTiming.RealServerToLocal(message.StartTime);
-            existingVote.EndTime = _gameTiming.RealServerToLocal(message.EndTime);
+            existingVote.EndTime   = _gameTiming.RealServerToLocal(message.EndTime);
 
             // Logger.Debug($"{existingVote.StartTime}, {existingVote.EndTime}, {_gameTiming.RealTime}");
 
@@ -239,10 +254,10 @@ namespace Content.Client.Voting
             // Both of these are local RealTime (converted at NetMsg receive).
             public TimeSpan StartTime;
             public TimeSpan EndTime;
-            public string Title = "";
-            public string Initiator = "";
-            public int? OurVote;
-            public int Id;
+            public string   Title     = "";
+            public string   Initiator = "";
+            public int?     OurVote;
+            public int      Id;
 
             public ActiveVote(int voteId)
             {
@@ -252,8 +267,8 @@ namespace Content.Client.Voting
 
         public sealed class VoteEntry
         {
-            public string Text { get; }
-            public int Votes { get; set; }
+            public string Text  { get; }
+            public int    Votes { get; set; }
 
             public VoteEntry(string text)
             {

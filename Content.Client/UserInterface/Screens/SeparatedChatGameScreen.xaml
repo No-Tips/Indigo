@@ -9,27 +9,28 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
-    xmlns:ui1="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.GlobalMenu.UI"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
-    <controls:RecordedSplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
+    <controls:RecordedSplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True"
+                                     SplitWidth="0" StretchDirection="TopLeft">
         <!-- Viewport and Global Menu -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True">
             <!-- Global Menu -->
-            <ui1:GlobalMenu />
+            <ui:GlobalMenu />
 
             <!-- Viewport -->
             <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
-                <controls:MainViewport Name="MainViewport"/>
+                <controls:MainViewport Name="MainViewport" />
                 <widgets:GhostGui Name="Ghost" Access="Protected" />
-                <inventory:InventoryGui Name="Inventory" Access="Protected"/>
-                <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
-                <targeting:TargetingControl Name="Targeting" Access="Protected"/> <!-- Shitmed Change -->
+                <inventory:InventoryGui Name="Inventory" Access="Protected" />
+                <hotbar:HotbarGui Name="Hotbar" Access="Protected" />
+                <targeting:TargetingControl Name="Targeting" Access="Protected" /> <!-- Shitmed Change -->
                 <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
                     <actions:ActionsBar Name="Actions" Access="Protected" />
-                    <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
+                    <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical" />
                 </BoxContainer>
                 <alerts:AlertsUI Name="Alerts" Access="Protected" />
             </LayoutContainer>
@@ -38,7 +39,8 @@
         <!-- Chat -->
         <PanelContainer StyleClasses="ChatPanel" HorizontalExpand="True" MinWidth="300">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
-                <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
+                <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected"
+                              MinSize="0 0" />
             </BoxContainer>
         </PanelContainer>
     </controls:RecordedSplitContainer>

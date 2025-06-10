@@ -29,7 +29,8 @@ public sealed class LanguageMenuUIController : UIController, IOnStateEntered<Gam
                 new(
                     new("global-menu-character-language-window-item"),
                     Callback: ToggleWindow,
-                    Function: ContentKeyFunctions.OpenLanguageMenu
+                    Function: ContentKeyFunctions.OpenLanguageMenu,
+                    InGameState: typeof(GameplayState)
                 )
             );
     }
