@@ -61,7 +61,7 @@ namespace Content.Client.Options.UI.Tabs
                 {
                     switch (control)
                     {
-                        case Slider slider:
+                        case FancySlider slider:
                             slider.OnValueChanged += _ => UpdateChanges();
                             break;
                         case FancyCheckBox checkBox:
@@ -103,7 +103,7 @@ namespace Content.Client.Options.UI.Tabs
                 {
                     switch (control)
                     {
-                        case Slider slider:
+                        case FancySlider slider:
                             slider.OnValueChanged -= _ => UpdateChanges();
                             break;
                         case FancyCheckBox checkBox:
