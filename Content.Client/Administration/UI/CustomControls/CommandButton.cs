@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Client.Guidebook.Richtext;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.Console;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -7,7 +8,7 @@ using Robust.Client.UserInterface.Controls;
 namespace Content.Client.Administration.UI.CustomControls
 {
     [Virtual]
-    public class CommandButton : Button, IDocumentTag
+    public class CommandButton : FancyButton, IDocumentTag
     {
         public string? Command { get; set; }
 

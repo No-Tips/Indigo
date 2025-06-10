@@ -7,8 +7,8 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client.UserInterface.Controls;
 
 
-[GenerateTypedNameReferences]
-public sealed partial class FancyButton : ContainerButton
+[GenerateTypedNameReferences, Virtual,]
+public partial class FancyButton : ContainerButton
 {
     public string? Text { get => ButtonLabel.Text; set => ButtonLabel.Text = value; }
 
