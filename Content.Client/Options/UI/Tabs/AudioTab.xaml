@@ -2,82 +2,85 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <BoxContainer Orientation="Vertical" Margin="8 8" SeparationOverride="8">
-        <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Orientation="Vertical" SeparationOverride="8">
             <Label Text="{Loc 'ui-options-volume-label'}" StyleClasses="LabelHeadline" />
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-master-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="MasterVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="MasterVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="MasterVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-midi-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="MidiVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True" MinSize="80 0"
-                        Rounded="True" />
+                <controls:FancySlider Name="MidiVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0"
+                                      Rounded="True" />
 
                 <Label Name="MidiVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-ambient-music-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="AmbientMusicVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="AmbientMusicVolumeSlider" MinValue="0" MaxValue="100"
+                                      HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="AmbientMusicVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-ambience-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="AmbienceVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="AmbienceVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="AmbienceVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-lobby-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="LobbyVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True" MinSize="80 0"
-                        Rounded="True" />
+                <controls:FancySlider Name="LobbyVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0"
+                                      Rounded="True" />
 
                 <Label Name="LobbyVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-interface-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="InterfaceVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="InterfaceVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="InterfaceVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-ambience-max-sounds'}" HorizontalExpand="True" />
 
-                <Slider Name="AmbienceSoundsSlider" MinValue="0" MaxValue="1" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="AmbienceSoundsSlider" MinValue="0" MaxValue="1" HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="AmbienceSoundsLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-announcer-volume'}" HorizontalExpand="True" />
 
-                <Slider Name="AnnouncerVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
-                        MinSize="80 0" Rounded="True" />
+                <controls:FancySlider Name="AnnouncerVolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True"
+                                      MinSize="80 0" Rounded="True" />
 
                 <Label Name="AnnouncerVolumeLabel" MinSize="48 0" Align="Right" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
                 <controls:FancyCheckBox Name="LobbyMusicCheckBox"
                                         Text="{Loc 'ui-options-lobby-music'}" />
 
@@ -96,7 +99,7 @@
             </BoxContainer>
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" Align="End" HorizontalExpand="True" SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal" Align="End" HorizontalExpand="True" SeparationOverride="12">
             <controls:FancyButton Name="ResetButton"
                                   Text="{Loc 'ui-options-reset-all'}"
                                   HorizontalAlignment="Right" />

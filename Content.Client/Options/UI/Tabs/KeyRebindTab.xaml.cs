@@ -190,7 +190,7 @@ namespace Content.Client.Options.UI.Tabs
                 currentVBox = new()
                 {
                     Orientation = LayoutOrientation.Vertical,
-                    SeparationOverride = 4
+                    SeparationOverride = 8
                 };
 
                 currentVBox.AddChild(
@@ -698,7 +698,7 @@ namespace Content.Client.Options.UI.Tabs
                 var hBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
-                    SeparationOverride = 8,
+                    SeparationOverride = 12,
                     Children =
                     {
                         name,

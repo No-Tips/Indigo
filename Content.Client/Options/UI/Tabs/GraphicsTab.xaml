@@ -2,27 +2,27 @@
                   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                   xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs">
     <BoxContainer Orientation="Vertical" Margin="8 8" SeparationOverride="8">
-        <BoxContainer Orientation="Vertical" SeparationOverride="12" VerticalExpand="True">
-            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
                 <controls:FancyCheckBox Name="VSyncCheckBox" Text="{Loc 'ui-options-vsync'}" />
                 <controls:FancyCheckBox Name="FullscreenCheckBox" Text="{Loc 'ui-options-fullscreen'}" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-lighting-label'}" />
 
                 <controls:FancyOptionButton Name="LightingPresetOption" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                 <Label Text="{Loc 'ui-options-scale-label'}" />
 
                 <controls:FancyOptionButton Name="UIScaleOption" />
             </BoxContainer>
 
-            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
 
-                <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                <BoxContainer Orientation="Vertical" SeparationOverride="8">
                     <controls:FancyCheckBox Name="ViewportStretchCheckBox" Text="{Loc 'ui-options-vp-stretch'}" />
                     <controls:FancyCheckBox Name="IntegerScalingCheckBox"
                                             Text="{Loc 'ui-options-vp-integer-scaling'}"
@@ -32,24 +32,24 @@
                                             ToolTip="{Loc 'ui-options-vp-vertical-fit-tooltip'}" />
                 </BoxContainer>
 
-                <BoxContainer Name="ViewportScaleBox" Orientation="Horizontal" SeparationOverride="8">
+                <BoxContainer Name="ViewportScaleBox" Orientation="Horizontal" SeparationOverride="12">
                     <Label Name="ViewportScaleText" />
-                    <Slider Name="ViewportScaleSlider"
-                            MinValue="1"
-                            MaxValue="5"
-                            Rounded="True"
-                            MinWidth="200" />
+                    <controls:FancySlider Name="ViewportScaleSlider"
+                                          MinValue="1"
+                                          MaxValue="5"
+                                          Rounded="True"
+                                          MinWidth="200" />
                 </BoxContainer>
 
-                <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="12">
                     <Label Name="ViewportWidthSliderDisplay" />
-                    <Slider Name="ViewportWidthSlider"
-                            Rounded="True"
-                            MinWidth="200" />
+                    <controls:FancySlider Name="ViewportWidthSlider"
+                                          Rounded="True"
+                                          MinWidth="200" />
                 </BoxContainer>
             </BoxContainer>
 
-            <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
                 <controls:FancyCheckBox Name="ViewportLowResCheckBox" Text="{Loc 'ui-options-vp-low-res'}" />
                 <controls:FancyCheckBox Name="ParallaxLowQualityCheckBox"
                                         Text="{Loc 'ui-options-parallax-low-quality'}" />
