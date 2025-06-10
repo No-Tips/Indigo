@@ -24,16 +24,19 @@ public static class Colors
     public static readonly Color Blue      = Color.FromHex("#3351E3");
     public static readonly Color BlueDark  = Color.FromHex("#29325A");
 
-    public static readonly Color Gray   = Color.FromHex("#353535");
-    public static readonly Color Indigo = Color.FromHex("#9900FF");
+    public static readonly Color Gray = Color.FromHex("#353535");
+
+    public static readonly Color IndigoLight = Color.FromHex("#B23EFF");
+    public static readonly Color Indigo      = Color.FromHex("#8C0FDF");
+    public static readonly Color IndigoDark  = Color.FromHex("#613181");
 
     public static readonly Color RedLight = Color.FromHex("#FF2C2C");
     public static readonly Color Red      = Color.FromHex("#E40E0E");
     public static readonly Color RedDark  = Color.FromHex("#722020");
 
-    public static Color AccentLight => BlueLight;
-    public static Color Accent      => Blue;
-    public static Color AccentDark  => BlueDark;
+    public static Color AccentLight => IndigoLight;
+    public static Color Accent      => Indigo;
+    public static Color AccentDark  => IndigoDark;
 
     #region Window
 
@@ -58,8 +61,8 @@ public static class Colors
 
     #region Default
 
-    public static readonly Color ButtonBackground         = Color.FromHex("#6E6E6E");
-    public static readonly Color ButtonPressedBackground  = Color.FromHex("#9B9B9B");
+    public static readonly Color ButtonBackground         = Color.FromHex("#646464");
+    public static readonly Color ButtonPressedBackground  = Color.FromHex("#969696");
     public static readonly Color ButtonDisabledBackground = Color.FromHex("#323232");
 
     #endregion
