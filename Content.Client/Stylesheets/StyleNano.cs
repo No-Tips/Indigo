@@ -594,12 +594,11 @@ public sealed class StyleNano : StyleBase
         actionSearchBox.SetPatchMargin(StyleBox.Margin.All, 3);
         actionSearchBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
 
-        var tabContainerPanelTex = resCache.GetTexture("/Textures/Interface/Nano/tabcontainer_panel.png");
-        var tabContainerPanel = new StyleBoxTexture
+        var tabContainerPanel = new RectBox
         {
-            Texture = tabContainerPanelTex
+            BackgroundColor = Colors.TabContainerBackground,
+            Borders         = new(Colors.TabContainerBorder, new(2.0f))
         };
-        tabContainerPanel.SetPatchMargin(StyleBox.Margin.All, 2);
 
         var tabContainerBoxActive = new StyleBoxFlat { BackgroundColor = new(64, 64, 64), };
         tabContainerBoxActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);

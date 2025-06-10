@@ -134,6 +134,13 @@ public static class Colors
 
     #endregion
 
+    #region Tab Container
+
+    public static readonly Color TabContainerBackground = Color.FromHex("#131313");
+    public static readonly Color TabContainerBorder     = Color.FromHex("#2b2b2b");
+
+    #endregion
+
     #region Chat
 
     public static Color ChatBorder      => WindowBorder;
