@@ -58,8 +58,8 @@ public static class Colors
 
     #region Default
 
-    public static readonly Color ButtonBackground         = Color.FromHex("#646464");
-    public static readonly Color ButtonPressedBackground  = Color.FromHex("#828282");
+    public static readonly Color ButtonBackground         = Color.FromHex("#6E6E6E");
+    public static readonly Color ButtonPressedBackground  = Color.FromHex("#9B9B9B");
     public static readonly Color ButtonDisabledBackground = Color.FromHex("#323232");
 
     #endregion
@@ -89,6 +89,15 @@ public static class Colors
 
     #endregion
 
+    #region Slider
+
+    public static readonly Color SliderBackground = Color.FromHex("#333333");
+    public static          Color SliderGrabberBackground         => ButtonBackground;
+    public static          Color SliderGrabberPressedBackground  => ButtonPressedBackground;
+    public static          Color SliderGrabberDisabledBackground => ButtonDisabledBackground;
+
+    #endregion
+
     #region Label
 
     public static readonly Color Label         = Color.FromHex("#E1E1E1");
@@ -112,7 +121,7 @@ public static class Colors
 
     #region Check Box
 
-    public static readonly Color CheckBoxBackground = Color.FromHex("#3A3A3A");
+    public static readonly Color CheckBoxBackground = Color.FromHex("#646464");
     public static          Color CheckBoxCheckedBackground => Accent;
 
     #endregion

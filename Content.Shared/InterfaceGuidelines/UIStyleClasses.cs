@@ -49,6 +49,13 @@ public static class UIStyleClasses
 
     #endregion
 
+    #region Slider
+
+    public const string FancySliderPanel   = "FancySliderPanel";
+    public const string FancySliderGrabber = "FancySliderGrabber";
+
+    #endregion
+
     #region Label
 
     public const string LabelTitle1   = "LabelTitle1";

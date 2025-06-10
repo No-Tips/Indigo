@@ -34,14 +34,15 @@
                         <controls:FancyOptionButton Name="ChatStackOption" />
                     </BoxContainer>
 
-                    <BoxContainer Orientation="Horizontal">
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
                         <Label Text="{Loc 'ui-options-screen-shake-intensity'}" />
 
-                        <Slider Name="ScreenShakeIntensitySlider"
-                                MinValue="0"
-                                MaxValue="100"
-                                Rounded="True"
-                                MinWidth="200" />
+                        <controls:FancySlider Name="ScreenShakeIntensitySlider"
+                                              MinValue="0"
+                                              MaxValue="100"
+                                              Rounded="True"
+                                              MinWidth="200" />
+
                         <Label Name="ScreenShakeIntensityLabel" />
                     </BoxContainer>
                 </BoxContainer>

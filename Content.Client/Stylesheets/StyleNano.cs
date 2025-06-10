@@ -179,10 +179,10 @@ public sealed class StyleNano : StyleBase
     public static RectBox FancyWindowTitlebarPanel =>
         new()
         {
-            Rounding                    = new(14.0f, 14.0f, 0.0f, 0.0f),
-            Borders                     = new(Colors.WindowTitlebarBorder, new(2.0f)),
-            InsetBorders                = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
-            BackgroundColor             = Colors.WindowTitlebarBackground
+            Rounding        = new(14.0f, 14.0f, 0.0f, 0.0f),
+            Borders         = new(Colors.WindowTitlebarBorder, new(2.0f)),
+            InsetBorders    = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
+            BackgroundColor = Colors.WindowTitlebarBackground
         };
 
     #endregion
@@ -195,24 +195,21 @@ public sealed class StyleNano : StyleBase
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonBackground
         };
 
     public static RectBox FancyButtonDisabledPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonDisabledBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDisabledBackground
         };
 
     public static RectBox FancyButtonPressedPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonPressedBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonPressedBackground
         };
 
     #endregion
@@ -223,48 +220,42 @@ public sealed class StyleNano : StyleBase
         new()
         {
             Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
-            BackgroundColor = Colors.ButtonBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonBackground
         };
 
     public static RectBox FancyButtonOpenRightDisabledPanel =>
         new()
         {
             Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
-            BackgroundColor = Colors.ButtonDisabledBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDisabledBackground
         };
 
     public static RectBox FancyButtonOpenRightPressedPanel =>
         new()
         {
             Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
-            BackgroundColor = Colors.ButtonPressedBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonPressedBackground
         };
 
     public static RectBox FancyButtonOpenLeftPanel =>
         new()
         {
             Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
-            BackgroundColor = Colors.ButtonBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonBackground
         };
 
     public static RectBox FancyButtonOpenLeftDisabledPanel =>
         new()
         {
             Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
-            BackgroundColor = Colors.ButtonDisabledBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDisabledBackground
         };
 
     public static RectBox FancyButtonOpenLeftPressedPanel =>
         new()
         {
             Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
-            BackgroundColor = Colors.ButtonPressedBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonPressedBackground
         };
 
     #endregion
@@ -275,24 +266,21 @@ public sealed class StyleNano : StyleBase
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonAccentBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonAccentBackground
         };
 
     public static RectBox FancyButtonAccentDisabledPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonAccentDisabledBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonAccentDisabledBackground
         };
 
     public static RectBox FancyButtonAccentPressedPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonAccentPressedBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonAccentPressedBackground
         };
 
     #endregion
@@ -303,24 +291,21 @@ public sealed class StyleNano : StyleBase
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonDangerBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDangerBackground
         };
 
     public static RectBox FancyButtonDangerDisabledPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonDangerDisabledBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDangerDisabledBackground
         };
 
     public static RectBox FancyButtonDangerPressedPanel =>
         new()
         {
             Rounding        = new(8.0f),
-            BackgroundColor = Colors.ButtonDangerPressedBackground,
-            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+            BackgroundColor = Colors.ButtonDangerPressedBackground
         };
 
     #endregion
@@ -332,6 +317,38 @@ public sealed class StyleNano : StyleBase
     public static RectBox FancyOptionButtonPanel         => FancyButtonPanel;
     public static RectBox FancyOptionButtonPressedPanel  => FancyButtonPressedPanel;
     public static RectBox FancyOptionButtonDisabledPanel => FancyButtonDisabledPanel;
+
+    #endregion
+
+    #region Slider
+
+    public static RectBox SliderPanel =>
+        new()
+        {
+            Rounding        = new(2.0f),
+            BackgroundColor = Colors.SliderBackground
+        };
+
+    public static RectBox SliderGrabberPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberBackground
+        };
+
+    public static RectBox SliderGrabberPressedPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberPressedBackground
+        };
+
+    public static RectBox SliderGrabberDisabledPanel =>
+        new()
+        {
+            Rounding        = new(6.0f),
+            BackgroundColor = Colors.SliderGrabberDisabledBackground
+        };
 
     #endregion
 
@@ -946,7 +963,6 @@ public sealed class StyleNano : StyleBase
                         .Pseudo(ContainerButton.StylePseudoClassPressed)
                         .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftPressedPanel),
 
-
                     #endregion
 
                     #region Accent
@@ -1021,6 +1037,28 @@ public sealed class StyleNano : StyleBase
                                 weight: FontWeight.Medium
                             )
                         ),
+
+                    #endregion
+
+                    #region Slider
+
+                    Element<PanelContainer>()
+                        .Class(UIStyleClasses.FancySliderPanel)
+                        .Prop(PanelContainer.StylePropertyPanel, SliderPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberPressedPanel),
+
+                    Element<ContainerButton>()
+                        .Class(UIStyleClasses.FancySliderGrabber)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, SliderGrabberDisabledPanel),
 
                     #endregion
 
