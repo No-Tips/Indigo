@@ -24,7 +24,7 @@
             </BoxContainer>
         </PanelContainer>
 
-        <Control Name="ContentsContainer" Margin="12 0 12 12"
+        <Control Name="ContentsContainer" Margin="12 12 12 12"
                  Access="Public" RectClipContent="True"
                  VerticalExpand="true" />
     </BoxContainer>

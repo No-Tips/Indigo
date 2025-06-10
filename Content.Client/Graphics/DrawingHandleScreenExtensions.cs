@@ -65,30 +65,45 @@ public static class DrawingHandleScreenExtensions
             X = box.BottomLeft.X + bottomLeftRadius, Y = box.BottomLeft.Y - bottomLeftRadius
         };
 
-        handle.DrawCircle(
-            topLeftCorner,
-            topLeftRadius,
-            srgbBackgroundColor,
-            filled
-        );
-        handle.DrawCircle(
-            topRightCorner,
-            topRightRadius,
-            srgbBackgroundColor,
-            filled
-        );
-        handle.DrawCircle(
-            bottomRightCorner,
-            bottomRightRadius,
-            srgbBackgroundColor,
-            filled
-        );
-        handle.DrawCircle(
-            bottomLeftCorner,
-            bottomLeftRadius,
-            srgbBackgroundColor,
-            filled
-        );
+        if (topLeftRadius != 0.0f)
+        {
+            handle.DrawCircle(
+                topLeftCorner,
+                topLeftRadius,
+                srgbBackgroundColor,
+                filled
+            );
+        }
+
+        if (topRightRadius != 0.0f)
+        {
+            handle.DrawCircle(
+                topRightCorner,
+                topRightRadius,
+                srgbBackgroundColor,
+                filled
+            );
+        }
+
+        if (bottomRightRadius != 0.0f)
+        {
+            handle.DrawCircle(
+                bottomRightCorner,
+                bottomRightRadius,
+                srgbBackgroundColor,
+                filled
+            );
+        }
+
+        if (bottomLeftRadius != 0.0f)
+        {
+            handle.DrawCircle(
+                bottomLeftCorner,
+                bottomLeftRadius,
+                srgbBackgroundColor,
+                filled
+            );
+        }
 
         // Borders
 
@@ -98,28 +113,28 @@ public static class DrawingHandleScreenExtensions
         var maxLeftRadius   = Math.Max(topLeftRadius, bottomLeftRadius);
 
         var topBorderRect = UIBox2.FromDimensions(
-            box.Left + maxTopRadius,
+            box.Left + topLeftRadius,
             box.Top,
-            box.Width - maxTopRadius * 2,
+            box.Width - topLeftRadius - topRightRadius,
             maxTopRadius
         );
         var rightBorderRect = UIBox2.FromDimensions(
             box.Right - maxRightRadius,
-            box.Top + maxRightRadius,
+            box.Top + topRightRadius,
             maxRightRadius,
-            box.Height - maxRightRadius * 2
+            box.Height - topRightRadius - bottomRightRadius
         );
         var bottomBorderRect = UIBox2.FromDimensions(
-            box.Left + maxBottomRadius,
+            box.Left + bottomLeftRadius,
             box.Bottom - maxBottomRadius,
-            box.Width - maxBottomRadius * 2,
+            box.Width - bottomLeftRadius - bottomRightRadius,
             maxBottomRadius
         );
         var leftBorderRect = UIBox2.FromDimensions(
             box.Left,
-            box.Top + maxLeftRadius,
+            box.Top + topLeftRadius,
             maxLeftRadius,
-            box.Height - maxLeftRadius * 2
+            box.Height - topLeftRadius - bottomLeftRadius
         );
 
         handle.DrawRect(topBorderRect, color, filled);

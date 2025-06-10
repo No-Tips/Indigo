@@ -33,8 +33,12 @@ public static class UIStyleClasses
     public const string GhostButton              = "ButtonGhost";
     public const string FancyButtonLabel         = "FancyButtonLabel";
     public const string FancyButtonDisabledLabel = "FancyButtonDisabledLabel";
-    public const string FancyButtonAccent        = "FancyButtonAccent";
-    public const string FancyButtonDanger        = "FancyButtonDanger";
+
+    public const string FancyButtonAccent = "FancyButtonAccent";
+    public const string FancyButtonDanger = "FancyButtonDanger";
+
+    public const string FancyButtonOpenRight = "FancyButtonOpenRight";
+    public const string FancyButtonOpenLeft  = "FancyButtonOpenLeft";
 
     #endregion
 

@@ -182,8 +182,7 @@ public sealed class StyleNano : StyleBase
             Rounding                    = new(14.0f, 14.0f, 0.0f, 0.0f),
             Borders                     = new(Colors.WindowTitlebarBorder, new(2.0f)),
             InsetBorders                = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
-            BackgroundColor             = Colors.WindowTitlebarBackground,
-            ContentMarginBottomOverride = 14.0f
+            BackgroundColor             = Colors.WindowTitlebarBackground
         };
 
     #endregion
@@ -212,6 +211,58 @@ public sealed class StyleNano : StyleBase
         new()
         {
             Rounding        = new(8.0f),
+            BackgroundColor = Colors.ButtonPressedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    #endregion
+
+    #region Default Open
+
+    public static RectBox FancyButtonOpenRightPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonOpenRightDisabledPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonOpenRightPressedPanel =>
+        new()
+        {
+            Rounding        = new(8.0f, 0.0f, 0.0f, 8.0f),
+            BackgroundColor = Colors.ButtonPressedBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonOpenLeftPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
+            BackgroundColor = Colors.ButtonBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonOpenLeftDisabledPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
+            BackgroundColor = Colors.ButtonDisabledBackground,
+            Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
+        };
+
+    public static RectBox FancyButtonOpenLeftPressedPanel =>
+        new()
+        {
+            Rounding        = new(0.0f, 8.0f, 8.0f, 0.0f),
             BackgroundColor = Colors.ButtonPressedBackground,
             Borders         = new(Color.Black.WithAlpha(0.1f), new(2.0f))
         };
@@ -862,6 +913,39 @@ public sealed class StyleNano : StyleBase
                     Element<FancyButton>()
                         .Pseudo(ContainerButton.StylePseudoClassPressed)
                         .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonPressedPanel),
+
+                    #endregion
+
+                    #region Default Open
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenRight)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenRightPressedPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftDisabledPanel),
+
+                    Element<FancyButton>()
+                        .Class(UIStyleClasses.FancyButtonOpenLeft)
+                        .Pseudo(ContainerButton.StylePseudoClassPressed)
+                        .Prop(ContainerButton.StylePropertyStyleBox, FancyButtonOpenLeftPressedPanel),
+
 
                     #endregion
 

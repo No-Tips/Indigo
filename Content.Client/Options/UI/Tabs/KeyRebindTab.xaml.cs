@@ -151,7 +151,7 @@ namespace Content.Client.Options.UI.Tabs
             };
 
             KeyPresetsOption.OnItemSelected += OnKeyPresetsItemSelected;
-            ApplyKeysPreset.OnButtonDown += OnApplyKeysPresetButtonDown;
+            ApplyKeysPreset.OnPressed       += OnApplyKeysPresetButtonPressed;
 
             PopulateOptions();
         }
@@ -162,7 +162,7 @@ namespace Content.Client.Options.UI.Tabs
             _selectedKeysPreset = ev.Id;
         }
 
-        private void OnApplyKeysPresetButtonDown(BaseButton.ButtonEventArgs ev)
+        private void OnApplyKeysPresetButtonPressed(BaseButton.ButtonEventArgs ev)
         {
             var preset = _keyPresetsManager.GetKeyPresets()[KeyPresetsOption.SelectedId];
 
@@ -662,9 +662,9 @@ namespace Content.Client.Options.UI.Tabs
         private sealed class KeyControl : Control
         {
             public readonly BoundKeyFunction Function;
-            public readonly BindButton BindButton1;
-            public readonly BindButton BindButton2;
-            public readonly Button ResetButton;
+            public readonly BindButton       BindButton1;
+            public readonly BindButton       BindButton2;
+            public readonly FancyButton      ResetButton;
 
             public KeyControl(KeyRebindTab parent, BoundKeyFunction function)
             {
@@ -677,19 +677,32 @@ namespace Content.Client.Options.UI.Tabs
                     HorizontalAlignment = HAlignment.Left
                 };
 
-                BindButton1 = new BindButton(parent, this, StyleBase.ButtonOpenRight);
-                BindButton2 = new BindButton(parent, this, StyleBase.ButtonOpenLeft);
-                ResetButton = new Button
-                    { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonDanger } };
+                BindButton1 = new(parent, this, UIStyleClasses.FancyButtonOpenRight);
+                BindButton2 = new(parent, this, UIStyleClasses.FancyButtonOpenLeft);
 
-                var hBox = new BoxContainer
+                var bindsHBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     Children =
                     {
-                        name,
                         BindButton1,
-                        BindButton2,
+                        BindButton2
+                    }
+                };
+
+                ResetButton = new()
+                {
+                    Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { UIStyleClasses.FancyButtonDanger, }
+                };
+
+                var hBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    SeparationOverride = 8,
+                    Children =
+                    {
+                        name,
+                        bindsHBox,
                         ResetButton
                     }
                 };
@@ -711,14 +724,14 @@ namespace Content.Client.Options.UI.Tabs
         {
             private readonly KeyRebindTab _tab;
             public readonly KeyControl KeyControl;
-            public readonly Button Button;
+            public readonly FancyButton Button;
             public IKeyBinding? Binding;
 
             public BindButton(KeyRebindTab tab, KeyControl keyControl, string styleClass)
             {
-                _tab = tab;
+                _tab       = tab;
                 KeyControl = keyControl;
-                Button = new Button { StyleClasses = { styleClass } };
+                Button     = new() { StyleClasses = { styleClass, }, };
                 UpdateText();
                 AddChild(Button);
 

@@ -20,8 +20,8 @@ public static class Colors
 {
     public static readonly Color Black = Color.FromHex("#191919");
 
-    public static readonly Color BlueLight = Color.FromHex("#627CFF");
-    public static readonly Color Blue      = Color.FromHex("#3B5CFF");
+    public static readonly Color BlueLight = Color.FromHex("#3F5FFD");
+    public static readonly Color Blue      = Color.FromHex("#3351E3");
     public static readonly Color BlueDark  = Color.FromHex("#29325A");
 
     public static readonly Color Gray   = Color.FromHex("#353535");
