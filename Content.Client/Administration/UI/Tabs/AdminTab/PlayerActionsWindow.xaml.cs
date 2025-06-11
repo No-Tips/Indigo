@@ -14,7 +14,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
     public sealed partial class PlayerActionsWindow : FancyWindow
     {
         private PlayerInfo? _selectedPlayer;
-        private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
+        private readonly Dictionary<FancyButton, ConfirmationData> _confirmations = new();
 
         public PlayerActionsWindow()
         {

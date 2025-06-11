@@ -9,18 +9,29 @@
         <PanelContainer StyleClasses="FancyWindowTitlebarPanel">
             <BoxContainer Margin="12 6" Orientation="Horizontal"
                           VerticalAlignment="Center" HorizontalAlignment="Stretch">
-                <controls:GlyphIconButton Name="HelpButton" VerticalAlignment="Center"
-                                          Disabled="True" Visible="False" Access="Public"
-                                          Glyph="{x:Static ig:SymbolIcons.Circle}"
-                                          HoverGlyph="{x:Static ig:SymbolIcons.Help}" />
+                <controls:FancyButton Name="HelpButton"
+                                      VerticalAlignment="Center"
+                                      Disabled="True"
+                                      Visible="False"
+                                      Access="Public"
+                                      Style="Ghost"
+                                      IconTextStyle="Title3"
+                                      IconFontWeight="Bold"
+                                      FontColor="{x:Static ig:Colors.WindowTitlebarHelpButton}" />
 
-                <Label Name="WindowTitle" HorizontalExpand="True"
-                       HorizontalAlignment="Center" VAlign="Center"
-                       StyleClasses="FancyWindowTitle" />
+                <controls:FancyLabel Name="WindowTitle"
+                                     HorizontalExpand="True"
+                                     HorizontalAlignment="Center"
+                                     VAlign="Center"
+                                     FontWeight="Bold"
+                                     FontColorOverride="{x:Static ig:Colors.WindowTitle}" />
 
-                <controls:GlyphIconButton Name="CloseButton" VerticalAlignment="Center"
-                                          Glyph="{x:Static ig:SymbolIcons.Circle}"
-                                          HoverGlyph="{x:Static ig:SymbolIcons.Cancel}" />
+                <controls:FancyButton Name="CloseButton"
+                                      VerticalAlignment="Center"
+                                      Style="Ghost"
+                                      IconTextStyle="Title3"
+                                      IconFontWeight="Bold"
+                                      FontColor="{x:Static ig:Colors.WindowTitlebarCloseButton}" />
             </BoxContainer>
         </PanelContainer>
 

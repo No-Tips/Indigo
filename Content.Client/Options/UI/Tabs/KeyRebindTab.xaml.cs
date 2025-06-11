@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.InterfaceGuidelines;
 using Content.Client.KeyPresets;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -21,7 +22,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
-    public sealed partial class KeyRebindTab : Control
+    public sealed partial class KeyRebindTab : BoxContainer
     {
         // List of key functions that must be registered as toggle instead.
         private static readonly HashSet<BoundKeyFunction> ToggleFunctions = new()
@@ -30,9 +31,9 @@ namespace Content.Client.Options.UI.Tabs
             EngineKeyFunctions.HideUI,
         };
 
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly KeyPresetsManager _keyPresetsManager = null!;
+        [Dependency] private readonly IInputManager         _inputManager      = default!;
+        [Dependency] private readonly IConfigurationManager _cfg               = default!;
+        [Dependency] private readonly KeyPresetsManager     _keyPresetsManager = null!;
 
         private BindButton? _currentlyRebinding;
 
@@ -85,14 +86,14 @@ namespace Content.Client.Options.UI.Tabs
 
                 var registration = new KeyBindingRegistration
                 {
-                    Function = EngineKeyFunctions.Walk,
-                    BaseKey = binding.BaseKey,
-                    Mod1 = binding.Mod1,
-                    Mod2 = binding.Mod2,
-                    Mod3 = binding.Mod3,
-                    Priority = binding.Priority,
-                    Type = bindingType,
-                    CanFocus = binding.CanFocus,
+                    Function  = EngineKeyFunctions.Walk,
+                    BaseKey   = binding.BaseKey,
+                    Mod1      = binding.Mod1,
+                    Mod2      = binding.Mod2,
+                    Mod3      = binding.Mod3,
+                    Priority  = binding.Priority,
+                    Type      = bindingType,
+                    CanFocus  = binding.CanFocus,
                     CanRepeat = binding.CanRepeat,
                 };
 
@@ -184,21 +185,29 @@ namespace Content.Client.Options.UI.Tabs
                 KeyPresetsOption.AddItem(preset.Name);
 
             BoxContainer? currentVBox;
+            StripedList?  currentStrippedList;
 
             void AddHeader(string headerContents)
             {
                 currentVBox = new()
                 {
-                    Orientation = LayoutOrientation.Vertical,
+                    Orientation        = LayoutOrientation.Vertical,
                     SeparationOverride = 8
                 };
 
                 currentVBox.AddChild(
-                    new Label
+                    new FancyLabel
                     {
-                        Text = Loc.GetString(headerContents),
-                        StyleClasses = { UIStyleClasses.LabelHeadline, }
+                        Text      = Loc.GetString(headerContents),
+                        TextStyle = TextStyle.Headline
                     });
+
+                currentStrippedList = new()
+                {
+                    Orientation        = LayoutOrientation.Vertical
+                };
+
+                currentVBox.AddChild(currentStrippedList);
 
                 KeybindsContainer.AddChild(currentVBox);
             }
@@ -230,13 +239,13 @@ namespace Content.Client.Options.UI.Tabs
                     return;
 
                 var control = new KeyControl(this, function);
-                currentVBox!.AddChild(control);
+                currentStrippedList!.AddChild(control);
                 _keyControls.Add(function, control);
             }
 
             void AddCheckBox(
-                string checkBoxName,
-                bool currentState,
+                string                                     checkBoxName,
+                bool                                       currentState,
                 Action<BaseButton.ButtonToggledEventArgs>? callBackOnClick
             )
             {
@@ -244,7 +253,7 @@ namespace Content.Client.Options.UI.Tabs
                     return;
 
                 var newCheckBox = new FancyCheckBox() { Text = Loc.GetString(checkBoxName) };
-                newCheckBox.Pressed = currentState;
+                newCheckBox.Pressed   =  currentState;
                 newCheckBox.OnToggled += callBackOnClick;
 
                 currentVBox!.AddChild(newCheckBox);
@@ -494,7 +503,7 @@ namespace Content.Client.Options.UI.Tabs
             control.BindButton2.UpdateText();
 
             control.BindButton2.Button.Disabled = activeBinds.Count == 0;
-            control.ResetButton.Disabled = !_inputManager.IsKeyFunctionModified(control.Function);
+            control.ResetButton.Disabled        = !_inputManager.IsKeyFunctionModified(control.Function);
         }
 
         protected override void EnteredTree()
@@ -502,8 +511,8 @@ namespace Content.Client.Options.UI.Tabs
             base.EnteredTree();
 
             _inputManager.FirstChanceOnKeyEvent += InputManagerOnFirstChanceOnKeyEvent;
-            _inputManager.OnKeyBindingAdded += OnKeyBindAdded;
-            _inputManager.OnKeyBindingRemoved += OnKeyBindRemoved;
+            _inputManager.OnKeyBindingAdded     += OnKeyBindAdded;
+            _inputManager.OnKeyBindingRemoved   += OnKeyBindRemoved;
         }
 
         protected override void ExitedTree()
@@ -511,8 +520,8 @@ namespace Content.Client.Options.UI.Tabs
             base.ExitedTree();
 
             _inputManager.FirstChanceOnKeyEvent -= InputManagerOnFirstChanceOnKeyEvent;
-            _inputManager.OnKeyBindingAdded -= OnKeyBindAdded;
-            _inputManager.OnKeyBindingRemoved -= OnKeyBindRemoved;
+            _inputManager.OnKeyBindingAdded     -= OnKeyBindAdded;
+            _inputManager.OnKeyBindingRemoved   -= OnKeyBindRemoved;
         }
 
         private void OnKeyBindRemoved(IKeyBinding obj)
@@ -568,23 +577,23 @@ namespace Content.Client.Options.UI.Tabs
             // TODO: this won't allow for combinations with keys other than the standard modifier keys,
             // even though the input system totally supports it.
             var mods = new Keyboard.Key[3];
-            var i = 0;
+            var i    = 0;
             if (keyEvent.Control && key != Keyboard.Key.Control)
             {
-                mods[i] = Keyboard.Key.Control;
-                i += 1;
+                mods[i] =  Keyboard.Key.Control;
+                i       += 1;
             }
 
             if (keyEvent.Shift && key != Keyboard.Key.Shift)
             {
-                mods[i] = Keyboard.Key.Shift;
-                i += 1;
+                mods[i] =  Keyboard.Key.Shift;
+                i       += 1;
             }
 
             if (keyEvent.Alt && key != Keyboard.Key.Alt)
             {
-                mods[i] = Keyboard.Key.Alt;
-                i += 1;
+                mods[i] =  Keyboard.Key.Alt;
+                i       += 1;
             }
 
             // The input system can only handle 3 modifier keys so if you hold all 4 of the modifier keys
@@ -604,12 +613,12 @@ namespace Content.Client.Options.UI.Tabs
             var registration = new KeyBindingRegistration
             {
                 Function = function,
-                BaseKey = key,
-                Mod1 = mods[0],
-                Mod2 = mods[1],
-                Mod3 = mods[2],
+                BaseKey  = key,
+                Mod1     = mods[0],
+                Mod2     = mods[1],
+                Mod3     = mods[2],
                 Priority = _currentlyRebinding.Binding?.Priority ?? 0,
-                Type = bindType,
+                Type     = bindType,
                 CanFocus = key == Keyboard.Key.MouseLeft
                     || key == Keyboard.Key.MouseRight
                     || key == Keyboard.Key.MouseMiddle,
@@ -628,7 +637,7 @@ namespace Content.Client.Options.UI.Tabs
                 return;
             }
 
-            _currentlyRebinding = button;
+            _currentlyRebinding             = button;
             _currentlyRebinding.Button.Text = Loc.GetString("ui-options-key-prompt");
 
             if (button.Binding != null)
@@ -673,12 +682,12 @@ namespace Content.Client.Options.UI.Tabs
                 {
                     Text = Loc.GetString(
                         $"ui-options-function-{CaseConversion.PascalToKebab(function.FunctionName)}"),
-                    HorizontalExpand = true,
+                    HorizontalExpand    = true,
                     HorizontalAlignment = HAlignment.Left
                 };
 
-                BindButton1 = new(parent, this, UIStyleClasses.FancyButtonOpenRight);
-                BindButton2 = new(parent, this, UIStyleClasses.FancyButtonOpenLeft);
+                BindButton1 = new(parent, this, ButtonStyle.Ghost);
+                BindButton2 = new(parent, this, ButtonStyle.Ghost);
 
                 var bindsHBox = new BoxContainer
                 {
@@ -692,13 +701,15 @@ namespace Content.Client.Options.UI.Tabs
 
                 ResetButton = new()
                 {
-                    Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { UIStyleClasses.FancyButtonDanger, }
+                    Icon = SymbolIcons.Redo,
+                    Style = ButtonStyle.Ghost
                 };
 
                 var hBox = new BoxContainer
                 {
-                    Orientation = LayoutOrientation.Horizontal,
+                    Orientation        = LayoutOrientation.Horizontal,
                     SeparationOverride = 12,
+                    Margin             = new(8.0f, 2.0f),
                     Children =
                     {
                         name,
@@ -723,15 +734,15 @@ namespace Content.Client.Options.UI.Tabs
         private sealed class BindButton : Control
         {
             private readonly KeyRebindTab _tab;
-            public readonly KeyControl KeyControl;
-            public readonly FancyButton Button;
-            public IKeyBinding? Binding;
+            public readonly  KeyControl   KeyControl;
+            public readonly  FancyButton  Button;
+            public           IKeyBinding? Binding;
 
-            public BindButton(KeyRebindTab tab, KeyControl keyControl, string styleClass)
+            public BindButton(KeyRebindTab tab, KeyControl keyControl, ButtonStyle style)
             {
                 _tab       = tab;
                 KeyControl = keyControl;
-                Button     = new() { StyleClasses = { styleClass, }, };
+                Button     = new() { Style = style, };
                 UpdateText();
                 AddChild(Button);
 

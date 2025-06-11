@@ -11,9 +11,9 @@
         </BoxContainer>
         <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
         <BoxContainer Orientation="Horizontal">
-            <Button Name="SubmitKickButton" Text="{Loc admin-player-actions-kick}" Disabled="True"/>
-            <Button Name="SubmitAHelpButton" Text="{Loc admin-player-actions-ahelp}" Disabled="True"/>
-            <Button Name="SubmitRespawnButton" Text="{Loc admin-player-actions-respawn}" Disabled="True"/>
+            <controls:FancyButton Name="SubmitKickButton" Text="{Loc admin-player-actions-kick}" Disabled="True"/>
+            <controls:FancyButton Name="SubmitAHelpButton" Text="{Loc admin-player-actions-ahelp}" Disabled="True"/>
+            <controls:FancyButton Name="SubmitRespawnButton" Text="{Loc admin-player-actions-respawn}" Disabled="True"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

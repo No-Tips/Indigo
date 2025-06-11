@@ -8,12 +8,11 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Configuration;
-using Range = Robust.Client.UserInterface.Controls.Range;
 
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
-    public sealed partial class AudioTab : Control
+    public sealed partial class AudioTab : BoxContainer
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         private readonly IAudioManager _audio;

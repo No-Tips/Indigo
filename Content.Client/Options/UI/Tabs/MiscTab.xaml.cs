@@ -18,7 +18,7 @@ using Range = Robust.Client.UserInterface.Controls.Range;
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
-    public sealed partial class MiscTab : Control
+    public sealed partial class MiscTab : BoxContainer
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;

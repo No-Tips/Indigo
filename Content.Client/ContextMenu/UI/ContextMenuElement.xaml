@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="clr-namespace:Content.Client.ContextMenu.UI"
     xmlns:ig="clr-namespace:Content.Shared.InterfaceGuidelines;assembly=Content.Shared"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     StyleClasses="FancyPopupItemButton"
     MinHeight="{x:Static ui:ContextMenuElement.ElementHeight}">
     <BoxContainer HorizontalExpand="True" Orientation="Horizontal"
@@ -16,11 +17,13 @@
         </SpriteView>
         <Label Name="ItemLabel" MaxWidth="300"
                HorizontalExpand="True" VerticalAlignment="Center" />
-        <Label Name="ExpansionIndicator" StyleClasses="LabelIconFilledRegular1"
-               Text="{x:Static ig:SymbolIcons.ChevronRight}"
-               HorizontalAlignment="Right"
-               SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
-               SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}"
-               Visible="false" />
+        <controls:FancyIcon
+            Name="ExpansionIndicator"
+            TextStyle="Title1"
+            Text="{x:Static ig:SymbolIcons.ChevronRight}"
+            HorizontalAlignment="Right"
+            SetWidth="{x:Static ui:ContextMenuElement.ElementHeight}"
+            SetHeight="{x:Static ui:ContextMenuElement.ElementHeight}"
+            Visible="false" />
     </BoxContainer>
 </ContainerButton>

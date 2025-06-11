@@ -18,13 +18,17 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class Colors
 {
-    public static readonly Color Black = Color.FromHex("#1E1C20");
+    public static readonly Color BlackLight = Color.FromHex("#1E1C20");
+    public static readonly Color Black      = Color.FromHex("#19171b");
+    public static readonly Color BlackDark  = Color.FromHex("#0D0C0E");
 
     public static readonly Color BlueLight = Color.FromHex("#3F5FFD");
     public static readonly Color Blue      = Color.FromHex("#3351E3");
     public static readonly Color BlueDark  = Color.FromHex("#2A3255");
 
-    public static readonly Color Gray = Color.FromHex("#36333B");
+    public static readonly Color GrayLight = Color.FromHex("#544F5C");
+    public static readonly Color Gray      = Color.FromHex("#36333B");
+    public static readonly Color GrayDark  = Color.FromHex("#262329");
 
     public static readonly Color IndigoLight = Color.FromHex("#B23EFF");
     public static readonly Color Indigo      = Color.FromHex("#8113C9");
@@ -34,13 +38,15 @@ public static class Colors
     public static readonly Color Red      = Color.FromHex("#DE1313");
     public static readonly Color RedDark  = Color.FromHex("#572727");
 
+    public static readonly Color Yellow = Color.FromHex("#E8BD13");
+
     public static Color AccentLight => IndigoLight;
     public static Color Accent      => Indigo;
     public static Color AccentDark  => IndigoDark;
 
     #region Window
 
-    public static          Color WindowBackground => Black;
+    public static          Color WindowBackground => BlackLight;
     public static readonly Color WindowBorder      = Color.Black;
     public static readonly Color WindowInsetBorder = Color.FromHex("#363438");
 
@@ -50,7 +56,7 @@ public static class Colors
     public static readonly Color WindowTitlebarInsetBorder = Color.FromHex("#4b4951");
 
     public static readonly Color WindowTitlebarCloseButton = Color.FromHex("#ff6565");
-    public static readonly Color WindowTitlebarHelpButton  = Color.FromHex("#eebe00");
+    public static          Color WindowTitlebarHelpButton => Yellow;
 
     #endregion
 
@@ -113,9 +119,9 @@ public static class Colors
 
     #region Line Edit
 
-    public static          Color LineEditBackground => Black;
-    public static          Color LineEditBorder     => WindowInsetBorder;
-    public static readonly Color LineEditInsetBorder = Color.FromHex("#4b494d");
+    public static          Color LineEditBackground => GrayDark;
+    public static readonly Color LineEditBorder      = Color.FromHex("#3b3940");
+    public static readonly Color LineEditInsetBorder = Color.FromHex("#5c5a5f");
     public static          Color LineEditPlaceholder => ButtonDisabledLabel;
     public static          Color LineEditCursor      => Accent;
     public static          Color LineEditSelection   => Accent.WithAlpha(0.25f);
@@ -139,8 +145,8 @@ public static class Colors
 
     #region Tab Container
 
-    public static readonly Color TabContainerBackground = Color.FromHex("#19171b");
-    public static readonly Color TabContainerBorder     = Color.FromHex("#302f31");
+    public static          Color TabContainerBackground => Black;
+    public static readonly Color TabContainerBorder = Color.FromHex("#302f31");
 
     #endregion
 
@@ -148,7 +154,7 @@ public static class Colors
 
     public static Color ChatBorder      => WindowBorder;
     public static Color ChatInsetBorder => WindowInsetBorder;
-    public static Color ChatBackground  => Black;
+    public static Color ChatBackground  => BlackLight;
 
     #endregion
 }
