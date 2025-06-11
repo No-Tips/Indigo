@@ -42,9 +42,7 @@
         </ScrollContainer>
 
         <!-- Color sliders -->
-        <ScrollContainer HorizontalExpand="True">
-            <BoxContainer Name="ColorSelectorContainer"
-                          HorizontalExpand="True" />
-        </ScrollContainer>
+        <BoxContainer Name="ColorSelectorContainer"
+                      HorizontalExpand="True" />
     </BoxContainer>
 </BoxContainer>
