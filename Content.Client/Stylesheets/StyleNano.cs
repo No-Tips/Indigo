@@ -908,7 +908,7 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyButtonDisabledLabel)
-                        .Prop(Label.StylePropertyFontColor, Colors.ButtonSelectedItemDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.ButtonDisabledLabel)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetFont(
@@ -1028,7 +1028,7 @@ public sealed class StyleNano : StyleBase
 
                     Element<Label>()
                         .Class(UIStyleClasses.FancyOptionButtonSelectedItemDisabledLabel)
-                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemDisabledLabel)
+                        .Prop(Label.StylePropertyFontColor, Colors.OptionButtonSelectedItemLabelDisabled)
                         .Prop(
                             Label.StylePropertyFont,
                             typographyManager.GetFont(

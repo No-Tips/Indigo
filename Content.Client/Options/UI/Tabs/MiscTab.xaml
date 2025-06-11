@@ -1,7 +1,7 @@
 <tabs:MiscTab xmlns="https://spacestation14.io"
               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
               xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs">
-    <BoxContainer Orientation="Vertical" Margin="8 8" SeparationOverride="8">
+    <BoxContainer Orientation="Vertical" Margin="12 12" SeparationOverride="8">
         <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
             <BoxContainer Orientation="Vertical" VerticalExpand="True" SeparationOverride="12">
 

@@ -18,21 +18,21 @@ namespace Content.Shared.InterfaceGuidelines;
 
 public static class Colors
 {
-    public static readonly Color Black = Color.FromHex("#191919");
+    public static readonly Color Black = Color.FromHex("#1E1C20");
 
     public static readonly Color BlueLight = Color.FromHex("#3F5FFD");
     public static readonly Color Blue      = Color.FromHex("#3351E3");
-    public static readonly Color BlueDark  = Color.FromHex("#29325A");
+    public static readonly Color BlueDark  = Color.FromHex("#2A3255");
 
-    public static readonly Color Gray = Color.FromHex("#353535");
+    public static readonly Color Gray = Color.FromHex("#36333B");
 
     public static readonly Color IndigoLight = Color.FromHex("#B23EFF");
-    public static readonly Color Indigo      = Color.FromHex("#8C0FDF");
-    public static readonly Color IndigoDark  = Color.FromHex("#613181");
+    public static readonly Color Indigo      = Color.FromHex("#8113C9");
+    public static readonly Color IndigoDark  = Color.FromHex("#3A2747");
 
-    public static readonly Color RedLight = Color.FromHex("#FF2C2C");
-    public static readonly Color Red      = Color.FromHex("#E40E0E");
-    public static readonly Color RedDark  = Color.FromHex("#722020");
+    public static readonly Color RedLight = Color.FromHex("#FF3333");
+    public static readonly Color Red      = Color.FromHex("#DE1313");
+    public static readonly Color RedDark  = Color.FromHex("#572727");
 
     public static Color AccentLight => IndigoLight;
     public static Color Accent      => Indigo;
@@ -41,13 +41,13 @@ public static class Colors
     #region Window
 
     public static          Color WindowBackground => Black;
-    public static readonly Color WindowBorder      = new(0, 0, 0);
-    public static readonly Color WindowInsetBorder = new(48, 48, 48);
+    public static readonly Color WindowBorder      = Color.Black;
+    public static readonly Color WindowInsetBorder = Color.FromHex("#363438");
 
     public static readonly Color WindowTitle = Color.FromHex("#AAAAAA");
     public static          Color WindowTitlebarBackground => Gray;
     public static          Color WindowTitlebarBorder     => WindowBorder;
-    public static readonly Color WindowTitlebarInsetBorder = new(73, 73, 73);
+    public static readonly Color WindowTitlebarInsetBorder = Color.FromHex("#4b4951");
 
     public static readonly Color WindowTitlebarCloseButton = Color.FromHex("#ff6565");
     public static readonly Color WindowTitlebarHelpButton  = Color.FromHex("#eebe00");
@@ -57,13 +57,13 @@ public static class Colors
     #region Button
 
     public static          Color ButtonLabel => Color.White;
-    public static readonly Color ButtonSelectedItemDisabledLabel = Color.FromHex("#969696");
+    public static readonly Color ButtonDisabledLabel = Color.White.WithAlpha(0.15f);
 
     #region Default
 
-    public static readonly Color ButtonBackground         = Color.FromHex("#646464");
-    public static readonly Color ButtonPressedBackground  = Color.FromHex("#969696");
-    public static readonly Color ButtonDisabledBackground = Color.FromHex("#323232");
+    public static readonly Color ButtonBackground         = Color.FromHex("#5d5666");
+    public static readonly Color ButtonPressedBackground  = Color.FromHex("#887F96");
+    public static readonly Color ButtonDisabledBackground = Color.FromHex("#2C2931");
 
     #endregion
 
@@ -88,13 +88,13 @@ public static class Colors
     #region Button Option
 
     public static Color OptionButtonSelectedItemLabel         => Color.White;
-    public static Color OptionButtonSelectedItemDisabledLabel => ButtonSelectedItemDisabledLabel;
+    public static Color OptionButtonSelectedItemLabelDisabled => ButtonDisabledLabel;
 
     #endregion
 
     #region Slider
 
-    public static readonly Color SliderBackground = Color.FromHex("#333333");
+    public static readonly Color SliderBackground = Color.FromHex("#2C2930");
     public static          Color SliderGrabberBackground         => ButtonBackground;
     public static          Color SliderGrabberPressedBackground  => ButtonPressedBackground;
     public static          Color SliderGrabberDisabledBackground => ButtonDisabledBackground;
@@ -113,19 +113,19 @@ public static class Colors
 
     #region Line Edit
 
-    public static readonly Color LineEditBackground  = Color.FromHex("#252525");
-    public static readonly Color LineEditBorder      = Color.FromHex("#303030");
-    public static readonly Color LineEditInsetBorder = Color.FromHex("#444444");
-    public static readonly Color LineEditPlaceholder = Color.FromHex("#646464");
-    public static          Color LineEditCursor    => Accent;
-    public static          Color LineEditSelection => Accent.WithAlpha(0.25f);
+    public static          Color LineEditBackground => Black;
+    public static          Color LineEditBorder     => WindowInsetBorder;
+    public static readonly Color LineEditInsetBorder = Color.FromHex("#4b494d");
+    public static          Color LineEditPlaceholder => ButtonDisabledLabel;
+    public static          Color LineEditCursor      => Accent;
+    public static          Color LineEditSelection   => Accent.WithAlpha(0.25f);
 
     #endregion
 
     #region Check Box
 
-    public static readonly Color CheckBoxBackground = Color.FromHex("#646464");
-    public static          Color CheckBoxCheckedBackground => Accent;
+    public static Color CheckBoxBackground        => ButtonBackground;
+    public static Color CheckBoxCheckedBackground => Accent;
 
     #endregion
 
@@ -139,8 +139,8 @@ public static class Colors
 
     #region Tab Container
 
-    public static readonly Color TabContainerBackground = Color.FromHex("#131313");
-    public static readonly Color TabContainerBorder     = Color.FromHex("#2b2b2b");
+    public static readonly Color TabContainerBackground = Color.FromHex("#19171b");
+    public static readonly Color TabContainerBorder     = Color.FromHex("#302f31");
 
     #endregion
 
