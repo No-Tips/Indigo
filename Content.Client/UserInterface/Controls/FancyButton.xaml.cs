@@ -235,17 +235,9 @@ public partial class FancyButton : ContainerButton
         {
             ButtonContainer.Margin = new(4.0f, 2.0f);
 
-            Rounding ghostRounding = DrawMode switch
-            {
-                DrawModeEnum.Normal or DrawModeEnum.Hover => new(0.0f),
-                DrawModeEnum.Pressed                      => new(8.0f),
-                DrawModeEnum.Disabled                     => new(8.0f),
-                _                                         => throw new ArgumentOutOfRangeException()
-            };
-
             StyleBoxOverride = new RectBox
             {
-                Rounding        = ghostRounding,
+                Rounding        = new(0.0f),
                 BackgroundColor = Robust.Shared.Maths.Color.Transparent
             };
 
@@ -256,10 +248,10 @@ public partial class FancyButton : ContainerButton
 
         Rounding rounding = Style switch
         {
-            ButtonStyle.Default   => new(8.0f),
-            ButtonStyle.OpenRight => new(8.0f, 0.0f, 0.0f, 8.0f),
+            ButtonStyle.Default   => new(6.0f),
+            ButtonStyle.OpenRight => new(6.0f, 0.0f, 0.0f, 6.0f),
             ButtonStyle.OpenBoth  => new(0.0f),
-            ButtonStyle.OpenLeft  => new(0.0f, 8.0f, 8.0f, 0.0f),
+            ButtonStyle.OpenLeft  => new(0.0f, 6.0f, 6.0f, 0.0f),
             _                     => throw new ArgumentOutOfRangeException()
         };
 
