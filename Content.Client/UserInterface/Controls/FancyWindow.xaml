@@ -6,14 +6,14 @@
     <PanelContainer StyleClasses="FancyWindowPanel" />
 
     <BoxContainer Orientation="Vertical">
-        <PanelContainer StyleClasses="FancyWindowTitlebarPanel">
-            <BoxContainer Margin="12 6" Orientation="Horizontal"
-                          VerticalAlignment="Center" HorizontalAlignment="Stretch">
+        <PanelContainer Name="WindowTitlebar">
+            <BoxContainer Name="WindowTitlebarContainer"
+                          Margin="12 6"
+                          Orientation="Horizontal"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch">
                 <controls:FancyButton Name="HelpButton"
                                       VerticalAlignment="Center"
-                                      Disabled="True"
-                                      Visible="False"
-                                      Access="Public"
                                       Style="Ghost"
                                       IconTextStyle="Title3"
                                       IconFontWeight="Bold"
@@ -35,8 +35,10 @@
             </BoxContainer>
         </PanelContainer>
 
-        <Control Name="ContentsContainer" Margin="12 12 12 12"
-                 Access="Public" RectClipContent="True"
+        <Control Name="ContentsContainer"
+                 Margin="12 12"
+                 Access="Public"
+                 RectClipContent="True"
                  VerticalExpand="true" />
     </BoxContainer>
 </controls:FancyWindow>

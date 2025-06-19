@@ -2,26 +2,40 @@
     xmlns="https://spacestation14.io"
     xmlns:viewport="clr-namespace:Content.Client.Viewport"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    Title="{Loc 'surveillance-camera-monitor-ui-window'}">
-    <BoxContainer Orientation="Horizontal">
-        <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True">
+    Title="{Loc 'surveillance-camera-monitor-ui-window'}"
+    TitlebarStyle="Inlined">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="12">
+        <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True" SeparationOverride="8">
             <!-- lazy -->
             <controls:FancyOptionButton Name="SubnetSelector" />
-            <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
+
+            <controls:FancyButton Name="SubnetRefreshButton"
+                                  Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
+
             <ScrollContainer VerticalExpand="True">
                 <ItemList Name="SubnetList" />
             </ScrollContainer>
-            <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
-            <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
-            <Label Name="CameraStatus" />
+
+            <controls:FancyButton Name="CameraRefreshButton"
+                                  Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
+
+            <controls:FancyButton Name="CameraDisconnectButton"
+                                  Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
+
+            <controls:FancyLabel Name="CameraStatus" TextStyle="Subheadline" />
         </BoxContainer>
-        <Control VerticalExpand="True" HorizontalExpand="True" Margin="5 5 5 5" Name="CameraViewBox">
-            <viewport:ScalingViewport Name="CameraView"
-                                      VerticalExpand="True"
-                                      HorizontalExpand="True"
-                                      MinSize="500 500"
-                                      MouseFilter="Ignore" />
-            <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="500 500" Name="CameraViewBackground" />
-        </Control>
+
+        <controls:FancyPanelContainer VerticalExpand="True" HorizontalExpand="True" Name="CameraViewBox">
+            <Control Margin="4 4">
+                <viewport:ScalingViewport Name="CameraView"
+                                          VerticalExpand="True"
+                                          HorizontalExpand="True"
+                                          MinSize="500 500"
+                                          MouseFilter="Ignore" />
+
+                <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="500 500"
+                             Name="CameraViewBackground" />
+            </Control>
+        </controls:FancyPanelContainer>
     </BoxContainer>
 </controls:FancyWindow>

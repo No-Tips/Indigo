@@ -176,15 +176,6 @@ public sealed class StyleNano : StyleBase
             BackgroundColor = Colors.WindowBackground
         };
 
-    public static RectBox FancyWindowTitlebarPanel =>
-        new()
-        {
-            Rounding        = new(14.0f, 14.0f, 0.0f, 0.0f),
-            Borders         = new(Colors.WindowTitlebarBorder, new(2.0f)),
-            InsetBorders    = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
-            BackgroundColor = Colors.WindowTitlebarBackground
-        };
-
     #endregion
 
     #region Slider
@@ -479,13 +470,13 @@ public sealed class StyleNano : StyleBase
 
         var progressBarBackground = new StyleBoxFlat
         {
-            BackgroundColor = new(0.25f, 0.25f, 0.25f)
+            BackgroundColor = Colors.Black
         };
         progressBarBackground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
         var progressBarForeground = new StyleBoxFlat
         {
-            BackgroundColor = new(0.25f, 0.50f, 0.25f)
+            BackgroundColor = Colors.Green
         };
         progressBarForeground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
@@ -736,10 +727,6 @@ public sealed class StyleNano : StyleBase
                     Element<PanelContainer>()
                         .Class(UIStyleClasses.FancyWindowPanelSmall)
                         .Prop(PanelContainer.StylePropertyPanel, FancyWindowPanelSmall),
-
-                    Element<PanelContainer>()
-                        .Class(UIStyleClasses.FancyWindowTitlebarPanel)
-                        .Prop(PanelContainer.StylePropertyPanel, FancyWindowTitlebarPanel),
 
                     #endregion
 
@@ -1440,7 +1427,8 @@ public sealed class StyleNano : StyleBase
                                 ItemList.StylePropertyBackground,
                                 new StyleBoxFlat
                                 {
-                                    BackgroundColor = Colors.Black, BorderColor = Colors.WindowInsetBorder,
+                                    BackgroundColor = Colors.Black,
+                                    BorderColor     = Colors.WindowInsetBorder,
                                     BorderThickness = new(2.0f)
                                 }),
                             new(

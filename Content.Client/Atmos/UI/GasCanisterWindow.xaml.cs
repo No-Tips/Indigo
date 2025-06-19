@@ -85,12 +85,12 @@ namespace Content.Client.Atmos.UI
             if (label == null)
             {
                 TankEjectButton.Disabled = true;
-                TankLabelLabel.Text = Loc.GetString("comp-gas-canister-ui-holding-tank-label-empty");
+                TankEjectButton.Text     = Loc.GetString("comp-gas-canister-ui-holding-tank-label-empty");
                 return;
             }
 
             TankEjectButton.Disabled = false;
-            TankLabelLabel.Text = label;
+            TankEjectButton.Text     = label;
         }
 
         public void SetTankPressure(float pressure)

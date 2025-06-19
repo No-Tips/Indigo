@@ -2,28 +2,55 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    MinSize="480 400" Title="Filter">
-    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label Text="{Loc comp-gas-filter-ui-filter-status}"/>
-            <Button Name="ToggleStatusButton"/>
+    MinSize="480 400"
+    Title="Filter"
+    TitlebarStyle="Inlined">
+    <BoxContainer Orientation="Vertical"
+                  SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True">
+            <controls:FancyLabel Text="{Loc comp-gas-filter-ui-filter-status}" />
+
+            <Control HorizontalExpand="True" />
+
+            <controls:FancyButton Name="ToggleStatusButton"
+                                  Color="Accent" />
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label Text="{Loc comp-gas-filter-ui-filter-transfer-rate}"/>
-            <LineEdit Name="FilterTransferRateInput" MinSize="70 0" />
-            <Button Name="SetFilterRate" Text="{Loc comp-gas-filter-ui-filter-set-rate}" Disabled="True"/>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      SeparationOverride="12">
+            <controls:FancyLabel Text="{Loc comp-gas-filter-ui-filter-transfer-rate}" />
+
+            <LineEdit Name="FilterTransferRateInput"
+                      MinSize="70 0" />
+
+            <Control HorizontalExpand="True" />
+
+            <controls:FancyButton Name="SetFilterRate"
+                                  Text="{Loc comp-gas-filter-ui-filter-set-rate}"
+                                  Disabled="True" />
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label Name="CurrentGasLabel" />
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True">
+            <controls:FancyLabel Name="CurrentGasLabel" />
         </BoxContainer>
 
-        <BoxContainer Orientation="Vertical" VerticalExpand="True">
-            <Label Text="{Loc comp-gas-filter-ui-filter-gas-select}" />
-            <ItemList Name="GasList" SelectMode="Single" VerticalExpand="True"
+        <BoxContainer Orientation="Vertical"
+                      VerticalExpand="True"
+                      SeparationOverride="8">
+            <controls:FancyLabel Text="{Loc comp-gas-filter-ui-filter-gas-select}" />
+
+            <ItemList Name="GasList"
+                      SelectMode="Single"
+                      VerticalExpand="True"
                       SizeFlagsStretchRatio="0.9" />
-            <Button Name="SelectGasButton" Text="{Loc comp-gas-filter-ui-filter-gas-confirm}" HorizontalExpand="True" Disabled="True" />
+
+            <controls:FancyButton Name="SelectGasButton"
+                                  Text="{Loc comp-gas-filter-ui-filter-gas-confirm}"
+                                  HorizontalExpand="True"
+                                  Disabled="True" />
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

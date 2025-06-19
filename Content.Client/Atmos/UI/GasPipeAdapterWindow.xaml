@@ -19,20 +19,38 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:ui="clr-namespace:Content.Client.Atmos.UI"
-                      SetSize="300 120" Resizable="False" Title="{Loc 'gas-pipe-adapter-ui-title'}">
-    <BoxContainer VerticalExpand="True" HorizontalExpand="True" Orientation="Vertical" Margin="5 5 5 5"
-                  SeparationOverride="10">
-        <BoxContainer HorizontalAlignment="Center" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-            <Label Text="{Loc 'gas-pipe-adapter-ui-outlet-layer'}" />
+                      SetSize="300 200"
+                      Resizable="False"
+                      Title="{Loc 'gas-pipe-adapter-ui-title'}"
+                      TitlebarStyle="Inlined">
+    <BoxContainer VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Orientation="Vertical"
+                  SeparationOverride="8">
+        <BoxContainer HorizontalAlignment="Center"
+                      Orientation="Vertical"
+                      VerticalExpand="True"
+                      HorizontalExpand="True"
+                      SeparationOverride="8">
+            <controls:FancyLabel Text="{Loc 'gas-pipe-adapter-ui-outlet-layer'}"
+                                 Align="Center"
+                                 HorizontalAlignment="Center"
+                                 TextStyle="Headline" />
 
-            <ui:PipeLayerSelectorControl SeparationOverride="4" Name="OutletLayerSelector" />
+            <ui:PipeLayerSelectorControl Name="OutletLayerSelector" />
         </BoxContainer>
 
-        <BoxContainer HorizontalAlignment="Center" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-            <Label Text="{Loc 'gas-pipe-adapter-ui-inlet-layer'}" />
+        <BoxContainer HorizontalAlignment="Center"
+                      Orientation="Vertical"
+                      VerticalExpand="True"
+                      HorizontalExpand="True"
+                      SeparationOverride="8">
+            <controls:FancyLabel Text="{Loc 'gas-pipe-adapter-ui-inlet-layer'}"
+                                 Align="Center"
+                                 HorizontalAlignment="Center"
+                                 TextStyle="Headline" />
 
-            <ui:PipeLayerSelectorControl SeparationOverride="4" Name="InletLayerSelector" />
+            <ui:PipeLayerSelectorControl Name="InletLayerSelector" />
         </BoxContainer>
-
     </BoxContainer>
 </controls:FancyWindow>

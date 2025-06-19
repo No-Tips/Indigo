@@ -22,7 +22,6 @@ public static class UIStyleClasses
 
     public const string FancyWindowPanel         = "FancyWindowPanel";
     public const string FancyWindowPanelSmall    = "FancyWindowPanelSmall";
-    public const string FancyWindowTitlebarPanel = "FancyWindowTitlebarPanel";
 
     #endregion
 

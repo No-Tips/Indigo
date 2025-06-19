@@ -262,21 +262,55 @@ public partial class FancyButton : ContainerButton
             _                     => throw new ArgumentOutOfRangeException()
         };
 
-        var backgroundColor = Color switch
+        Color   backgroundColor;
+        Border? insetBorders;
+
+        if (Group is null)
         {
-            ButtonColor.Default => DrawMode switch
+            backgroundColor = GetColorFor(Color, DrawMode);
+            insetBorders    = null;
+        }
+        else
+        {
+            var insetBorderColor = GetColorFor(Color, DrawModeEnum.Normal);
+
+            backgroundColor = Pressed ? insetBorderColor : Colors.WindowBackground;
+            insetBorders = new(
+                insetBorderColor,
+                new(
+                    rounding.TopLeft + rounding.BottomLeft == 0.0f ? 0.0f : 2.0f,
+                    2.0f,
+                    rounding.TopRight + rounding.BottomRight == 0.0f ? 0.0f : 2.0f,
+                    2.0f
+                )
+            );
+        }
+
+
+        StyleBoxOverride = new RectBox
+        {
+            Rounding        = rounding,
+            BackgroundColor = backgroundColor,
+            InsetBorders    = insetBorders
+        };
+    }
+
+    private static Color GetColorFor(ButtonColor buttonColor, DrawModeEnum drawMode) =>
+        buttonColor switch
+        {
+            ButtonColor.Default => drawMode switch
             {
                 DrawModeEnum.Disabled => Colors.ButtonDisabledBackground,
                 DrawModeEnum.Pressed  => Colors.ButtonPressedBackground,
                 _                     => Colors.ButtonBackground
             },
-            ButtonColor.Accent => DrawMode switch
+            ButtonColor.Accent => drawMode switch
             {
                 DrawModeEnum.Disabled => Colors.ButtonAccentDisabledBackground,
                 DrawModeEnum.Pressed  => Colors.ButtonAccentPressedBackground,
                 _                     => Colors.ButtonAccentBackground
             },
-            ButtonColor.Danger => DrawMode switch
+            ButtonColor.Danger => drawMode switch
             {
                 DrawModeEnum.Disabled => Colors.ButtonDangerDisabledBackground,
                 DrawModeEnum.Pressed  => Colors.ButtonDangerPressedBackground,
@@ -284,11 +318,4 @@ public partial class FancyButton : ContainerButton
             },
             _ => throw new ArgumentOutOfRangeException()
         };
-
-        StyleBoxOverride = new RectBox
-        {
-            Rounding        = rounding,
-            BackgroundColor = backgroundColor
-        };
-    }
 }
