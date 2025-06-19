@@ -24,7 +24,6 @@
         Margin="12 2"
         SeparationOverride="8">
         <controls:FancyIcon Name="ButtonLeftIconLabel"
-                            Visible="False"
                             VAlign="Center"
                             Align="Center" />
 
@@ -34,7 +33,6 @@
                              HorizontalExpand="True" />
 
         <controls:FancyIcon Name="ButtonRightIconLabel"
-                            Visible="False"
                             VAlign="Center"
                             Align="Center" />
     </BoxContainer>

@@ -195,23 +195,24 @@ public partial class FancyButton : ContainerButton
         ButtonLabel.FontColorOverride          = fontColor;
 
         FancyIcon iconLabel;
+        FancyIcon inactiveIconLabel;
 
         if (IsIconAtLeft)
         {
             iconLabel                             = ButtonLeftIconLabel;
-            ButtonRightIconLabel.Visible          = false;
-            ButtonRightIconLabel.Text             = null;
+            inactiveIconLabel                     = ButtonRightIconLabel;
+            ButtonRightIconLabel.Text             = " ";
             ButtonRightIconLabel.HorizontalExpand = false;
+            ButtonRightIconLabel.Visible          = true;
         }
         else
         {
             iconLabel                            = ButtonRightIconLabel;
-            ButtonLeftIconLabel.Visible          = false;
-            ButtonLeftIconLabel.Text             = null;
+            inactiveIconLabel                    = ButtonLeftIconLabel;
+            ButtonLeftIconLabel.Text             = " ";
             ButtonLeftIconLabel.HorizontalExpand = false;
+            ButtonLeftIconLabel.Visible          = true;
         }
-
-        iconLabel.Visible = !string.IsNullOrEmpty(Icon);
 
         var isIconOnly = string.IsNullOrEmpty(Text);
 
@@ -221,6 +222,12 @@ public partial class FancyButton : ContainerButton
             iconLabel.TextStyle  = IconTextStyle ?? InterfaceGuidelines.TextStyle.Title2;
             iconLabel.FontWeight = IconFontWeight ?? FontWeight ?? InterfaceGuidelines.FontWeight.Medium;
             iconLabel.Text       = icon;
+        }
+
+        if (isIconOnly)
+        {
+            iconLabel.Visible         = true;
+            inactiveIconLabel.Visible = false;
         }
 
         iconLabel.HorizontalExpand         = isIconOnly;
