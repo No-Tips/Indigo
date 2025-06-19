@@ -11,7 +11,7 @@ using Content.Client.Entry;
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
-    public sealed partial class NetworkTab : Control
+    public sealed partial class NetworkTab : BoxContainer
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IClientGameStateManager _stateMan = default!;

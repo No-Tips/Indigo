@@ -1,33 +1,76 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
-                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                MinSize="270 130"
-                SetSize="360 180">
-    <BoxContainer Margin="4 0" Orientation="Horizontal">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-            <GridContainer Margin="2 0 0 0" Columns="2">
-                <!-- Power -->
-                <Label Text="{Loc 'power-charge-window-power'}" HorizontalExpand="True" StyleClasses="StatusFieldTitle" />
-                <BoxContainer Orientation="Horizontal" MinWidth="120">
-                    <Button Name="OnButton" Text="{Loc 'power-charge-window-power-on'}" StyleClasses="OpenRight" />
-                    <Button Name="OffButton" Text="{Loc 'power-charge-window-power-off'}" StyleClasses="OpenLeft" />
-                </BoxContainer>
-                <Control /> <!-- Empty control to act as a spacer in the grid. -->
-                <Label Name="PowerLabel" Text="0 / 0 W" />
-                <!-- Status -->
-                <Label Text="{Loc 'power-charge-window-status'}"  StyleClasses="StatusFieldTitle" />
-                <Label Name="StatusLabel" Text="{Loc 'power-charge-window-status-fully-charged'}" />
-                <!-- ETA -->
-                <Label Text="{Loc 'power-charge-window-eta'}" StyleClasses="StatusFieldTitle" />
-                <Label Name="EtaLabel" Text="N/A" />
-                <!-- Charge -->
-                <Label Text="{Loc 'power-charge-window-charge'}" StyleClasses="StatusFieldTitle" />
-                <ProgressBar Name="ChargeBar" MaxValue="255">
-                    <Label Name="ChargeText" Margin="4 0" Text="0 %" />
-                </ProgressBar>
-            </GridContainer>
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinSize="360 225"
+                      TitlebarStyle="Inlined">
+    <BoxContainer Orientation="Vertical"
+                  SeparationOverride="8">
+        <!-- Power -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      SeparationOverride="12">
+            <controls:FancyLabel Text="{Loc 'power-charge-window-power'}"
+                                 HorizontalExpand="True" />
+
+            <Control HorizontalExpand="True" />
+
+            <controls:FancyLabel Name="PowerLabel"
+                                 Text="0 / 0 W" />
         </BoxContainer>
-        <PanelContainer Margin="12 0 0 0" StyleClasses="Inset" VerticalAlignment="Center">
-            <SpriteView Name="EntityView" SetSize="96 96" OverrideDirection="South" />
-        </PanelContainer>
+
+        <!-- Status -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      SeparationOverride="12">
+            <controls:FancyLabel Text="{Loc 'power-charge-window-status'}" />
+
+            <Control HorizontalExpand="True" />
+
+            <controls:FancyLabel Name="StatusLabel"
+                                 Text="{Loc 'power-charge-window-status-fully-charged'}" />
+        </BoxContainer>
+
+        <!-- ETA -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      SeparationOverride="12">
+            <controls:FancyLabel Text="{Loc 'power-charge-window-eta'}" />
+
+            <Control HorizontalExpand="True" />
+
+            <controls:FancyLabel Name="EtaLabel"
+                                 Text="N/A" />
+        </BoxContainer>
+
+        <!-- Charge -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      SeparationOverride="12">
+            <controls:FancyLabel Text="{Loc 'power-charge-window-charge'}" StyleClasses="StatusFieldTitle" />
+
+            <Control HorizontalExpand="True" />
+
+            <ProgressBar Name="ChargeBar"
+                         MaxValue="255"
+                         MinWidth="150">
+                <controls:FancyLabel Name="ChargeText"
+                                     Text="0 %"
+                                     Align="Center"
+                                     TextStyle="Headline" />
+            </ProgressBar>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal">
+            <controls:FancyButton Name="OnButton"
+                                  Text="{Loc 'power-charge-window-power-on'}"
+                                  HorizontalExpand="True"
+                                  Color="Accent"
+                                  Style="OpenRight" />
+
+            <controls:FancyButton Name="OffButton"
+                                  Text="{Loc 'power-charge-window-power-off'}"
+                                  HorizontalExpand="True"
+                                  Color="Accent"
+                                  Style="OpenLeft" />
+        </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

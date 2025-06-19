@@ -9,6 +9,7 @@ using Robust.Shared.Console;
 
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
+
 [UsedImplicitly]
 public sealed class OptionsUIController : UIController
 {
@@ -17,7 +18,11 @@ public sealed class OptionsUIController : UIController
 
     public override void Initialize()
     {
-        _con.RegisterCommand("options", Loc.GetString("cmd-options-desc"), Loc.GetString("cmd-options-help"), OptionsCommand);
+        _con.RegisterCommand(
+            "options",
+            Loc.GetString("cmd-options-desc"),
+            Loc.GetString("cmd-options-help"),
+            OptionsCommand);
 
         _globalMenuManager
             .GetCategory(GlobalMenuCategory.Global)
@@ -30,23 +35,7 @@ public sealed class OptionsUIController : UIController
             );
     }
 
-    private void OptionsCommand(IConsoleShell shell, string argStr, string[] args)
-    {
-        if (args.Length == 0)
-        {
-            ToggleWindow();
-            return;
-        }
-        OpenWindow();
-
-        if (!int.TryParse(args[0], out var tab))
-        {
-            shell.WriteError(Loc.GetString("cmd-parse-failure-int", ("arg", args[0])));
-            return;
-        }
-
-        _optionsWindow.Tabs.CurrentTab = tab;
-    }
+    private void OptionsCommand(IConsoleShell shell, string argStr, string[] args) => ToggleWindow();
 
     private OptionsMenu _optionsWindow = default!;
 

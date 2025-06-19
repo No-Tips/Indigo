@@ -1,4 +1,5 @@
 ﻿using Content.Client.InterfaceGuidelines;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Client.UserInterface.Controls;
@@ -22,7 +23,7 @@ public sealed class ExamineButton : ContainerButton
 
     private const int Thickness = 4;
 
-    public Label Icon;
+    public FancyIcon Icon;
 
     public ExamineVerb Verb;
 
@@ -44,8 +45,8 @@ public sealed class ExamineButton : ContainerButton
         if (verb.GlyphIcon == null)
             return;
 
-        Icon.Text = verb.GlyphIcon;
-        Icon.SetOnlyStyleClass(UIStyleClasses.LabelIconFilledRegular1);
+        Icon.Text      = verb.GlyphIcon;
+        Icon.TextStyle = TextStyle.Title1;
 
         AddChild(Icon);
     }

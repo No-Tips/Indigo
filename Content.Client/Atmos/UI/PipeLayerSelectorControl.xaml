@@ -16,6 +16,7 @@
 -->
 
 <BoxContainer xmlns="https://spacestation14.io"
-              VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal">
-
+              VerticalExpand="True"
+              HorizontalExpand="True"
+              Orientation="Horizontal">
 </BoxContainer>

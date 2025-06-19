@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.Controls;
 using Timer = Robust.Shared.Timing.Timer;
 
@@ -7,14 +8,14 @@ namespace Content.Client.Administration.UI;
 
 public static class AdminUIHelpers
 {
-    private static void ResetButton(Button button, ConfirmationData data)
+    private static void ResetButton(FancyButton button, ConfirmationData data)
     {
         data.Cancellation.Cancel();
         button.ModulateSelfOverride = null;
         button.Text = data.OriginalText;
     }
 
-    public static bool RemoveConfirm(Button button, Dictionary<Button, ConfirmationData> confirmations)
+    public static bool RemoveConfirm(FancyButton button, Dictionary<FancyButton, ConfirmationData> confirmations)
     {
         if (confirmations.Remove(button, out var data))
         {
@@ -25,7 +26,7 @@ public static class AdminUIHelpers
         return false;
     }
 
-    public static void RemoveAllConfirms(Dictionary<Button, ConfirmationData> confirmations)
+    public static void RemoveAllConfirms(Dictionary<FancyButton, ConfirmationData> confirmations)
     {
         foreach (var (button, confirmation) in confirmations)
         {
@@ -35,7 +36,7 @@ public static class AdminUIHelpers
         confirmations.Clear();
     }
 
-    public static bool TryConfirm(Button button, Dictionary<Button, ConfirmationData> confirmations)
+    public static bool TryConfirm(FancyButton button, Dictionary<FancyButton, ConfirmationData> confirmations)
     {
         if (RemoveConfirm(button, confirmations))
             return true;

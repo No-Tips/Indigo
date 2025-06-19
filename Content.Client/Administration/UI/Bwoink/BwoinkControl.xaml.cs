@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.UI.CustomControls;
+using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Bwoink;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -29,7 +30,7 @@ namespace Content.Client.Administration.UI.Bwoink
         public AdminAHelpUIHandler AHelpHelper = default!;
 
         private PlayerInfo? _currentPlayer;
-        private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
+        private readonly Dictionary<FancyButton, ConfirmationData> _confirmations = new();
 
         public BwoinkControl()
         {

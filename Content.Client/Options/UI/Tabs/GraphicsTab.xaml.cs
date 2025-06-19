@@ -11,7 +11,7 @@ using Robust.Shared.Configuration;
 namespace Content.Client.Options.UI.Tabs
 {
     [GenerateTypedNameReferences]
-    public sealed partial class GraphicsTab : Control
+    public sealed partial class GraphicsTab : BoxContainer
     {
         private static readonly float[] UIScaleOptions =
         {

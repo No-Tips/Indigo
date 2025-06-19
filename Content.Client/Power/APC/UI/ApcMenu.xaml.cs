@@ -27,11 +27,6 @@ namespace Content.Client.Power.APC.UI
             BreakerButton.OnPressed += _ => OnBreaker?.Invoke();
         }
 
-        public void SetEntity(EntityUid entity)
-        {
-            EntityView.SetEntity(entity);
-        }
-
         public void UpdateState(BoundUserInterfaceState state)
         {
             var castState = (ApcBoundInterfaceState) state;

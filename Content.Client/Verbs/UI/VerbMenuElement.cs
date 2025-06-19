@@ -1,5 +1,7 @@
 using System.Numerics;
 using Content.Client.ContextMenu.UI;
+using Content.Client.InterfaceGuidelines;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.InterfaceGuidelines;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
@@ -63,14 +65,13 @@ public sealed partial class VerbMenuElement : ContextMenuElement
         }
         else if (verb.GlyphIcon is { } glyphIcon)
         {
-            var label = new Label
+            var label = new FancyIcon
             {
-                Text = glyphIcon,
-                Align = Label.AlignMode.Center,
-                VAlign = Label.VAlignMode.Center
+                Text      = glyphIcon,
+                Align     = Label.AlignMode.Center,
+                VAlign    = Label.VAlignMode.Center,
+                TextStyle = TextStyle.Title2
             };
-
-            label.SetOnlyStyleClass(UIStyleClasses.LabelIconFilledRegular2);
 
             Icon.AddChild(label);
         }
@@ -93,12 +94,11 @@ public sealed partial class VerbMenuElement : ContextMenuElement
         }
         else if (category.GlypIcon is { } glyphIcon)
         {
-            var label = new Label
+            var label = new FancyIcon
             {
-                Text = glyphIcon
+                Text      = glyphIcon,
+                TextStyle = TextStyle.Title1
             };
-
-            label.SetOnlyStyleClass(UIStyleClasses.LabelIconFilledRegular1);
 
             Icon.AddChild(label);
         }

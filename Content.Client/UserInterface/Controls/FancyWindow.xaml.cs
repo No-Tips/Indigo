@@ -16,8 +16,37 @@ public partial class FancyWindow : BaseWindow
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = null!;
 
+    public TitlebarStyle TitlebarStyle
+    {
+        get => _titlebarStyle;
+        set
+        {
+            _titlebarStyle = value;
+            UpdateAppearance();
+        }
+    }
+
     private       GuidebookSystem? _guidebookSystem;
     private const int              DragMarginSize = 7;
+
+    public string? Title
+    {
+        get => WindowTitle.Text;
+        set => WindowTitle.Text = value;
+    }
+
+    public List<ProtoId<GuideEntryPrototype>>? HelpGuidebookIds
+    {
+        get => _helpGuidebookIds;
+        set
+        {
+            _helpGuidebookIds = value;
+            UpdateAppearance();
+        }
+    }
+
+    private List<ProtoId<GuideEntryPrototype>>? _helpGuidebookIds;
+    private TitlebarStyle                       _titlebarStyle = TitlebarStyle.Default;
 
     public FancyWindow()
     {
@@ -26,32 +55,22 @@ public partial class FancyWindow : BaseWindow
         CloseButton.OnPressed += _ => Close();
         HelpButton.OnPressed  += _ => Help();
 
-        CloseButton.ButtonLabel.SetOnlyStyleClass(UIStyleClasses.FancyWindowTitlebarIcon);
-        CloseButton.ButtonLabel.FontColorOverride = Colors.WindowTitlebarCloseButton;
+        CloseButton.Icon           =  SymbolIcons.Circle;
+        CloseButton.OnMouseEntered += static ev => ((FancyButton) ev.SourceControl).Icon = SymbolIcons.Cancel;
+        CloseButton.OnMouseExited  += static ev => ((FancyButton) ev.SourceControl).Icon = SymbolIcons.Circle;
 
-        HelpButton.ButtonLabel.SetOnlyStyleClass(UIStyleClasses.FancyWindowTitlebarIcon);
-        HelpButton.ButtonLabel.FontColorOverride = Colors.WindowTitlebarHelpButton;
+        HelpButton.OnMouseEntered += ev =>
+        {
+            ((FancyButton) ev.SourceControl).Icon = _helpGuidebookIds is null ? " " : SymbolIcons.Help;
+        };
+        HelpButton.OnMouseExited += ev =>
+        {
+            ((FancyButton) ev.SourceControl).Icon = _helpGuidebookIds is null ? " " : SymbolIcons.Circle;
+        };
 
         XamlChildren = ContentsContainer.Children;
-    }
 
-    public string? Title
-    {
-        get => WindowTitle.Text;
-        set => WindowTitle.Text = value;
-    }
-
-    private List<ProtoId<GuideEntryPrototype>>? _helpGuidebookIds;
-
-    public List<ProtoId<GuideEntryPrototype>>? HelpGuidebookIds
-    {
-        get => _helpGuidebookIds;
-        set
-        {
-            _helpGuidebookIds   = value;
-            HelpButton.Disabled = _helpGuidebookIds == null;
-            HelpButton.Visible  = !HelpButton.Disabled;
-        }
+        UpdateAppearance();
     }
 
     public void Help()
@@ -81,5 +100,40 @@ public partial class FancyWindow : BaseWindow
             mode |= DragMode.Right;
 
         return mode;
+    }
+
+    private void UpdateAppearance()
+    {
+        switch (_titlebarStyle)
+        {
+            case TitlebarStyle.Default:
+                WindowTitlebar.PanelOverride = new RectBox
+                {
+                    Rounding        = new(14.0f, 14.0f, 0.0f, 0.0f),
+                    Borders         = new(Colors.WindowTitlebarBorder, new(2.0f)),
+                    InsetBorders    = new(Colors.WindowTitlebarInsetBorder, new(2.0f)),
+                    BackgroundColor = Colors.WindowTitlebarBackground
+                };
+                WindowTitlebarContainer.Margin = new(12.0f, 6.0f);
+                ContentsContainer.Margin       = new(12.0f);
+
+                break;
+            case TitlebarStyle.Inlined:
+                WindowTitlebar.PanelOverride   = null;
+                WindowTitlebarContainer.Margin = new(12.0f, 12.0f);
+                ContentsContainer.Margin       = new(12.0f, 0.0f, 12.0f, 12.0f);
+
+                break;
+            case TitlebarStyle.InlinedCompact:
+                WindowTitlebar.PanelOverride   = null;
+                WindowTitlebarContainer.Margin = new(12.0f, 6.0f);
+                ContentsContainer.Margin       = new(12.0f, 0.0f, 12.0f, 12.0f);
+
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        HelpButton.Icon = _helpGuidebookIds is null ? " " : SymbolIcons.Circle;
     }
 }

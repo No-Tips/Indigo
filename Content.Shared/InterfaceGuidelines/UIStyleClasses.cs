@@ -20,32 +20,8 @@ public static class UIStyleClasses
 {
     #region Window
 
-    public const string FancyWindowTitle         = "FancyWindowTitle";
     public const string FancyWindowPanel         = "FancyWindowPanel";
     public const string FancyWindowPanelSmall    = "FancyWindowPanelSmall";
-    public const string FancyWindowTitlebarPanel = "FancyWindowTitlebarPanel";
-    public const string FancyWindowTitlebarIcon  = "FancyWindowTitlebarIcon";
-
-    #endregion
-
-    #region Button
-
-    public const string GhostButton              = "ButtonGhost";
-    public const string FancyButtonLabel         = "FancyButtonLabel";
-    public const string FancyButtonDisabledLabel = "FancyButtonDisabledLabel";
-
-    public const string FancyButtonAccent = "FancyButtonAccent";
-    public const string FancyButtonDanger = "FancyButtonDanger";
-
-    public const string FancyButtonOpenRight = "FancyButtonOpenRight";
-    public const string FancyButtonOpenLeft  = "FancyButtonOpenLeft";
-
-    #endregion
-
-    #region Option Button
-
-    public const string FancyOptionButtonSelectedItemLabel         = "FancyOptionButtonSelectedItemLabel";
-    public const string FancyOptionButtonSelectedItemDisabledLabel = "FancyOptionButtonSelectedItemDisabledLabel";
 
     #endregion
 
@@ -53,27 +29,6 @@ public static class UIStyleClasses
 
     public const string FancySliderPanel   = "FancySliderPanel";
     public const string FancySliderGrabber = "FancySliderGrabber";
-
-    #endregion
-
-    #region Label
-
-    public const string LabelTitle1   = "LabelTitle1";
-    public const string LabelTitle2   = "LabelTitle2";
-    public const string LabelTitle3   = "LabelTitle3";
-    public const string LabelHeadline = "LabelHeadline";
-
-    public const string LabelIconFilledRegular1 = "LabelIconFilledRegular1";
-    public const string LabelIconFilledRegular2 = "LabelIconFilledRegular2";
-    public const string LabelIconFilledRegular3 = "LabelIconFilledRegular3";
-
-    public const string LabelIconFilledSemiBold1 = "LabelIconFilledSemiBold1";
-    public const string LabelIconFilledSemiBold2 = "LabelIconFilledSemiBold2";
-    public const string LabelIconFilledSemiBold3 = "LabelIconFilledSemiBold3";
-
-    public const string LabelIconFilledBold1 = "LabelIconFilledBold1";
-    public const string LabelIconFilledBold2 = "LabelIconFilledBold2";
-    public const string LabelIconFilledBold3 = "LabelIconFilledBold3";
 
     #endregion
 
@@ -96,6 +51,12 @@ public static class UIStyleClasses
     public const string FancyPopupItemIconLabel   = "FancyPopupItemIconLabel";
     public const string FancyPopupItemButton      = "FancyPopupItemButton";
     public const string FancyPopupItemHotkeyLabel = "FancyPopupItemHotkeyLabel";
+
+    #endregion
+
+    #region Tab Container
+
+    public const string FancyTabContainerPanel = "FancyTabContainerPanel";
 
     #endregion
 

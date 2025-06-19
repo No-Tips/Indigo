@@ -42,7 +42,10 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-edit}">
-                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Pen}" />
+                    <controls:FancyIcon
+                        Text="{x:Static ig:SymbolIcons.Pen}"
+                        TextStyle="Title2"
+                        FontWeight="SemiBold" />
                 </Button>
                 <Button Name="DeleteChatButton"
                         MaxSize="32 32"
@@ -50,7 +53,10 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-delete}">
-                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Delete}" />
+                    <controls:FancyIcon
+                        Text="{x:Static ig:SymbolIcons.Delete}"
+                        TextStyle="Title2"
+                        FontWeight="SemiBold" />
                 </Button>
                 <Button Name="MuteButton"
                         MaxSize="32 32"
@@ -58,8 +64,16 @@
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-toggle-mute}">
                     <Control HorizontalExpand="True" VerticalExpand="True">
-                        <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Notifications}" />
-                        <Label Name="BellMutedIcon" StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.NotificationsOff}" />
+                        <controls:FancyIcon
+                            Text="{x:Static ig:SymbolIcons.Notifications}"
+                            TextStyle="Title2"
+                            FontWeight="SemiBold" />
+
+                        <controls:FancyIcon
+                            Name="BellMutedIcon"
+                            Text="{x:Static ig:SymbolIcons.NotificationsOff}"
+                            TextStyle="Title2"
+                            FontWeight="SemiBold" />
                     </Control>
                 </Button>
                 <Button Name="NewChatButton"
@@ -74,7 +88,10 @@
                         StyleClasses="OpenBoth"
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-look-up}">
-                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Search}" />
+                    <controls:FancyIcon
+                        Text="{x:Static ig:SymbolIcons.Search}"
+                        TextStyle="Title2"
+                        FontWeight="SemiBold" />
                 </Button>
                 <Button Name="ListNumberButton"
                         MaxSize="32 32"
@@ -82,7 +99,10 @@
                         Margin="0 0 4 0"
                         ToolTip="{Loc nano-chat-list-number}"
                         ToggleMode="True">
-                    <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.Menu}" />
+                    <controls:FancyIcon
+                        Text="{x:Static ig:SymbolIcons.Menu}"
+                        TextStyle="Title2"
+                        FontWeight="SemiBold" />
                 </Button>
             </BoxContainer>
         </controls:StripeBack>
@@ -169,7 +189,10 @@
                                 Disabled="True"
                                 StyleClasses="OpenLeft"
                                 Margin="4 0 0 0">
-                            <Label StyleClasses="LabelIconFilledSemiBold2" Text="{x:Static ig:SymbolIcons.ChevronRight}" />
+                            <controls:FancyIcon
+                                Text="{x:Static ig:SymbolIcons.ChevronRight}"
+                                TextStyle="Title2"
+                                FontWeight="SemiBold" />
                         </Button>
                     </BoxContainer>
                 </BoxContainer>

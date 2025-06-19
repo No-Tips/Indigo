@@ -85,10 +85,10 @@ namespace Content.Client.Lobby.UI
         private List<(string, RequirementsSelector)> _jobPriorities = new();
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
-        private Dictionary<Button, ConfirmationData> _confirmationData = new();
-        private List<TraitPreferenceSelector> _traitPreferences = new();
-        private int _traitCount;
-        private HashSet<LoadoutPreferenceSelector> _loadoutPreferences = new();
+        private Dictionary<FancyButton, ConfirmationData> _confirmationData = new();
+        private List<TraitPreferenceSelector>             _traitPreferences = new();
+        private int                                       _traitCount;
+        private HashSet<LoadoutPreferenceSelector>        _loadoutPreferences = new();
 
         private ColorSelectorSliders _rgbSkinColorSelector;
 
@@ -163,7 +163,6 @@ namespace Content.Client.Lobby.UI
 
             #region Appearance
 
-            Appearance.Orphan();
             CTabContainer.AddTab(Appearance, Loc.GetString("humanoid-profile-editor-appearance-tab"));
 
             #region Sex
@@ -257,7 +256,6 @@ namespace Content.Client.Lobby.UI
 
             if (_cfgManager.GetCVar(CCVars.ContractorsEnabled))
             {
-                Background.Orphan();
                 CTabContainer.AddTab(Background, Loc.GetString("humanoid-profile-editor-background-tab"));
 
                 RefreshNationalities();
@@ -466,7 +464,6 @@ namespace Content.Client.Lobby.UI
 
             #region Jobs
 
-            Jobs.Orphan();
             CTabContainer.AddTab(Jobs, Loc.GetString("humanoid-profile-editor-jobs-tab"));
 
             PreferenceUnavailableButton.AddItem(
@@ -493,7 +490,6 @@ namespace Content.Client.Lobby.UI
 
             #region Antags
 
-            Antags.Orphan();
             CTabContainer.AddTab(Antags, Loc.GetString("humanoid-profile-editor-antags-tab"));
 
             #endregion Antags
@@ -501,7 +497,6 @@ namespace Content.Client.Lobby.UI
             #region Traits
 
             // Set up the traits tab
-            TraitsTab.Orphan();
             CTabContainer.AddTab(TraitsTab, Loc.GetString("humanoid-profile-editor-traits-tab"));
             _traitPreferences = new List<TraitPreferenceSelector>();
 
@@ -521,7 +516,6 @@ namespace Content.Client.Lobby.UI
             #region Loadouts
 
             // Set up the loadouts tab
-            LoadoutsTab.Orphan();
             CTabContainer.AddTab(LoadoutsTab, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
             _loadoutPreferences = new();
 
@@ -540,7 +534,6 @@ namespace Content.Client.Lobby.UI
 
             #region Markings
 
-            MarkingsTab.Orphan();
             CTabContainer.AddTab(MarkingsTab, Loc.GetString("humanoid-profile-editor-markings-tab"));
 
             Markings.OnMarkingAdded += OnMarkingChange;
@@ -760,7 +753,7 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-antag-preference-no-button", 1)
             };
             // Causes a weird error if I just replace AntagList so whatever, have a child
-            var alt = new AlternatingBGContainer { Orientation = LayoutOrientation.Vertical, };
+            var alt = new StripedList { Orientation = LayoutOrientation.Vertical, };
             AntagList.AddChild(alt);
 
             foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
@@ -772,6 +765,7 @@ namespace Content.Client.Lobby.UI
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     HorizontalExpand = true,
+                    Margin = new(8.0f, 4.0f)
                 };
 
                 var selector = new RequirementsSelector()
@@ -991,7 +985,7 @@ namespace Content.Client.Lobby.UI
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
-                    category = new AlternatingBGContainer
+                    category = new StripedList
                     {
                         Orientation = LayoutOrientation.Vertical,
                         Name = department.ID,
@@ -1509,16 +1503,15 @@ namespace Content.Client.Lobby.UI
 
         public void UpdateSpeciesGuidebookIcon()
         {
-            SpeciesInfoButton.StyleClasses.Clear();
+            SpeciesInfoButton.Disabled = true;
 
             var species = Profile?.Species;
             if (species is null
-                || !_prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesProto)
+                || !_prototypeManager.TryIndex<SpeciesPrototype>(species, out _)
                 || !_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 return;
 
-            const string style = "SpeciesInfoButtonIcon";
-            SpeciesInfoButton.StyleClasses.Add(style);
+            SpeciesInfoButton.Disabled = false;
         }
 
         private void UpdateMarkings()
@@ -2050,7 +2043,7 @@ namespace Content.Client.Lobby.UI
             return;
 
 
-            void CreateCategoryUI(Dictionary<string, object> tree, NeoTabContainer parent)
+            void CreateCategoryUI(Dictionary<string, object> tree, FancyTabContainer parent)
             {
                 foreach (var (key, value) in tree)
                 {
@@ -2092,12 +2085,11 @@ namespace Content.Client.Lobby.UI
                     // If the value is a dictionary, create a new tab for it and recursively call this function to fill it
                     else
                     {
-                        var category = new NeoTabContainer
+                        var category = new FancyTabContainer
                         {
                             Name = key,
                             HorizontalExpand = true,
                             VerticalExpand = true,
-                            SeparatorMargin = new Thickness(0),
                         };
 
                         parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
@@ -2175,10 +2167,10 @@ namespace Content.Client.Lobby.UI
             {
                 // If it's empty, hide it
                 if (tab != null)
-                    ((NeoTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
+                    ((FancyTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
 
                 // If it has a parent tab container, hide it if it's empty
-                if (tab?.Parent?.Parent is NeoTabContainer parent)
+                if (tab?.Parent?.Parent is FancyTabContainer parent)
                 {
                     var parentCats = parent.Contents.Select(c => _prototypeManager.Index<TraitCategoryPrototype>(c.Name!)).ToList();
                     HideEmptyTabs(parentCats);
@@ -2419,7 +2411,7 @@ namespace Content.Client.Lobby.UI
                 }
             }
 
-            void CreateCategoryUI(Dictionary<string, object> tree, NeoTabContainer parent)
+            void CreateCategoryUI(Dictionary<string, object> tree, FancyTabContainer parent)
             {
                 foreach (var (key, value) in tree)
                 {
@@ -2461,12 +2453,11 @@ namespace Content.Client.Lobby.UI
                     // If the value is a dictionary, create a new tab for it and recursively call this function to fill it
                     else
                     {
-                        var category = new NeoTabContainer
+                        var category = new FancyTabContainer
                         {
                             Name = key,
                             HorizontalExpand = true,
                             VerticalExpand = true,
-                            SeparatorMargin = new Thickness(0),
                         };
 
                         parent.AddTab(category, Loc.GetString($"loadout-category-{key}"));
@@ -2537,7 +2528,7 @@ namespace Content.Client.Lobby.UI
             return tree;
         }
 
-        private BoxContainer? FindCategory(string id, NeoTabContainer parent)
+        private BoxContainer? FindCategory(string id, FancyTabContainer parent)
         {
             BoxContainer? match = null;
             foreach (var child in parent.Contents)
@@ -2552,7 +2543,7 @@ namespace Content.Client.Lobby.UI
             if (match != null)
                 return match;
 
-            foreach (var subcategory in parent.Contents.Where(c => c is NeoTabContainer).Cast<NeoTabContainer>())
+            foreach (var subcategory in parent.Contents.Where(c => c is FancyTabContainer).Cast<FancyTabContainer>())
                 match ??= FindCategory(id, subcategory);
 
             return match;
@@ -2564,10 +2555,10 @@ namespace Content.Client.Lobby.UI
             {
                 // If it's empty, hide it
                 if (tab != null)
-                    ((NeoTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
+                    ((FancyTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
 
                 // If it has a parent tab container, hide it if it's empty
-                if (tab?.Parent?.Parent is NeoTabContainer parent)
+                if (tab?.Parent?.Parent is FancyTabContainer parent)
                 {
                     var parentCats = parent.Contents.Select(c => _prototypeManager.Index<LoadoutCategoryPrototype>(c.Name!)).ToList();
                     HideEmptyTabs(parentCats);

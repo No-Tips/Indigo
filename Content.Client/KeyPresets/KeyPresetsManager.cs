@@ -44,23 +44,6 @@ public sealed class KeyPresetsManager
         }
 
         _keyPresets = _keyPresets.OrderBy(p => p.Name).ToList();
-
-        var value = _configurationManager.GetCVar(CCVars.ControlKeysPreset);
-
-        if (string.IsNullOrEmpty(value))
-            return;
-
-        foreach (var preset in _keyPresets)
-        {
-            if (preset.Name != value)
-                continue;
-
-            ApplyPreset(preset);
-
-            return;
-        }
-
-        _configurationManager.SetCVar(CCVars.ControlKeysPreset, "");
     }
 
     public IReadOnlyList<KeysPreset> GetKeyPresets() => _keyPresets;
@@ -68,7 +51,8 @@ public sealed class KeyPresetsManager
     public void ApplyPreset(KeysPreset preset)
     {
         _configurationManager.SetCVar(CCVars.ControlKeysPreset, preset.Name);
-        _configurationManager.SaveToFile();
         preset.Apply(_inputManager);
+        _configurationManager.SaveToFile();
+        _inputManager.SaveToUserData();
     }
 }

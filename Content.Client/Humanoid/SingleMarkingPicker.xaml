@@ -2,25 +2,47 @@
               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
               Orientation="Vertical"
               HorizontalExpand="True"
-              VerticalExpand="True">
+              VerticalExpand="True"
+              SeparationOverride="8">
     <!-- "Slot" selection -->
-    <Label Name="CategoryName" />
-    <BoxContainer Name="SlotSelectorContainer" HorizontalExpand="True">
-        <controls:FancyOptionButton Name="SlotSelector" HorizontalExpand="True" StyleClasses="OpenBoth" />
-        <Button Name="AddButton" Text="{Loc 'marking-slot-add'}" StyleClasses="OpenBoth" />
-        <Button Name="RemoveButton" Text="{Loc 'marking-slot-remove'}" StyleClasses="OpenLeft" />
+    <controls:FancyLabel Name="CategoryName"
+                         TextStyle="Headline" />
+
+    <BoxContainer Name="SlotSelectorContainer"
+                  HorizontalExpand="True"
+                  SeparationOverride="12">
+        <controls:FancyOptionButton Name="SlotSelector"
+                                    HorizontalExpand="True"
+                                    StyleClasses="OpenBoth" />
+
+        <controls:FancyButton Name="AddButton"
+                              Text="{Loc 'marking-slot-add'}"
+                              StyleClasses="OpenBoth" />
+
+        <controls:FancyButton Name="RemoveButton"
+                              Text="{Loc 'marking-slot-remove'}"
+                              StyleClasses="OpenLeft" />
     </BoxContainer>
-    <LineEdit Name="Search" PlaceHolder="{Loc 'markings-search'}" HorizontalExpand="True" />
+
+    <LineEdit Name="Search"
+              PlaceHolder="{Loc 'markings-search'}"
+              HorizontalExpand="True" />
 
     <!-- Item list -->
-    <BoxContainer Name="MarkingSelectorContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <ScrollContainer MinHeight="500" VerticalExpand="True" HorizontalExpand="True">
-            <ItemList Name="MarkingList" VerticalExpand="True" />
+    <BoxContainer Name="MarkingSelectorContainer"
+                  Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  SeparationOverride="8">
+        <ScrollContainer MinHeight="500"
+                         VerticalExpand="True"
+                         HorizontalExpand="True">
+            <ItemList Name="MarkingList"
+                      VerticalExpand="True" />
         </ScrollContainer>
 
         <!-- Color sliders -->
-        <ScrollContainer MinHeight="200" HorizontalExpand="True">
-            <BoxContainer Name="ColorSelectorContainer" HorizontalExpand="True" />
-        </ScrollContainer>
+        <BoxContainer Name="ColorSelectorContainer"
+                      HorizontalExpand="True" />
     </BoxContainer>
 </BoxContainer>

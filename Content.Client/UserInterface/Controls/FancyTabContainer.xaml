@@ -1,8 +1,6 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets"
     MouseFilter="Pass"
     HorizontalExpand="True"
     VerticalExpand="True">
@@ -11,12 +9,6 @@
             <BoxContainer Name="TabContainer" />
         </ScrollContainer>
 
-        <PanelContainer Name="Separator" MinSize="2 2">
-            <PanelContainer.PanelOverride>
-                <graphics:StyleBoxFlat />
-            </PanelContainer.PanelOverride>
-        </PanelContainer>
-
         <ScrollContainer
             Name="ContentScrollContainer"
             HorizontalExpand="True"
@@ -24,7 +16,7 @@
             VerticalExpand="True"
             VScrollEnabled="True"
             ReturnMeasure="True">
-            <BoxContainer Name="ContentContainer" HorizontalExpand="True" VerticalExpand="True" />
+            <BoxContainer Name="ContentContainer" HorizontalExpand="True" VerticalExpand="True" Margin="0 8" />
         </ScrollContainer>
     </BoxContainer>
 </BoxContainer>
